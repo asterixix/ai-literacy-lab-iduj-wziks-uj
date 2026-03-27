@@ -39,3 +39,5 @@ export const materials: Material[] = [
     githubUrl: process.env.NEXT_PUBLIC_GITHUB_URL,
   },
 ];
+
+export const getMaterialById = (id: string): Material | undefined => materials.find((material) => material.id === id);

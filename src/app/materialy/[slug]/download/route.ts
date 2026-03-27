@@ -3,8 +3,11 @@ import path from "node:path";
 
 import { NextResponse } from "next/server";
 
+import { trackDownload } from "@/lib/download-tracking";
+import { getMaterialById } from "@/lib/materials";
+
 export async function GET(
-  _request: Request,
+  request: Request,
   { params }: { params: Promise<{ slug: string }> },
 ) {
   const { slug } = await params;
@@ -17,6 +20,16 @@ export async function GET(
   if (!raw) {
     return NextResponse.json({ error: "File not found" }, { status: 404 });
   }
+
+  const material = getMaterialById(slug);
+  trackDownload({
+    request,
+    slug,
+    fileName: `${slug}.mdx`,
+    kind: "material",
+    category: material?.category ?? "unknown",
+    availability: material ? (material.available ? "available" : "scheduled") : "unknown",
+  });
 
   return new NextResponse(raw, {
     headers: {

@@ -3,10 +3,11 @@ import path from "node:path";
 
 import { NextResponse } from "next/server";
 
+import { trackDownload } from "@/lib/download-tracking";
 import { getModuleBySlug } from "@/lib/modules";
 
 export async function GET(
-  _request: Request,
+  request: Request,
   { params }: { params: Promise<{ slug: string }> },
 ) {
   const { slug } = await params;
@@ -21,6 +22,16 @@ export async function GET(
   if (!raw) {
     return NextResponse.json({ error: "File not found" }, { status: 404 });
   }
+
+  trackDownload({
+    request,
+    slug,
+    fileName: numberedName,
+    kind: "module",
+    category: `module-${String(moduleMeta.number).padStart(2, "0")}`,
+    availability: "available",
+    moduleNumber: moduleMeta.number,
+  });
 
   return new NextResponse(raw, {
     headers: {
