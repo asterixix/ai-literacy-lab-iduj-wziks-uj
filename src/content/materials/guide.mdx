@@ -1,0 +1,865 @@
+---
+title: "Przewodnik po narzędziach AI"
+description: "Porównanie narzędzi AI, checklisty wyboru i rekomendacje użycia dla studentów, badaczy i profesjonalistów. Dane aktualne na marzec 2026. Licencja CC BY-SA 4.0."
+formats: ["PDF", "Google Sheets"]
+category: "guide"
+version: "1.0"
+lastUpdated: "2026-03-27"
+author: "Artur Sendyka"
+license: "CC BY-SA 4.0"
+tags: ["narzędzia AI", "ChatGPT", "Claude", "Gemini", "Perplexity", "NotebookLM", "Copilot", "Ollama", "LM Studio", "Jan.AI", "Cherry Studio", "Hugging Face", "Aider", "OpenCode", "Claude Code", "Gemini CLI", "Kilo Code", "OpenRouter", "ASReview", "Rayyan", "IURA AI", "Polish Academic MCP", "Context7", "MCP", "local AI", "porównanie", "checklisty", "rekomendacje"]
+---
+
+## Jak korzystać z tego przewodnika
+
+To jest wersja praktyczna: zamiast listy "najgłośniejszych" aplikacji dostajesz decyzje, kiedy które narzędzie działa najlepiej.
+
+**Część I**: szybki wybór narzędzia (co wybrać do danego zadania).  
+**Część II**: porównanie narzędzi (mocne strony, ograniczenia, koszty).  
+**Część III**: checklisty jakości i bezpieczeństwa.  
+**Część IV**: gotowe rekomendacje dla różnych profili użytkowników.
+
+> **Uwaga metodologiczna (marzec 2026):** ten materiał został zaktualizowany na podstawie oficjalnych stron planów i cenników (OpenAI, Anthropic, Google One, Perplexity, GitHub) oraz uzupełniony danymi rynkowymi ze źródeł zewnętrznych. Tam, gdzie rynek jest dynamiczny lub dane są niejednoznaczne, oznaczam informacje jako szacunki.
+
+### Skala wiarygodności danych
+
+- **Wysoka**: oficjalne strony producentów i dokumentacja.
+- **Średnia**: duże media technologiczne i analizy branżowe.
+- **Niska**: blogi afiliacyjne, porównywarki bez jawnej metodologii.
+
+---
+
+## CZĘŚĆ I — Szybki wybór narzędzia
+
+### 1.1 Jeśli masz 10 sekund
+
+| Potrzeba | Najlepszy start | Dlaczego |
+|---|---|---|
+| Research z linkami do źródeł | **Perplexity** | Domyślnie cytuje źródła, szybkie porównywanie informacji |
+| Długi tekst, raport, redakcja | **Claude** | Bardzo dobre pisanie długiej formy i praca na dokumentach |
+| Uniwersalne zadania (pisanie + kod + obraz) | **ChatGPT** | Najbardziej wszechstronny zestaw funkcji |
+| Praca w Gmail/Docs/Sheets | **Gemini (Google AI Pro)** | Najlepsza integracja z ekosystemem Google |
+| Praca w Word/Excel/Teams | **Microsoft Copilot** | Najlepiej działa w Microsoft 365 |
+| Nauka z własnych PDF-ów i notatek | **NotebookLM** | Odpowiedzi oparte na Twoich źródłach |
+| Codzienne kodowanie w IDE | **GitHub Copilot** | Najbardziej dojrzała integracja z VS Code i GitHub |
+| Agentowe kodowanie w terminalu | **Claude Code** | Najsilniejsza autonomia, MCP, sub-agenty |
+| Agentowe kodowanie (open-source/BYOK) | **Aider** | Auto-commit git, 100+ modeli, Apache 2.0 |
+| Lokalne AI bez chmury (prywatność) | **LM Studio + Ollama** | GUI + backend, kod nie opuszcza maszyny |
+| Wiele modeli AI w jednym oknie | **Cherry Studio** | 300+ dostawców, porównywanie odpowiedzi |
+| Eksploracja i pobieranie modeli open-source | **Hugging Face** | 2M+ modeli, Spaces, Inference API |
+| Dostęp do 500+ modeli przez jedno API | **OpenRouter** | Jeden klucz API, brak narzutu cenowego, 25+ darmowych modeli |
+| Agentowe kodowanie w IDE (open-source, BYOK) | **Kilo Code** | VS Code + JetBrains, 500+ modeli, Apache 2.0, tab autocomplete |
+| Przegląd literatury naukowej (systematic review) | **ASReview** | Aktywne uczenie, redukcja pracy o 95%, open-source |
+| Zarządzanie systematic review (współpraca) | **Rayyan** | AI screening, PRISMA, mobile, 1M+ badaczy |
+| Prawo polskie w AI (prawnicy, firmy) | **IURA AI** | MCP server, 1.5M+ dokumentów, Claude plugins |
+| Polskie bazy naukowe w AI (badacze) | **Polish Academic MCP** | 10 baz (BN, RUJ, AGH, AMU…), open-source, Cloudflare Workers |
+| Aktualna dokumentacja bibliotek w AI | **Context7 MCP** | Wstrzykuje docs do promptu, 2M+ bibliotek, npx install |
+
+### 1.2 Dobór według budżetu miesięcznego
+
+| Budżet | Rekomendowany zestaw |
+|---|---|
+| **0 zł** | ChatGPT Free + Gemini Free + Perplexity Free + NotebookLM |
+| **~80–100 zł** | Wybierz **jedno**: ChatGPT Plus **albo** Claude Pro **albo** Perplexity Pro |
+| **~160–200 zł** | Dwa narzędzia komplementarne: np. Claude Pro + Perplexity Pro |
+| **500+ zł** | Konfiguracja power-user lub zespołowa, zwykle z 2-3 narzędziami i polityką danych |
+
+---
+
+## CZĘŚĆ II — Porównanie narzędzi (marzec 2026)
+
+### 2.1 Asystenci ogólnego przeznaczenia
+
+#### ChatGPT (OpenAI)
+
+**Najlepszy do:** zadań mieszanych (pisanie, kodowanie, analiza plików, generowanie obrazów).  
+**Poziom danych:** wysoki (oficjalne help center i pricing pages).
+
+**Mocne strony:**
+- Bardzo szerokie zastosowanie w codziennej pracy.
+- Rozbudowane funkcje multimodalne (tekst, pliki, obraz, głos).
+- Duży ekosystem i dużo materiałów społeczności.
+
+**Ograniczenia:**
+- Odpowiedzi wymagają weryfikacji faktów i cytowań.
+- Część zaawansowanych funkcji ma limity zależne od planu.
+
+**Cennik orientacyjny (oficjalnie podawany w USD):**
+
+| Plan | Cena katalogowa |
+|---|---|
+| Free | 0 USD |
+| Go | 8 USD/mies. (lokalnie różnie) |
+| Plus | 20 USD/mies. |
+| Pro | 200 USD/mies. |
+
+#### Claude (Anthropic)
+
+**Najlepszy do:** długich tekstów, analizy dokumentów, pracy eksperckiej.  
+**Poziom danych:** wysoki (oficjalna strona pricing + help center).
+
+**Mocne strony:**
+- Bardzo dobra jakość językowa i logiczna przy długich treściach.
+- Wysoka użyteczność przy raportach, dokumentach, umowach.
+- Plany Max dla osób, które stale przekraczają limity Pro.
+
+**Ograniczenia:**
+- Mniej wygodny wybór do generowania obrazów.
+- W niektórych zadaniach real-time research wymaga wsparcia innym narzędziem.
+
+**Cennik orientacyjny (oficjalny):**
+
+| Plan | Cena katalogowa |
+|---|---|
+| Free | 0 USD |
+| Pro | 20 USD/mies. (lub taniej rocznie) |
+| Max 5x | 100 USD/mies. |
+| Max 20x | 200 USD/mies. |
+
+#### Google Gemini (Google AI plans)
+
+**Najlepszy do:** pracy w ekosystemie Google i łączenia AI z codziennymi narzędziami biurowymi.  
+**Poziom danych:** wysoki (Google One plans i dokumentacja wsparcia).
+
+**Mocne strony:**
+- Silna integracja z Gmail, Docs, Sheets i Drive.
+- Dobre rozwiązanie dla osób już pracujących w Google Workspace.
+- W planach Google AI pojawiają się dodatkowe kredyty i benefity developerskie.
+
+**Ograniczenia:**
+- Oferta planów i nazwy pakietów mogą się zmieniać regionalnie.
+- Część funkcji zależy od kraju, konta i typu subskrypcji.
+
+**Cennik orientacyjny (oficjalny, USA):**
+
+| Plan | Cena katalogowa |
+|---|---|
+| Google AI Pro | 19.99 USD/mies. |
+| Google AI Ultra | 249.99 USD/mies. |
+
+#### Perplexity
+
+**Najlepszy do:** researchu z cytowaniami i szybkiego sprawdzania aktualnych informacji.  
+**Poziom danych:** wysoki/średni (oficjalna strona planów + media technologiczne).
+
+**Mocne strony:**
+- Bardzo szybki tryb "najpierw źródła".
+- Dobre do porównań, researchu rynkowego i pracy akademickiej.
+- Przydatne funkcje wielomodelowe i raportowe w wyższych planach.
+
+**Ograniczenia:**
+- To nie jest najlepszy wybór do kreatywnego, długiego pisania.
+- Jakość zależy od jakości i dostępności źródeł online.
+
+**Cennik orientacyjny (oficjalny):**
+
+| Plan | Cena katalogowa |
+|---|---|
+| Pro | 20 USD/mies. (lub 200 USD/rok) |
+| Max | 200 USD/mies. lub ekwiwalent roczny (np. ~167 USD/mies. przy rozliczeniu rocznym) |
+
+### 2.2 Narzędzia specjalistyczne
+
+#### NotebookLM
+
+**Najlepszy do:** uczenia się i analizy własnych materiałów źródłowych.  
+**Poziom danych:** średni/wysoki (Google + spójne raporty zewnętrzne).
+
+**Kiedy wygrywa:**
+- Masz własne PDF-y, notatki, transkrypcje i chcesz pracować "na swoim korpusie".
+- Chcesz streszczeń, pytań kontrolnych, planu nauki i audio-overview.
+
+**Na co uważać:**
+- Limity źródeł i zapytań zależą od planu.
+- Nie zastępuje klasycznego web searchu do aktualności.
+
+#### GitHub Copilot
+
+**Najlepszy do:** kodowania w IDE i codziennej pracy developerskiej.  
+**Poziom danych:** wysoki (GitHub Docs + GitHub Education).
+
+**Kiedy wygrywa:**
+- Piszesz kod codziennie i chcesz AI "w miejscu pracy", nie w osobnym oknie czatu.
+- Pracujesz z PR-ami, repozytoriami i przepływem GitHub.
+
+**Ważne:**
+- Dla zweryfikowanych studentów, nauczycieli i maintainerów OSS dostępne są preferencyjne warunki (w tym wariant bezpłatny w ramach programu edukacyjnego).
+
+#### Microsoft Copilot
+
+**Najlepszy do:** organizacji opartych o Microsoft 365.  
+**Poziom danych:** średni/wysoki.
+
+**Kiedy wygrywa:**
+- Tworzysz raporty Word, analizy Excel i podsumowania spotkań Teams.
+- Chcesz minimalizować przerzucanie danych między narzędziami.
+
+### 2.3 Narzędzia lokalne i open-source (Local AI)
+
+> **Kiedy warto uruchamiać modele lokalnie?** Gdy masz dane wrażliwe (RODO, tajemnica zawodowa), chcesz pracować offline, lub chcesz uniknąć kosztów subskrypcji przy intensywnym użyciu. Wymaga komputera z co najmniej 16 GB RAM (optymalnie 32 GB+) lub dedykowanej karty GPU.
+
+#### Ollama
+
+**Typ:** serwer CLI do lokalnych modeli (macOS, Linux, Windows).  
+**Licencja:** MIT. **Cena:** bezpłatny.
+
+**Kiedy wygrywa:**
+- Chcesz uruchomić model jedną komendą: `ollama run llama3.3` lub `ollama run mistral`.
+- Potrzebujesz lokalnego endpointu OpenAI-compatible API dla własnych aplikacji.
+- Używasz jako backendu dla Open WebUI, Jan.AI lub Cherry Studio.
+
+**Polecane modele startowe (marzec 2026):**
+
+| Model | Rozmiar RAM | Zastosowanie |
+|---|---|---|
+| Llama 3.3 8B (Q4_K_M) | ~6 GB | Ogólne, kodowanie |
+| Mistral Small 3 7B | ~3.5 GB | Szybkie odpowiedzi, 50 tok/s |
+| Phi-4-mini | ~3.5 GB | Rozumowanie, mało RAM |
+| DeepSeek-R1 7B | ~5 GB | Rozumowanie krok po kroku |
+| Qwen3-Coder 8B | ~6 GB | Kodowanie, tool calling |
+
+**Ograniczenia:**
+- Brak GUI — wymaga terminala.
+- Jakość odpowiedzi zależy od rozmiaru modelu i sprzętu.
+
+#### LM Studio
+
+**Typ:** aplikacja desktopowa z GUI (Windows, macOS, Linux).  
+**Licencja:** bezpłatna do użytku osobistego. **Cena:** 0 USD.
+
+**Kiedy wygrywa:**
+- Chcesz lokalnego AI bez terminala — GUI do pobierania, testowania i przełączania modeli.
+- Potrzebujesz lokalnego serwera API kompatybilnego z OpenAI (do integracji z własnymi skryptami).
+- Testujesz różne modele i kwantyzacje bez konfiguracji.
+
+**Mocne strony:**
+- Automatyczna obsługa kwantyzacji (GGUF) — uruchamia większe modele na mniejszym sprzęcie.
+- Wbudowany model hub z ocenami użytkowników i wymaganiami sprzętowymi.
+- Tryb serwera lokalnego API (port 1234, kompatybilny z OpenAI SDK).
+
+**Ograniczenia:**
+- Nie jest open-source (licencja osobista, nie komercyjna).
+- Wymaga pobierania modeli (kilka–kilkanaście GB na model).
+
+#### Jan.AI
+
+**Typ:** platforma lokalna AI z GUI + API server + system rozszerzeń (Windows, macOS, Linux).  
+**Licencja:** open-source (AGPLv3). **Cena:** 0 USD.
+
+**Kiedy wygrywa:**
+- Chcesz pełnej platformy lokalnej: czat, API, rozszerzenia, model hub — w jednej aplikacji.
+- Zależy Ci na open-source i możliwości samodzielnego hostowania.
+- Używasz jako frontendu na Ollama lub własnym backendzie.
+
+**Mocne strony:**
+- Wbudowany model hub (pobieranie GGUF z Hugging Face).
+- Lokalny serwer API kompatybilny z OpenAI.
+- System rozszerzeń (np. integracja z zewnętrznymi API).
+- Aktywna społeczność i regularne aktualizacje.
+
+**Ograniczenia:**
+- Mniej dopracowany UI niż LM Studio.
+- Część rozszerzeń jest eksperymentalna.
+
+#### Cherry Studio
+
+**Typ:** desktopowy klient AI obsługujący wiele dostawców jednocześnie (Windows, macOS, Linux).  
+**Licencja:** open-source (33k+ gwiazdek na GitHub). **Cena:** 0 USD (Enterprise Edition płatna).
+
+**Kiedy wygrywa:**
+- Chcesz jednego okna do ChatGPT, Claude, Gemini, DeepSeek i lokalnych modeli (Ollama) jednocześnie.
+- Pracujesz z wieloma dostawcami i chcesz porównywać odpowiedzi.
+- Potrzebujesz rozwiązania dla zespołu z centralnym zarządzaniem kluczami API (Enterprise).
+
+**Mocne strony:**
+- Obsługa 300+ dostawców modeli (chmura + lokalne).
+- Szybkie przełączanie między modelami w jednej rozmowie.
+- Wbudowane zarządzanie promptami i bazą wiedzy.
+- Enterprise Edition: prywatny deployment, zarządzanie zespołem.
+
+**Ograniczenia:**
+- Wymaga własnych kluczy API do modeli chmurowych.
+- Część funkcji Enterprise jest płatna.
+
+#### Hugging Face
+
+**Typ:** platforma ekosystemowa — hub modeli, datasetów, Spaces i narzędzi ML.  
+**Licencja:** platforma otwarta; modele mają własne licencje. **Cena:** Free tier + plany Pro/Enterprise.
+
+**Kiedy wygrywa:**
+- Szukasz konkretnego modelu open-source do pobrania lub testowania online.
+- Chcesz uruchomić demo modelu bez instalacji (Spaces z ZeroGPU).
+- Budujesz własne aplikacje ML i potrzebujesz Inference API lub fine-tuningu.
+
+**Co oferuje (marzec 2026):**
+- **2+ mln modeli** publicznych (tekst, obraz, audio, wideo, multimodal).
+- **500k+ datasetów** do trenowania i ewaluacji.
+- **1M+ Spaces** — interaktywne demo aplikacji AI.
+- **Inference API** — szybkie wywołania modeli przez HTTP bez własnej infrastruktury.
+- **ZeroGPU** (Nvidia H200) — bezpłatne GPU dla Spaces w planie Free.
+
+**Ograniczenia:**
+- Nie jest asystentem czatu — to platforma/repozytorium, nie narzędzie end-user.
+- Jakość i bezpieczeństwo modeli jest zróżnicowane — zawsze sprawdzaj licencję i kartę modelu.
+
+---
+
+### 2.4 CLI agenci do kodowania (terminal-first)
+
+> Nowa kategoria narzędzi (2025–2026): autonomiczne agenty działające w terminalu, które czytają cały projekt, uruchamiają testy, naprawiają błędy i commitują zmiany — bez otwierania IDE.
+
+#### Claude Code (Anthropic)
+
+**Typ:** CLI agent (macOS, Linux, Windows). **Cena:** wymaga planu Claude Pro ($20/mies.) lub API.
+
+**Kiedy wygrywa:**
+- Chcesz najsilniejszego agenta autonomicznego do złożonych zadań inżynierskich.
+- Pracujesz z dużymi repozytoriami i potrzebujesz wieloetapowego planowania.
+- Używasz MCP (Model Context Protocol) do rozszerzeń.
+
+**Mocne strony:**
+- Najlepsza autonomia wśród CLI agentów (83k+ gwiazdek, v2.1+).
+- Obsługa MCP, przeglądarki, wyszukiwania i sub-agentów równoległych.
+- Instalacja: `winget install Anthropic.ClaudeCode` (Windows) lub `brew install --cask claude-code`.
+
+**Ograniczenia:**
+- Drogi przy intensywnym użyciu API (Opus 4.6: $15/$75 za mln tokenów).
+- Wymaga połączenia z chmurą Anthropic.
+
+#### OpenCode
+
+**Typ:** CLI agent open-source (MIT), napisany w Go. **Cena:** bezpłatny (BYOK — własne klucze API).
+
+**Kiedy wygrywa:**
+- Chcesz open-source alternatywy dla Claude Code z obsługą wielu modeli.
+- Używasz DeepSeek, Qwen, lokalnych modeli przez Ollama lub własne endpointy.
+- Zależy Ci na niezależności od jednego dostawcy modeli.
+
+**Mocne strony:**
+- Obsługa 75+ dostawców modeli (Claude, GPT, DeepSeek, Qwen, Ollama...).
+- Interfejs TUI zbliżony do Claude Code.
+- OpenCode Zen: gotowe konfiguracje modeli zoptymalizowane pod kodowanie.
+- Instalacja: `curl -fsSL https://opencode.ai/install | bash`.
+
+**Ograniczenia:**
+- Słabsza autonomia niż Claude Code przy bardzo złożonych zadaniach.
+- Manualne zarządzanie commitami git (brak auto-commit).
+
+#### Aider
+
+**Typ:** CLI agent open-source (Apache 2.0), napisany w Pythonie. **Cena:** bezpłatny (BYOK).  
+**GitHub:** 25k+ gwiazdek, aktywny od 2023.
+
+**Kiedy wygrywa:**
+- Chcesz najlepszej integracji z git: automatyczne commity po każdej zmianie z sensownymi wiadomościami.
+- Pracujesz w tradycyjnym workflow git i chcesz łatwego revert.
+- Potrzebujesz stabilnego, sprawdzonego narzędzia z dużą społecznością.
+
+**Mocne strony:**
+- Najlepsza integracja git spośród wszystkich CLI agentów.
+- Obsługa 100+ modeli (Claude, GPT, Gemini, lokalne przez Ollama).
+- Instalacja: `pip install aider-chat`.
+- Publiczny leaderboard modeli (aider.chat/docs/leaderboards).
+
+**Ograniczenia:**
+- Mniej autonomiczny niż Claude Code (bardziej konwersacyjny niż agentowy).
+- Brak obsługi obrazów i zrzutów ekranu.
+
+#### Gemini CLI (Google)
+
+**Typ:** CLI agent open-source (Google). **Cena:** bezpłatny (1000 zapytań/dzień w planie Free).
+
+**Kiedy wygrywa:**
+- Chcesz darmowego CLI agenta z bardzo dużym oknem kontekstowym (1M tokenów).
+- Eksperymentujesz i nie chcesz płacić za API.
+
+**Mocne strony:**
+- Bezpłatny tier z 1M tokenów kontekstu (Gemini 2.5 Pro).
+- Open-source, aktywnie rozwijany przez Google.
+
+**Ograniczenia:**
+- Brak auto-commit git.
+- Mniej dojrzały ekosystem niż Aider czy Claude Code.
+
+#### Porównanie CLI agentów
+
+| Cecha | Claude Code | OpenCode | Aider | Gemini CLI |
+|---|---|---|---|---|
+| Open source | Nie | Tak (MIT) | Tak (Apache 2.0) | Tak |
+| Cena | Pro $20/mies. + API | Bezpłatny (BYOK) | Bezpłatny (BYOK) | Bezpłatny |
+| Auto git commit | Tak (manualny) | Nie | **Tak (auto)** | Nie |
+| Obsługa modeli | Tylko Claude | 75+ dostawców | 100+ modeli | Tylko Gemini |
+| Lokalne modele | Nie | Tak (Ollama) | Tak (Ollama) | Nie |
+| MCP support | Tak | Tak | Nie | Tak |
+| Autonomia agenta | ★★★★★ | ★★★★ | ★★★ | ★★★ |
+
+---
+
+### 2.5 OpenRouter i Kilo Code — dostęp do wielu modeli
+
+#### OpenRouter
+
+**Typ:** unified API gateway — jeden klucz API do 500+ modeli od 60+ dostawców.  
+**Licencja:** platforma komercyjna. **Cena:** bezpłatny tier (25+ darmowych modeli) + pay-as-you-go.
+
+**Kiedy wygrywa:**
+- Budujesz aplikacje AI i nie chcesz zarządzać wieloma kluczami API.
+- Chcesz porównywać modele cenowo i jakościowo bez zmiany kodu.
+- Potrzebujesz fallbacku między dostawcami (np. gdy OpenAI ma awarię).
+
+**Mocne strony:**
+- **Brak narzutu cenowego** — ceny identyczne jak u dostawców bezpośrednich (np. Claude Sonnet 4.5: $3/$15 za mln tokenów, GPT-5: $1.25/$10).
+- **25+ darmowych modeli** (Google, Meta, Mistral, NVIDIA) bez karty kredytowej.
+- Kompatybilność z OpenAI SDK — zmiana jednej linii kodu.
+- Rankingi modeli, statystyki użycia i monitoring w dashboardzie.
+
+**Ograniczenia:**
+- Darmowe modele mają limit 100 req/60s i nie są zoptymalizowane pod produkcję.
+- Nie jest narzędziem end-user — wymaga integracji przez API lub klienta (np. Cherry Studio, OpenCode).
+
+**Instalacja (przykład z OpenAI SDK):**
+```python
+from openai import OpenAI
+client = OpenAI(base_url="https://openrouter.ai/api/v1", api_key="sk-or-...")
+```
+
+#### Kilo Code
+
+**Typ:** rozszerzenie VS Code + plugin JetBrains + CLI — agentowe kodowanie z tab autocomplete.  
+**Licencja:** open-source (Apache 2.0). **Cena:** bezpłatny (BYOK lub darmowe modele).
+
+**Kiedy wygrywa:**
+- Chcesz open-source alternatywy dla GitHub Copilot lub Cursor z pełnym BYOK.
+- Używasz VS Code lub JetBrains i nie chcesz zmieniać edytora.
+- Potrzebujesz zarówno tab autocomplete (Codestral FIM) jak i agentowego czatu w jednym narzędziu.
+
+**Mocne strony:**
+- **500+ modeli** z 60+ dostawców (Claude, GPT, Gemini, DeepSeek, lokalne przez Ollama).
+- **Tab autocomplete** (Codestral-powered inline FIM) — czego nie ma Claude Code.
+- Pełne BYOK dla wszystkich funkcji (autocomplete, agenty, czat) — w Cursor BYOK działa tylko dla czatu.
+- Tryby agentowe: Code, Architect, Ask, Debug — każdy z innym poziomem autonomii.
+- Instalacja: `ext install kilocode.kilo-code` w VS Code lub z marketplace JetBrains.
+
+**Porównanie z konkurencją (marzec 2026):**
+
+| Cecha | Kilo Code | GitHub Copilot | Cursor | Claude Code |
+|---|---|---|---|---|
+| Open source | Tak (Apache 2.0) | Nie | Nie | Nie |
+| BYOK (pełne) | Tak | Nie | Tylko czat | N/A |
+| Tab autocomplete | Tak (Codestral) | Tak | Tak (własny model) | Nie |
+| Modele | 500+ | GPT-4o/Sonnet | ~8 frontier | Tylko Claude |
+| IDE | VS Code, JetBrains | VS Code, JetBrains | Cursor IDE | Terminal |
+| Cena bazowa | 0 USD (BYOK) | 10 USD/mies. | 20 USD/mies. | 17–200 USD/mies. |
+
+**Ograniczenia:**
+- Mniejsza społeczność niż GitHub Copilot.
+- Cursor Tab ma wyższy accept rate (28%) dzięki własnemu modelowi next-action.
+
+---
+
+### 2.6 Narzędzia naukowe i akademickie
+
+> Sekcja dla badaczy, doktorantów i studentów prowadzących przeglądy literatury lub pracujących z polskimi bazami naukowymi.
+
+#### ASReview
+
+**Typ:** open-source narzędzie do systematic review z aktywnym uczeniem maszynowym.  
+**Licencja:** Apache 2.0. **Cena:** bezpłatny. **Instalacje:** 638 000+.
+
+**Kiedy wygrywa:**
+- Prowadzisz systematic review lub meta-analizę i masz setki/tysiące rekordów do przesiewania.
+- Chcesz zredukować czas screeningu o ~95% przy zachowaniu pełnej transparentności.
+- Potrzebujesz narzędzia zgodnego z wymogami GDPR i regulacjami AI.
+
+**Jak działa:**
+1. Importujesz rekordy (PubMed, Scopus, Web of Science, RIS, CSV).
+2. Oznaczasz kilka rekordów jako "relevant" / "not relevant".
+3. Model AI (aktywne uczenie) priorytetyzuje kolejne rekordy — najważniejsze trafiają na górę.
+4. Eksportujesz wyniki z pełnym logiem decyzji (reprodukowalność).
+
+**Mocne strony:**
+- Cytowany w Nature Machine Intelligence — solidna podstawa naukowa.
+- Tryb Crowdscreen: AI agenci proponują rekordy ekspertom (human-in-the-loop).
+- Tryb Simulate & Benchmark: testowanie i porównywanie modeli AI na własnych danych.
+- Pełna kontrola nad danymi — kod lokalny, brak zewnętrznych trackerów.
+
+**Ograniczenia:**
+- Wymaga instalacji Pythona (`pip install asreview`).
+- Nie zastępuje pełnego narzędzia do zarządzania bibliografią (np. Zotero).
+
+#### Rayyan
+
+**Typ:** platforma SaaS do collaborative systematic review z AI screeningiem.  
+**Cena:** Free tier + plany płatne (academic discounts). **Użytkownicy:** 1M+ badaczy.
+
+**Kiedy wygrywa:**
+- Prowadzisz systematic review w zespole i potrzebujesz narzędzia do współpracy.
+- Chcesz mobilnego dostępu (iOS/Android) i pracy offline.
+- Potrzebujesz automatycznych diagramów PRISMA do publikacji.
+
+**Mocne strony:**
+- AI screening redukuje czas przesiewania o ~90%.
+- Auto-deduplication z PubMed, Embase, Scopus.
+- Aplikacja mobilna z trybem offline.
+- Generowanie diagramów PRISMA flow wymaganych przez czasopisma.
+- Integracja z Zotero, Mendeley i innymi menedżerami bibliografii.
+
+**Ograniczenia:**
+- Dane przechowywane na serwerach zewnętrznych (sprawdź politykę prywatności dla danych wrażliwych).
+- Zaawansowane funkcje wymagają planu płatnego.
+
+---
+
+### 2.7 Serwery MCP — rozszerzenia dla agentów AI
+
+> **MCP (Model Context Protocol)** to otwarty standard Anthropic (2024) pozwalający modelom językowym wywoływać zewnętrzne narzędzia i API w ustandaryzowany sposób. Działa jak "USB-C dla AI" — jeden protokół, wiele narzędzi.
+
+**Jak zainstalować serwer MCP (przykład dla Claude Desktop):**
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"]
+    }
+  }
+}
+```
+
+#### Context7 MCP (Upstash)
+
+**Zastosowanie:** wstrzykuje aktualną dokumentację bibliotek bezpośrednio do promptu AI.  
+**Instalacja:** `npx -y @upstash/context7-mcp@latest` | **Licencja:** open-source.
+
+**Problem, który rozwiązuje:** modele AI mają wiedzę z daty trenowania — nie znają nowych wersji bibliotek. Context7 pobiera aktualną dokumentację i wkłada ją do kontekstu przed odpowiedzią.
+
+**Jak używać:** dodaj `use context7` do promptu w Cursor, Claude Code lub VS Code MCP.
+
+**Co oferuje:**
+- 2M+ bibliotek (npm, PyPI, GitHub, docs oficjalne).
+- Narzędzia: `resolve-library-id` (znajdź ID biblioteki) + `get-library-docs` (pobierz docs).
+- Tryb `code` (przykłady kodu) i `info` (konceptualne przewodniki).
+- OAuth 2.0 dla klientów MCP obsługujących specyfikację OAuth.
+
+**Kompatybilność:** Claude Desktop, Claude Code, Cursor, Windsurf, VS Code MCP, OpenCode.
+
+#### IURA AI MCP (prawo polskie)
+
+**Zastosowanie:** dostęp do 1.5M+ polskich dokumentów prawnych (ustawy, orzeczenia, interpretacje podatkowe) bezpośrednio z poziomu Claude lub innego klienta MCP.  
+**Instalacja:** przez claude.com/plugins (plugin `iura-pl`) lub konfigurację MCP.  
+**Licencja:** open-source plugins (Apache 2.0), platforma komercyjna.
+
+**Problem, który rozwiązuje:** modele AI halucynują cytaty prawne — wymyślają sygnatury orzeczeń i cytują nieistniejące przepisy. IURA MCP łączy Claude z zweryfikowaną bazą polskiego prawa w czasie rzeczywistym.
+
+**Dostępne komendy (plugin `iura-pl`):**
+- `/review-contract` — przegląd umowy według playbooka negocjacyjnego
+- `/triage-nda` — analiza przychodzącego NDA
+- `/generate-nda` — generowanie draftu NDA w formacie Word
+- `/legal-memo` — sporządzenie memorandum prawnego
+- `/tabular-review` — masowy przegląd dokumentów do Excela
+
+**Dla kogo:** prawnicy, działy prawne firm, compliance, studenci prawa.
+
+#### Polish Academic MCP
+
+**Zastosowanie:** dostęp do 10 polskich baz naukowych jako narzędzia MCP dla agentów AI.  
+**Autor:** Artur Sendyka (asterixix). **Licencja:** MIT. **Hosting:** Cloudflare Workers (bezpłatny).  
+**URL serwera:** `https://polish-academic-mcp.kolpol25.workers.dev/mcp`
+
+**Dostępne bazy danych:**
+
+| Narzędzie MCP | Baza danych | Protokół |
+|---|---|---|
+| `bn_search_articles` | Biblioteka Nauki | OAI-PMH (XML) |
+| `ruj_search` | Repozytorium UJ | DSpace 7 REST |
+| `agh_search` | Repozytorium AGH | DSpace 7 REST |
+| `amu_search` | Repozytorium UAM | DSpace 7 REST |
+| `rodbuk_search` | RODBuK | Dataverse REST |
+| `repod_search` | RePOD (ICM) | Dataverse REST |
+| `dane_search` | dane.gov.pl | REST API |
+| `imgw_search` | IMGW-PIB | REST API |
+
+**Jak podłączyć (Claude Desktop):**
+```json
+{
+  "mcpServers": {
+    "polish-academic": {
+      "command": "npx",
+      "args": ["mcp-remote", "https://polish-academic-mcp.kolpol25.workers.dev/mcp"]
+    }
+  }
+}
+```
+
+**Obsługiwane klienty:** Claude Desktop, Claude.ai, ChatGPT (Plus/Pro), Google AI Studio, Gemini CLI, Cursor, VS Code MCP, OpenCode.
+
+**Limity (bezpłatny tier):** 10 wywołań narzędzi/godzinę na IP. Dla większego użycia: kontakt z autorem.
+
+#### Grep MCP / ast-grep MCP
+
+**Zastosowanie:** strukturalne przeszukiwanie kodu przez AI agenty — zamiast prostego text search, używa AST (Abstract Syntax Tree).  
+**Licencja:** open-source (GPL-3.0 / MIT).
+
+**Dwa warianty:**
+- **MCP-Grep** — wraps Unix `grep`, dostępny przez pip: `pip install mcp-grep`. Prosty, szybki, rekurencyjny search po plikach.
+- **ast-grep MCP** — strukturalne wyszukiwanie wzorców kodu (JS, TS, Python, Rust, Go, Java, C/C++, C#). Pozwala AI zapytać "znajdź wszystkie async funkcje bez await" lub "zlokalizuj deprecated lifecycle methods w React".
+
+**Kiedy wygrywa ast-grep:**
+- Refaktoryzacja dużych repozytoriów (znajdź wszystkie `console.log`, wszystkie wywołania deprecated API).
+- Code review z AI — semantyczne wyszukiwanie wzorców, nie tylko tekstu.
+- Integracja z Cursor lub Claude Desktop jako narzędzie do analizy kodu.
+
+#### Awesome listy MCP — gdzie szukać więcej serwerów
+
+Ekosystem MCP rośnie bardzo szybko. Najlepsze miejsca do odkrywania nowych serwerów:
+
+| Zasób | URL | Co zawiera |
+|---|---|---|
+| **awesome-mcp-servers** (punkpeye) | github.com/punkpeye/awesome-mcp-servers | Główna lista, 4700+ gwiazdek, kategoryzowana |
+| **awesome-mcp-servers** (appcypher) | github.com/appcypher/awesome-mcp-servers | Alternatywna lista z opisami |
+| **Glama MCP Directory** | glama.ai/mcp/servers | Przeszukiwalna baza z ocenami |
+| **MCP.so** | mcp.so | Katalog z filtrowaniem po kategorii |
+| **model-context-protocol.com** | model-context-protocol.com/servers | Oficjalny katalog |
+
+**Najpopularniejsze kategorie serwerów MCP:**
+- **Wyszukiwanie:** Brave Search, Tavily, Kagi, Perplexity Sonar
+- **Repozytoria kodu:** GitHub MCP, GitLab MCP
+- **Bazy danych:** PostgreSQL, MongoDB, SQLite, BigQuery
+- **Dokumenty:** Google Drive, Notion, Obsidian
+- **Komunikacja:** Slack, Discord, email
+- **Narzędzia deweloperskie:** Context7, ast-grep, Sentry, Linear
+- **Specjalistyczne:** IURA (prawo PL), Polish Academic MCP (nauka PL), ASReview
+
+---
+
+### 2.8 Tabela porównawcza: zadanie -> narzędzie
+
+| Zadanie | 1. wybór | 2. wybór |
+|---|---|---|
+| Research z cytowaniami | Perplexity | ChatGPT z web/deep research |
+| Analiza własnych dokumentów | NotebookLM | Claude |
+| Długa forma (raport, esej) | Claude | ChatGPT |
+| Materiały wizualne i obrazy | ChatGPT | Gemini |
+| Kodowanie w IDE | GitHub Copilot | Cursor / Windsurf |
+| Kodowanie w IDE (open-source, BYOK) | Kilo Code | GitHub Copilot Free |
+| Kodowanie w terminalu (agentowe) | Claude Code | OpenCode / Aider |
+| Kodowanie z auto-commit git | Aider | OpenCode |
+| Praca w Google Workspace | Gemini | ChatGPT |
+| Praca w Microsoft 365 | Copilot | ChatGPT |
+| Lokalne AI (prywatność/offline) | LM Studio + Ollama | Jan.AI |
+| Wiele modeli w jednym oknie | Cherry Studio | Jan.AI |
+| Eksploracja modeli open-source | Hugging Face | Ollama |
+| Darmowy CLI agent z dużym kontekstem | Gemini CLI | Aider (BYOK) |
+| Dostęp do wielu modeli przez jedno API | OpenRouter | Cherry Studio (BYOK) |
+| Systematic review (solo) | ASReview | Rayyan Free |
+| Systematic review (zespół) | Rayyan | ASReview |
+| Prawo polskie w AI | IURA AI | Claude + IURA MCP |
+| Polskie bazy naukowe w AI | Polish Academic MCP | Perplexity + mcp-remote |
+| Aktualna dokumentacja bibliotek | Context7 MCP | GitHub Copilot |
+| Strukturalne przeszukiwanie kodu | ast-grep MCP | MCP-Grep |
+
+### 2.9 Co naprawdę działa najlepiej: strategia "2 narzędzia"
+
+Najlepszy efekt w 2026 rzadko daje jedno narzędzie. Najczęściej wygrywa duet:
+
+- **Research + redakcja:** Perplexity + Claude.
+- **Uniwersalnie + praca biurowa Google:** ChatGPT + Gemini.
+- **Kodowanie w IDE + agentowe w terminalu:** GitHub Copilot + Claude Code (lub Aider).
+- **Kodowanie bez lock-in:** Aider + OpenCode (oba BYOK, oba open-source).
+- **Kodowanie open-source w IDE:** Kilo Code + OpenRouter (500+ modeli, zero lock-in).
+- **Nauka akademicka:** NotebookLM + Perplexity.
+- **Badania naukowe (systematic review):** ASReview (solo) lub Rayyan (zespół) + Perplexity.
+- **Prawo polskie:** Claude + IURA MCP (weryfikowane cytaty, brak halucynacji prawnych).
+- **Polskie bazy naukowe:** Polish Academic MCP + Claude lub ChatGPT.
+- **Lokalne AI + wygodny UI:** Ollama (backend) + LM Studio lub Jan.AI (frontend).
+- **Wiele modeli chmurowych bez przełączania okien:** Cherry Studio + OpenRouter (BYOK).
+
+---
+
+## CZĘŚĆ III — Checklisty
+
+### 3.1 Checklista wyboru narzędzia
+
+- [ ] Czy potrzebujesz **aktualnych danych z internetu**?
+- [ ] Czy potrzebujesz **cytowalnych źródeł** przy każdej odpowiedzi?
+- [ ] Czy pracujesz głównie na **własnych plikach**?
+- [ ] Czy efekt końcowy to **długi tekst**, **kod**, czy **slajdy/arkusz**?
+- [ ] W jakim ekosystemie jesteś: **Google**, **Microsoft**, czy neutralnie?
+- [ ] Czy masz ograniczenia prawne/RODO i polityki firmy?
+- [ ] Jaki jest realny budżet: 0 zł, 100 zł, 200+ zł miesięcznie?
+
+### 3.2 Checklista weryfikacji odpowiedzi AI
+
+- [ ] Zweryfikuj liczby, daty i nazwy własne w niezależnym źródle.
+- [ ] Otwórz i sprawdź każde cytowane źródło, nie tylko tytuł.
+- [ ] Dla kodu uruchom testy i sprawdź przypadki brzegowe.
+- [ ] Dla treści akademickich sprawdź DOI/Google Scholar/Semantic Scholar.
+- [ ] Usuń konfabulacje stylistyczne: "na pewno", "zawsze", "niepodważalnie".
+
+### 3.3 Checklista bezpieczeństwa danych
+
+- [ ] Nie wklejaj danych osobowych, medycznych, finansowych i poufnych umów.
+- [ ] Sprawdź, czy plan/organizacja ma ustawienia "no training on your data".
+- [ ] Ustal politykę retencji i eksportu danych dla zespołu.
+- [ ] Dla danych wrażliwych używaj środowisk firmowych lub lokalnych modeli.
+
+### 3.4 Checklista kosztów
+
+- [ ] Najpierw wykorzystaj 2-3 tygodnie darmowych planów.
+- [ ] Kupuj tylko plan, który odblokowuje konkretny bottleneck.
+- [ ] Co miesiąc przeglądaj subskrypcje i usuwaj nieużywane.
+- [ ] Jeśli używasz dwóch narzędzi, przypisz im różne role (np. research vs writing).
+
+---
+
+## CZĘŚĆ IV — Rekomendacje według profilu
+
+### 4.1 Student
+
+**Minimum (0 zł):**
+- ChatGPT Free do nauki i konspektów.
+- NotebookLM do pracy z artykułami i notatkami.
+- Perplexity Free do wyszukiwania źródeł.
+
+**Opcja 1 płatna (najczęściej wystarcza):**
+- Jeden plan za ok. 20 USD: ChatGPT Plus albo Claude Pro.
+
+**Jeśli uczysz się programowania:**
+- Sprawdź GitHub Education i aktywuj Copilot Student.
+
+### 4.2 Badacz / doktorant
+
+**Najlepszy zestaw praktyczny:**
+- Perplexity Pro do mapowania literatury.
+- NotebookLM do pracy na własnym korpusie PDF.
+- Claude lub ChatGPT do redakcji i syntezy.
+
+**Jeśli prowadzisz systematic review:**
+- ASReview (solo, open-source) lub Rayyan (zespół, SaaS) do screeningu rekordów.
+- Redukcja czasu przesiewania o 90–95% przy zachowaniu pełnej transparentności.
+
+**Jeśli pracujesz z polskimi bazami naukowymi:**
+- Polish Academic MCP — podłącz do Claude Desktop lub ChatGPT i przeszukuj BN, RUJ, AGH, AMU i inne bezpośrednio z czatu.
+
+**Zasada krytyczna:**
+- Nie cytuj niczego wygenerowanego przez AI bez ręcznej weryfikacji źródła pierwotnego.
+
+### 4.3 Programista
+
+**Minimum (0 zł):**
+- GitHub Copilot Free (VS Code) do uzupełniania kodu.
+- Gemini CLI do agentowych zadań w terminalu (1000 zapytań/dzień, 1M kontekstu).
+- Aider + darmowy klucz Gemini API do automatycznych commitów.
+
+**Zestaw płatny (najczęściej wystarcza):**
+- GitHub Copilot ($10/mies.) jako narzędzie podstawowe w IDE.
+- Claude Pro ($20/mies.) lub ChatGPT Plus do projektowania architektury i debugowania.
+
+**Dla zaawansowanych (terminal-first):**
+- Claude Code do autonomicznych, wieloetapowych zadań inżynierskich.
+- OpenCode jako alternatywa open-source z obsługą 75+ dostawców modeli.
+- Aider jeśli priorytetem jest integracja z git i automatyczne commity.
+
+**Dla osób dbających o prywatność kodu:**
+- Ollama + LM Studio lub Jan.AI — modele lokalne, kod nie opuszcza maszyny.
+- Aider z lokalnym modelem przez Ollama (np. `aider --model ollama/qwen3-coder`).
+
+**Dla zaawansowanych (IDE agentowe):**
+- Rozważ Cursor lub Windsurf, ale tylko jeśli faktycznie skraca czas dostarczania kodu.
+- Kilo Code (Apache 2.0, BYOK) jako open-source alternatywa z tab autocomplete i 500+ modelami.
+
+**Dla osób chcących uniknąć vendor lock-in:**
+- OpenRouter jako unified API — jeden klucz do Claude, GPT, Gemini, DeepSeek i 500+ innych modeli.
+- Połącz z Cherry Studio (GUI) lub OpenCode (terminal) dla pełnej niezależności.
+
+### 4.4 Profesjonalista (biznes, prawo, marketing, HR)
+
+**Google-first:** Gemini + NotebookLM.  
+**Microsoft-first:** Copilot + ChatGPT/Claude do zadań poza M365.  
+**Niezależnie od ekosystemu:** Perplexity do researchu i fact-checku.
+
+**Prawnik / dział prawny / compliance:**
+- IURA AI + Claude — weryfikowane cytaty z 1.5M+ polskich dokumentów prawnych, brak halucynacji prawnych.
+- Komendy: `/review-contract`, `/triage-nda`, `/legal-memo`, `/tabular-review`.
+
+### 4.5 Osoba zaczynająca od zera (plan 30 dni)
+
+1. Tydzień 1: pracuj tylko na jednym darmowym narzędziu.
+2. Tydzień 2: dodaj narzędzie do researchu (Perplexity).
+3. Tydzień 3: dodaj narzędzie do własnych plików (NotebookLM).
+4. Tydzień 4: wybierz jeden plan płatny, jeśli oszczędza Ci co najmniej kilka godzin miesięcznie.
+
+---
+
+## Antywzorce (najczęstsze błędy)
+
+- Kupowanie 3-4 subskrypcji naraz bez podziału ról.
+- Traktowanie AI jako źródła prawdy zamiast asystenta.
+- Brak polityki danych w zespole.
+- Wklejanie poufnych treści do narzędzi konsumenckich.
+- Ocenianie jakości narzędzia po jednym promptcie.
+
+---
+
+## Słownik pojęć
+
+**AST (Abstract Syntax Tree):** drzewo składniowe kodu — strukturalna reprezentacja kodu używana przez ast-grep do semantycznego wyszukiwania wzorców.  
+**BYOK (Bring Your Own Key):** model rozliczenia, w którym używasz własnego klucza API — płacisz bezpośrednio dostawcy modelu, narzędzie jest bezpłatne.  
+**CLI (Command Line Interface):** interfejs wiersza poleceń — narzędzie uruchamiane w terminalu, bez GUI.  
+**Context window (okno kontekstowe):** ilość treści, którą model "trzyma" w aktywnym kontekście rozmowy.  
+**Deep Research:** wieloetapowe wyszukiwanie i synteza informacji z wielu źródeł.  
+**GGUF:** format pliku modelu zoptymalizowany do lokalnego uruchamiania (używany przez Ollama i LM Studio).  
+**Halucynacja:** błędna informacja podana z wysoką pewnością.  
+**MCP (Model Context Protocol):** otwarty standard Anthropic (2024) do rozszerzania agentów AI o zewnętrzne narzędzia i źródła danych — działa jak "USB-C dla AI".  
+**Kwantyzacja:** technika kompresji modelu (np. Q4_K_M) — mniejszy rozmiar pliku, nieco niższa jakość, ale działa na słabszym sprzęcie.  
+**PRISMA:** standard raportowania systematic review wymagany przez większość czasopism naukowych (Preferred Reporting Items for Systematic Reviews and Meta-Analyses).  
+**RAG:** generowanie odpowiedzi na podstawie dołączonych dokumentów i retrievalu.  
+**Model routing:** wybór różnych modeli do różnych etapów zadania (np. research vs redakcja).  
+**Systematic review:** ustrukturyzowany przegląd literatury naukowej według ścisłego protokołu — wymaga screeningu setek/tysięcy rekordów.  
+**TUI (Terminal User Interface):** interfejs tekstowy w terminalu z nawigacją klawiaturą — bardziej czytelny niż surowy CLI.
+
+---
+**Asystenci ogólni:**
+- OpenAI: chatgpt.com/pricing, help.openai.com
+- Anthropic: anthropic.com/pricing, support.anthropic.com
+- Google: one.google.com/about/google-ai-plans, support.google.com/googleone
+- Perplexity: perplexity.ai/max, perplexity.ai/enterprise/pricing
+- GitHub Copilot: docs.github.com, github.com/education/students
+
+**Narzędzia lokalne:**
+- Ollama: ollama.com, github.com/ollama/ollama
+- LM Studio: lmstudio.ai
+- Jan.AI: jan.ai, github.com/janhq/jan
+- Cherry Studio: cherry-ai.com, github.com/CherryHQ/cherry-studio
+- Hugging Face: huggingface.co, huggingface.co/docs/hub
+
+**CLI agenci i IDE:**
+- Aider: aider.chat, aider.chat/docs/leaderboards
+- OpenCode: opencode.ai, github.com/sst/opencode
+- Claude Code: docs.anthropic.com/claude-code
+- Gemini CLI: github.com/google-gemini/gemini-cli
+- Kilo Code: kilocode.ai, github.com/Kilo-Org/kilocode
+- OpenRouter: openrouter.ai, openrouter.ai/docs
+
+**Narzędzia naukowe:**
+- ASReview: asreview.nl, asreview.ai, github.com/asreview/asreview
+- Rayyan: rayyan.ai
+
+**Serwery MCP:**
+- Context7: github.com/upstash/context7
+- IURA AI: iura.io, iurachat.com, github.com/iura-ai/IURA-Plugins
+- Polish Academic MCP: github.com/asterixix/polish-academic-mcp
+- ast-grep MCP: github.com/ast-grep/ast-grep-mcp
+- MCP-Grep: pypi.org/project/mcp-grep
+- Awesome MCP Servers: github.com/punkpeye/awesome-mcp-servers
+- Glama MCP Directory: glama.ai/mcp/servers
+- OpenCode: opencode.ai, github.com/sst/opencode
+- Claude Code: docs.anthropic.com/claude-code
+- Gemini CLI: github.com/google-gemini/gemini-cli
+
+> Dodatkowe dane rynkowe (udziały, trendy) traktuj jako orientacyjne i sprawdzaj metodologię raportu przed cytowaniem.
+
+---
+
+*Licencja: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.pl) — możesz swobodnie używać, adaptować i udostępniać z podaniem źródła.*
+

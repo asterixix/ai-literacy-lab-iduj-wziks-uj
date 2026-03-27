@@ -1,0 +1,446 @@
+---
+slug: "ai-na-codzien"
+number: 2
+title: "AI na co dzień – Porównanie narzędzi"
+titleEn: "AI in Daily Use – Tool Comparison"
+duration: "2 godziny"
+tags: ["ChatGPT", "Claude", "Gemini", "Perplexity", "LM Studio", "Prywatność", "RODO", "OpenRouter", "Modele lokalne"]
+instructor: "Artur Sendyka"
+dates:
+  - group: "Grupa 1"
+    date: "21.04.2026"
+    time: "17:00–19:00"
+  - group: "Grupa 2"
+    date: "22.04.2026"
+    time: "17:00–19:00"
+objectives:
+  - "Scharakteryzować różnice między głównymi narzędziami AI dostępnymi w 2026 roku"
+  - "Dobrać odpowiednie narzędzie do konkretnego zadania akademickiego"
+  - "Ocenić ryzyko prywatności danych przy pracy z narzędziami chmurowymi"
+  - "Zainstalować i uruchomić lokalny model językowy w LM Studio"
+  - "Wyłączyć trenowanie modelu na własnych danych w ChatGPT i Claude"
+tools:
+  - "ChatGPT (chat.openai.com)"
+  - "Claude.ai (claude.ai)"
+  - "Gemini (gemini.google.com)"
+  - "Perplexity AI (perplexity.ai)"
+  - "LM Studio (lmstudio.ai)"
+  - "OpenRouter (openrouter.ai)"
+description: "Praktyczne porównanie głównych narzędzi AI dostępnych w 2026 — od ChatGPT po lokalne modele — z naciskiem na dobór narzędzia do zadania i świadomość prywatności danych badawczych."
+---
+
+## Wprowadzenie
+
+W poprzednim module zbudowałeś/zbudowałaś fundament pojęciowy — wiesz już czym jest LLM, RAG i agent AI. Czas przejść od teorii do praktyki: **jakiego narzędzia używać i kiedy?**
+
+W 2026 roku liczba dostępnych modeli i interfejsów jest przytłaczająca. Tylko przez OpenRouter masz dostęp do ponad 290 modeli od kilkudziesięciu dostawców. ChatGPT, Claude, Gemini — każde z tych narzędzi ma swoje mocne strony, ograniczenia i — co kluczowe dla studenta — **różne polityki prywatności danych**.
+
+Ten moduł daje Ci mapę tego ekosystemu i kompas do podejmowania świadomych wyborów. Nie chodzi o to, żeby znaleźć „jedno najlepsze" narzędzie. Chodzi o to, żebyś wiedział/wiedziała **które narzędzie wybrać do konkretnego zadania** — i kiedy żadne z chmurowych nie powinno zobaczyć Twoich danych.
+
+---
+
+## 1. Mapa ekosystemu AI w 2026
+
+### 1.1 Trzy kategorie narzędzi
+
+Zanim przejdziemy do konkretnych produktów, warto zrozumieć podział rynku:
+
+**Zamknięte modele chmurowe** to narzędzia firm takich jak OpenAI (ChatGPT), Anthropic (Claude) i Google (Gemini). Trenowane na ogromnych zbiorach danych, oferowane jako subskrypcje lub API. Twoje dane trafiają na serwery tych firm.
+
+**Otwarte modele lokalne** to modele, których wagi są publicznie dostępne — Llama (Meta), Mistral, Phi (Microsoft), DeepSeek. Możesz uruchomić je na własnym komputerze przez LM Studio. Twoje dane **nie opuszczają komputera**.
+
+**Agregatory i narzędzia hybrydowe** to serwisy takie jak OpenRouter (dostęp do 290+ modeli przez jedno API), Perplexity AI (wyszukiwarka z LLM), czy NotebookLM (RAG na Twoich dokumentach).
+
+### 1.2 OpenRouter — jeden klucz do wszystkich modeli
+
+[OpenRouter](https://openrouter.ai) to agregator API, który daje dostęp do ponad 290 modeli od wszystkich głównych dostawców przez jeden klucz API i jeden system rozliczeń. Nie dodaje marży na tokenach — pobiera jednorazową opłatę 5,5% przy zakupie kredytów.
+
+**Dlaczego to ważne dla warsztatów?** Zamiast zakładać 5 osobnych kont i zarządzać 5 kluczami API, w ramach AI Literacy Lab każdy uczestnik dostał kredyty OpenRouter — i ma dostęp do wszystkich modeli omówionych w tym module przez jeden interfejs.
+
+```text
+Darmowe modele na OpenRouter (marzec 2026, bez karty kredytowej):
+- Meta: Llama 4 Scout (10M context!)
+- Google: Gemini 2.5 Flash 8B
+- Mistral: Mistral 7B Instruct
+- DeepSeek: DeepSeek V3.2 (256K context)
+- NVIDIA: Llama 3.3 Nemotron 70B
+Łącznie: 25+ modeli za $0
+```
+
+Limity darmowe: 20 zapytań/minutę, 200 zapytań/dzień — wystarczające do ćwiczeń.
+
+---
+
+## 2. Przegląd głównych narzędzi (stan marzec 2026)
+
+### 2.1 ChatGPT (OpenAI)
+
+**Czym jest:** Najbardziej rozpoznawalne narzędzie AI na świecie. W marcu 2026 działa na modelach rodziny GPT-5.2 i GPT-5.4 (w zależności od planu).
+
+**Plany i limity (źródło: chatgpt.com/pricing, 27.03.2026):**
+
+| Plan | Cena | Modele | Limity | Reklamy |
+|---|---|---|---|---|
+| Free | $0 | GPT-5.3 (ograniczony) | ~10 wiad./5h, potem downgrade | Tak (USA, od 02.2026) |
+| Go | $8/mies. | GPT-5.2 | Wyższe, bez reklam | Nie |
+| Plus | $20/mies. | GPT-5.4 Thinking | ~320 stron kontekstu, Deep Research 10×/mies. | Nie |
+| Pro | $200/mies. | GPT-5.4 Pro (unlimited) | Bez limitów, 400K ctx | Nie |
+
+**Mocne strony:** Ogromna baza użytkowników = bogata dokumentacja i pomoc online. Najszerszy ekosystem (DALL-E, Sora, Codex). Świetny do zadań kreatywnych i analizy kodu.
+
+**Słabe strony:** Modele GPT-5.x na planie Free są mocno ograniczone. Od lutego 2026 Free ma reklamy (w USA). Polityka prywatności mniej transparentna niż Claude.
+
+**Polityka prywatności i trening modelu:**
+- **Domyślnie:** Twoje rozmowy mogą być używane do trenowania modeli
+- **Opt-out:** Ustawienia → Kontrola danych → Wyłącz „Improve model for everyone"
+- **API i plan Business/Enterprise:** Dane NIE są używane do trenowania domyślnie
+
+> **Ważne dla studentów:** Jeśli wklejasz fragmenty niepublikowanej pracy badawczej, wyników badań lub danych osobowych respondentów — **wyłącz trenowanie lub użyj API / planu Business**.
+
+### 2.2 Claude (Anthropic)
+
+**Czym jest:** Model AI stworzony przez Anthropic z myślą o bezpieczeństwie i konstytucjonalnym AI. Wyróżnia się największym oknem kontekstu (1M tokenów) i świetną jakością analizy długich dokumentów.
+
+**Plany i limity (źródło: claude.ai/pricing, 27.03.2026):**
+
+| Plan | Cena | Modele | Charakterystyka |
+|---|---|---|---|
+| Free | $0 | Sonnet 4.6, Haiku 4.5 | ~10–15 wiad./sesję (nieoficjalnie), brak Projects |
+| Pro | $20/mies. ($17 rocznie) | Opus 4.6 + Sonnet + Haiku | ~45 wiad./5h (nieoficjalnie), Projects, Claude Code, pamięć |
+| Max 5× | $100/mies. | Jak Pro | 5× więcej niż Pro, Claude w PowerPoint |
+| Max 20× | $200/mies. | Jak Pro | 20× więcej niż Pro, priorytet |
+| Team | $25/seat/mies. | Jak Pro | Brak trenowania na danych domyślnie, admin |
+| Enterprise | Custom | Jak Pro | SSO, SCIM, 500K ctx, HIPAA |
+
+Anthropic oferuje **plan edukacyjny** dla uczelni — warto sprawdzić czy UJ posiada licencję instytucjonalną.
+
+**Mocne strony:** Najlepszy do analizy bardzo długich dokumentów (1M tokenów = 750 tys. słów). Wysoka jakość writing i reasoning. Transparentna polityka bezpieczeństwa. Projekty (Projects) — Claude pamięta kontekst między sesjami.
+
+**Słabe strony:** Anthropic nie publikuje dokładnych limitów wiadomości — trudno zaplanować intensywną pracę. Brak natywnej integracji z wyszukiwaniem w darmowym planie (tylko Pro).
+
+**Polityka prywatności:**
+- **Free/Pro:** Treści mogą być przeglądane przez pracowników dla bezpieczeństwa; możliwe użycie do trenowania (opt-out dostępny)
+- **Team/Enterprise:** Brak trenowania na danych klientów domyślnie — kluczowe dla danych badawczych
+
+### 2.3 Gemini (Google)
+
+**Czym jest:** Model AI Google, głęboko zintegrowany z ekosystemem Google (Workspace, Dysk, Gmail). W marcu 2026 dostępne modele Gemini 3.x.
+
+**Plany (źródło: one.google.com/about/ai-premium, 27.03.2026):**
+
+| Plan | Cena | Modele | Charakterystyka |
+|---|---|---|---|
+| Free | $0 | Gemini 3 Flash (8B) | Ograniczone zapytania |
+| Google AI Pro | ~$22/mies. | Gemini 3.1 Pro (1M ctx) | Integracja z Workspace |
+| API (przez OpenRouter) | $2/1M input, $12/1M output | Gemini 3.1 Pro | Pay-per-use |
+
+**Mocne strony:** Najlepsza integracja z Google Workspace (Docs, Sheets, Drive). Świetne do analizy obrazów i multimediów. Model Gemini 3 Flash jest darmowy i szybki dla prostych zadań.
+
+**Słabe strony:** Dane powiązane z kontem Google — jeśli korzystasz z Google'a w celach prywatnych, Gemini ma dostęp do szerokiego kontekstu o Tobie. Gorszy od Claude w długich analizach dokumentów.
+
+**Polityka prywatności:**
+- Rozmowy mogą być przeglądane przez pracowników Google
+- Historię można wyłączyć: Gemini → Kontrola aktywności Gemini
+
+### 2.4 Perplexity AI
+
+**Czym jest:** Wyszukiwarka z wbudowanym LLM — hybrid między Google a ChatGPT. Każda odpowiedź zawiera cytowania do aktualnych stron internetowych. **To narzędzie z RAG domyślnie**.
+
+**Plany (źródło: perplexity.ai, 27.03.2026):**
+
+| Plan | Cena | Charakterystyka |
+|---|---|---|
+| Free | $0 | Podstawowe wyszukiwanie, ograniczone Pro Searches |
+| Pro | $20/mies. ($200/rok) | Unlimited Pro Searches, zaawansowane modele, upload plików, generowanie obrazów |
+| Education Pro | $10/mies. (weryfikacja statusu studenta przez SheerID) | Wszystko co Pro, dostęp do Perplexity Academic |
+| Max | $200/mies. | Unlimited wszystkiego, wczesny dostęp do nowych modeli |
+
+> **Dla studentów UJ:** Sprawdź Perplexity Education Pro ($10/mies.) — po weryfikacji statusu studenta dostajesz pełny dostęp.
+
+**Mocne strony:** Zawsze aktualne informacje z internetu. Cytowania ułatwiają weryfikację. Idealne do quick research i fact-checking. Tryb „Academic" przeszukuje recenzowane bazy.
+
+**Słabe strony:** Nie zastąpi głębokiej analizy dokumentów. Jakość wychodzi poza wyszukiwaniem jest słabsza niż dedykowanych modeli.
+
+**Kiedy używać Perplexity zamiast Google:**
+- Chcesz syntetycznej odpowiedzi, nie listy linków
+- Potrzebujesz aktualnych danych z cytatami
+- Sprawdzasz czy artykuł/osoba istnieje
+- Szybkie porównanie kilku źródeł
+
+### 2.5 LM Studio — lokalne modele
+
+**Czym jest:** Aplikacja desktopowa umożliwiająca uruchomienie modeli językowych w 100% lokalnie — na własnym komputerze, bez połączenia z internetem, bez wysyłania danych na zewnątrz.
+
+**Aktualna wersja:** LM Studio 0.3.x (sprawdź [lmstudio.ai](https://lmstudio.ai) dla najnowszej)
+
+**Wymagania sprzętowe:**
+
+| Konfiguracja | Modele które uruchomisz | Przykład |
+|---|---|---|
+| 8GB RAM (bez GPU) | Modele 3–7B (jakość dobra) | Phi-4 Mini, Gemma 3 2B |
+| 16GB RAM | Modele 7–13B (jakość bardzo dobra) | Mistral 7B, Llama 3.2 8B |
+| 32GB RAM / GPU 12GB | Modele 13–30B (jakość frontier-like) | Qwen 2.5 14B |
+| GPU 24GB+ | Modele 70B+ | Llama 4 Scout, Qwen 72B |
+
+**Instalacja krok po kroku:**
+
+1. Pobierz LM Studio z [lmstudio.ai](https://lmstudio.ai) (Windows/Mac/Linux)
+2. Uruchom aplikację → zakładka **Discover**
+3. W wyszukiwarce wpisz `phi-4-mini` (model ok. 2,5 GB, działa na 8GB RAM)
+4. Kliknij **Download** → poczekaj na pobranie
+5. Przejdź do zakładki **Chat** → wybierz pobrany model
+6. Zacznij rozmawiać — wszystko działa lokalnie
+
+**Mocne strony:** Pełna prywatność — zero wysyłania danych. Działa offline. Brak limitów zapytań. Możliwość pracy z danymi wrażliwymi (dane osobowe, niepublikowane wyniki badań).
+
+**Słabe strony:** Modele lokalne są słabsze od frontier models. Wymaga miejsca na dysku (modele 2–40 GB). Na słabym sprzęcie generowanie jest wolne.
+
+---
+
+## 3. Tabela porównawcza — przewodnik decyzyjny
+
+Poniższa tabela pomaga wybrać narzędzie do konkretnego zadania. Źródła: oficjalne strony narzędzi, zweryfikowane 27.03.2026.
+
+| Kryterium | ChatGPT Plus | Claude Pro | Gemini Pro | Perplexity Pro | LM Studio |
+|---|---|---|---|---|---|
+| **Cena/mies.** | $20 | $20 | ~$22 | $20 ($10 edu) | Bezpłatne |
+| **Darmowy tier** | Ograniczony, reklamy (USA) | Tak, bez reklam | Tak | Tak | — |
+| **Okno kontekstu** | 320K (Plus) | 1M | 1M | ~200K | Zależy od modelu |
+| **Aktualne dane** | Tak (web search) | Tak (web search Pro) | Tak | **Tak (domyślnie)** | Nie (offline) |
+| **Prywatność** | Opt-out trenowania | Opt-out trenowania | Powiązane z Google | Opt-out | **Pełna — lokalnie** |
+| **Najlepsze do** | Kreatywne, kod, ekosystem | Długie dok., analiza, pisanie | Google Workspace | Research, fact-checking | Dane wrażliwe, offline |
+| **Słabe strony** | Limity, reklamy (Free) | Niepublikowane limity | Ekosystem Google | Nie zastąpi głębokiej analizy | Słabszy model, wolny |
+| **Bezpłatny model** | GPT-5.3 (ograniczony) | Sonnet 4.6 (ograniczony) | Gemini 3 Flash | Podstawowe wyszukiwanie | Phi-4 Mini, Llama |
+
+---
+
+## 4. Prywatność i RODO — co musisz wiedzieć jako student-badacz
+
+### 4.1 Co faktycznie wysyłasz do chmury?
+
+Kiedy piszesz do ChatGPT, Claude czy Gemini, na serwery firmy trafiają:
+- Treść Twoich promptów (wszystko co napiszesz)
+- Treść wklejonych dokumentów i plików
+- Historia rozmów (do momentu jej usunięcia)
+- Metadane: czas, urządzenie, IP
+
+### 4.2 Kiedy dane mogą trafić do treningu modelu?
+
+Domyślnie — u **wszystkich darmowych dostawców** — tak. Możesz to wyłączyć:
+
+**ChatGPT:**
+```text
+Ustawienia (ikona profilu) → Ustawienia → Kontrola danych
+→ Wyłącz: "Popraw model dla wszystkich"
+```
+
+**Claude.ai:**
+```text
+Ustawienia → Prywatność
+→ Wyłącz: "Ulepszaj produkty Anthropic"
+(lub korzystaj z planu Team/Enterprise — tam domyślnie wyłączone)
+```
+
+**Gemini:**
+```text
+Konto Google → Dane i prywatność → Kontrola aktywności Gemini
+→ Wyłącz historię aktywności Gemini
+```
+
+### 4.3 Trzy zasady bezpiecznego korzystania z AI w badaniach
+
+**Zasada 1 — Dane osobowe respondentów:** Nigdy nie wklejaj do modeli chmurowych danych osobowych uczestników badania (imię, wiek, miejsce zamieszkania, odpowiedzi z wywiadu). To naruszenie RODO. Zanonimizuj dane **przed** wklejeniem.
+
+**Zasada 2 — Niepublikowane wyniki badań:** Jeśli prowadzisz badania i masz wyniki, które jeszcze nie zostały opublikowane — nie wklejaj ich do modeli chmurowych bez opt-out trenowania lub bez planu Enterprise. Możesz stracić pierwszeństwo odkrycia.
+
+**Zasada 3 — Dane wrażliwe = model lokalny:** Jeśli Twoje dane wymagają poufności (wywiad kliniczny, dane medyczne, wrażliwe dane socjoekonomiczne) — użyj LM Studio. Żadne dane nie opuszczą Twojego komputera.
+
+### 4.4 RODO i modele AI
+
+Rozporządzenie AI Act (UE) weszło w życie stopniowo w latach 2024–2026. Kluczowe z perspektywy studenta:
+- Narzędzia AI do oceny studentów (np. systemów antyplagiatowych z AI) wymagają transparentności
+- Przetwarzanie danych osobowych przez LLM podlega RODO — dostawcy (OpenAI, Anthropic, Google) muszą mieć DPA (*Data Processing Agreement*)
+- Twoje dane przesyłane do serwerów USA są objęte mechanizmami transfer (Privacy Shield następca, SCC)
+
+---
+
+## 5. Dobór narzędzia do zadania — praktyczna matryca
+
+Studenci WZiKS i ISI UJ mają różne potrzeby. Oto jak dobierać narzędzie:
+
+| Zadanie | Rekomendowane narzędzie | Dlaczego |
+|---|---|---|
+| Szybkie sprawdzenie faktu / aktualności | **Perplexity AI** | RAG domyślnie, cytowania |
+| Analiza długiego artykułu PDF | **Claude Pro** lub **NotebookLM** | 1M token context, RAG na plikach |
+| Pisanie i korekta tekstu akademickiego | **Claude Pro** | Najlepsza jakość writing |
+| Generowanie i debugowanie kodu | **ChatGPT Plus** lub **Claude Pro** | Oba bardzo dobre, Codex w ChatGPT |
+| Praca z Google Docs/Sheets | **Gemini Pro** | Natywna integracja |
+| Dane wrażliwe / praca offline | **LM Studio** | Pełna prywatność |
+| Porównanie wielu modeli | **OpenRouter** | Jeden interfejs, 290+ modeli |
+| Szybki chat bez rejestracji | **Claude Free** lub **ChatGPT Free** | Bez reklam (Claude), dobre modele |
+| Streszczenie wielu własnych PDF-ów | **NotebookLM** (Google) | RAG na własnych dokumentach, bezpłatne |
+
+---
+
+## 6. Przebieg modułu — timeline
+
+| Czas | Aktywność | Forma |
+|---|---|---|
+| 0–10 min | Ankieta wstępna: z jakich narzędzi już korzystasz? | Mentimeter |
+| 10–30 min | Mini-wykład: mapa ekosystemu, przegląd narzędzi | Wykład + demo |
+| 30–60 min | **Ćwiczenie 1:** Live comparison — to samo zadanie w 4 narzędziach | Praca w parach |
+| 60–80 min | **Ćwiczenie 2:** Test prywatności — wyłączenie trenowania | Praca własna |
+| 80–110 min | **Ćwiczenie 3:** Instalacja i konfiguracja LM Studio | Praca własna |
+| 110–120 min | Podsumowanie, budowanie tabeli rekomendacji, Q&A | Dyskusja grupowa |
+
+---
+
+## 7. Ćwiczenia praktyczne
+
+### Ćwiczenie 1 — Live Comparison: to samo zadanie, 4 narzędzia (30 min)
+
+**Cel:** Zobaczyć różnice między narzędziami na własne oczy — nie z opisu, ale z praktyki.
+
+**Przygotowanie:** Prowadzący dostarcza abstrakt artykułu naukowego (1 akapit po angielsku, z bazy Semantic Scholar). Każdy uczestnik otwiera 4 zakładki w przeglądarce.
+
+**Zadanie:** Wklej do każdego narzędzia ten sam prompt:
+
+```text
+Jesteś asystentem badawczym. Przeczytaj poniższy abstrakt artykułu naukowego
+i wykonaj następujące zadania:
+1. Streszczenie w 2 zdaniach (po polsku)
+2. Typ badania (jakościowe/ilościowe/mixed methods)
+3. Główny wynik lub wniosek
+4. Jedno ograniczenie badania, które dostrzegasz
+
+Abstrakt: [wklej dostarczony abstrakt]
+```
+
+**Tabela oceny** (wypełnij dla każdego narzędzia):
+
+| Kryterium | ChatGPT | Claude | Gemini | Perplexity |
+|---|---|---|---|---|
+| Poprawność streszczenia (1–5) | | | | |
+| Poprawność typu badania (T/N) | | | | |
+| Jakość języka polskiego (1–5) | | | | |
+| Czy podało cytowania/źródła? | | | | |
+| Czas odpowiedzi (sekundy) | | | | |
+| Zauważone halucynacje? | | | | |
+
+**Omówienie po ćwiczeniu:**
+- Które narzędzie wypadło najlepiej? Dlaczego?
+- Czy któreś podało fałszywe informacje?
+- Czy Perplexity podało więcej kontekstu (RAG)?
+
+### Ćwiczenie 2 — Test prywatności (20 min)
+
+**Cel:** Świadome skonfigurowanie narzędzi pod kątem ochrony danych.
+
+**Krok 1 — ChatGPT:**
+1. Zaloguj się na chat.openai.com
+2. Kliknij ikonę profilu (prawy górny róg) → Ustawienia
+3. Zakładka **Kontrola danych** (lub Data controls)
+4. Sprawdź czy opcja „Ulepsz model dla wszystkich" jest włączona
+5. Wyłącz ją jeśli jest włączona
+6. Sprawdź sekcję **Historii czatu** — kiedy historia jest wyłączona, rozmowy nie są zapisywane ani używane do trenowania
+
+**Krok 2 — Claude.ai:**
+1. Zaloguj się na claude.ai
+2. Kliknij inicjały (prawy górny róg) → Ustawienia
+3. Znajdź sekcję prywatności
+4. Sprawdź opcje dotyczące trenowania modelu
+
+**Krok 3 — Porównaj polityki:**
+Wejdź na:
+- [openai.com/policies/privacy-policy](https://openai.com/policies/privacy-policy)
+- [anthropic.com/privacy](https://www.anthropic.com/privacy)
+
+Odpowiedz na pytania:
+- Jak długo dane są przechowywane domyślnie?
+- Czy firmy mają DPA dla europejskich użytkowników?
+- Co dzieje się z danymi po usunięciu konta?
+
+### Ćwiczenie 3 — Instalacja i konfiguracja LM Studio (30 min)
+
+**Cel:** Uruchomić lokalny model językowy i zrozumieć różnicę w prywatności.
+
+**Krok 1 — Pobierz i zainstaluj:**
+1. Wejdź na [lmstudio.ai](https://lmstudio.ai)
+2. Pobierz wersję dla swojego systemu (Windows/Mac/Linux)
+3. Zainstaluj — nie wymaga uprawnień administratora
+
+**Krok 2 — Pobierz model:**
+1. Uruchom LM Studio → zakładka **Discover** (lupa)
+2. Wyszukaj: `microsoft/phi-4-mini-instruct`
+3. Kliknij Download Q4_K_M (około 2,5 GB — dobry balans jakości i rozmiaru)
+4. Poczekaj na pobranie (zależy od łącza, ~5–10 min na dobrym WiFi)
+
+**Krok 3 — Pierwsza rozmowa lokalnie:**
+1. Zakładka **Chat** (ikona wiadomości)
+2. Z listy modeli wybierz pobrany phi-4-mini
+3. Zadaj to samo pytanie co w Ćwiczeniu 1
+4. Porównaj jakość z odpowiedziami z chmury
+
+**Krok 4 — Weryfikacja prywatności:**
+1. Odłącz komputer od sieci WiFi
+2. Zadaj pytanie w LM Studio — czy nadal działa?
+3. Otwórz Menedżera zadań/Activity Monitor podczas rozmowy
+4. Sprawdź czy LM Studio wykonuje jakiekolwiek połączenia sieciowe
+
+**Pytania do refleksji:**
+- W jakich sytuacjach na studiach możesz potrzebować modelu lokalnego?
+- Jak jakość phi-4-mini porównuje się z Claude czy ChatGPT?
+- Jaki jest kompromis: prywatność vs. jakość modelu?
+
+---
+
+## 8. Narzędzia i zasoby
+
+### Linki do omówionych narzędzi
+
+| Narzędzie | Link | Darmowe konto |
+|---|---|---|
+| ChatGPT | [chat.openai.com](https://chat.openai.com) | Tak (z reklamami w USA) |
+| Claude | [claude.ai](https://claude.ai) | Tak (bez reklam) |
+| Gemini | [gemini.google.com](https://gemini.google.com) | Tak (konto Google) |
+| Perplexity | [perplexity.ai](https://perplexity.ai) | Tak; edu: $10 |
+| LM Studio | [lmstudio.ai](https://lmstudio.ai) | Tak (aplikacja) |
+| OpenRouter | [openrouter.ai](https://openrouter.ai) | Tak (25+ modeli gratis) |
+| NotebookLM | [notebooklm.google.com](https://notebooklm.google.com) | Tak |
+
+### Przydatne narzędzia pomocnicze
+
+- **DeepL** ([deepl.com](https://deepl.com)) — tłumaczenie artykułów naukowych na język roboczy
+- **Kalkulator tokenów** ([langcopilot.com/tools/token-calculator](https://langcopilot.com/tools/token-calculator)) — sprawdzanie kosztów przed wysłaniem zapytania
+- **Porównywarka modeli AI** ([lmsys.org/chatbot-arena](https://lmsys.org/chatbot-arena)) — community ranking modeli w zadaniach praktycznych
+
+---
+
+## 9. Pytania kontrolne
+
+Po module odpowiedz na poniższe pytania:
+
+1. Masz przeprowadzić wywiad z 20 respondentami i chcesz użyć AI do transkrypcji i analizy. Które narzędzie wybierzesz i dlaczego? Jakie kroki podejmiesz aby zapewnić zgodność z RODO?
+
+2. Piszesz pracę dyplomową i potrzebujesz AI do korekty językowej polskiego tekstu (50 stron). ChatGPT Free, Claude Free, czy LM Studio — co wybierasz i dlaczego?
+
+3. Na której stronie w ustawieniach ChatGPT można wyłączyć używanie rozmów do trenowania modelu? Opisz ścieżkę klikania.
+
+4. Twój kolega twierdzi, że „Perplexity jest lepsze od Google Scholar do szukania artykułów". Zgadzasz się? Kiedy tak, kiedy nie?
+
+5. Komputer koleżanki ma 8GB RAM i brak dedykowanej karty graficznej. Który model polecisz jej w LM Studio i dlaczego?
+
+6. Jaka jest różnica między planem Free a Pro w Claude pod względem prywatności danych? Kiedy ta różnica ma znaczenie?
+
+---
+
+## 10. Materiały do dalszej nauki
+
+- **Oficjalne porównanie modeli Anthropic:** [anthropic.com/claude/compare](https://www.anthropic.com/claude/compare)
+- **OpenRouter modele i ceny (aktualizowane codziennie):** [openrouter.ai/models](https://openrouter.ai/models)
+- **LMSYS Chatbot Arena** — crowdsourced benchmark modeli na prawdziwych zadaniach: [lmsys.org/chatbot-arena](https://lmsys.org/chatbot-arena)
+- **Perplexity Education Pro** — weryfikacja statusu studenta przez SheerID: [perplexity.ai/hub/education](https://www.perplexity.ai/hub/education)
+- **Polityka prywatności OpenAI:** [openai.com/policies/privacy-policy](https://openai.com/policies/privacy-policy)
+- **Polityka prywatności Anthropic:** [anthropic.com/privacy](https://www.anthropic.com/privacy)
+- **AI Act UE — podsumowanie dla użytkowników:** [digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai)
+- **LM Studio dokumentacja i poradniki:** [lmstudio.ai/docs](https://lmstudio.ai/docs)

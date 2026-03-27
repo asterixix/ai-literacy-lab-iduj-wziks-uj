@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Literacy Lab — platforma szkoleniowa
 
-## Getting Started
+Szkielet platformy edukacyjnej dla projektu:
 
-First, run the development server:
+**AI Literacy Lab – Warsztaty kompetencyjne ze sztucznej inteligencji dla studentów UJ**  
+WZiKS UJ · ID.UJ · 2026
+
+## Stack
+
+- Next.js 15 (App Router)
+- TypeScript (strict)
+- Tailwind CSS v4
+- shadcn/ui
+- Framer Motion v11
+- MDX (`@next/mdx` + `next-mdx-remote`)
+- pnpm
+
+## Uruchomienie lokalne
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Aplikacja będzie dostępna pod `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Struktura projektu
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```text
+src/
+├── app/
+│   ├── page.tsx
+│   ├── program/
+│   ├── materialy/
+│   ├── harmonogram/
+│   └── o-projekcie/
+├── components/
+│   ├── layout/
+│   ├── sections/
+│   └── ui/
+├── content/
+│   ├── modules/
+│   └── materials/
+├── lib/
+│   ├── mdx.ts
+│   ├── modules.ts
+│   └── materials.ts
+└── types/
+```
 
-## Learn More
+## Dodawanie treści MDX
 
-To learn more about Next.js, take a look at the following resources:
+### Moduły programu
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Dodaj plik do `src/content/modules/` w formacie:
+   `NN-slug.mdx` (np. `07-nowy-modul.mdx`)
+2. Uzupełnij frontmatter (`slug`, `number`, `title`, `duration`, `tags`, itd.).
+3. Dodaj odpowiadający wpis do `src/lib/modules.ts`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Materiały OER
 
-## Deploy on Vercel
+- Treść sekcji informacyjnej edytuj w `src/content/materials/index.mdx`.
+- Karty materiałów są definiowane w `src/lib/materials.ts`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Jakość kodu
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+pnpm lint
+pnpm build
+```
+
+## Konfiguracja środowiska
+
+Skopiuj `.env.local.example` do `.env.local` i podmień placeholdery:
+
+- `NEXT_PUBLIC_REGISTRATION_URL`
+- `NEXT_PUBLIC_GITHUB_URL`
+
+## Licencja materiałów
+
+Docelowo treści OER publikowane są na licencji **CC BY-SA 4.0**.

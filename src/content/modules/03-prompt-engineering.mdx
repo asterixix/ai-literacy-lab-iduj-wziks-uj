@@ -1,0 +1,643 @@
+---
+slug: "prompt-engineering"
+number: 3
+title: "Zrozumieć AI – Prompt Engineering i Agenty"
+titleEn: "Understanding AI – Prompt Engineering and Agents"
+duration: "2 godziny"
+tags: ["Prompt Engineering", "Few-shot", "Chain-of-Thought", "System Prompts", "Zero-shot", "Temperatura", "Agenty AI", "MCP", "Meta-prompting"]
+instructor: "Artur Sendyka"
+dates:
+  - group: "Grupa 1"
+    date: "28.04.2026"
+    time: "17:00–19:00"
+  - group: "Grupa 2"
+    date: "29.04.2026"
+    time: "17:00–19:00"
+objectives:
+  - "Konstruować skuteczne prompty według struktury CIFTEC"
+  - "Stosować techniki zero-shot, few-shot, chain-of-thought i role prompting"
+  - "Świadomie dobierać parametry generowania: temperatura, top_p, max_tokens"
+  - "Zbudować i przetestować własnego agenta AI z system promptem"
+  - "Iteracyjnie ulepszać prompt w minimum 5 krokach"
+tools:
+  - "Claude.ai (claude.ai)"
+  - "ChatGPT (chat.openai.com)"
+  - "OpenRouter Playground (openrouter.ai/playground)"
+  - "Anthropic Prompt Library (docs.anthropic.com/en/prompt-library)"
+description: "Praktyczne warsztaty z prompt engineeringu: od anatomii dobrego promptu przez techniki chain-of-thought i few-shot po budowanie agentów AI z system promptami. Uczestnicy wychodzą z osobistą biblioteką promptów i umiejętnością iteracyjnego ulepszania komunikacji z modelem."
+---
+
+## Wprowadzenie
+
+Dwa poprzednie moduły dały Ci mapę świata AI — wiesz jak działają modele i które narzędzie wybrać. Teraz czas na **język, którym rozmawiasz z modelem**.
+
+Prompt engineering to nie czarodziejstwo. To umiejętność **precyzyjnej komunikacji z systemem**, który rozumie kontekst, ale nie czyta w myślach. Różnica między słabym a dobrym promptem może oznaczać różnicę między odpowiedzią bezużyteczną a gotowym szkicem rozdziału pracy dyplomowej.
+
+Co ważne — w 2026 roku modele stały się znacznie lepsze w rozumieniu intencji. Andrej Karpathy (jeden z twórców GPT) ujął to tak: LLM to CPU, okno kontekstu to RAM, a Twój prompt to **system operacyjny** — ładujesz do pamięci dokładnie te dane i instrukcje, których model potrzebuje do wykonania zadania. Złe zarządzanie tą pamięcią to najczęstszy powód słabych odpowiedzi.
+
+Po tym module wyjdziesz z osobistą **biblioteką 20+ gotowych promptów** do zastosowania w codziennej pracy akademickiej.
+
+---
+
+## 1. Anatomia dobrego promptu — framework CIFTEC
+
+Dobry prompt to nie jedno zdanie. To zestaw sześciu elementów, które razem dają modelowi pełny kontekst do wykonania zadania. Framework **CIFTEC** porządkuje te elementy:
+
+| Element | Co zawiera | Pytanie kontrolne |
+|---|---|---|
+| **C**ontext | Kim jesteś, jaki jest cel, dla kogo piszesz | *Skąd model ma wiedzieć, kim jesteś?* |
+| **I**nstruction | Co dokładnie ma zrobić model | *Czy instrukcja jest jednoznaczna?* |
+| **F**ormat | Jak ma wyglądać odpowiedź | *Lista? Tabela? Akapity? Kod?* |
+| **T**one | Styl i rejestr językowy | *Formalny? Akademicki? Prosty?* |
+| **E**xamples | 1–3 przykłady pożądanego wyniku | *Czy model wie, czego dokładnie chcesz?* |
+| **C**onstraints | Długość, zakres, czego unikać | *Co model NIE powinien robić?* |
+
+### 1.1 Zły prompt vs. dobry prompt — porównanie
+
+**Zły prompt:**
+
+```text
+Napisz mi coś o AI w edukacji.
+```
+
+Brakuje kontekstu (kto pisze?), instrukcji (co dokładnie?), formatu (ile słów?), tonu i ograniczeń. Model wygeneruje coś generycznego.
+
+**Dobry prompt z CIFTEC:**
+
+```text
+[Context] Jestem studentką II roku zarządzania informacją na UJ.
+Piszę wstęp do pracy licencjackiej.
+
+[Instruction] Napisz akapit wprowadzający (ok. 150 słów) do rozdziału
+poświęconego zastosowaniu narzędzi AI w procesie pisania prac dyplomowych
+przez studentów polskich uczelni.
+
+[Format] Jeden spójny akapit prozą, styl akademicki, bez punktorów.
+
+[Tone] Formalny, akademicki, bez slangowych określeń jak "rewolucja AI".
+
+[Examples] Wzór tonu: "Dynamiczny rozwój technologii sztucznej inteligencji
+otwiera nowe perspektywy dla procesów dydaktycznych..."
+
+[Constraints] Unikaj ogólników. Odwołaj się do kontekstu polskiego
+szkolnictwa wyższego. Nie używaj słowa "fascynujący".
+```
+
+Różnica w jakości odpowiedzi będzie dramatyczna. Przetestuj to podczas ćwiczeń.
+
+---
+
+## 2. Techniki prompt engineeringu
+
+### 2.1 Zero-shot prompting
+
+Bezpośrednia instrukcja bez podawania przykładów. Opiera się w całości na wiedzy modelu. Działa dobrze dla prostych, dobrze zdefiniowanych zadań.
+
+```text
+Sklasyfikuj poniższy abstrakt jako: badanie ilościowe / jakościowe / mixed methods.
+Odpowiedz jednym słowem.
+
+Abstrakt: [wklej abstrakt]
+```
+
+**Kiedy używać:** Proste klasyfikacje, tłumaczenia, streszczenia, formatowanie.
+
+**Kiedy nie działa:** Złożone zadania wymagające konkretnego stylu lub formatu — tu potrzebujesz przykładów (few-shot).
+
+### 2.2 Few-shot learning
+
+Podajesz modelowi 2–5 par wejście→wyjście jako wzorce do naśladowania. To jedna z technik o **najwyższym zwrocie z inwestycji** — małym kosztem (kilka przykładów) dajesz modelowi dokładny wzorzec stylu, tonu i formatu.
+
+Ważne odkrycie z badań (Min et al., 2022): **poprawność etykiet w przykładach ma mniejsze znaczenie niż myślisz** — liczy się przestrzeń etykiet i różnorodność przykładów, nie ich idealna poprawność.
+
+```text
+Przekształć poniższe cytowania z formatu Harvard na APA 7.
+
+Przykład 1:
+Harvard: Smith, J. (2023) "AI in Education", Journal of Learning, vol. 15, pp. 23-41.
+APA 7: Smith, J. (2023). AI in education. Journal of Learning, 15, 23–41.
+
+Przykład 2:
+Harvard: Kowalski, P. (2022) "Digital Competencies", Warsaw University Press.
+APA 7: Kowalski, P. (2022). Digital competencies. Warsaw University Press.
+
+Teraz przekształć:
+Harvard: Nowak, A. i Wiśniewska, B. (2024) "Sztuczna inteligencja na uczelniach",
+Przegląd Pedagogiczny, nr 3, s. 112-128.
+```
+
+**Zastosowania akademickie few-shot:**
+- Ujednolicanie formatu bibliografii
+- Ekstrakcja danych z tabel w określonym schemacie
+- Klasyfikacja odpowiedzi ankietowych wg Twojego kodowania
+- Generowanie abstraktów w stylu konkretnego czasopisma
+
+### 2.3 Chain-of-Thought (CoT) — wymuszanie rozumowania krok po kroku
+
+Standardowo model "skacze" od pytania do odpowiedzi. CoT każe mu **myśleć na głos** — generować pośrednie kroki rozumowania przed podaniem odpowiedzi. Badania (Wei et al., 2022) pokazują 19-punktowy wzrost na benchmarku MMLU-Pro przy użyciu CoT.
+
+**Zero-shot CoT** — najprostsza wersja, dodaj na końcu:
+
+```text
+[Twoje pytanie]
+
+Rozwiąż to krok po kroku.
+```
+
+lub po angielsku: *"Let's think step by step."*
+
+**Few-shot CoT** — podajesz przykłady z widocznym rozumowaniem:
+
+```text
+Oceń metodologiczną jakość poniższego badania.
+
+Przykład oceny:
+Badanie: "Ankieta online wśród 50 studentów UW o preferencjach żywieniowych"
+Ocena krok po kroku:
+1. Próba: 50 osób — mała, niereprezentatywna dla całej populacji
+2. Dobór próby: studenci jednej uczelni — problem z generalizacją
+3. Metoda: ankieta online — ryzyko błędu dobrowolności
+4. Wniosek: badanie eksploracyjne, wyniki niegeneralizowalne
+Ocena końcowa: Niska wartość predykcyjna, wysoka wartość pilotażowa.
+
+Teraz oceń: [wklej opis swojego badania]
+```
+
+> **Uwaga na modele z wbudowanym reasoningiem:** Jeśli używasz Claude z Extended Thinking, GPT-5.4 w trybie Thinking lub Gemini Thinking Mode — **nie dodawaj CoT ręcznie**. Te modele już rozumują wewnętrznie. Pisanie "rozwiąż krok po kroku" to jak mówienie komuś, kto już myśli: "proszę zacznij myśleć".
+
+### 2.4 Self-consistency — głosowanie na najlepszą odpowiedź
+
+Generujesz tę samą odpowiedź wiele razy (przy wyższej temperaturze) i wybierasz najczęściej powtarzającą się lub najspójniejszą. Szczególnie skuteczne dla zadań z jedną poprawną odpowiedzią (matematyka, logika, analiza faktograficzna).
+
+W praktyce: zadaj pytanie 3 razy przy temperaturze 0.8–1.0, porównaj odpowiedzi, wybierz spójną.
+
+### 2.5 Role prompting — definiowanie eksperta
+
+Przypisujesz modelowi rolę eksperta. Działa najlepiej dla **zadań twórczych i otwartych** — według badań ma mniejszy efekt na klasyfikację i pytania faktograficzne.
+
+```text
+Jesteś doświadczonym recenzentem artykułów naukowych z dziedziny
+nauk o komunikacji społecznej i mediach, publikującym w czasopismach
+z listy MEiN. Masz 15 lat doświadczenia w ocenie prac badawczych.
+
+Oceń poniższy abstrakt pod kątem:
+1. Jasności pytania badawczego
+2. Adekwatności metodologii
+3. Klarowności wyników
+4. Zgodności z wymogami pracy dyplomowej na poziomie licencjackim
+
+Abstrakt: [wklej swój abstrakt]
+```
+
+### 2.6 Meta-prompting — AI pisze prompty dla AI
+
+Prosisz model o wygenerowanie lepszego promptu do wykonania Twojego zadania. Przydatne gdy nie wiesz jak sformułować złożone żądanie.
+
+```text
+Chcę poprosić model AI o pomoc w napisaniu sekcji metodologicznej
+do pracy dyplomowej o badaniu jakościowym (wywiad pogłębiony, 15 respondentów,
+analiza tematyczna). Napisz optymalny prompt do tego zadania, stosując
+framework CIFTEC. Uwzględnij moje wymagania: styl akademicki, język polski,
+ok. 400 słów.
+```
+
+---
+
+## 3. Parametry generowania — ukryte pokrętła modelu
+
+Większość użytkowników AI nigdy nie dotyka tych ustawień, korzystając z interfejsów czatowych. Ale przy pracy przez API lub OpenRouter Playground masz do nich pełny dostęp. Rozumienie ich daje Ci **precyzyjną kontrolę** nad zachowaniem modelu.
+
+### 3.1 Temperatura (temperature)
+
+**Co robi:** Kontroluje losowość wyboru tokenów. Modyfikuje rozkład prawdopodobieństwa przed próbkowaniem.
+
+- **Niska temperatura (0.0–0.3):** Model wybiera prawie zawsze token o najwyższym prawdopodobieństwie → deterministyczny, powtarzalny, faktograficzny
+- **Średnia (0.5–0.8):** Dobry balans kreatywności i spójności
+- **Wysoka (1.0–2.0):** Duża różnorodność, nieoczekiwane skojarzenia, ale ryzyko niespójności
+
+```
+Temperatura 0.0 → "Warszawa jest stolicą Polski."
+Temperatura 1.5 → "Warszawa, bijące serce polskiej tożsamości,
+                   pulsuje energią na styku historii i nowoczesności..."
+```
+
+**Ważna nuance (2025):** Temperatura nie jest prostym "suwakiem kreatywności" — jest słabo skorelowana z nowatorskością, silniej z niespójnością. Traktuj ją jako "jak szeroko model przeszukuje przestrzeń możliwych tokenów", nie jako "ile jest twórczy".
+
+**Praktyczne rekomendacje:**
+
+| Zadanie | Temperatura | Uzasadnienie |
+|---|---|---|
+| Analiza faktograficzna | 0.0–0.2 | Deterministyczne, weryfikowalne odpowiedzi |
+| Streszczenie artykułu | 0.2–0.4 | Wierne oryginałowi, minimalne halucynacje |
+| Pisanie akademickie | 0.4–0.6 | Spójność z nutą naturalności |
+| Brainstorming, kreatywne | 0.8–1.2 | Różnorodne pomysły |
+| Generatywna fikcja | 1.0–1.5 | Maksymalna oryginalność |
+
+### 3.2 Top_p (nucleus sampling)
+
+**Co robi:** Ogranicza wybór do tokenów, których **skumulowane prawdopodobieństwo** nie przekracza progu p. Przy top_p=0.9 model rozważa tylko te tokeny, które razem stanowią 90% całego rozkładu.
+
+- **Top_p bliskie 1.0:** Szeroki wybór, bardziej zróżnicowane odpowiedzi
+- **Top_p = 0.5:** Tylko najbardziej prawdopodobne tokeny
+
+**Zasada praktyczna:** Zmieniaj albo temperaturę, albo top_p — nie oba naraz. Ich efekty się nakładają w nieprzewidywalny sposób. Dla większości zadań wystarczy temperatura.
+
+### 3.3 Max_tokens
+
+**Co robi:** Ustawia twardy limit na **długość odpowiedzi** modelu (nie całego kontekstu — tylko wyjścia).
+
+- Za niska wartość → odpowiedź urywa się w połowie zdania
+- Za wysoka → możesz płacić za dużo niepotrzebnego tekstu
+
+**Praktyczne przeliczniki:** 1 token ≈ 0.75 słowa po angielsku ≈ 0.5–0.6 słowa po polsku (ze względu na dłuższe tokeny w polskim). Akapit (~100 słów) ≈ 130–150 tokenów.
+
+### 3.4 Frequency_penalty i presence_penalty
+
+**Frequency penalty:** Karze model za powtarzanie tokenów **proporcjonalnie do częstości** ich użycia. Im więcej razy słowo już wystąpiło, tym mniej prawdopodobne, że pojawi się znowu.
+
+**Presence penalty:** Karze za użycie tokena, który **w ogóle już wystąpił** — niezależnie ile razy. Prościej: zachęca do wprowadzania nowych tematów.
+
+```
+Frequency penalty 0.0 → "badanie jest ważne, bo badanie pokazuje..."
+Frequency penalty 1.5 → "analiza jest istotna, bo wyniki wskazują..."
+```
+
+**Kiedy używać:** Przy generowaniu długich tekstów, gdzie model ma tendencję do zapętlania się lub powtarzania fraz. W zastosowaniach akademickich zazwyczaj wartości 0.3–0.7 są wystarczające.
+
+---
+
+## 4. System prompts i budowanie agentów AI
+
+### 4.1 Czym jest system prompt?
+
+System prompt to instrukcja "zakodowana" **przed** rozmową — definiuje rolę, zachowanie i zasady działania modelu dla całej sesji. Użytkownik zazwyczaj go nie widzi; modele są trenowane by go respektować.
+
+Analogia: Jeśli każda wiadomość do modelu to "zmiana", to system prompt to "instrukcja stanowiskowa" — jest zawsze aktywna, niezależnie od tematu rozmowy.
+
+### 4.2 Gdzie ustawić system prompt?
+
+| Narzędzie | Gdzie |
+|---|---|
+| **Claude.ai** | Projects → Utwórz projekt → "Project instructions" |
+| **ChatGPT** | Ustawienia → Personalizacja → "Custom instructions" |
+| **OpenRouter Playground** | Zakładka "System" nad polem czatu |
+| **API (dowolne)** | Parametr `system` w wywołaniu API |
+
+### 4.3 Struktura dobrego system promptu
+
+Dobry system prompt zawiera 5 bloków:
+
+```text
+# ROLA
+Jesteś asystentem badawczym pomagającym studentom zarządzania informacją
+na Uniwersytecie Jagiellońskim w pisaniu prac dyplomowych.
+
+# KONTEKST
+Studenci piszą prace licencjackie i magisterskie z zakresu:
+zarządzania informacją, bibliotekarstwa, komunikacji społecznej.
+Korzystają z norm APA 7 i baz danych: Web of Science, Scopus, BazTech.
+
+# ZASADY DZIAŁANIA
+- Zawsze pytaj o temat pracy, nim zaproponujesz literaturę
+- Podawaj cytowania w formacie APA 7
+- Gdy nie znasz odpowiedzi — powiedz to wprost
+- Nie piszesz za studenta — pomagasz myśleć i organizować
+- Wskazuj potencjalne problemy metodologiczne
+
+# FORMAT ODPOWIEDZI
+- Odpowiedzi w języku polskim
+- Krótkie akapity, nie listy (chyba że proszę o listę)
+- Pytania sprawdzające rozumienie po każdej radzie
+
+# OGRANICZENIA
+- Nie generujesz gotowych fragmentów prac do wklejenia
+- Nie oceniasz etycznie decyzji badawczych bez zaproszenia
+```
+
+### 4.4 MCP w praktyce — łączenie agenta z narzędziami
+
+W module 1 poznałeś teorię MCP. Teraz konkretne zastosowania. Oficjalny katalog serverów: [registry.smithery.ai](https://registry.smithery.ai) (MCP Registry, od września 2025).
+
+**Top MCP servery dla studentów — praktyczne zastosowania:**
+
+**filesystem** — czytanie i zapisywanie plików lokalnych:
+```json
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem",
+               "C:/Users/artur/Documents/praca-dyplomowa"],
+      "env": {}
+    }
+  }
+}
+```
+Zastosowanie: Claude analizuje Twoje notatki MDX, PDF-y, drafty rozdziałów.
+
+**Brave Search** — wyszukiwanie w internecie na żądanie:
+Zastosowanie: Agent sprawdza aktualne przepisy, ceny narzędzi, daty wydarzeń.
+
+**GitHub** — dostęp do repozytoriów:
+Zastosowanie: Przegląd kodu, tworzenie issues, analiza projektów.
+
+**Sequential Thinking** — wymuszony, sekwencyjny tok rozumowania dla złożonych zadań:
+Zastosowanie: Analiza wieloaspektowych problemów badawczych.
+
+---
+
+## 5. Biblioteka promptów — 20+ gotowych szablonów
+
+Poniżej gotowe prompty do skopiowania i dostosowania. Zastąp `[tekst w nawiasach]` własnymi danymi.
+
+### Prompty do research i literatury
+
+```text
+PROMPT 1 — Analiza abstraktu
+Przeczytaj poniższy abstrakt i wypełnij tabelę:
+| Element | Treść |
+| Pytanie badawcze | |
+| Metodologia | |
+| Próba | |
+| Kluczowy wynik | |
+| Ograniczenie | |
+Abstrakt: [wklej abstrakt]
+```
+
+```text
+PROMPT 2 — Identyfikacja research gap
+Na podstawie poniższych 3 abstraktów zidentyfikuj:
+1. Co zbadano (po 1 zdaniu)
+2. Czego NIE zbadano — potencjalne luki badawcze
+3. Jeden możliwy temat badawczy wynikający z tych luk
+
+Abstrakt 1: [...]
+Abstrakt 2: [...]
+Abstrakt 3: [...]
+```
+
+```text
+PROMPT 3 — Generowanie słów kluczowych do wyszukiwania
+Piszę pracę o [temat]. Główna teza: [teza].
+Wygeneruj 15 słów kluczowych do wyszukiwania w bazach naukowych:
+- 5 po polsku (do BazTech, CEJSH)
+- 5 po angielsku (do Web of Science, Scopus)
+- 5 kombinacji (AND/OR) gotowych do wklejenia w wyszukiwarkę
+```
+
+```text
+PROMPT 4 — Konspekt rozdziału
+Piszę rozdział o [temat] do pracy [licencjackiej/magisterskiej] z [dziedzina].
+Dotychczasowe rozdziały: [wymień].
+Zaproponuj konspekt (3 poziomy nagłówków) dla nowego rozdziału.
+Każdy podpunkt opisz jednym zdaniem wyjaśniającym jego cel.
+```
+
+### Prompty do pisania i korekty
+
+```text
+PROMPT 5 — Korekta akademicka
+Przeczytaj poniższy fragment i:
+1. Wskaż 3 miejsca gdzie język jest zbyt potoczny
+2. Zaproponuj akademickie zamienniki
+3. Oceń spójność argumentacji (1-5)
+NIE przepisuj całego fragmentu — tylko wskaż i zaproponuj.
+
+Fragment: [wklej]
+```
+
+```text
+PROMPT 6 — Rozwinięcie akapitu
+Akapit do rozwinięcia: [wklej akapit]
+Rozwiń go do ok. 200 słów, zachowując styl akademicki.
+Dodaj: jedno odwołanie do teorii/modelu z dziedziny
+i jedno do możliwego badania empirycznego (bez wymyślania cytatów).
+```
+
+```text
+PROMPT 7 — Streszczenie na potrzeby abstraktu
+Artykuł/rozdział do streszczenia: [wklej lub opisz]
+Napisz abstrakt strukturalny (max. 250 słów) zawierający:
+cel, metodę, wyniki, wnioski.
+Format: 4 akapity po ok. 60 słów, każdy zaczynający się od:
+"Cel badania...", "Zastosowana metoda...", "Wyniki wskazują...", "Wnioski..."
+```
+
+### Prompty do nauki i powtórek
+
+```text
+PROMPT 8 — Wygeneruj pytania testowe
+Na podstawie poniższych notatek wygeneruj 10 pytań sprawdzających
+rozumienie (nie pamięć faktów). Format: pytanie otwarte + wskazówka
+do czego odwołać się odpowiadając.
+
+Notatki: [wklej]
+```
+
+```text
+PROMPT 9 — Wyjaśnij pojęcie inaczej
+Nie rozumiem dobrze pojęcia [pojęcie] z dziedziny [dziedzina].
+Wyjaśnij mi je na 3 sposoby:
+1. Analogią do codziennego życia
+2. Krótką definicją naukową (max. 2 zdania)
+3. Przykładem z polskiej rzeczywistości akademickiej
+```
+
+### Prompty do analizy danych i kodu
+
+```text
+PROMPT 10 — Interpretacja wyników statystycznych
+Otrzymałam/em następujące wyniki z SPSS/R/Python: [wklej tabelę]
+Wyjaśnij:
+1. Co mówią te liczby zwykłym językiem
+2. Czy wyniki są statystycznie istotne i co to oznacza
+3. Jak opisać je w sekcji Wyniki pracy dyplomowej (3-4 zdania)
+```
+
+```text
+PROMPT 11 — Code explainer
+Wytłumacz mi ten kod linijka po linijce, po polsku:
+[wklej kod]
+Zakładaj, że rozumiem logikę, ale nie znam składni [język].
+```
+
+---
+
+## 6. Przebieg modułu — timeline
+
+| Czas | Aktywność | Forma |
+|---|---|---|
+| 0–10 min | Ankieta wstępna: który element CIFTEC najczęściej pomijasz? | Mentimeter |
+| 10–25 min | Mini-wykład: CIFTEC, przegląd technik | Wykład z live demo |
+| 25–55 min | **Ćwiczenie 1** — Prompt Refinement Workshop | Praca indywidualna |
+| 55–75 min | **Ćwiczenie 2** — Zbuduj asystenta badawczego | Praca w parach |
+| 75–95 min | **Ćwiczenie 3** — Peer-review promptów | Wymiana w parach |
+| 95–110 min | Demo na żywo: parametry w OpenRouter Playground | Live demo + Q&A |
+| 110–120 min | Budowanie osobistej biblioteki promptów, podsumowanie | Refleksja |
+
+---
+
+## 7. Ćwiczenia praktyczne
+
+### Ćwiczenie 1 — Prompt Refinement Workshop (30 min)
+
+**Cel:** Zobaczyć w praktyce jak każdy element CIFTEC poprawia odpowiedź modelu.
+
+**Punkt startowy — zły prompt:**
+
+```text
+Pomóż mi z pracą dyplomową.
+```
+
+Wklej do Claude lub ChatGPT. Zapisz odpowiedź.
+
+**Iteracja 1 — dodaj kontekst:**
+
+```text
+Piszę pracę magisterską na UJ z zarządzania informacją.
+Pomóż mi z pracą dyplomową.
+```
+
+Wklej. Porównaj z poprzednią odpowiedzią.
+
+**Iteracja 2 — dodaj instrukcję:**
+
+```text
+Piszę pracę magisterską na UJ z zarządzania informacją.
+Pomóż mi sformułować pytanie badawcze do rozdziału o AI literacy.
+```
+
+**Iteracja 3 — dodaj format:**
+
+```text
+Piszę pracę magisterską na UJ z zarządzania informacją.
+Pomóż mi sformułować pytanie badawcze do rozdziału o AI literacy.
+Podaj 3 propozycje pytań w formie tabeli:
+| Pytanie | Typ (eksploracyjne/wyjaśniające/opisowe) | Sugerowana metoda |
+```
+
+**Iteracja 4 — dodaj ograniczenia:**
+
+```text
+Piszę pracę magisterską na UJ z zarządzania informacją.
+Pomóż mi sformułować pytanie badawcze do rozdziału o AI literacy
+wśród studentów polskich uczelni.
+Podaj 3 propozycje w formie tabeli.
+Ograniczenia: badanie jakościowe (wywiad), próba max. 20 osób,
+okres badania 3 miesiące. Unikaj pytań wymagających analizy ilościowej.
+```
+
+**Iteracja 5 — dodaj przykład (few-shot):**
+
+Dołącz na początku: *"Przykład dobrego pytania badawczego z tej dziedziny: 'Jakie strategie wykorzystują studenci informacji naukowej do weryfikacji wiarygodności treści generowanych przez modele AI?'"*
+
+**Podsumowanie:** Wypełnij tabelę po każdej iteracji:
+
+| Iteracja | Co dodano | Długość odpowiedzi | Użyteczność (1–5) |
+|---|---|---|---|
+| 0 | Nic | | |
+| 1 | Kontekst | | |
+| 2 | Instrukcja | | |
+| 3 | Format | | |
+| 4 | Ograniczenia | | |
+| 5 | Przykład | | |
+
+### Ćwiczenie 2 — Zbuduj swojego asystenta badawczego (20 min)
+
+**Cel:** Stworzyć spersonalizowany system prompt, który Claude lub ChatGPT będzie stosował przez cały semestr.
+
+**Krok 1 — uzupełnij szablon:**
+
+```text
+# ROLA
+Jesteś moim asystentem badawczym. Pomagasz mi w pisaniu pracy
+[licencjackiej/magisterskiej] o [Twój temat].
+
+# KONTEKST O MOJEJ PRACY
+Kierunek: [Twój kierunek]
+Uczelnia: Wydział Zarządzania i Komunikacji Społecznej UJ
+Supervisor: [imię i nazwisko promotora lub "nie podaję"]
+Metoda badawcza: [Twoja metoda]
+Styl cytowań: [APA 7 / Chicago / inne]
+
+# MOJE SŁABE STRONY (gdzie potrzebuję pomocy)
+- [np. formułowanie pytań badawczych]
+- [np. styl akademicki po polsku]
+- [np. analiza literatury]
+
+# JAK CHCĘ ŻEBYŚ MI POMAGAŁ/A
+- [np. Zadawaj mi pytania zamiast od razu podawać odpowiedzi]
+- [np. Wskazuj mi błędy, nie poprawiaj za mnie]
+- [np. Odpowiadaj po polsku]
+
+# CZEGO NIE ROBIMY
+- Nie piszesz za mnie gotowych fragmentów do wklejenia
+- Nie wymyślasz cytatów i bibliografii
+```
+
+**Krok 2 — wklej do Claude.ai:**
+Utwórz nowy Projekt → "Project instructions" → wklej swój system prompt → zapisz.
+
+**Krok 3 — przetestuj:**
+Zadaj 3 pytania związane z Twoją pracą i oceń czy model zachowuje się zgodnie z instrukcją.
+
+### Ćwiczenie 3 — Peer-review promptów z rubryką CIFTEC (15 min)
+
+**Cel:** Ocenić prompt kolegi/koleżanki i otrzymać feedback na swój.
+
+**Instrukcja:**
+1. Zapisz swój "ulubiony" prompt (ten z którego najczęściej korzystasz lub który właśnie stworzyłeś/stworzyłaś)
+2. Wymień go z osobą obok
+3. Oceń cudzy prompt według rubryku:
+
+| Element CIFTEC | Obecny? | Jakość (1–3) | Sugestia poprawy |
+|---|---|---|---|
+| Context | Tak/Nie | | |
+| Instruction | Tak/Nie | | |
+| Format | Tak/Nie | | |
+| Tone | Tak/Nie | | |
+| Examples | Tak/Nie | | |
+| Constraints | Tak/Nie | | |
+| **Łącznie** | | **/18** | |
+
+4. Omówcie wyniki przez 5 minut
+5. Każdy poprawia swój prompt na podstawie feedbacku
+
+---
+
+## 8. Narzędzia i zasoby
+
+### Narzędzia do prompt engineeringu
+
+| Narzędzie | Link | Zastosowanie |
+|---|---|---|
+| OpenRouter Playground | [openrouter.ai/playground](https://openrouter.ai/playground) | Testowanie parametrów (temperatura, top_p) bez kodu |
+| Anthropic Prompt Library | [docs.anthropic.com/en/prompt-library](https://docs.anthropic.com/en/prompt-library) | Gotowe przykłady promptów dla różnych zadań |
+| Promptingguide.ai | [promptingguide.ai](https://www.promptingguide.ai) | Akademickie przewodniki po technikach |
+| Claude.ai Projects | [claude.ai](https://claude.ai) | System prompts dla stałego asystenta |
+
+### Materiały do dalszej nauki
+
+- **"Chain-of-Thought Prompting Elicits Reasoning in LLMs"** — Wei et al. (2022), oryginalny artykuł: [arxiv.org/abs/2201.11903](https://arxiv.org/abs/2201.11903)
+- **"Language Models are Few-Shot Learners"** — Brown et al. (2020), artykuł GPT-3: [arxiv.org/abs/2005.14165](https://arxiv.org/abs/2005.14165)
+- **Anthropic Prompt Engineering docs** — oficjalny przewodnik dla Claude: [docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview)
+- **OpenAI Prompt Engineering Guide**: [platform.openai.com/docs/guides/prompt-engineering](https://platform.openai.com/docs/guides/prompt-engineering)
+- **DeepLearning.AI: ChatGPT Prompt Engineering for Developers** — bezpłatny kurs: [learn.deeplearning.ai/chatgpt-prompt-eng](https://learn.deeplearning.ai/courses/chatgpt-prompt-eng-for-developers)
+
+---
+
+## 9. Pytania kontrolne
+
+1. Wytłumacz różnicę między zero-shot a few-shot prompting. Kiedy które stosujesz?
+
+2. Twoja koleżanka mówi: "Zawsze dodaję 'rozwiąż krok po kroku' do każdego pytania". Czy to dobry pomysł? W jakich sytuacjach **nie** powinna tego robić?
+
+3. Masz za zadanie wygenerować 50 jednorodnych streszczeń artykułów. Jaką temperaturę ustawisz i dlaczego?
+
+4. Napisz system prompt dla asystenta, który pomaga w korekcie polskojęzycznych prac naukowych. Użyj struktury 5 bloków z modułu.
+
+5. Co to jest meta-prompting i podaj jeden przykład zastosowania w Twojej pracy akademickiej.
+
+6. Jaka jest różnica między `frequency_penalty` a `presence_penalty`? Kiedy użyjesz którego?
+
+7. Twój prompt zwraca odpowiedzi zbyt ogólne i bez konkretnych przykładów. Który element CIFTEC najprawdopodobniej brakuje? Jak go poprawisz?

@@ -1,0 +1,516 @@
+---
+slug: "ai-w-nauce"
+number: 4
+title: "AI w nauce – Literatura, Notatki, Organizacja Wiedzy"
+titleEn: "AI in Research – Literature, Notes, Knowledge Organization"
+duration: "2 godziny"
+tags: ["Semantic Scholar", "Connected Papers", "Consensus AI", "Elicit", "Zotero", "Obsidian", "Notatki badawcze", "Research gaps", "PRISMA", "Etyka naukowa", "AI Act", "RODO"]
+instructor: "Artur Sendyka"
+dates:
+  - group: "Grupa 1"
+    date: "05.05.2026"
+    time: "17:00–19:00"
+  - group: "Grupa 2"
+    date: "06.05.2026"
+    time: "17:00–19:00"
+objectives:
+  - "Sprawnie korzystać z narzędzi AI do odkrywania i filtrowania literatury naukowej"
+  - "Generować notatki badawcze z artykułu bez ryzyka plagiatu"
+  - "Zidentyfikować luki badawcze (research gaps) z pomocą AI"
+  - "Cytować treści generowane przez AI zgodnie z normą APA 7"
+  - "Świadomie stosować AI w cyklu PRISMA dla przeglądów systematycznych"
+  - "Ocenić ryzyko naruszenia RODO przy przetwarzaniu danych badawczych przez LLM"
+tools:
+  - "Semantic Scholar (semanticscholar.org)"
+  - "Connected Papers (connectedpapers.com)"
+  - "Consensus AI (consensus.app)"
+  - "Elicit (elicit.com)"
+  - "Research Rabbit (researchrabbitapp.com)"
+  - "Zotero (zotero.org)"
+  - "Google NotebookLM (notebooklm.google.com)"
+description: "Praktyczne zastosowanie narzędzi AI w pracy naukowej: od wyszukiwania i filtrowania literatury przez generowanie notatek badawczych po organizację wiedzy i systematyczny przegląd PRISMA — z zachowaniem standardów etycznych i wymogów RODO."
+---
+
+## Wprowadzenie
+
+W 2025 roku opublikowano ponad **2,5 miliona nowych artykułów naukowych**. Nawet w wąskiej dziedzinie — zarządzania informacją, komunikacji społecznej czy informatyki — śledzenie literatury bez AI jest coraz trudniejsze. Tradycyjny przegląd literatury do pracy dyplomowej zajmował tygodnie. Z właściwymi narzędziami — zajmuje kilka godzin.
+
+Ale uwaga: **szybkość nie zastępuje jakości**. AI przyspiesza odkrywanie i screening, jednak interpretacja wyników, ocena metodologii i krytyczne myślenie pozostają po Twojej stronie. Badacze raportują skrócenie czasu przeglądów o 60–70% przy zachowaniu pełnej rzetelności — pod warunkiem, że rozumieją, gdzie AI pomaga, a gdzie może wprowadzić w błąd.
+
+Ten moduł daje Ci **kompletny, weryfikowalny workflow** od pytania badawczego do syntezy literatury — oraz narzędzia do każdego kroku.
+
+---
+
+## 1. Ekosystem narzędzi AI do badań — mapa 2026
+
+### 1.1 Cztery warstwy researchu
+
+Zanim sięgniesz po konkretne narzędzie, warto zrozumieć, że praca naukowa ma cztery odrębne fazy — i każda wymaga innych narzędzi:
+
+| Faza | Pytanie | Najlepsze narzędzia AI |
+|---|---|---|
+| **Odkrywanie** | Jakie artykuły istnieją w tym obszarze? | Semantic Scholar, Research Rabbit, Connected Papers |
+| **Synteza dowodów** | Co badania mówią na dany temat? | Consensus AI, Elicit |
+| **Głęboka analiza** | Co dokładnie mówi ten artykuł? | Claude (analiza PDF), Elicit, NotebookLM |
+| **Organizacja** | Jak zarządzać wiedzą i cytatami? | Zotero, Obsidian, NotebookLM |
+
+Najczęstszy błąd: używanie jednego narzędzia do wszystkich czterech faz. ChatGPT lub Claude nie zastąpią Semantic Scholar do odkrywania — bo mogą **halucynować cytowania**. Semantic Scholar nie zastąpi Claude do głębokiej analizy — bo nie czyta pełnych tekstów.
+
+### 1.2 Kluczowe ostrzeżenie
+
+> ⚠️ **Nigdy nie cytuj artykułu, którego nie weryfikowałeś/weryfikowałaś w bazie naukowej.** Gdy pytasz ChatGPT lub Claude o literaturę, model może podać tytuły brzmiące wiarygodnie, ale nieistniejące (halucynacja). Zawsze weryfikuj w Google Scholar, Semantic Scholar lub bezpośrednio w bazie uczelni.
+
+---
+
+## 2. Narzędzia do odkrywania literatury (stan marzec 2026)
+
+### 2.1 Semantic Scholar — baza domyślna
+
+**Czym jest:** Bezpłatna wyszukiwarka naukowa od Allen Institute for AI (AI2). Indeksuje ponad **200 milionów artykułów** z wszystkich dziedzin. Używa semantycznego wyszukiwania — rozumie znaczenie zapytania, nie tylko słowa kluczowe.
+
+**Kluczowe funkcje:**
+- **TLDR (Too Long; Didn't Read):** AI generuje 1-zdaniowe streszczenie każdego artykułu
+- **Highly Influential Citations:** wskazuje które cytowania miały realny wpływ (nie tylko są wymienione)
+- **Semantic Reader:** czyta artykuł z podkreśleniami kluczowych twierdzeń i odnośnikami do definicji
+- **Research Feeds:** automatyczne alerty o nowych artykułach w Twoim temacie
+- **Eksport do Zotero:** przez connector przeglądarki
+
+**Koszt:** Bezpłatne. API darmowe (1 zapytanie/sekundę z prywatnym kluczem).
+
+**Ograniczenia:** Słabsza pokrywalność w humanistyce i naukach społecznych niż w STEM. AI-generowane TLDRy nie zawsze są dokładne — traktuj je jako wskazówkę, nie jako autorytarne streszczenie.
+
+**Praktyczne wskazówki:**
+- Wyszukuj po **DOI lub tytule** (dokładniejsze niż słowa kluczowe) gdy weryfikujesz konkretny artykuł
+- Używaj **filtru "Highly Cited"** dla seminale prace w dziedzinie
+- Zakładka **"Cited By"** pokazuje kto po tej pracy cytuje — świetne do śledzenia aktualnego stanu badań
+
+### 2.2 Connected Papers — mapa pola badawczego
+
+**Czym jest:** Narzędzie wizualizujące artykuły jako graf — węzły to artykuły, krawędzie to podobieństwo cytatów. Zbudowane na bazie Semantic Scholar.
+
+**Jak działa:** Podajesz tytuł lub DOI artykułu → narzędzie buduje graf artykułów podobnych (przez nakładające się cytowania i odniesienia), nie tylko tych bezpośrednio cytowanych. Dzięki temu odkrywasz prace, których byś nie znalazł/a tradycyjnym wyszukiwaniem.
+
+**Dwie kluczowe sekcje:**
+- **Prior Works** — fundament pola: klasyczne, seminale artykuły
+- **Derivative Works** — co wyrosło z tej pracy: aktualne badania bazujące na tym artykule
+
+**Koszt:** 5 darmowych grafów/miesiąc bez logowania; więcej po rejestracji (bezpłatna).
+
+**Kiedy używać:** Na początku pisania rozdziału teoretycznego — żeby zrozumieć strukturę pola i nie przeoczyć kluczowych prac.
+
+### 2.3 Consensus AI — synteza dowodów naukowych
+
+**Czym jest:** Wyszukiwarka zaprojektowana do odpowiadania na pytania w stylu *"czy X jest prawdą?"* z syntezą wyników z badań naukowych. Używa GPT-4 do analizy 200M+ prac.
+
+**Kluczowa funkcja — Consensus Meter:** Wizualny wskaźnik pokazujący czy badania wspierają, są neutralne, czy przeczą danej tezie. Świetne do formułowania uzasadnienia hipotezy badawczej.
+
+**Koszt:** Darmowe (10 analiz/miesiąc, odnawialne). Premium ok. ~$9/miesiąc rocznie (więcej analiz, zaawansowane filtry).
+
+**Kiedy używać:**
+- Formułowanie uzasadnienia dla Twojej tezy ("badania wskazują, że...")
+- Szybka weryfikacja: czy istnieje konsensus naukowy w danej kwestii?
+- Identyfikacja research gap: szukasz pytania, na które brak konsensusu
+
+**Ograniczenia:** Przede wszystkim język angielski. Lepiej działa w empirycznych naukach (medycyna, psychologia, nauki społeczne) niż w humanistyce.
+
+### 2.4 Elicit — asystent systematycznych przeglądów
+
+**Czym jest:** Narzędzie do automatyzacji *research workflow* — szczególnie ekstrakcji danych z wielu artykułów do tabel. Indeksuje 138 milionów artykułów.
+
+**Kluczowe funkcje:**
+- Ekstrakcja danych do tabeli: pyta każdy artykuł o próbę, metodę, wynik, ograniczenia — i zestawia je w arkuszu
+- Automatyczne raporty systematycznych przeglądów
+- Workflow PRISMA (filtry inkluzji/ekskluzji)
+
+**Koszt:** Darmowe (5000 jednorazowych kredytów — nie odnawiają się). Plus od $10/miesiąc rocznie; Pro od $12/miesiąc rocznie. Elicit NIE trenuje modeli na danych użytkowników.
+
+**Kiedy używać:** Piszesz rozdział metodologiczny z systematycznym przeglądem → Elicit robi 80% ekstrakcji danych za Ciebie.
+
+### 2.5 Research Rabbit — darmowa mapa połączeń
+
+**Czym jest:** Bezpłatne narzędzie wizualizujące połączenia między artykułami — działające na zasadzie "Spotify for research papers". Integruje się z Zotero.
+
+**Funkcje:** Podobne prace / Wcześniejsze prace / Późniejsze prace jako interaktywny graf. Custom Feeds — alerty o nowych artykułach dopasowanych do Twojej biblioteki.
+
+**Koszt:** Całkowicie bezpłatne (financowane przez uczelnie partnerskie).
+
+---
+
+## 3. Zotero — zarządzanie bibliografią z AI
+
+### 3.1 Dlaczego Zotero, nie inne narzędzia?
+
+Zotero to **otwartoźródłowy** menedżer bibliografii — Twoje dane są Twoje, nie przechowywane na serwerach zewnętrznych (chyba że korzystasz z płatnego Zotero Sync). Integruje się ze wszystkimi omówionymi narzędziami badawczymi.
+
+**Kluczowe funkcje Zotero (wersja 7+):**
+- Import przez connector przeglądarki — jedno kliknięcie, pełne metadane
+- Automatyczne generowanie cytatów w 10 000+ formatach (APA 7, Chicago, Vancouver...)
+- Synchronizacja z Cloud (300 MB za darmo, $20/rok za 2 GB)
+- Adnotacje PDF z synchronizacją między urządzeniami
+
+### 3.2 Workflow Zotero + narzędzia AI
+
+```text
+KROK 1: Odkrywanie
+Semantic Scholar / Research Rabbit → znajdź artykuł
+
+KROK 2: Import
+Connector Zotero (wtyczka przeglądarki) → kliknij ikonę → artykuł w bibliotece
+z pełnymi metadanymi (tytuł, autorzy, DOI, abstrakt)
+
+KROK 3: Czytanie i analiza
+Otwórz PDF z Zotero → Claude.ai lub NotebookLM → prześlij PDF → zadaj pytania
+
+KROK 4: Notatka
+Wygeneruj notatkę badawczą (prompt z ćwiczeń) → zapisz w Zotero jako notatkę
+
+KROK 5: Cytowanie
+W edytorze tekstu (Word/LibreOffice) → plugin Zotero → wstaw cytat automatycznie
+```
+
+### 3.3 Google NotebookLM — RAG na Twoich dokumentach
+
+**Czym jest:** Bezpłatne narzędzie Google — wgraj do 50 dokumentów (PDF, DOCX, URL) i rozmawiaj z nimi przez AI. Model nie halucynuje cytatów — odpowiada wyłącznie na podstawie dostarczonych dokumentów.
+
+**Killer feature dla studentów:** Wgraj 10 artykułów z pracy dyplomowej → zapytaj "Jakie są luki w literaturze dotyczące X?" → otrzymasz odpowiedź z cytatami do konkretnych stron.
+
+**Koszt:** Bezpłatne (konto Google). NotebookLM Plus: ~$20/miesiąc (w ramach Google One AI Premium).
+
+---
+
+## 4. Generowanie notatek badawczych — metodologia
+
+### 4.1 Trzy poziomy interakcji z literaturą
+
+Nie każdy artykuł wymaga takiego samego przetworzenia. Stosuj odpowiedni poziom:
+
+**Poziom 1 — Screening (30 sekund/artykuł):**
+Przeczytaj tylko tytuł, abstrakt i TLDR z Semantic Scholar. Decyzja: czytam dalej / odrzucam.
+
+**Poziom 2 — Analiza powierzchowna (5–10 min):**
+Użyj AI do wygenerowania strukturowanej notatki z abstraktu lub wprowadzenia.
+
+**Poziom 3 — Analiza głęboka (20–30 min):**
+Prześlij pełny PDF do Claude lub NotebookLM. Zadaj szczegółowe pytania o metodologię, wyniki, ograniczenia.
+
+### 4.2 Prompt do notatki badawczej (Poziom 2)
+
+```text
+Przeczytaj poniższy abstrakt i wygeneruj notatkę badawczą w formacie tabeli:
+
+| Element | Treść |
+|---|---|
+| Pytanie badawcze / cel | |
+| Metodologia (typ, próba, narzędzia) | |
+| Kluczowe wyniki (max. 3 punkty) | |
+| Ograniczenia badania | |
+| Zastosowanie dla mojej pracy | |
+| Potencjalne pytania do dalszej eksploracji | |
+
+Abstrakt: [wklej abstrakt]
+
+WAŻNE: Jeśli informacja nie jest podana w abstrakcie — wpisz "brak danych
+w abstrakcie". Nie wymyślaj treści.
+```
+
+### 4.3 Prompt do analizy głębokiej (Poziom 3)
+
+```text
+Jestem studentką/studentem [kierunek] na UJ i piszę pracę o [temat].
+Przeanalizuj ten artykuł i odpowiedz na pytania:
+
+1. METODOLOGIA: Jaki typ badania? Jaka próba? Jakie narzędzia zbierania danych?
+   Czy metoda jest adekwatna do pytania badawczego?
+
+2. WYNIKI: Jakie są 3 najważniejsze wyniki? Czy autorzy uzasadniają je danymi?
+
+3. OGRANICZENIA: Jakie ograniczenia wskazują sami autorzy? Jakie dostrzegasz Ty?
+
+4. RELEVANCE dla mojej pracy: Jak ten artykuł odnosi się do [Twój temat]?
+   Co mogę z niego zacytować? Co kwestionuje moje założenia?
+
+5. RESEARCH GAP: Czego ten artykuł NIE bada, a co byłoby wartościowe?
+
+Odpowiadaj wyłącznie na podstawie dostarczonego tekstu. Jeśli czegoś nie ma
+w artykule — napisz "nie omówiono w artykule".
+```
+
+### 4.4 Identyfikacja research gaps
+
+```text
+Mam 5 poniższych abstraktów z dziedziny [Twoja dziedzina].
+Na podstawie ich analizy:
+
+1. Wymień 3 tematy, które WSZYSCY autorzy badają (mainstream)
+2. Wymień 3 tematy, które pojawiają się rzadko lub w ogóle (luki)
+3. Zaproponuj 2 pytania badawcze, które wypełniałyby zidentyfikowane luki
+4. Wskaż która luka byłaby realna do zbadania w pracy dyplomowej
+   (badanie jakościowe, 3 miesiące, max 20 respondentów)
+
+Abstrakt 1: [...]
+Abstrakt 2: [...]
+Abstrakt 3: [...]
+Abstrakt 4: [...]
+Abstrakt 5: [...]
+```
+
+---
+
+## 5. PRISMA + AI — systematyczny przegląd literatury
+
+### 5.1 Czym jest PRISMA?
+
+**PRISMA** (Preferred Reporting Items for Systematic Reviews and Meta-Analyses) to standaryzowany protokół raportowania przeglądów systematycznych. Wymaga przejrzystości w każdym kroku — ile artykułów znaleziono, ile odrzucono i dlaczego.
+
+Strona oficjalna: [prisma-statement.org](http://www.prisma-statement.org)
+
+### 5.2 Gdzie AI pomaga, a gdzie nie
+
+| Krok PRISMA | Rola AI | Wymagana weryfikacja ludzka |
+|---|---|---|
+| Formulowanie pytania (PICO/SPIDER) | Pomaga precyzować sformułowania | Zawsze — to Twoja decyzja naukowa |
+| Wyszukiwanie baz | Semantic Scholar, Elicit generują wyniki | Musisz też przeszukać Web of Science / Scopus |
+| Screening tytułów/abstraktów | AI może screenwować setki abstraktów | Próba losowa do weryfikacji |
+| Ekstrakcja danych | Elicit robi tabele automatycznie | Weryfikuj kluczowe dane ręcznie |
+| Ocena jakości (RoB, CASP) | AI może wstępnie oceniać | Ostateczna ocena jest zawsze ludzka |
+| Synteza i wnioski | AI streszcza trendy | Interpretacja należy do Ciebie |
+
+### 5.3 Praktyczny workflow PRISMA + AI
+
+```text
+ETAP 1 — IDENTYFIKACJA
+Semantic Scholar: wyszukaj "AI literacy higher education" → eksportuj 200 wyników do CSV
+Elicit: zadaj to samo pytanie → porównaj wyniki
+
+ETAP 2 — SCREENING
+Wklej 200 tytułów i abstraktów do Elicit lub Claude:
+"Odfiltruj artykuły spełniające kryteria inkluzji:
+- język: angielski lub polski
+- rok: 2019–2026
+- temat: AI literacy w szkołach wyższych (nie K-12)
+- typ: artykuł empiryczny lub przeglądowy"
+→ zostaje ok. 40 artykułów
+
+ETAP 3 — ELIGIBILITY
+Dla każdego z 40 artykułów wygeneruj notatkę badawczą (Poziom 2)
+Odrzuć artykuły niespełniające kryteriów metodologicznych
+
+ETAP 4 — INKLUZJA
+Zostaje ok. 15–20 artykułów → głęboka analiza (Poziom 3)
+
+ETAP 5 — SYNTEZA
+NotebookLM: wgraj wszystkie 20 PDF-ów → zapytaj o wspólne wątki i luki
+Claude: wygeneruj narracyjną syntezę
+```
+
+---
+
+## 6. Etyka i regulacje — co musisz wiedzieć
+
+### 6.1 Plagiat, self-plagiat i granice AI
+
+**Plagiat:** Przepisanie cudzego tekstu bez cytowania to plagiat — niezależnie czy robi to człowiek czy AI. Jeśli AI streszcza artykuł słowo w słowo (nawet po polsku), a Ty wklejasz to do pracy — to jest plagiat.
+
+**Bezpieczna zasada "3 kroków":**
+1. Przeczytaj artykuł i zrozum go
+2. Zamknij artykuł, wygeneruj notatkę własnymi słowami (AI może pomóc w strukturze)
+3. Zacytuj oryginalne źródło, nie notkę
+
+**Self-plagiat:** Recycling własnych wcześniejszych prac bez cytowania. AI ułatwia "recykling" — zwłaszcza gdy prosisz model o rozwinięcie wcześniejszych fragmentów.
+
+### 6.2 Jak cytować AI w pracy akademickiej — normy APA 7
+
+APA 7 (7. edycja, 2019 + aktualizacje 2023) definiuje format cytowania treści generowanych przez AI:
+
+**Format ogólny:**
+```
+Nazwa modelu (rok). Tytuł lub opis generowanej treści [Generowany przez AI].
+Dostawca. URL lub identyfikator sesji.
+```
+
+**Przykład — tekst z ChatGPT:**
+```
+OpenAI. (2026). Podsumowanie metodologii badań jakościowych
+[Odpowiedź ChatGPT]. OpenAI. https://chat.openai.com
+(wygenerowano 15 maja 2026)
+```
+
+**Przykład — analiza z Claude:**
+```
+Anthropic. (2026). Analiza abstraktu artykułu Smith i in. (2024)
+[Odpowiedź Claude.ai]. Anthropic. https://claude.ai
+(wygenerowano 15 maja 2026)
+```
+
+**Ważne:** Nie możesz cytować AI jako "źródło faktów" — bo model może halucynować. Cytujesz AI jako **narzędzie pomocnicze**, tak jak citujesz oprogramowanie statystyczne (np. "dane przetworzono przy użyciu Claude Sonnet 4.6").
+
+### 6.3 Polityki uczelni wobec AI
+
+**Ogólna tendencja w Polsce (2025/2026):** Większość polskich uczelni przyjęła politykę "przejrzystości" — AI można używać jako narzędzie pomocnicze, pod warunkiem ujawnienia tego w pracy. Nie ma jednolitego standardu.
+
+**Sprawdź zawsze:** Aktualną politykę WZiKS UJ dostępną na stronie wydziału. Zapytaj promotora na pierwszym seminarium — zanim zaczniesz używać AI w pracy.
+
+**Ogólne zasady bezpieczne:**
+- Użycie AI do korekty języka: zazwyczaj akceptowane
+- Użycie AI do generowania tez i argumentów: zazwyczaj wymaga ujawnienia
+- Użycie AI do generowania gotowych fragmentów bez weryfikacji: ryzykowne
+
+### 6.4 AI Act UE i RODO w badaniach
+
+**AI Act (rozporządzenie UE):** Weszło w życie stopniowo 2024–2026. Systemy AI używane do oceniania studentów lub rekrutacji klasyfikowane jako **wysokiego ryzyka** — wymagają transparentności i możliwości odwołania. Narzędzia do pisania prac są na razie w niższej kategorii ryzyka.
+
+**RODO przy badaniach z AI:**
+- Dane osobowe respondentów (imię, wiek, lokalizacja) = dane osobowe w rozumieniu RODO
+- Wysyłanie danych osobowych do modeli chmurowych (ChatGPT, Claude) bez zgody i DPA = naruszenie RODO
+- Bezpieczne rozwiązania: anonimizacja przed przetworzeniem, lub LM Studio (lokalnie)
+- Nagrania wywiadów: absolutnie nie wklejaj do modeli chmurowych bez anonimizacji
+
+---
+
+## 7. Przebieg modułu — timeline
+
+| Czas | Aktywność | Forma |
+|---|---|---|
+| 0–10 min | Ankieta: jak teraz piszesz przeglądy literatury? | Mentimeter |
+| 10–25 min | Mini-wykład: ekosystem narzędzi, gdzie AI pomaga a gdzie zawodzi | Wykład + demo |
+| 25–55 min | **Ćwiczenie 1** — Przegląd literatury o AI literacy (30 min) | Praca własna |
+| 55–75 min | **Ćwiczenie 2** — Notatka badawcza z artykułu (20 min) | Praca własna |
+| 75–95 min | **Ćwiczenie 3** — Mapa pola badawczego w Connected Papers (20 min) | Praca własna |
+| 95–110 min | **Ćwiczenie 4** — Wykrywanie halucynowanych cytatów (15 min) | Praca w parach |
+| 110–120 min | Podsumowanie, Q&A o etyce, rekomendacje workflow | Dyskusja |
+
+---
+
+## 8. Ćwiczenia praktyczne
+
+### Ćwiczenie 1 — Przegląd literatury o AI literacy (30 min)
+
+**Cel:** Zbudować mini-bibliografię tematu w 30 minut zamiast kilku godzin.
+
+**Krok 1 — Semantic Scholar (10 min):**
+1. Wejdź na [semanticscholar.org](https://semanticscholar.org)
+2. Wyszukaj: `"AI literacy" "higher education"` (cudzysłowy dla dokładnego dopasowania)
+3. Filtruj: Year → 2022–2026; Fields of Study → Computer Science + Education
+4. Znajdź 3 artykuły z najwyższą liczbą cytowań
+5. Dla każdego sprawdź TLDR i kliknij "Highly Influential Citations"
+6. Zapisz do Zotero przez connector przeglądarki
+
+**Krok 2 — Consensus AI (10 min):**
+1. Wejdź na [consensus.app](https://consensus.app)
+2. Zadaj pytanie: `"Do AI literacy courses improve student outcomes in higher education?"`
+3. Sprawdź Consensus Meter — czy badania wspierają tę tezę?
+4. Kliknij na 2 artykuły z listy wyników → dodaj do Zotero
+
+**Krok 3 — Weryfikacja (10 min):**
+Wybierz jeden artykuł z Consensus AI. Wyszukaj go w Google Scholar lub Web of Science (dostęp przez bibliotekę UJ). Czy artykuł istnieje? Czy tytuł, autorzy i rok się zgadzają?
+
+**Pytanie do refleksji:** Czy Consensus AI podał artykuły, których nie było w Semantic Scholar? Czy któryś okazał się nieistniejący?
+
+### Ćwiczenie 2 — Generowanie notatki badawczej (20 min)
+
+**Cel:** Nauczyć się efektywnie przetwarzać abstrakt bez ryzyka plagiatu.
+
+**Materiał:** Prowadzący dostarcza abstrakt artykułu (ok. 250 słów) z dziedziny zarządzania informacją lub komunikacji społecznej.
+
+**Krok 1 (5 min):** Przeczytaj abstrakt samodzielnie. Zapisz odręcznie 3 rzeczy, które zapamiętałeś/zapamiętałaś.
+
+**Krok 2 (10 min):** Użyj promptu z Sekcji 4.2 tego modułu (notatka w formacie tabeli). Wklej abstrakt do Claude lub ChatGPT.
+
+**Krok 3 (5 min):** Porównaj notatkę AI z Twoimi ręcznymi notatkami:
+- Co AI dodało, czego nie zauważyłeś/zapamiętałaś?
+- Co AI pominęło lub sfałszowało?
+- Czy AI napisało "brak danych w abstrakcie" tam gdzie rzeczywiście brakowało informacji?
+
+**Dyskusja grupowa:** Czy notatka AI jest gotowa do wklejenia do bibliografii pracy? Co jeszcze musisz zrobić?
+
+### Ćwiczenie 3 — Mapa pola badawczego w Connected Papers (20 min)
+
+**Cel:** Zobaczyć strukturę pola badawczego AI literacy w 15 minut.
+
+**Krok 1 (5 min):**
+1. Wejdź na [connectedpapers.com](https://connectedpapers.com)
+2. Wpisz tytuł jednego z artykułów znalezionych w Ćwiczeniu 1
+3. Kliknij "Build a graph"
+4. Poczekaj ~30 sekund na generowanie grafu
+
+**Krok 2 (10 min):** Eksploruj graf:
+- Kliknij na największy węzeł obok Twojego artykułu — co to za praca?
+- Przejdź do sekcji "Prior Works" — wymień 2 seminalne artykuły w tej dziedzinie
+- Przejdź do sekcji "Derivative Works" — który z nich wydaje się najnowszy i najbardziej aktualny?
+
+**Krok 3 (5 min):**
+- Kliknij na artykuł z "Derivative Works" z ostatnich 2 lat
+- Dodaj go do Zotero
+- Sprawdź jego tytuł w Semantic Scholar — ile ma cytowań?
+
+**Refleksja:** Czy znalazłeś/znalazłaś artykuł, którego byś nie trafił/trafiła tradycyjnym wyszukiwaniem?
+
+### Ćwiczenie 4 — Wykrywanie halucynowanych cytatów (15 min)
+
+**Cel:** Nauczyć się rozpoznawać i weryfikować potencjalnie fałszywe cytowania.
+
+**Materiał:** Prowadzący dostarcza akapit tekstu (150 słów) wygenerowanego przez AI, zawierający 4 cytowania — jedno prawdziwe, trzy wymyślone.
+
+**Zadanie (10 min):**
+Dla każdego cytowania zrób szybką weryfikację:
+
+```text
+METODA WERYFIKACJI (2 minuty/cytat):
+1. Skopiuj tytuł artykułu
+2. Wklej w Google Scholar (scholar.google.com)
+3. Jeśli nie znajdziesz: sprawdź w Semantic Scholar
+4. Jeśli DOI podany: wejdź na doi.org → wklej DOI
+5. Wynik: ✅ istnieje / ❌ nie istnieje / ⚠️ istnieje ale dane różnią się
+```
+
+**Krok 2 (5 min):**
+Ujawnij wyniki grupie. Omów:
+- Które cechy "fałszywego" cytowania były widoczne na pierwszy rzut oka?
+- Czy DOI się sprawdzał?
+- Czy tytuł brzmiał wiarygodnie?
+
+**Zasada na przyszłość:** Każde nowe cytowanie, które wygenerował AI — weryfikuj w Google Scholar lub Semantic Scholar zanim użyjesz w pracy. Zajmuje 2 minuty. Oszczędza reputację.
+
+---
+
+## 9. Tabela porównawcza narzędzi badawczych (marzec 2026)
+
+| Narzędzie | Koszt | Artykułów | Najlepsze do | Ograniczenia |
+|---|---|---|---|---|
+| **Semantic Scholar** | Bezpłatne | 200M+ | Odkrywanie, TLDR, citation graph | Słabsze w humanistyce |
+| **Connected Papers** | Bezpłatne (5 grafów/mies.) | 200M+ (via S2) | Mapa pola badawczego | Angielski, STEM-bias |
+| **Consensus AI** | Free (10/mies.) / ~$9/mies. | 200M+ | Synteza dowodów, research gap | Głównie angielski |
+| **Elicit** | Free (5000 jednorazowo) / $10/mies. | 138M | Systematyczne przeglądy, tabele | Wymaga zaawansowanego pytania |
+| **Research Rabbit** | Bezpłatne | 270M+ | Sieć połączeń, alerty | Brak ekstrakcji danych |
+| **Google NotebookLM** | Bezpłatne | Twoje dokumenty | RAG na własnych PDF-ach | Max 50 dokumentów/notebook |
+| **Zotero** | Bezpłatne (300 MB sync) | — | Zarządzanie bibliografią | Storage płatny przy dużej bibliotece |
+
+---
+
+## 10. Pytania kontrolne
+
+1. Dlaczego NIE powinieneś/powinnaś pytać ChatGPT "Podaj mi 5 artykułów o AI literacy" zamiast używać Semantic Scholar? Jakie jest konkretne ryzyko?
+
+2. Opisz różnicę między **Prior Works** a **Derivative Works** w Connected Papers. Kiedy każda z tych sekcji jest bardziej przydatna?
+
+3. Chcesz sprawdzić czy istnieje konsensus naukowy dotyczący skuteczności prompt engineeringu w edukacji wyższej. Które narzędzie z omówionych wybierzesz i dlaczego?
+
+4. Twój promotor prosi o rozdział z systematycznym przeglądem literatury. Wymień 4 kroki workflow z AI, które przeprowadzisz, i wskaż gdzie jest bezwzględna konieczność ludzkiej weryfikacji.
+
+5. Masz 15 wywiadów nagranych z respondentami (dane osobowe: imię, wiek, uczelnia). Chcesz użyć AI do transkrypcji i analizy tematycznej. Co musisz zrobić PRZED wysłaniem danych do modelu chmurowego?
+
+6. Napisz poprawne cytowanie APA 7 dla odpowiedzi wygenerowanej przez Claude Sonnet 4.6 w dniu dzisiejszym, w której model podsumował treść 3 artykułów naukowych.
+
+7. Twój kolega mówi: "Elicit znalazł mi 50 artykułów i wygenerował tabelę — przegląd gotowy!" Co mu odpiszesz?
+
+---
+
+## 11. Materiały do dalszej nauki
+
+- **Semantic Scholar Docs** — jak korzystać z API i zaawansowanych funkcji: [api.semanticscholar.org](https://api.semanticscholar.org)
+- **PRISMA 2020 Statement** — oficjalny przewodnik po systematycznych przeglądach: [prisma-statement.org](http://www.prisma-statement.org)
+- **APA 7 — cytowanie AI** — oficjalny blog APA: [apastyle.apa.org/blog/how-to-cite-chatgpt](https://apastyle.apa.org/blog/how-to-cite-chatgpt)
+- **Elicit Blog** — metodologia przeglądów systematycznych z AI: [elicit.com/blog](https://elicit.com/blog)
+- **Connected Papers — How It Works**: [connected-papers.com/about](https://www.connectedpapers.com/about)
+- **Zotero Quick Start Guide** — oficjalny przewodnik po polsku (lub angielsku): [zotero.org/support/quick_start_guide](https://www.zotero.org/support/quick_start_guide)
+- **Wytyczne UJ dotyczące AI w pracach dyplomowych** — sprawdź aktualną politykę: [uj.edu.pl](https://www.uj.edu.pl) (zakładka: Studenci → Informacje)

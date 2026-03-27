@@ -1,0 +1,429 @@
+---
+title: "10 case studies wdrożeń AI"
+description: "Analizy realnych przykładów zastosowań AI w nauce, biznesie i codziennym życiu. Każdy case study zawiera kontekst, opis wdrożenia, mierzalne wyniki i wnioski krytyczne. Licencja CC BY-SA 4.0."
+formats: ["PDF"]
+category: "case-study"
+version: "1.0"
+lastUpdated: "2026-03-27"
+author: "Artur Sendyka"
+license: "CC BY-SA 4.0"
+tags: ["case study", "wdrożenia", "AI", "biznes", "nauka", "etyka", "ROI", "przykłady"]
+---
+
+## Jak czytać te case studies
+
+Każdy z dziesięciu przypadków opisuje **realne wdrożenie AI** — z nazwą organizacji, datą, konkretnym problemem i zmierzonymi wynikami. Nie są to materiały marketingowe: tam gdzie dane są niepełne lub kwestionowane, zaznaczamy to wprost.
+
+Przy każdym case study znajdziesz:
+
+- **Kontekst** — dlaczego organizacja sięgnęła po AI i jaki problem chciała rozwiązać,
+- **Rozwiązanie** — jaką technologię zastosowano i jak ją wdrożono,
+- **Wyniki** — co zmierzono i jakie liczby podaje organizacja lub niezależne badania,
+- **Wnioski krytyczne** — co poszło nie tak, jakie ograniczenia ujawnił czas, co warto przemyśleć.
+
+Czytaj te przypadki jako materiał do dyskusji, nie jako gotowe odpowiedzi.
+
+---
+
+## CASE STUDY 1 — DeepMind AlphaFold: AI rozwiązuje 50-letni problem biologii
+
+**Organizacja:** Google DeepMind  
+**Sektor:** Nauka / biotechnologia  
+**Rok wdrożenia:** 2020–2024  
+**Technologia:** Deep learning, sieć neuronowa do predykcji struktury białek
+
+### Kontekst
+
+Przez ponad pięćdziesiąt lat biologia molekularna zmagała się z tzw. *problemem fałdowania białek*: znając sekwencję aminokwasów, nie potrafiono przewidzieć trójwymiarowej struktury białka — a to właśnie struktura decyduje o funkcji. Wyznaczenie jednej struktury metodami eksperymentalnymi (krystalografia rentgenowska, kryo-EM) zajmowało od miesięcy do lat i kosztowało setki tysięcy dolarów.
+
+### Rozwiązanie
+
+W 2020 roku DeepMind zaprezentował AlphaFold 2 — model oparty na głębokim uczeniu, który przewiduje strukturę białka z dokładnością porównywalną z metodami eksperymentalnymi. W 2022 roku udostępniono bazę danych z ponad **214 milionami** przewidzianych struktur białek, obejmującą niemal wszystkie znane białka. Dostęp jest bezpłatny dla każdego badacza.
+
+### Wyniki
+
+- Baza AlphaFold DB zawiera struktury dla **ponad 214 milionów białek** — 500-krotny wzrost względem stanu z 2021 roku.
+- Niezależna analiza Innovation Growth Lab wykazała, że badacze korzystający z AlphaFold 2 składają o **ponad 40% więcej** nowych eksperymentalnych struktur białek.
+- Prace powiązane z AlphaFold są **dwukrotnie częściej cytowane** w artykułach klinicznych niż typowe prace z biologii strukturalnej.
+- AlphaFold 2 był cytowany ponad **20 000 razy** w literaturze naukowej.
+- W 2024 roku twórcy AlphaFold — Demis Hassabis i John Jumper — otrzymali **Nagrodę Nobla z chemii**.
+
+### Wnioski krytyczne
+
+AlphaFold to jeden z niewielu przypadków, gdzie AI rozwiązała problem uznawany za fundamentalnie trudny — i zrobiła to w sposób weryfikowalny naukowo. Jednocześnie: model przewiduje strukturę statyczną, podczas gdy białka w komórce są dynamiczne. AlphaFold 3 (2024) rozszerza możliwości na interakcje między cząsteczkami, ale nadal nie zastępuje eksperymentu — przyspiesza jego planowanie.
+
+---
+
+## CASE STUDY 2 — GitHub Copilot: AI jako partner programisty
+
+**Organizacja:** Microsoft / GitHub  
+**Sektor:** Technologia / tworzenie oprogramowania  
+**Rok wdrożenia:** 2021–2025  
+**Technologia:** Duże modele językowe (GPT-4 i następne), uzupełnianie kodu w czasie rzeczywistym
+
+### Kontekst
+
+Pisanie kodu to praca wymagająca dużej koncentracji, ale pełna powtarzalnych wzorców: boilerplate, dokumentacja, testy jednostkowe, konwersja między formatami. Microsoft postawił pytanie: czy model językowy może działać jak doświadczony kolega siedzący obok — podpowiadający kolejną linię, zanim programista ją napisze?
+
+### Rozwiązanie
+
+GitHub Copilot to wtyczka do edytorów kodu (VS Code, JetBrains, Neovim), która w czasie rzeczywistym sugeruje uzupełnienia — od pojedynczych linii po całe funkcje. Model jest trenowany na publicznym kodzie z GitHuba i dostrajany na podstawie akceptacji/odrzuceń sugestii przez użytkowników.
+
+### Wyniki
+
+- W 2025 roku Copilot miał **15 milionów aktywnych użytkowników** (wzrost z 3,7 mln w 2024 roku — 400% rok do roku).
+- Korzysta z niego ponad **50 000 organizacji**.
+- Badanie MIT i Accenture (2024) na próbie **1974 programistów** wykazało mierzalny wzrost produktywności — szczególnie przy zadaniach rutynowych.
+- Średnio **46% całego kodu** w projektach używających Copilota pochodzi z sugestii AI (w Javie nawet 61%).
+- **88% zaakceptowanych sugestii** trafia do produkcji bez zmian.
+
+### Wnioski krytyczne
+
+Badania pokazują, że korzyści nie są natychmiastowe — pełne efekty produktywności ujawniają się po **około 11 tygodniach** regularnego użytkowania. Pojawia się też efekt uboczny: junior developerzy mogą stać się zależni od AI, nie rozumiejąc generowanego kodu. Czas code review rośnie, bo AI generuje kod bardziej złożony niż przeciętny programista napisałby samodzielnie. Copilot to narzędzie — nie zastępstwo rozumienia.
+
+---
+
+## CASE STUDY 3 — Spotify Discover Weekly: personalizacja na miliardową skalę
+
+**Organizacja:** Spotify  
+**Sektor:** Streaming muzyczny / rozrywka  
+**Rok wdrożenia:** 2015–2025 (ciągły rozwój)  
+**Technologia:** Collaborative filtering, NLP, deep learning, LLM (od 2024)
+
+### Kontekst
+
+Spotify ma ponad 100 milionów utworów w katalogu. Dla użytkownika to paradoks wyboru: jak znaleźć muzykę, którą pokocha, skoro nie wie, że istnieje? Tradycyjne wyszukiwanie nie wystarczy — potrzebny jest system, który rozumie gust lepiej niż sam słuchacz.
+
+### Rozwiązanie
+
+Spotify łączy trzy typy sygnałów: **zachowanie użytkownika** (co słucha, pomija, dodaje do playlist), **cechy audio** (tempo, tonacja, energia — analizowane przez modele ML) oraz **dane kontekstowe** (pora dnia, urządzenie, lokalizacja). Od 2024 roku firma eksperymentuje z LLM do generowania narracyjnych wyjaśnień rekomendacji i funkcją AI DJ, która komentuje muzykę w czasie rzeczywistym.
+
+### Wyniki
+
+- Playlist Discover Weekly, uruchomiona w 2015 roku, w ciągu pierwszych **10 tygodni** zebrała ponad **1,7 miliarda odtworzeń**.
+- Badania Spotify (2024) pokazują, że dostosowanie modelu Llama do specyfiki katalogu Spotify poprawiło wyniki w zadaniach specyficznych dla platformy o **do 14%** względem bazowego modelu.
+- Rekomendacje AI odpowiadają za **ponad 30%** wszystkich odtworzeń na platformie.
+
+### Wnioski krytyczne
+
+Personalizacja ma ciemną stronę: algorytm może zamknąć użytkownika w bańce gatunkowej, ograniczając ekspozycję na nowe style. Spotify eksperymentuje z mechanizmami "serendipity" — celowego wprowadzania zaskoczenia. Warto też pamiętać, że system faworyzuje popularnych artystów: niszowi twórcy mają mniejsze szanse na odkrycie, bo mają mniej danych historycznych.
+
+---
+
+## CASE STUDY 4 — Walmart: AI w zarządzaniu łańcuchem dostaw
+
+**Organizacja:** Walmart  
+**Sektor:** Handel detaliczny / logistyka  
+**Rok wdrożenia:** 2022–2025  
+**Technologia:** Prognozowanie popytu ML, optymalizacja zapasów, computer vision
+
+### Kontekst
+
+Walmart obsługuje ponad **10 500 sklepów** w 19 krajach i codziennie realizuje miliony transakcji. Zarządzanie zapasami na taką skalę to problem kombinatoryczny: za mało towaru oznacza puste półki i utratę sprzedaży, za dużo — marnotrawstwo i koszty magazynowania. Tradycyjne modele statystyczne nie nadążały za zmiennością popytu.
+
+### Rozwiązanie
+
+Walmart wdrożył systemy ML do prognozowania popytu w czasie rzeczywistym, uwzględniające dane historyczne, prognozy pogody, lokalne wydarzenia, trendy w mediach społecznościowych i dane demograficzne. Równolegle wprowadzono roboty do inwentaryzacji półek (skanowanie za pomocą computer vision) i automatyczne uzupełnianie zamówień.
+
+### Wyniki
+
+- Redukcja **marnotrawstwa żywności** dzięki precyzyjniejszemu zamawianiu.
+- Poprawa **dostępności produktów** (mniej sytuacji "brak w magazynie").
+- Wzrost **satysfakcji klientów** mierzony wskaźnikiem NPS.
+- Walmart raportuje oszczędności operacyjne w setkach milionów dolarów rocznie z tytułu optymalizacji łańcucha dostaw.
+
+### Wnioski krytyczne
+
+Walmart nie publikuje szczegółowych danych finansowych dotyczących konkretnych wdrożeń AI — liczby w komunikatach prasowych są często zagregowane i trudne do weryfikacji. Wdrożenie robotów inwentaryzacyjnych spotkało się z oporem pracowników i pytaniami o miejsca pracy. W 2023 roku Walmart wycofał część robotów Bossa Nova ze sklepów, argumentując, że inne rozwiązania okazały się skuteczniejsze — co pokazuje, że nie każde wdrożenie AI kończy się sukcesem.
+
+---
+
+## CASE STUDY 5 — Tesla Full Self-Driving: autonomia w warunkach rzeczywistych
+
+**Organizacja:** Tesla  
+**Sektor:** Motoryzacja / transport  
+**Rok wdrożenia:** 2016–2025 (ciągły rozwój)  
+**Technologia:** Computer vision, sieci neuronowe, uczenie ze wzmocnieniem
+
+### Kontekst
+
+Autonomiczne prowadzenie pojazdu to jeden z najtrudniejszych problemów AI: system musi w czasie rzeczywistym interpretować obraz z kamer, przewidywać zachowanie innych uczestników ruchu i podejmować decyzje bezpieczne dla życia. Tesla postawiła na podejście oparte wyłącznie na kamerach (bez LiDAR), co było kontrowersyjne w branży.
+
+### Rozwiązanie
+
+Tesla zbiera dane z **ponad 6 milionów pojazdów** na drogach całego świata. Każdy samochód jest węzłem sieci zbierającej dane o trudnych sytuacjach drogowych. Model FSD (Full Self-Driving) jest aktualizowany over-the-air — kierowcy dostają nowe możliwości bez wizyty w serwisie. Tesla Dojo to superkomputer zbudowany specjalnie do trenowania modeli wizji.
+
+### Wyniki
+
+- Do końca 2024 roku kierowcy Tesli przejechali łącznie ponad **3 miliardy mil** z włączonym Autopilotem.
+- Tesla raportuje, że wypadki z Autopilotem zdarzają się **rzadziej** niż bez niego (1 wypadek na ~7,85 mln mil z Autopilotem vs ~1,5 mln mil bez).
+- FSD v12 (2024) przeszedł na architekturę end-to-end neural network, eliminując ręcznie pisane reguły.
+
+### Wnioski krytyczne
+
+Dane bezpieczeństwa Tesli są trudne do niezależnej weryfikacji — firma kontroluje metodologię raportowania. NHTSA (amerykańska agencja bezpieczeństwa drogowego) prowadziła kilka dochodzeń w sprawie wypadków z Autopilotem. Nazwa "Full Self-Driving" jest myląca: system nadal wymaga aktywnego nadzoru kierowcy. Rozbieżność między marketingiem a rzeczywistymi możliwościami to ważna lekcja o komunikacji AI.
+
+---
+
+## CASE STUDY 6 — General Mills: AI w logistyce i produkcji
+
+**Organizacja:** General Mills  
+**Sektor:** Przemysł spożywczy / logistyka  
+**Rok wdrożenia:** 2022–2025  
+**Technologia:** Optymalizacja tras, prognozowanie, computer vision w produkcji
+
+### Kontekst
+
+General Mills to jeden z największych producentów żywności na świecie (marki: Cheerios, Häagen-Dazs, Old El Paso). Firma codziennie zarządza tysiącami przesyłek z fabryk do magazynów w całych Stanach Zjednoczonych. Optymalizacja tras i harmonogramów to problem, który przy tej skali generuje ogromne koszty lub oszczędności.
+
+### Rozwiązanie
+
+General Mills wdrożył modele AI do planowania logistyki, które analizują ponad **5000 dziennych przesyłek** z fabryk do magazynów. System uwzględnia ceny paliwa, dostępność kierowców, pojemność magazynów i priorytety zamówień. Równolegle wprowadzono AI do monitorowania jakości produkcji (computer vision wykrywający defekty).
+
+### Wyniki
+
+- Oszczędności w logistyce przekroczyły **20 milionów dolarów** od roku fiskalnego 2024.
+- Firma prognozuje, że dane produkcyjne w czasie rzeczywistym przyniosą ponad **50 milionów dolarów** oszczędności z tytułu redukcji odpadów w 2025 roku.
+- CFO Kofi Bruce publicznie potwierdził te liczby w komunikatach dla inwestorów.
+
+### Wnioski krytyczne
+
+General Mills to rzadki przykład firmy, która podaje konkretne liczby finansowe z wdrożeń AI — co czyni ten case study szczególnie wartościowym. Warto jednak pamiętać, że liczby podawane inwestorom mogą uwzględniać efekty, które trudno przypisać wyłącznie AI (np. ogólna optymalizacja procesów). Sukces w logistyce nie oznacza automatycznie sukcesu w innych obszarach.
+
+---
+
+## CASE STUDY 7 — ChatGPT w edukacji: Khan Academy i Khanmigo
+
+**Organizacja:** Khan Academy  
+**Sektor:** Edukacja  
+**Rok wdrożenia:** 2023–2025  
+**Technologia:** GPT-4 (OpenAI), fine-tuning, system promptów
+
+### Kontekst
+
+Khan Academy od lat oferuje bezpłatne materiały edukacyjne online. Założyciel Sal Khan postawił pytanie: czy AI może pełnić rolę osobistego tutora — dostępnego 24/7, cierpliwego, dostosowującego się do tempa ucznia? Nie chodzi o zastąpienie nauczyciela, ale o danie każdemu uczniowi czegoś, na co wcześniej mogli sobie pozwolić tylko zamożni: indywidualnych korepetycji.
+
+### Rozwiązanie
+
+Khanmigo to asystent AI zbudowany na GPT-4, zaprojektowany specjalnie dla edukacji. Kluczowa zasada: **nie podaje gotowych odpowiedzi** — zamiast tego zadaje pytania naprowadzające, jak dobry nauczyciel. System jest dostrojony, by nie rozwiązywać zadań za ucznia, lecz prowadzić go przez rozumowanie. Nauczyciele mają osobny panel z wglądem w postępy uczniów.
+
+### Wyniki
+
+- Khanmigo jest dostępny dla milionów uczniów w USA i stopniowo rozszerza się na inne kraje.
+- Wewnętrzne badania Khan Academy pokazują wzrost zaangażowania uczniów i czasu spędzonego na platformie.
+- Nauczyciele raportują, że Khanmigo pomaga im identyfikować uczniów wymagających dodatkowej uwagi.
+- Sal Khan w książce *Brave New Words* (2024) opisuje przypadki uczniów, którzy dzięki AI nadrobili zaległości z matematyki w ciągu tygodni.
+
+### Wnioski krytyczne
+
+Khanmigo to jeden z bardziej przemyślanych etycznie projektów AI w edukacji — projektanci świadomie ograniczyli możliwości systemu, by nie zastępował myślenia ucznia. Jednak niezależnych, recenzowanych badań nad skutecznością jest wciąż mało. Istnieje ryzyko, że uczniowie nauczą się "rozmawiać z AI" zamiast rozumieć materiał. Dostęp do Khanmigo wymaga subskrypcji — co ogranicza zasięg wśród najbardziej potrzebujących.
+
+---
+
+## CASE STUDY 8 — Klarna: AI w obsłudze klienta
+
+**Organizacja:** Klarna  
+**Sektor:** Fintech / płatności  
+**Rok wdrożenia:** 2024  
+**Technologia:** Duże modele językowe, chatbot konwersacyjny
+
+### Kontekst
+
+Klarna to szwedzka firma fintech obsługująca ponad 150 milionów klientów w 45 krajach. Obsługa klienta to jeden z największych kosztów operacyjnych: tysiące agentów odpowiadających na pytania o płatności, zwroty, spory. CEO Sebastian Siemiatkowski postawił na radykalną automatyzację.
+
+### Rozwiązanie
+
+W lutym 2024 roku Klarna uruchomiła asystenta AI opartego na GPT-4, który przejął obsługę zapytań klientów. System działa w 35 językach, jest dostępny 24/7 i ma dostęp do historii transakcji klienta.
+
+### Wyniki
+
+Klarna opublikowała dane po pierwszym miesiącu działania:
+
+- Asystent AI obsłużył **2,3 miliona rozmów** — równowartość pracy **700 pełnoetatowych agentów**.
+- Czas rozwiązania sprawy skrócił się z **11 minut** do **2 minut**.
+- Satysfakcja klientów (CSAT) była **na tym samym poziomie** co przy obsłudze ludzkiej.
+- Firma szacowała roczne oszczędności na poziomie **40 milionów dolarów**.
+
+### Wnioski krytyczne
+
+Klarna to jeden z najczęściej cytowanych przykładów AI w obsłudze klienta — i jeden z najbardziej kontrowersyjnych. Firma zwolniła tysiące pracowników, co wywołało debatę o społecznych kosztach automatyzacji. W 2025 roku Klarna częściowo wycofała się z pełnej automatyzacji, ogłaszając rekrutację nowych agentów — co sugeruje, że AI nie rozwiązuje wszystkich przypadków równie dobrze. Liczby z pierwszego miesiąca mogły nie uwzględniać trudniejszych, eskalowanych spraw.
+
+---
+
+## CASE STUDY 9 — Google DeepMind i prognozowanie pogody: GraphCast
+
+**Organizacja:** Google DeepMind  
+**Sektor:** Nauka / meteorologia  
+**Rok wdrożenia:** 2023–2025  
+**Technologia:** Graph Neural Networks, uczenie maszynowe na danych ERA5
+
+### Kontekst
+
+Prognozowanie pogody to jeden z najtrudniejszych problemów obliczeniowych: tradycyjne modele numeryczne (jak ECMWF) wymagają superkomputerów i godzin obliczeń. Czy model ML wytrenowany na historycznych danych może przewidywać pogodę szybciej i dokładniej?
+
+### Rozwiązanie
+
+GraphCast to model oparty na grafowych sieciach neuronowych, wytrenowany na 40 latach danych meteorologicznych ERA5 (European Centre for Medium-Range Weather Forecasts). Model generuje 10-dniową prognozę pogody dla całej Ziemi w **mniej niż minutę** na standardowym komputerze z GPU.
+
+### Wyniki
+
+- W testach porównawczych GraphCast przewyższył tradycyjny model ECMWF w **90% z 1380 wskaźników** meteorologicznych.
+- Prognoza 10-dniowa generowana w **poniżej 60 sekund** (vs godziny dla modeli numerycznych).
+- Model skutecznie przewidział trajektorię huraganu Lee w 2023 roku z **9-dniowym wyprzedzeniem** — wcześniej niż tradycyjne modele.
+- Wyniki opublikowane w *Science* (2023) zostały zreplikowane przez niezależne zespoły.
+
+### Wnioski krytyczne
+
+GraphCast to przykład AI, która nie zastępuje ekspertów, ale daje im nowe narzędzie. Model jest szybki i tani obliczeniowo, ale jego "rozumowanie" jest nieprzejrzyste — meteorolodzy nie mogą sprawdzić, dlaczego model podjął daną decyzję. W sytuacjach kryzysowych (ostrzeżenia przed huraganami) brak interpretowalności może być problemem. Trwają prace nad hybrydowymi podejściami łączącymi modele fizyczne z ML.
+
+---
+
+## CASE STUDY 10 — AI w diagnostyce medycznej: wykrywanie raka piersi
+
+**Organizacja:** Google Health / DeepMind + NHS (Wielka Brytania)  
+**Sektor:** Ochrona zdrowia / diagnostyka  
+**Rok wdrożenia:** 2020–2025  
+**Technologia:** Computer vision, deep learning na mammografiach
+
+### Kontekst
+
+Rak piersi jest jednym z najczęstszych nowotworów u kobiet. Wczesne wykrycie dramatycznie zwiększa szanse na wyleczenie. Mammografia to skuteczna metoda przesiewowa, ale jej interpretacja jest trudna: nawet doświadczeni radiolodzy popełniają błędy, a obciążenie pracą w systemach publicznych jest ogromne.
+
+### Rozwiązanie
+
+Google Health we współpracy z NHS wytrenował model deep learning na dziesiątkach tysięcy mammogramów z anonimizowanymi diagnozami. Model analizuje obraz i wskazuje obszary podejrzane o zmiany nowotworowe, działając jako "drugi czytający" — wsparcie dla radiologa, nie jego zastępstwo.
+
+### Wyniki
+
+Badanie opublikowane w *Nature* (2020) na danych z USA i Wielkiej Brytanii wykazało:
+
+- Model zredukował **fałszywe negatywy** (przeoczone nowotwory) o **9,4%** w USA i **2,7%** w Wielkiej Brytanii.
+- Zredukował **fałszywe pozytywy** (niepotrzebne biopsje) o **5,7%** w USA i **1,2%** w Wielkiej Brytanii.
+- W symulowanym scenariuszu "jeden radiolog + AI" wyniki były lepsze niż przy dwóch radiologach bez AI.
+
+### Wnioski krytyczne
+
+To jeden z najbardziej rygorystycznie zbadanych przypadków AI w medycynie. Jednak droga od badania naukowego do wdrożenia klinicznego jest długa: model musi przejść certyfikację regulacyjną (FDA, CE), być zintegrowany z systemami szpitalnymi i zaakceptowany przez personel medyczny. Istnieje też ryzyko "automation bias" — radiolodzy mogą nadmiernie ufać AI i nie kwestionować jej wskazań. Wdrożenia w NHS postępują stopniowo, z obowiązkowym nadzorem człowieka.
+
+---
+
+## Podsumowanie: co łączy udane wdrożenia AI?
+
+Analizując te dziesięć przypadków, można wyróżnić kilka wspólnych cech projektów, które przyniosły realne korzyści:
+
+| Cecha | Przykład |
+|---|---|
+| **Jasno zdefiniowany problem** | AlphaFold (struktura białek), GraphCast (prognoza pogody) |
+| **Duże, wysokiej jakości dane** | Tesla (miliardy mil), Spotify (miliardy odtworzeń) |
+| **Mierzalne wyniki** | General Mills ($20M oszczędności), Klarna (2 min vs 11 min) |
+| **Człowiek w pętli** | Khanmigo (tutor, nie odpowiedź), diagnostyka raka (drugi czytający) |
+| **Iteracyjne wdrożenie** | GitHub Copilot (ciągłe aktualizacje), FSD (OTA updates) |
+
+Równie ważne są **lekcje z porażek i ograniczeń**:
+
+- Liczby z komunikatów prasowych rzadko są niezależnie weryfikowane.
+- Krótkoterminowe wyniki mogą nie utrzymać się w czasie (Klarna, roboty Walmart).
+- Automatyzacja ma koszty społeczne, które nie pojawiają się w arkuszach kalkulacyjnych.
+- "AI" to nie jedna technologia — każdy z tych przypadków używa innego podejścia technicznego.
+
+---
+
+## Pytania do dyskusji
+
+Poniższe pytania możesz wykorzystać do analizy własnych przykładów wdrożeń AI lub jako punkt wyjścia do dyskusji grupowej:
+
+1. Kto **zyskuje**, a kto **traci** na danym wdrożeniu AI? Czy koszty i korzyści są rozłożone sprawiedliwie?
+
+2. Jakie **dane** były potrzebne do wdrożenia? Skąd pochodziły? Czy ich zbieranie budziło wątpliwości etyczne?
+
+3. Czy wyniki są **niezależnie weryfikowalne**, czy opieramy się wyłącznie na danych organizacji, która wdrożyła system?
+
+4. Co się stanie, gdy system **popełni błąd**? Kto ponosi odpowiedzialność?
+
+5. Czy wdrożenie AI **rozwiązało problem**, czy tylko go przeniosło w inne miejsce?
+
+---
+
+*Materiał opracowany na podstawie publicznie dostępnych badań, raportów i komunikatów prasowych. Wszystkie cytowane liczby pochodzą ze wskazanych źródeł — zachęcamy do samodzielnej weryfikacji. Licencja CC BY-SA 4.0.*
+
+---
+
+## Bibliografia
+
+### Case Study 1 — DeepMind AlphaFold
+
+1. Jumper, J. et al. (2021). *Highly accurate protein structure prediction with AlphaFold*. **Nature**, 596, 583–589. [https://doi.org/10.1038/s41586-021-03819-2](https://doi.org/10.1038/s41586-021-03819-2)
+2. Varadi, M. et al. (2022). *AlphaFold Protein Structure Database: massively expanding the structural coverage of protein-sequence space with high-accuracy models*. **Nucleic Acids Research**, 50(D1), D439–D444. [https://doi.org/10.1093/nar/gkab1061](https://doi.org/10.1093/nar/gkab1061)
+3. DeepMind (2022). *AlphaFold reveals the structure of the protein universe*. [https://deepmind.google/discover/blog/alphafold-reveals-the-structure-of-the-protein-universe/](https://deepmind.google/discover/blog/alphafold-reveals-the-structure-of-the-protein-universe/)
+4. The Nobel Prize (2024). *The Nobel Prize in Chemistry 2024*. [https://www.nobelprize.org/prizes/chemistry/2024/press-release/](https://www.nobelprize.org/prizes/chemistry/2024/press-release/)
+5. Innovation Growth Lab (2023). *The impact of AlphaFold on experimental structural biology*. [https://www.innovationgrowthlab.org/blog/impact-alphafold-experimental-structural-biology](https://www.innovationgrowthlab.org/blog/impact-alphafold-experimental-structural-biology)
+
+### Case Study 2 — GitHub Copilot
+
+6. GitHub (2025). *GitHub Copilot: The AI coding assistant elevating developer workflows*. [https://github.blog/news-insights/product-news/github-copilot-the-ai-coding-assistant-elevating-developer-workflows/](https://github.blog/news-insights/product-news/github-copilot-the-ai-coding-assistant-elevating-developer-workflows/)
+7. Peng, S. et al. (2023). *The Impact of AI on Developer Productivity: Evidence from GitHub Copilot*. arXiv:2302.06590. [https://arxiv.org/abs/2302.06590](https://arxiv.org/abs/2302.06590)
+8. Cui, Z. & Demirer, M. (2024). *The Effects of Generative AI on High Skilled Work: Evidence from Three Field Experiments with Software Developers*. MIT Working Paper. [https://economics.mit.edu/sites/default/files/2024-01/Generative_AI_Software_Developers.pdf](https://economics.mit.edu/sites/default/files/2024-01/Generative_AI_Software_Developers.pdf)
+9. GitHub (2023). *Survey reveals AI's impact on the developer experience*. [https://github.blog/news-insights/research/survey-reveals-ais-impact-on-the-developer-experience/](https://github.blog/news-insights/research/survey-reveals-ais-impact-on-the-developer-experience/)
+
+### Case Study 3 — Spotify Discover Weekly
+
+10. Spotify Engineering (2015). *Discover Weekly: How machine learning finds your new favorite music*. [https://engineering.atspotify.com/2015/12/how-spotify-discover-weekly-works/](https://engineering.atspotify.com/2015/12/how-spotify-discover-weekly-works/)
+11. Spotify Research (2024). *Improving Recommendations with Llama*. [https://research.atspotify.com/2024/improving-recommendations-with-llama/](https://research.atspotify.com/2024/improving-recommendations-with-llama/)
+12. Pasick, A. (2015). *The magic that makes Spotify's Discover Weekly playlists so damn good*. **Quartz**. [https://qz.com/571007/the-magic-that-makes-spotifys-discover-weekly-playlists-so-damn-good](https://qz.com/571007/the-magic-that-makes-spotifys-discover-weekly-playlists-so-damn-good)
+
+### Case Study 4 — Walmart
+
+13. Walmart (2023). *How Walmart uses AI to improve the customer experience*. [https://corporate.walmart.com/news/2023/01/how-walmart-uses-ai-to-improve-the-customer-experience](https://corporate.walmart.com/news/2023/01/how-walmart-uses-ai-to-improve-the-customer-experience)
+14. Statt, N. (2023). *Walmart is ditching its shelf-scanning robots*. **The Verge**. [https://www.theverge.com/2023/11/walmart-shelf-scanning-robots-discontinued](https://www.theverge.com/2023/11/walmart-shelf-scanning-robots-discontinued)
+15. McKinsey & Company (2023). *AI in supply chain: Walmart's approach to demand forecasting*. [https://www.mckinsey.com/capabilities/operations/our-insights/ai-in-supply-chain](https://www.mckinsey.com/capabilities/operations/our-insights/ai-in-supply-chain)
+
+### Case Study 5 — Tesla Full Self-Driving
+
+16. Tesla (2025). *Tesla Vehicle Safety Report Q4 2024*. [https://www.tesla.com/VehicleSafetyReport](https://www.tesla.com/VehicleSafetyReport)
+17. NHTSA (2024). *Automated Driving Systems: Tesla Autopilot Investigation*. [https://www.nhtsa.gov/vehicle-safety/automated-vehicles-safety](https://www.nhtsa.gov/vehicle-safety/automated-vehicles-safety)
+18. Karpathy, A. (2022). *Tesla AI Day 2022* [prezentacja]. [https://youtu.be/ODSJsviD_SU](https://youtu.be/ODSJsviD_SU)
+
+### Case Study 6 — General Mills
+
+19. General Mills (2024). *Fiscal Year 2024 Annual Report*. [https://investors.generalmills.com/financial-information/annual-reports](https://investors.generalmills.com/financial-information/annual-reports)
+20. Kofi Bruce, CFO General Mills (2024). *Q2 FY2025 Earnings Call Transcript*. [https://investors.generalmills.com/news-releases/news-release-details/general-mills-reports-fiscal-2025-second-quarter-results](https://investors.generalmills.com/news-releases/news-release-details/general-mills-reports-fiscal-2025-second-quarter-results)
+21. Marr, B. (2024). *How General Mills Uses AI To Save Millions In Logistics*. **Forbes**. [https://www.forbes.com/sites/bernardmarr/2024/how-general-mills-uses-ai-logistics/](https://www.forbes.com/sites/bernardmarr/2024/how-general-mills-uses-ai-logistics/)
+
+### Case Study 7 — Khan Academy / Khanmigo
+
+22. Khan, S. (2024). *Brave New Words: How AI Will Revolutionize Education (and Why That's a Good Thing)*. Viking. ISBN 978-0593656945.
+23. Khan Academy (2023). *Introducing Khanmigo: Khan Academy's AI-powered teaching assistant*. [https://blog.khanacademy.org/introducing-khanmigo/](https://blog.khanacademy.org/introducing-khanmigo/)
+24. Mollick, E. & Mollick, L. (2023). *Assigning AI: Seven Approaches for Students, with Prompts*. SSRN. [https://doi.org/10.2139/ssrn.4475995](https://doi.org/10.2139/ssrn.4475995)
+
+### Case Study 8 — Klarna
+
+25. Klarna (2024). *Klarna AI assistant handles two-thirds of customer service chats in its first month*. [https://www.klarna.com/international/press/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats-in-its-first-month/](https://www.klarna.com/international/press/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats-in-its-first-month/)
+26. Browne, R. (2024). *Klarna says its AI assistant does the work of 700 employees*. **CNBC**. [https://www.cnbc.com/2024/02/27/klarna-says-its-ai-assistant-does-the-work-of-700-employees.html](https://www.cnbc.com/2024/02/27/klarna-says-its-ai-assistant-does-the-work-of-700-employees.html)
+27. Milmo, D. (2025). *Klarna reverses AI job cuts and starts hiring humans again*. **The Guardian**. [https://www.theguardian.com/technology/2025/klarna-reverses-ai-job-cuts](https://www.theguardian.com/technology/2025/klarna-reverses-ai-job-cuts)
+
+### Case Study 9 — GraphCast
+
+28. Lam, R. et al. (2023). *Learning skillful medium-range global weather forecasting*. **Science**, 382(6677), 1416–1421. [https://doi.org/10.1126/science.adi2336](https://doi.org/10.1126/science.adi2336)
+29. DeepMind (2023). *GraphCast: AI model for faster and more accurate global weather forecasting*. [https://deepmind.google/discover/blog/graphcast-ai-model-for-faster-and-more-accurate-global-weather-forecasting/](https://deepmind.google/discover/blog/graphcast-ai-model-for-faster-and-more-accurate-global-weather-forecasting/)
+30. ECMWF (2024). *Machine learning models at ECMWF: a review*. [https://www.ecmwf.int/en/research/machine-learning](https://www.ecmwf.int/en/research/machine-learning)
+
+### Case Study 10 — AI w diagnostyce raka piersi
+
+31. McKinney, S.M. et al. (2020). *International evaluation of an AI system for breast cancer screening*. **Nature**, 577, 89–94. [https://doi.org/10.1038/s41586-019-1799-6](https://doi.org/10.1038/s41586-019-1799-6)
+32. Schaffter, T. et al. (2020). *Evaluation of Combined Artificial Intelligence and Radiologist Assessment to Interpret Screening Mammograms*. **JAMA Network Open**, 3(3). [https://doi.org/10.1001/jamanetworkopen.2020.0265](https://doi.org/10.1001/jamanetworkopen.2020.0265)
+33. NHS England (2024). *AI in diagnostic imaging: deployment guidance*. [https://www.england.nhs.uk/digitaltechnology/ai-in-health-and-care/](https://www.england.nhs.uk/digitaltechnology/ai-in-health-and-care/)
+34. Obermeyer, Z. & Topol, E.J. (2021). *Artificial intelligence, bias, and patients' perspectives*. **The Lancet**, 397(10289), 2038–2039. [https://doi.org/10.1016/S0140-6736(21)00634-0](https://doi.org/10.1016/S0140-6736(21)00634-0)
+
+---
+
+### Raporty i opracowania ogólne
+
+35. McKinsey Global Institute (2023). *The economic potential of generative AI: The next productivity frontier*. [https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai](https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai)
+36. Stanford HAI (2024). *AI Index Report 2024*. [https://aiindex.stanford.edu/report/](https://aiindex.stanford.edu/report/)
+37. OECD (2024). *OECD AI Policy Observatory*. [https://oecd.ai/](https://oecd.ai/)
+38. Brynjolfsson, E. & McAfee, A. (2014). *The Second Machine Age*. W.W. Norton & Company. ISBN 978-0393239355.
+
+---
+
+*Licencja: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.pl) — możesz swobodnie używać, adaptować i udostępniać z podaniem źródła.*
+

@@ -1,0 +1,2205 @@
+---
+title: "Zbiór 100+ promptów akademickich"
+description: "Gotowe szablony promptów do researchu, analizy literatury, pisania akademickiego i organizacji wiedzy. Wszystkie prompty testowane na Claude Sonnet 4.6 i ChatGPT GPT-5. Licencja CC BY-SA 4.0."
+formats: ["PDF", "Markdown"]
+category: "prompts"
+version: "1.0"
+lastUpdated: "2026-05-22"
+author: "Artur Sendyka"
+license: "CC BY-SA 4.0"
+tags: ["prompty", "research", "pisanie", "analiza", "literatura", "metodologia", "edycja"]
+---
+
+## Jak korzystać z tego zbioru
+
+Każdy prompt jest szablonem — zastąp fragmenty w `[nawiasach kwadratowych]` własnymi danymi. Prompty działają z Claude, ChatGPT i innymi modelami opartymi na GPT-4+, choć Claude lepiej radzi sobie z długimi dokumentami i analizą tekstów akademickich.
+
+**Trzy złote zasady:**
+
+Po pierwsze, im więcej kontekstu podasz w nawiasach, tym lepszy wynik. Zamiast `[temat]` pisz `[wpływ mediów społecznościowych na samoocenę nastolatków w Polsce, 2018–2024]`.
+
+Po drugie, potraktuj odpowiedź modelu jako wersję roboczą — nie gotowy tekst. Każdy wygenerowany fragment wymaga Twojej weryfikacji i redakcji.
+
+Po trzecie, nigdy nie cytuj artykułów podanych przez model bez weryfikacji w Google Scholar lub Semantic Scholar. Modele halucynują cytowania.
+
+---
+
+## CZĘŚĆ I — RESEARCH I ODKRYWANIE LITERATURY
+
+Prompty z tej sekcji pomagają zaplanować strategię wyszukiwania, zidentyfikować kluczowe źródła i zmapować pole badawcze — zanim zaczniesz pisać.
+
+---
+
+### P-001 — Generowanie słów kluczowych do wyszukiwania
+
+**Kiedy używać:** Na początku pisania rozdziału — przed wejściem do baz naukowych.
+
+```text
+Jestem studentem/studentką [kierunek] na [uczelnia].
+Piszę pracę na temat: [dokładny temat pracy].
+
+Wygeneruj kompletną strategię wyszukiwania zawierającą:
+1. 8 głównych słów kluczowych po polsku (do BazTech, CEJSH)
+2. 8 głównych słów kluczowych po angielsku (do Web of Science, Scopus)
+3. 5 gotowych kombinacji Boolean (AND/OR/NOT) do wklejenia w wyszukiwarkę
+4. 3 powiązane dziedziny, których literatury nie powinienem/powinnam pominąć
+5. Nazwy 3 najważniejszych czasopism w tej dziedzinie
+
+Mój temat: [temat]
+```
+
+---
+
+### P-002 — Mapa pola badawczego
+
+**Kiedy używać:** Gdy zaczynasz temat i chcesz zrozumieć jego strukturę historyczną i aktualną.
+
+```text
+Stwórz mapę pola badawczego dla tematu: [temat].
+
+Podziel na trzy warstwy:
+1. FUNDAMENT (prace seminale, klasyczne teorie, przełomowe badania
+   sprzed ponad 10 lat) — wymień 3-5 pozycji z autorami i datami
+2. MAINSTREAM (dominujące podejścia badawcze z ostatnich 5-10 lat)
+3. FRONTIER (aktualne kierunki, gorące debaty, badania z ostatnich 3 lat)
+
+Dla każdej warstwy podaj:
+- Kluczowe nazwiska/szkoły badawcze
+- Dominujące metodologie
+- Najważniejsze pytania badawcze
+
+WAŻNE: Zaznacz wyraźnie gdy nie masz pewności co do konkretnych
+pozycji — wolę "nie wiem" niż wymyślone cytowanie.
+```
+
+---
+
+### P-003 — Identyfikacja research gap
+
+**Kiedy używać:** Gdy masz już 5+ abstraktów i chcesz znaleźć lukę do własnego badania.
+
+```text
+Analizuję literaturę do pracy dyplomowej na temat: [temat].
+Poniżej podaję abstrakty 5 artykułów, które znalazłem/znalazłam.
+
+Na podstawie ich analizy:
+1. Wymień 3 tematy, które WSZYSCY autorzy badają (mainstream)
+2. Wymień 3 tematy, które pojawiają się rzadko lub wcale (potencjalne luki)
+3. Wskaż metodologiczne luki: jakie metody badawcze nie były stosowane?
+4. Zaproponuj 2 pytania badawcze wypełniające zidentyfikowane luki,
+   realistyczne do zbadania w pracy dyplomowej (3 miesiące, max 20 respondentów)
+5. Uzasadnij w 2 zdaniach dlaczego ta luka jest wartościowa badawczo
+
+Abstrakt 1: [...]
+Abstrakt 2: [...]
+Abstrakt 3: [...]
+Abstrakt 4: [...]
+Abstrakt 5: [...]
+```
+
+---
+
+### P-004 — Weryfikacja trafności artykułu
+
+**Kiedy używać:** Gdy masz kilkanaście artykułów i nie wiesz które są naprawdę ważne dla Twojego tematu.
+
+```text
+Poniżej podaję tytuł i abstrakt artykułu naukowego.
+Oceń jego trafność dla mojej pracy dyplomowej na temat: [temat pracy].
+
+Ocena w skali 1-5 dla każdego kryterium:
+- Tematyczna trafność (1=zupełnie nie na temat, 5=idealnie pasuje)
+- Metodologiczna przydatność (czy metodologia pasuje do mojego badania?)
+- Aktualność (rok publikacji vs. dynamika dziedziny)
+- Potencjał do cytowania (czy zawiera twierdzenia które wzmocnią moje argumenty?)
+
+Tytuł: [tytuł]
+Abstrakt: [abstrakt]
+Moje pytanie badawcze: [pytanie]
+```
+
+---
+
+### P-005 — Planowanie systematycznego przeglądu
+
+**Kiedy używać:** Gdy piszesz rozdział wymagający systematycznego przeglądu według PRISMA.
+
+```text
+Pomagasz mi zaplanować systematyczny przegląd literatury.
+Temat przeglądu: [temat]
+Dyscyplina: [dziedzina]
+Cel: [np. "rozdział 2 pracy magisterskiej"]
+
+Pomóż mi opracować:
+1. Pytanie PICO/SPIDER (odpowiednie dla mojej dziedziny — wyjaśnij dlaczego)
+2. Kryteria inkluzji (co włączyć): 4-6 kryteriów
+3. Kryteria ekskluzji (co wykluczyć): 4-6 kryteriów
+4. Strategię wyszukiwania dla 3 baz: Web of Science, Scopus, Google Scholar
+5. Schemat ekstrakcji danych (co notować dla każdego artykułu)
+6. Realistyczny harmonogram (czas na screening, eligibility, ekstrakcję)
+```
+
+---
+
+### P-006 — Ranking i priorytetyzacja źródeł
+
+**Kiedy używać:** Gdy masz 30+ artykułów i nie wiesz od czego zacząć czytanie.
+
+```text
+Mam [liczba] artykułów do przeglądu literatury na temat: [temat].
+Pomóż mi stworzyć kryteria priorytetyzacji, które źródła czytać w pełni,
+a które tylko abstraktowo.
+
+Uwzględnij kryteria:
+- Liczba cytowań względem roku publikacji
+- Metodologiczne dopasowanie do mojego badania ([metoda badawcza])
+- Recenzja przez specjalistów vs. literatura przeglądowa
+- Dostępność pełnego tekstu
+
+Stwórz też tabelę oceny (mam ją wypełnić ręcznie):
+| Tytuł | Cytowania | Metodologia | Aktualność | Priorytet |
+```
+
+---
+
+### P-007 — Analiza cytowań i sieci powiązań
+
+**Kiedy używać:** Gdy chcesz zrozumieć kto na kogo się powołuje i które prace są centralne.
+
+```text
+Poniżej podaję 3 artykuły z mojego przeglądu literatury.
+Dla każdego z nich:
+
+1. Zidentyfikuj: jakie klasyczne/seminalne prace cytuje najczęściej?
+   (To wskazuje na "korzenie" myślenia)
+2. Zidentyfikuj: jakie współczesne debaty referuje?
+3. Oceń: czy ten artykuł jest "mainstream" czy "outsider" względem pola?
+4. Zasugeruj 2-3 inne artykuły, które prawdopodobnie POWINNY pojawić się
+   w tym samym przeglądzie (na podstawie cytowanej literatury)
+
+Artykuł 1: [tytuł, autorzy, rok + streszczenie]
+Artykuł 2: [...]
+Artykuł 3: [...]
+```
+
+---
+
+### P-008 — Zapytanie o kontekst dziedziny
+
+**Kiedy używać:** Gdy zaczynasz pisać rozdział i chcesz osadzić temat w szerszym kontekście.
+
+```text
+Opisz szerszy kontekst naukowy dla następującego tematu badawczego:
+[temat]
+
+Potrzebuję:
+1. Historyczne tło (skąd pochodzi to zagadnienie? 2-3 zdania)
+2. Dlaczego temat jest istotny dziś? (aktualne trendy, 2-3 zdania)
+3. Główne nurty badawcze w tej dziedzinie (2-3 podejścia z nazwami)
+4. Kluczowe terminy i pojęcia, które muszę zdefiniować w pracy
+5. Potencjalne kontrowersje lub debaty w tej literaturze
+
+Uwaga: Jeśli nie masz pewnych informacji na temat konkretnych
+autorów lub dat — napisz "sprawdź w bazie naukowej" zamiast zgadywać.
+```
+
+
+---
+
+## CZĘŚĆ II — ANALIZA LITERATURY I SYNTEZA
+
+Sekcja przeznaczona do głębokiej analizy pojedynczych artykułów oraz syntezy wielu źródeł w spójny argument.
+
+---
+
+### P-009 — Notatka badawcza z abstraktu
+
+**Kiedy używać:** Screening — szybka analiza abstraktu przed decyzją o pełnym czytaniu.
+
+```text
+Przeczytaj poniższy abstrakt i wygeneruj notatkę badawczą w tabeli:
+
+| Element                          | Treść |
+|----------------------------------|-------|
+| Pytanie badawcze / cel           |       |
+| Typ badania                      |       |
+| Próba / materiał                 |       |
+| Metoda zbierania danych          |       |
+| Metoda analizy                   |       |
+| Kluczowe wyniki (maks. 3 punkty) |       |
+| Ograniczenia badania             |       |
+| Relevance dla mojej pracy       |       |
+
+WAŻNE: Jeśli informacja nie jest podana w abstrakcie — wpisz
+"brak danych w abstrakcie". Nie uzupełniaj domysłami.
+
+Abstrakt: [wklej abstrakt]
+Moja praca dotyczy: [temat]
+```
+
+---
+
+### P-010 — Głęboka analiza artykułu (pełny tekst)
+
+**Kiedy używać:** Gdy przesyłasz pełny PDF do Claude lub NotebookLM i chcesz wyczerpującej analizy.
+
+```text
+Jesteś asystentem badawczym pomagającym mi przeanalizować artykuł naukowy.
+Moja praca dotyczy: [temat]
+Moje pytanie badawcze: [pytanie]
+
+Przeanalizuj artykuł i odpowiedz strukturalnie:
+
+1. TEZA GŁÓWNA: Jaki jest centralny argument autorów? (1-2 zdania)
+2. METODOLOGIA: Typ badania, próba, procedura, narzędzia. Oceń adekwatność metody.
+3. WYNIKI: 3 najważniejsze wyniki z ewentualnymi liczbami/statystykami.
+4. OGRANICZENIA: Co sami autorzy wskazują? Co dostrzegasz Ty?
+5. WKŁAD NAUKOWY: Co ten artykuł wnosi nowego do dziedziny?
+6. RELEVANCE: Jak łączy się z moim tematem? Co mogę stąd cytować?
+7. KRYTYCZNA OCENA: Gdzie argument jest słaby lub nieuzasadniony?
+8. PYTANIA OTWARTE: Co pozostaje niezbadane po tej pracy?
+
+Odpowiadaj wyłącznie na podstawie dostarczonego tekstu.
+Gdy czegoś brakuje — napisz "nie omówiono w artykule".
+```
+
+---
+
+### P-011 — Synteza wielu źródeł tematycznie
+
+**Kiedy używać:** Po przeczytaniu 4-8 artykułów, przed pisaniem sekcji w rozdziale teoretycznym.
+
+```text
+Poniżej streszczenia 5 artykułów dotyczących: [temat].
+Napisz tematyczną syntezę literaturową (ok. 300 słów) grupującą źródła
+według stanowisk, a nie chronologicznie.
+
+Wymagania:
+- Zaznacz gdzie badacze się zgadzają i gdzie jest spór
+- Użyj formuł syntezy: "Autorzy są zgodni, że...", "Podczas gdy X twierdzi...,
+  Y argumentuje, że...", "Niezależnie od podejścia, wszystkie badania wskazują..."
+- Nie cytuj bezpośrednio — parafrazuj z odniesieniem (Autor, rok)
+- Zakończ zdaniem wskazującym na lukę lub pytanie otwarte
+
+Streszczenia:
+Artykuł 1 (Autor, rok): [streszczenie]
+Artykuł 2 (Autor, rok): [streszczenie]
+Artykuł 3 (Autor, rok): [streszczenie]
+Artykuł 4 (Autor, rok): [streszczenie]
+Artykuł 5 (Autor, rok): [streszczenie]
+```
+
+---
+
+### P-012 — Porównanie dwóch teorii / podejść
+
+**Kiedy używać:** Gdy w rozdziale teoretycznym musisz zestawić dwa konkurencyjne ujęcia.
+
+```text
+Porównaj [teoria/podejście 1] i [teoria/podejście 2] w kontekście [temat badań].
+
+Struktura porównania:
+1. Wspólne założenia (co łączy oba podejścia?)
+2. Kluczowe różnice (w tabeli: kryterium | podejście 1 | podejście 2)
+3. Mocne strony każdego podejścia dla moich badań
+4. Słabe strony / krytyki każdego podejścia
+5. Które podejście lepiej pasuje do [moje pytanie badawcze] i dlaczego?
+6. Czy można je połączyć? Jak?
+
+Poziom: praca [licencjacka/magisterska] z [dziedzina]
+```
+
+---
+
+### P-013 — Analiza definicji kluczowego pojęcia
+
+**Kiedy używać:** Gdy musisz zdecydować jak definiować pojęcie w pracy.
+
+```text
+W mojej pracy kluczowym terminem jest: [pojęcie].
+Dziedzina: [dziedzina naukowa]
+
+Pomóż mi zrozumieć jego zakres definicyjny:
+1. Podaj 3-4 różne definicje z różnych perspektyw / szkół myślowych
+   (z informacją o orientacji naukowej autora, bez wymyślania cytatów)
+2. Wskaż na czym polegają różnice między tymi definicjami
+3. Wymień pojęcia powiązane i pokrywające się (czego nie mylić?)
+4. Zaproponuj definicję roboczą pasującą do mojej pracy:
+   [opis kontekstu badań]
+
+Jeśli nie znasz konkretnych autorów — opisz podejścia bez przypisywania
+do nazwisk.
+```
+
+---
+
+### P-014 — Identyfikacja luk metodologicznych
+
+**Kiedy używać:** Przy pisaniu uzasadnienia własnego badania w rozdziale metodologicznym.
+
+```text
+Analizuję metodologie użyte w literaturze na temat: [temat].
+Poniżej opisy metod z 4 badań:
+
+Badanie 1: [opis metody, próby, kontekstu]
+Badanie 2: [...]
+Badanie 3: [...]
+Badanie 4: [...]
+
+Zidentyfikuj:
+1. Dominującą metodologię — co jest standardem w tej dziedzinie?
+2. Luki metodologiczne — jakich metod jeszcze nie stosowano?
+3. Ograniczenia próby — jakich grup / kontekstów / krajów brakuje?
+4. Ograniczenia narzędzi — jakie narzędzia pomiarowe mogłyby uzupełnić lukę?
+5. Jak moje badanie ([opis metody]) wpisuje się w ten krajobraz?
+```
+
+---
+
+### P-015 — Matryca przeglądu literatury
+
+**Kiedy używać:** Gdy chcesz zorganizować artykuły w tabeli do późniejszego pisania.
+
+```text
+Stwórz szablon matrycy do systematycznego przeglądu literatury
+dla tematu: [temat].
+
+Matryca powinna mieć kolumny odpowiednie dla tej dziedziny,
+sugeruję: Autor/rok, Pytanie badawcze, Metodologia, Próba,
+Kluczowe wyniki, Ograniczenia, Moja ocena relevance.
+
+Następnie wypełnij pierwszy wiersz dla poniższego artykułu:
+[tytuł, autorzy, abstrakt]
+
+Daj mi też 3 wskazówki jak efektywnie wypełniać tę matrycę
+przy kolejnych artykułach.
+```
+
+
+---
+
+## CZĘŚĆ III — PISANIE AKADEMICKIE
+
+Prompty do pisania i strukturyzowania wszystkich kluczowych sekcji pracy naukowej — od wstępu po wnioski.
+
+---
+
+### P-016 — Wstęp do pracy / rozdziału
+
+**Kiedy używać:** Gdy chcesz napisać lub poprawić wprowadzenie.
+
+```text
+Napisz wstęp do [rozdziału/artykułu/pracy] na temat: [temat].
+
+Dyscyplina: [dziedzina]
+Typ pracy: [licencjacka/magisterska/artykuł konferencyjny]
+Pytanie badawcze: [pytanie]
+Hipoteza lub teza: [hipoteza/teza, lub "brak — badanie eksploracyjne"]
+
+Wstęp powinien zawierać w tej kolejności:
+1. Haczyk — zdanie otwierające przyciągające uwagę (bez "Od zawsze...")
+2. Kontekstualizacja — dlaczego temat jest istotny teraz?
+3. Luka badawcza — czego brakuje w dotychczasowej literaturze?
+4. Cel i pytanie badawcze — co ta praca bada?
+5. Zapowiedź struktury — "Praca składa się z..."
+
+Długość: ok. [250/400/600] słów.
+Styl: akademicki, formalny, trzecia osoba.
+```
+
+---
+
+### P-017 — Teza i hipoteza badawcza
+
+**Kiedy używać:** Gdy masz temat, ale nie wiesz jak sformułować pytanie badawcze lub tezę.
+
+```text
+Pomagasz mi sformułować pytanie badawcze i tezę do pracy.
+
+Temat ogólny: [temat]
+Dziedzina: [dziedzina]
+Metoda badawcza: [ilościowa/jakościowa/mixed methods]
+Kontekst: [np. "Polska, studenci wyższych uczelni, 2024-2026"]
+
+Zaproponuj:
+1. Trzy warianty pytania badawczego (od ogólnego do szczegółowego)
+2. Dla wybranego pytania — dwie wersje hipotezy:
+   a) hipoteza kierunkowa (przewiduje kierunek zależności)
+   b) hipoteza zerowa (do badań ilościowych)
+3. Kryteria SMART dla każdej hipotezy (S-Specific, M-Measurable,
+   A-Achievable, R-Relevant, T-Time-bound)
+4. Ostrzeżenie: na co uważać przy testowaniu tej hipotezy?
+```
+
+---
+
+### P-018 — Akapit argumentacyjny
+
+**Kiedy używać:** Gdy piszesz sekcję z argumentem i chcesz upewnić się, że ma właściwą strukturę.
+
+```text
+Napisz akapit argumentacyjny na temat: [twierdzenie/argument].
+
+Użyj struktury PEEL:
+- Point: Zdanie tematyczne (twierdzenie)
+- Evidence: Dowód / oparcie w literaturze (wstaw placeholder dla cytatu)
+- Explanation: Wyjaśnienie dlaczego dowód wspiera twierdzenie
+- Link: Zdanie łączące z kolejnym argumentem lub z pytaniem badawczym
+
+Wymagania:
+- ok. 120-150 słów
+- Styl akademicki, bez "jest bardzo ważne" i podobnych ogólników
+- Użyj trzecioosobowej formy
+- Miejsce na cytat oznacz: [CYTAT: Autor, rok, s. XX]
+
+Kontekst mojej pracy: [temat pracy, 1 zdanie]
+```
+
+---
+
+### P-019 — Rozwinięcie i pogłębienie akapitu
+
+**Kiedy używać:** Gdy masz już akapit, ale jest za krótki lub zbyt powierzchowny.
+
+```text
+Poniższy akapit jest zbyt krótki / powierzchowny. Rozwiń go do ok. [200/300] słów.
+
+Instrukcje:
+- Zachowaj główny argument i ton
+- Dodaj: jeden przykład lub ilustrację empiryczną
+- Dodaj: odniesienie do teorii lub modelu z dziedziny
+  (bez wymyślania autorów — użyj placeholder jeśli nie wiesz)
+- Dodaj: zdanie kontrargumentu + riposte ("Choć X twierdzi..., to jednak...")
+- NIE przepisuj — rozbudowuj
+
+Akapit do rozwinięcia:
+[wklej akapit]
+```
+
+---
+
+### P-020 — Konspekt rozdziału
+
+**Kiedy używać:** Przed pisaniem rozdziału — żeby ustrukturyzować myśli.
+
+```text
+Stwórz szczegółowy konspekt rozdziału [numer] mojej pracy dyplomowej.
+
+Temat pracy: [temat]
+Tytuł rozdziału: [tytuł]
+Miejsce w pracy: [np. "rozdział 2 z 4, po wstępie i przed metodologią"]
+Pytanie badawcze całej pracy: [pytanie]
+
+Konspekt powinien mieć 3 poziomy nagłówków:
+- Podrozdział (2.1, 2.2 itd.) — maks. 4 podrozdziały
+- Sekcja (2.1.1 itd.) — 2-3 sekcje na podrozdział
+- Treść sekcji — 1-2 zdania co będzie zawierać
+
+Dla każdego podrozdziału wskaż:
+- Główny cel / argument
+- Klucz słowa do wyszukiwania literatury
+- Szacowaną długość (słowa)
+```
+
+---
+
+### P-021 — Abstrakt strukturalny
+
+**Kiedy używać:** Po napisaniu pracy lub artykułu — tworzenie abstraktu.
+
+```text
+Napisz abstrakt strukturalny (maks. 250 słów) dla mojej pracy.
+
+Użyj czterech akapitów z wyraźnymi słowami kluczowymi:
+- "Cel badania:" — co badałem/badałam i dlaczego?
+- "Metoda:" — jak przeprowadziłem/przeprowadziłam badanie?
+- "Wyniki:" — co znalazłem/znalazłam?
+- "Wnioski:" — co z tego wynika? Jaki wkład naukowy / praktyczny?
+
+Informacje o pracy:
+Temat: [temat]
+Metoda: [metoda badawcza]
+Próba: [próba]
+Kluczowe wyniki: [2-3 wyniki]
+Główny wniosek: [wniosek]
+Dyscyplina: [dziedzina]
+```
+
+---
+
+### P-022 — Zakończenie i wnioski
+
+**Kiedy używać:** Na końcu pisania — zamknięcie argumentacji pracy.
+
+```text
+Napisz zakończenie do mojej pracy dyplomowej / artykułu.
+
+Struktura zakończenia:
+1. Przypomnienie pytania badawczego i metody (1-2 zdania)
+2. Odpowiedź na pytanie badawcze — główne wnioski (3-4 punkty)
+3. Wkład naukowy: co ta praca wnosi do literatury?
+4. Implikacje praktyczne: dla kogo i jak można zastosować wyniki?
+5. Ograniczenia badania (2-3 rzetelnie opisane)
+6. Kierunki dalszych badań: 2-3 konkretne propozycje
+7. Zdanie zamykające — nie "podsumowując" ani "reasumując"
+
+Informacje:
+Pytanie badawcze: [pytanie]
+Główne wyniki: [wyniki]
+Metoda: [metoda]
+Ograniczenia: [ograniczenia]
+Długość docelowa: [250/400] słów
+```
+
+---
+
+### P-023 — Akademickie parafrazowanie
+
+**Kiedy używać:** Gdy chcesz użyć cudzej myśli bez dosłownego cytowania.
+
+```text
+Sparafrazuj poniższy fragment tekstu akademickiego.
+
+Zasady parafrazowania (PRZESTRZEGAJ):
+- Zmień strukturę zdań (nie tylko synonimy)
+- Zachowaj oryginalny sens i poziom szczegółowości
+- Nie kopiuj więcej niż 3 słów z rzędu z oryginału
+- Zachowaj ton akademicki
+- Na końcu dodaj placeholder cytowania: [ŹRÓDŁO: Autor, rok, s. XX]
+
+Fragment do sparafrazowania:
+[wklej fragment]
+```
+
+---
+
+### P-024 — Konwersja stylu na akademicki
+
+**Kiedy używać:** Gdy masz własny tekst, który brzmi za potocznie lub nieformalnie.
+
+```text
+Przepisz poniższy tekst w stylu akademickim.
+
+Wymagania:
+- Zachowaj wszystkie argumenty i informacje merytoryczne
+- Usuń wyrażenia potoczne i kolokwialne
+- Użyj trzeciej osoby (nie "ja myślę", "uważam")
+- Zastosuj nominalizacje tam gdzie to naturalne
+- Dodaj spójniki logiczne (ponadto, jednakże, co więcej, w konsekwencji)
+- Nie przesadź z pasywnością — 40-60% aktywnych form jest OK
+
+Tekst oryginalny:
+[wklej tekst]
+
+Poziom: [licencjacki / magisterski / artykuł do czasopisma]
+```
+
+---
+
+### P-025 — Zdania przejściowe między sekcjami
+
+**Kiedy używać:** Gdy praca jest "klockowata" — sekcje nie łączą się płynnie.
+
+```text
+Napisz zdania przejściowe (1-3 zdania każde) łączące poniższe sekcje.
+
+Zdanie przejście powinno:
+- Podsumować co było (bez "Jak powiedziano powyżej...")
+- Zapowiedzieć co następuje
+- Pokazać logiczny związek między sekcjami
+
+Koniec sekcji [A]:
+[ostatnie 2-3 zdania sekcji A]
+
+Początek sekcji [B]:
+[pierwsze 2-3 zdania sekcji B]
+
+Zaproponuj 2 warianty zdania przejściowego.
+```
+
+
+---
+
+## CZĘŚĆ IV — EDYCJA, KOREKTA I JAKOŚĆ TEKSTU
+
+Prompty do poprawiania istniejących tekstów — stylu, spójności, języka i struktury argumentacji.
+
+---
+
+### P-026 — Kompleksowa korekta akademicka
+
+**Kiedy używać:** Po napisaniu wersji roboczej, przed oddaniem do promotora.
+
+```text
+Wykonaj kompleksową korektę poniższego fragmentu pracy akademickiej.
+
+Sprawdź i skomentuj (NIE przepisuj całości — wskaż i zasugeruj):
+1. STYL: Czy jest spójny i akademicki? Wskaż miejsca zbyt potoczne.
+2. KLAROWNOŚĆ: Czy każde zdanie jest jednoznaczne? Wskaż mgliste sformułowania.
+3. ARGUMENTACJA: Czy każde twierdzenie jest uzasadnione lub zacytowane?
+4. SPÓJNOŚĆ: Czy akapity płynnie przechodzą jeden w drugi?
+5. POWTÓRZENIA: Wskaż słowa i frazy powtarzające się zbyt często.
+6. DŁUGOŚĆ ZDAŃ: Czy zdania nie są za długie lub za krótkie?
+
+Format odpowiedzi:
+- Najpierw ogólna ocena (2-3 zdania)
+- Potem ponumerowane uwagi z cytatem problematycznego fragmentu
+  i propozycją poprawki
+
+Tekst do korekty:
+[wklej fragment — max 500 słów naraz]
+```
+
+---
+
+### P-027 — Ocena siły argumentacji
+
+**Kiedy używać:** Gdy chcesz sprawdzić czy Twoja argumentacja jest logicznie spójna.
+
+```text
+Ocen siłę argumentacji w poniższym fragmencie z perspektywy
+recenzenta akademickiego.
+
+Sprawdź:
+1. Czy teza jest jasno sformułowana?
+2. Czy dowody wspierają tezę bezpośrednio?
+3. Czy są luki logiczne (non sequitur, generalizacje)?
+4. Czy autor uwzględnia kontrargumenty?
+5. Czy wnioski wynikają z przedstawionych danych?
+
+Oceń każdy punkt w skali: mocny / wystarczający / wymaga wzmocnienia.
+Zaproponuj konkretne poprawki dla słabych punktów.
+
+Fragment: [wklej]
+Dziedzina naukowa: [dziedzina]
+Typ dokumentu: [praca dyplomowa / artykuł / referat]
+```
+
+---
+
+### P-028 — Uproszczenie złożonego fragmentu
+
+**Kiedy używać:** Gdy piszesz dla szerszej publiczności (popularnonaukowy, konferencja interdyscyplinarna).
+
+```text
+Uprość poniższy fragment akademicki bez utraty merytorycznej treści.
+Docelowy czytelnik: [np. "student innej dziedziny", "laik z wyższym wykształceniem"]
+
+Zasady uproszczenia:
+- Zamień żargon na przystępne terminy (lub wyjaśnij żargon w nawiasie)
+- Skróć zdania do maks. 20-25 słów
+- Zastąp metafory techniczne codziennymi analogiami
+- Zachowaj precyzję — nie trać niuansów
+
+Oryginalny fragment:
+[wklej]
+
+Docelowa długość: [taka sama / o 20% krótsza]
+```
+
+---
+
+### P-029 — Sprawdzenie spójności terminologicznej
+
+**Kiedy używać:** Gdy piszesz długą pracę i chcesz upewnić się, że używasz terminów konsekwentnie.
+
+```text
+Przeanalizuj poniższy fragment pod kątem spójności terminologicznej.
+
+Zwróć uwagę na:
+1. Czy te same pojęcia są nazywane różnie bez uzasadnienia?
+   (np. "uczestnik" vs "respondent" vs "badany" używane zamiennie)
+2. Czy definicje kluczowych terminów są spójne z ich użyciem?
+3. Czy skróty/akronimy są wprowadzane i używane konsekwentnie?
+
+Stwórz listę kluczowych terminów z fragmentu i zaproponuj
+ustandaryzowane użycie dla każdego.
+
+Fragment: [wklej]
+Kluczowe terminy które muszę stosować konsekwentnie: [lista]
+```
+
+---
+
+### P-030 — Feedback jak promotor
+
+**Kiedy używać:** Gdy chcesz "przetestować" swój tekst przed oddaniem go promotorowi.
+
+```text
+Jesteś doświadczonym promotorem prac dyplomowych z [dziedzina].
+Przeczytaj poniższy fragment pracy magisterskiej i daj feedback
+tak jak na seminarium dyplomowym.
+
+Bądź konstruktywnie krytyczny/krytyczna — wskaż:
+1. Co działa dobrze (2-3 mocne strony)
+2. Co wymaga poprawy przed oddaniem (3-5 konkretnych uwag)
+3. Jedno pytanie które zadałbyś/zadałabyś studentowi na obronie
+   dotyczące tego fragmentu
+
+Nie chwal nadmiernie — sprawdź standardy magisterskie.
+
+Fragment: [wklej]
+Temat pracy: [temat]
+Pytanie badawcze: [pytanie]
+```
+
+---
+
+### P-031 — Weryfikacja przypisów i cytowań APA 7
+
+**Kiedy używać:** Przed finalnym oddaniem pracy — sprawdzenie formatu cytowań.
+
+```text
+Sprawdź poprawność formatowania poniższych cytatów według normy APA 7.
+
+Dla każdej pozycji:
+1. Podaj czy format jest poprawny (TAK/NIE)
+2. Wskaż konkretny błąd (jeśli jest)
+3. Podaj poprawną wersję
+
+Cytaty do sprawdzenia:
+1. [wklej cytat 1]
+2. [wklej cytat 2]
+3. [wklej cytat 3]
+
+Dodaj na końcu: 5 najczęstszych błędów w APA 7 dla polskich autorów.
+```
+
+---
+
+### P-032 — Redukcja objętości tekstu
+
+**Kiedy używać:** Gdy przekroczyłeś limit słów lub tekst jest za długi.
+
+```text
+Skróć poniższy fragment o ok. [20/30/40]% bez utraty kluczowych argumentów.
+
+Strategia skracania:
+- Usuń powtórzenia i redundancje
+- Skróć wprowadzenia do oczywistych stwierdzeń
+- Zastąp długie konstrukcje krótszymi synonimami
+- Usuń zbędne przysłówki i przymiotniki
+- Połącz zdania gdzie możliwe
+
+Zachowaj:
+- Wszystkie twierdzenia poparte dowodami
+- Cytowania i odwołania do literatury
+- Strukturę argumentacji
+
+Fragment do skrócenia:
+[wklej]
+```
+
+---
+
+### P-033 — Porównanie dwóch wersji fragmentu
+
+**Kiedy używać:** Gdy masz dwa warianty tego samego fragmentu i nie wiesz który wybrać.
+
+```text
+Porównaj dwie wersje tego samego fragmentu i powiedz który jest lepszy
+i dlaczego, pod kątem:
+- Klarowności argumentacji
+- Jakości języka akademickiego
+- Płynności i czytelności
+- Precyzji sformułowań
+
+Wskaż też co z każdej wersji warto zachować w finalnej redakcji.
+
+Wersja A:
+[wklej]
+
+Wersja B:
+[wklej]
+```
+
+
+---
+
+## CZĘŚĆ V — METODOLOGIA BADAŃ
+
+Prompty do planowania, opisywania i obrony wyborów metodologicznych.
+
+---
+
+### P-034 — Uzasadnienie wyboru metody badawczej
+
+**Kiedy używać:** Pisząc rozdział metodologiczny — kluczowa sekcja dla każdej pracy.
+
+```text
+Pomóż mi uzasadnić wybór metody badawczej dla mojej pracy.
+
+Moja metoda: [wywiad pogłębiony / ankieta / analiza treści / inne]
+Pytanie badawcze: [pytanie]
+Dziedzina: [dziedzina]
+
+Napisz uzasadnienie (150-200 słów) zawierające:
+1. Dlaczego ta metoda jest adekwatna do pytania badawczego?
+2. Jakie podejście epistemologiczne reprezentuje? (pozytywistyczne /
+   interpretatywne / konstruktywistyczne)
+3. Jakie są mocne strony tej metody dla TEGO konkretnego pytania?
+4. Jakie są ograniczenia metody i jak je minimalizuję?
+5. Odwołanie do metodologicznego uzasadnienia w literaturze
+   (bez wymyślania autorów — zaznacz miejsca do uzupełnienia)
+```
+
+---
+
+### P-035 — Opis próby badawczej
+
+**Kiedy używać:** Opisując uczestników badania w rozdziale metodologicznym.
+
+```text
+Napisz sekcję "Charakterystyka próby badawczej" do rozdziału metodologicznego.
+
+Moje badanie: [opis]
+Uczestnicy: [kto?]
+Liczebność: [ile osób/dokumentów/przypadków?]
+Metoda doboru próby: [celowy / losowy / śnieżnej kuli / inne]
+Kryteria inkluzji: [jakie?]
+Kryteria ekskluzji: [jakie?]
+
+Tekst powinien:
+- Opisać próbę obiektywnie (bez ocen wartościujących)
+- Uzasadnić metodę doboru próby
+- Odnieść się do kwestii reprezentatywności i generalizowalności
+- Być napisany w czasie przeszłym (badanie już przeprowadzone)
+  lub przyszłym (plan badania)
+Długość: 120-150 słów.
+```
+
+---
+
+### P-036 — Etyczny protokół badań
+
+**Kiedy używać:** Pisząc sekcję etyczną w rozdziale metodologicznym.
+
+```text
+Pomóż mi napisać sekcję "Kwestie etyczne" dla mojego badania.
+
+Typ badania: [wywiad / ankieta / obserwacja / analiza danych zastanych]
+Uczestnicy: [studenci / pracownicy / grupy wrażliwe / inne]
+Temat: [temat — czy wrażliwy?]
+Instytucja: Uniwersytet Jagielloński, WZiKS
+
+Uwzględnij:
+1. Świadoma zgoda (informed consent) — jak ją uzyskałem/uzyskałam?
+2. Anonimizacja danych — jak chronię tożsamość uczestników?
+3. Prawo do wycofania się — jak informuję uczestników?
+4. Bezpieczeństwo danych — gdzie przechowuję dane i jak długo?
+5. Potencjalne ryzyko dla uczestników i jak je minimalizuję
+6. Czy badanie wymaga akceptacji komisji etycznej UJ?
+
+Długość: 150-200 słów, styl akademicki.
+```
+
+---
+
+### P-037 — Narzędzie badawcze — scenariusz wywiadu
+
+**Kiedy używać:** Tworząc pytania do wywiadu jakościowego.
+
+```text
+Stwórz wstępny scenariusz wywiadu półstrukturyzowanego.
+
+Temat badania: [temat]
+Pytanie badawcze: [pytanie]
+Uczestnicy: [opis grupy]
+Czas wywiadu: ok. [45/60/90] minut
+
+Struktura scenariusza:
+1. Wprowadzenie (skrypt dla badacza — co powiedzieć na początku)
+2. Pytania rozgrzewające (2-3 — łatwe, niegrożące)
+3. Pytania główne (6-8 — odnoszące się bezpośrednio do pytania badawczego)
+4. Pytania pogłębiające (3-4 — do użycia gdy odpowiedź jest zbyt ogólna)
+5. Pytania podsumowujące (2 — co chciałbyś dodać?)
+6. Zakończenie (skrypt podziękowań)
+
+Uwagi: unikaj pytań zamkniętych, sugestywnych i podwójnych.
+```
+
+---
+
+### P-038 — Kwestionariusz ankiety
+
+**Kiedy używać:** Projektując narzędzie ilościowe.
+
+```text
+Pomóż mi zaprojektować kwestionariusz ankiety.
+
+Temat badania: [temat]
+Pytanie badawcze: [pytanie]
+Zmienne do zmierzenia: [lista zmiennych / konstruktów]
+Skala odpowiedzi: [Likert 5/7 / tak-nie / nominalna / inne]
+Docelowi respondenci: [opis grupy]
+Planowana forma zbierania: [online MS Forms / papierowa / CAWI]
+
+Zaprojektuj:
+1. Metryczka (dane demograficzne — tylko niezbędne)
+2. Blok pytań dla każdej zmiennej (3-5 pytań na konstrukt)
+3. Pytanie kontrolne (do wykrycia nierzetelnych odpowiedzi)
+4. Instrukcja dla respondenta (nagłówek kwestionariusza)
+
+Zaznacz które pytania wymagają odwróconej skali (reverse scoring).
+```
+
+---
+
+### P-039 — Analiza tematyczna — kodowanie
+
+**Kiedy używać:** Przeprowadzając analizę treści wywiadów lub dokumentów.
+
+```text
+Pomagasz mi przeprowadzić analizę tematyczną (Braun & Clarke, 2006).
+
+Mam [liczba] transkryptów wywiadów / dokumentów.
+Temat badania: [temat]
+Pytanie badawcze: [pytanie]
+
+Etap 1 — Zapoznanie się z danymi:
+Przeczytaj poniższy fragment transkryptu i zidentyfikuj:
+- Wszystkie potencjalnie znaczące fragmenty (kody wstępne)
+- Wzorce i powtarzające się tematy
+- Cytaty mogące ilustrować motywy
+
+Etap 2 — Zaproponuj wstępne kody dla tego fragmentu.
+Etap 3 — Zaproponuj możliwe tematy wyższego rzędu.
+
+Fragment transkryptu:
+[wklej — do 500 słów naraz]
+```
+
+---
+
+### P-040 — Triangulacja metodologiczna
+
+**Kiedy używać:** Gdy łączysz kilka metod lub źródeł danych.
+
+```text
+Moje badanie używa triangulacji: [lista metod/źródeł danych].
+Pytanie badawcze: [pytanie]
+
+Pomóż mi opisać i uzasadnić triangulację w rozdziale metodologicznym:
+1. Definicja typu triangulacji (danych / metod / badaczy / teorii)
+2. Uzasadnienie: dlaczego ta kombinacja jest adekwatna?
+3. Jak wyniki z różnych źródeł będą porównywane lub syntetyzowane?
+4. Jak postępuję gdy wyniki są sprzeczne?
+5. Ograniczenia triangulacji w moim przypadku
+
+Długość: 150-200 słów. Odwołaj się do klasycznej literatury
+metodologicznej (zaznacz miejsca do uzupełnienia cytatem).
+```
+
+
+---
+
+## CZĘŚĆ VI — ORGANIZACJA WIEDZY I NOTATKI
+
+Prompty do zarządzania informacjami — notatki ze spotkań, organizacja materiałów, Zettelkasten.
+
+---
+
+### P-041 — Notatka ze spotkania z promotorem
+
+**Kiedy używać:** Po seminarium dyplomowym — żeby przetworzyć feedback.
+
+```text
+Mam notatki ze spotkania z promotorem/promotorką. Pomóż mi je przetworzyć.
+
+Przekształć surowe notatki w strukturalny plan działania:
+1. Lista uwag krytycznych promotora (punkty wymagające korekty)
+2. Lista pytań, które pozostają otwarte (do przemyślenia)
+3. Lista konkretnych zadań do wykonania przed następnym spotkaniem
+   (jako lista z checkboxami: [ ] zadanie, deadline, priorytet)
+4. Sugestie bibliograficzne (do wyszukania)
+5. Moje własne pytania / wątpliwości które chcę zadać następnym razem
+
+Surowe notatki:
+[wklej notatki — mogą być chaotyczne]
+```
+
+---
+
+### P-042 — Notatka Cornell z artykułu
+
+**Kiedy używać:** Po przeczytaniu artykułu — systematyczne notowanie.
+
+```text
+Stwórz notatkę metodą Cornell dla poniższego artykułu / fragmentu.
+
+Format Cornell:
+| SŁOWA KLUCZOWE / PYTANIA | NOTATKI GŁÓWNE |
+Sekcja podsumowująca (na dole): 3-4 zdania własnej syntezy
+
+Wymagania:
+- Słowa kluczowe: pojęcia wymagające definicji lub zapamiętania
+- Pytania: rzeczy które chcę sprawdzić lub przemyśleć
+- Notatki główne: tezy, argumenty, dane (nie cytaty — parafrazy)
+- Podsumowanie: własnymi słowami, co autor chce powiedzieć
+
+Artykuł / fragment:
+[wklej tekst lub abstrakt + kluczowe sekcje]
+Moje pytanie badawcze dla kontekstu: [pytanie]
+```
+
+---
+
+### P-043 — Karta Zettelkasten (notatka atomowa)
+
+**Kiedy używać:** Gdy budujesz bazę wiedzy w Obsidian lub Notion metodą Zettelkasten.
+
+```text
+Stwórz notatkę atomową (Zettelkasten) dla następującego pojęcia / idei:
+
+Pojęcie: [pojęcie lub idea]
+Źródło: [tytuł, autor, rok]
+Kontekst: [w jakim kontekście to pojawia się w mojej pracy?]
+
+Format notatki:
+- ID: [data + numer, np. 20260501a]
+- Tytuł: jedno twierdzenie (nie "notatka o X" ale "X oznacza Y")
+- Treść: 50-150 słów — jedno pojęcie, jedna myśl, własnym językiem
+- Cytacja źródłowa: (Autor, rok, s. XX)
+- Linki do powiązanych notatek: [[pojęcie powiązane 1]] [[pojęcie 2]]
+- Tagi: #kategoria #dziedzina
+
+Notatka powinna być samowystarczalna — zrozumiała bez kontekstu.
+```
+
+---
+
+### P-044 — Podsumowanie rozdziału własnej pracy
+
+**Kiedy używać:** Po napisaniu rozdziału — sprawdzenie spójności i przygotowanie do obrony.
+
+```text
+Przeczytaj poniższy rozdział mojej pracy i napisz jego podsumowanie
+z perspektywy czytelnika.
+
+Podsumowanie powinno zawierać:
+1. Główną tezę / argument rozdziału (1 zdanie)
+2. Kluczowe punkty w kolejności logicznej (3-5 punktów)
+3. Jak ten rozdział łączy się z pytaniem badawczym całej pracy?
+4. Co czytelnik powinien zapamiętać po przeczytaniu?
+5. Jedno pytanie które pozostaje otwarte (do następnego rozdziału)
+
+Rozdział: [wklej lub opisz]
+Tytuł rozdziału: [tytuł]
+Pytanie badawcze pracy: [pytanie]
+```
+
+---
+
+### P-045 — Plan nauki do egzaminu / obrony
+
+**Kiedy używać:** Przygotowując się do obrony lub egzaminu z literatury.
+
+```text
+Pomagasz mi przygotować się do [obrony pracy / egzaminu z przedmiotu].
+
+Temat / obszar: [temat]
+Czas do obrony / egzaminu: [liczba dni/tygodni]
+Materiały które posiadam: [lista]
+
+Stwórz plan przygotowań:
+1. Lista kluczowych pytań które mogę dostać (10-15 pytań)
+2. Dla każdego pytania: co muszę umieć odpowiedzieć?
+3. Harmonogram nauki (podział na dni, co kiedy powtarzać)
+4. 5 "trudnych" pytań które powinienem/powinnam szczególnie ćwiczyć
+5. Techniki aktywnego powtarzania (nie bierne czytanie)
+```
+
+---
+
+### P-046 — Flashcardy / karty do nauki
+
+**Kiedy używać:** Gdy musisz zapamiętać definicje, teorie lub autorów.
+
+```text
+Stwórz 20 fiszek do nauki na temat: [temat / lista pojęć].
+
+Format każdej fiszki:
+PRZÓD: [pojęcie / pytanie — maksymalnie 10 słów]
+TYŁ: [definicja / odpowiedź — maksymalnie 3 zdania]
+
+Kryteria:
+- Obejmij: definicje kluczowych pojęć, główne teorie, kluczowych autorów,
+  daty i kontekst historyczny (jeśli istotne)
+- Sformułuj przód jako pytanie zaczynające się od: Co to jest X?
+  Kto stworzył Y? Czym różni się A od B?
+- Każda fiszka powinna być samowystarczalna
+
+Tematy do uwzględnienia: [lista pojęć]
+```
+
+
+---
+
+## CZĘŚĆ VII — PREZENTACJE I KOMUNIKACJA NAUKOWA
+
+Prompty do przygotowania wystąpień konferencyjnych, referatów i materiałów prezentacyjnych.
+
+---
+
+### P-047 — Streszczenie do konferencji (abstract)
+
+**Kiedy używać:** Zgłaszając referat lub poster na konferencję naukową.
+
+```text
+Napisz abstrakt konferencyjny (250-300 słów) do poniższego badania.
+
+Konferencja: [nazwa / tematyka konferencji]
+Format wystąpienia: [referat / poster / komunikat]
+Wymagania organizatora: [jeśli podane — np. sekcje, słowa kluczowe]
+
+Abstrakt powinien zawierać:
+1. Tło i uzasadnienie (czego brakuje w literaturze?)
+2. Cel badania i pytanie badawcze
+3. Metoda (krótko — typ, próba, narzędzia)
+4. Kluczowe wyniki lub oczekiwane wyniki (jeśli w toku)
+5. Wnioski i wkład naukowy
+6. 4-6 słów kluczowych na końcu
+
+Styl: zwięzły, akademicki, aktywne formy czasownikowe.
+Unikaj: "niniejszy artykuł ma na celu udowodnienie..."
+
+Moje badanie: [opis]
+```
+
+---
+
+### P-048 — Struktura prezentacji (slajdy)
+
+**Kiedy używać:** Planując wystąpienie konferencyjne lub seminaryjne.
+
+```text
+Zaplanuj strukturę prezentacji naukowej.
+
+Temat: [temat]
+Czas: [10/15/20] minut + [5] minut na pytania
+Publiczność: [naukowcy / studenci / mieszana]
+Cel prezentacji: [poinformować / przekonać / zaprezentować wyniki]
+
+Stwórz plan slajdów:
+- Tytuł i czas na każdy slajd (łącznie max. [liczba] slajdów)
+- Treść każdego slajdu (1-3 punkty / 1 kluczowe twierdzenie)
+- Słowa kluczowe do wypowiedzenia (nie do wyświetlania)
+- Zaznacz: gdzie wizualizacja danych, gdzie cytat, gdzie diagram
+
+Zasada: jeden slajd = jedna myśl.
+Max. 6 linii tekstu na slajdzie, max. 6 słów w linii.
+```
+
+---
+
+### P-049 — Odpowiedzi na trudne pytania (obrona)
+
+**Kiedy używać:** Przygotowując się do obrony pracy lub sesji Q&A po referacie.
+
+```text
+Przygotuj mnie na trudne pytania dotyczące mojej pracy.
+
+Wygeneruj 10 trudnych pytań jakie komisja / publiczność może zadać
+na temat: [temat pracy / metody / wyników].
+
+Dla każdego pytania:
+1. Pełna treść pytania (jak brzmi w ustach krytycznego recenzenta)
+2. Kluczowe elementy dobrej odpowiedzi (nie gotowy skrypt — punkty)
+3. Pułapka w tym pytaniu (czego NIE robić odpowiadając)
+
+Skupi się szczególnie na:
+- Pytaniach o ograniczenia metodologiczne
+- Pytaniach o generalizowalność wyników
+- Pytaniach o alternatywne interpretacje danych
+- Pytaniach o aktualność / oryginalność pracy
+
+Moja metoda: [metoda]
+Kluczowe wyniki: [wyniki]
+```
+
+---
+
+### P-050 — Pitch naukowy (2 minuty)
+
+**Kiedy używać:** Gdy musisz zaprezentować swoją pracę w 2 minuty — na seminarium, networking.
+
+```text
+Napisz 2-minutowy pitch naukowy mojej pracy.
+
+Struktura (następuje po sobie):
+1. Problem: "Wyobraź sobie, że..." lub "Badacze od lat nie wiedzą..."
+2. Luka: "Jednak dotąd nikt nie zbadał..."
+3. Moje badanie: "Postanowiłem/postanowiłam zbadać... używając..."
+4. Odkrycie: "Okazało się, że..."
+5. Znaczenie: "To ważne, bo..."
+
+Ton: entuzjastyczny, przystępny, bez żargonu.
+Długość: ok. 300 słów (mówione = 2 minuty w spokojnym tempie).
+Zakończ pytaniem angażującym słuchacza.
+
+Temat pracy: [temat]
+Metoda: [metoda]
+Wyniki: [wyniki]
+Dlaczego to ważne: [znaczenie]
+```
+
+---
+
+### P-051 — Plakat konferencyjny (poster)
+
+**Kiedy używać:** Projektując treść posteru badawczego.
+
+```text
+Zaplanuj treść plakatu konferencyjnego (format A1/A0).
+
+Temat: [temat badania]
+Konferencja: [nazwa]
+Standard: [podaj czy jest szablon/wymagania]
+
+Podziel plakat na sekcje z sugerowaną długością:
+1. TYTUŁ (max. 15 słów, chwytliwy)
+2. AUTORZY I AFILIACJA
+3. WPROWADZENIE / CEL (3-4 zdania)
+4. METODOLOGIA (schema lub 4-5 punktów)
+5. WYNIKI (najlepiej jako wykres / tabela / wizualizacja — opisz co)
+6. WNIOSKI (3-4 punkty)
+7. BIBLIOGRAFIA (max. 5 kluczowych pozycji)
+8. KONTAKT / QR KOD (do pełnego tekstu)
+
+Zaproponuj też: jedno kluczowe zdanie / cytat do umieszczenia
+wyraźnie widocznie — "take-home message" posteru.
+```
+
+---
+
+### P-052 — Recenzja / peer review artykułu
+
+**Kiedy używać:** Gdy prosisz AI o symulację recenzji (przed wysłaniem do czasopisma).
+
+```text
+Wykonaj symulowaną recenzję poniższego artykułu naukowego
+w stylu recenzenta czasopisma z [dziedzina].
+
+Ocen i skomentuj:
+1. TRAFNOŚĆ TEMATYCZNA dla czasopisma [podaj profil]
+2. ORYGINALNOŚĆ: Czy wkład naukowy jest wyraźnie określony?
+3. METODOLOGIA: Czy metoda jest adekwatna i dobrze opisana?
+4. WYNIKI: Czy są jasno przedstawione i dobrze zinterpretowane?
+5. WNIOSKI: Czy wynikają z danych?
+6. FORMAT: Abstrakt, struktura, cytowania, tabele
+7. DECYZJA: Przyjąć / Odrzucić / Poważne poprawki / Drobne poprawki
+
+Sformułuj konkretne zalecenia dla autora (5-8 punktów).
+Zachowaj konstruktywny ton recenzenta.
+
+Artykuł: [wklej lub opisz]
+```
+
+
+---
+
+## CZĘŚĆ VIII — ANALIZA DANYCH I WYNIKI
+
+Prompty do opisywania, interpretowania i wizualizowania wyników badań.
+
+---
+
+### P-053 — Opis wyników ilościowych
+
+**Kiedy używać:** Pisząc sekcję Wyniki dla badań ankietowych lub eksperymentalnych.
+
+```text
+Pomóż mi napisać sekcję "Wyniki" dla danych ilościowych.
+
+Wymagania dla sekcji wyników:
+- Opisuj dane, nie interpretuj (interpretacja = dyskusja)
+- Używaj czasu przeszłego: "wyniki wskazały", "zaobserwowano"
+- Podawaj statystyki w nawiasach: M = 3.8, SD = 0.7, p < .05
+- Odsyłaj do tabel/wykresów: "jak przedstawiono w Tabeli 2"
+
+Moje dane:
+[wklej tabele lub opisz wyniki słownie]
+
+Pytanie badawcze: [pytanie]
+Zastosowane testy statystyczne: [lista]
+Poziom istotności: α = [0.05 / 0.01]
+
+Napisz opis wyników (150-200 słów) zgodnie z zasadami APA.
+```
+
+---
+
+### P-054 — Interpretacja wyników statystycznych
+
+**Kiedy używać:** Gdy masz liczby ze SPSS/R i nie wiesz co oznaczają.
+
+```text
+Wyjaśnij mi poniższe wyniki statystyczne prostym językiem.
+
+Następnie podpowiedz jak opisać je w sekcji Dyskusja pracy naukowej.
+
+Wyniki do interpretacji:
+[wklej tabelę lub statystyki]
+
+Pytanie: Czy wyniki są:
+1. Statystycznie istotne? Co to oznacza w praktyce?
+2. Praktycznie istotne? (effect size — jeśli podany)
+3. Zgodne z moją hipotezą czy nie?
+4. Jak silny jest związek / różnica?
+
+Na końcu: napisz 2-3 zdania jak opisać te wyniki w Dyskusji.
+Moja hipoteza była: [hipoteza]
+```
+
+---
+
+### P-055 — Analiza danych jakościowych — cytat z wywiadu
+
+**Kiedy używać:** Podczas pisania rozdziału wyników z badań jakościowych.
+
+```text
+Pomagasz mi zanalizować fragment wywiadu jakościowego.
+Moje pytanie badawcze: [pytanie]
+Temat wywiadu: [temat]
+
+Dla poniższego cytatu z wywiadu wykonaj:
+1. Kod wstępny: jakie pojęcia / idee zawiera ten fragment?
+2. Kod analityczny: jaką wyższą kategorię reprezentuje?
+3. Interpretacja: co uczestnik komuniku je o swoim doświadczeniu?
+4. Cytowanie: zaproponuj jak użyć ten cytat w tekście pracy
+   (skrót + kontekstualizacja + interpretacja)
+5. Powiązanie: jak ten fragment łączy się z pytaniem badawczym?
+
+Cytat: "[wklej]"
+Kontekst (kiedy padł, co go poprzedzało): [kontekst]
+```
+
+---
+
+### P-056 — Sekcja dyskusji wyników
+
+**Kiedy używać:** Pisząc rozdział Dyskusji — najtrudniejszy element artykułu naukowego.
+
+```text
+Pomóż mi napisać sekcję Dyskusji dla moich wyników.
+
+Struktura dyskusji (użyj tej kolejności):
+1. Przypomnienie kluczowego wyniki (1 zdanie)
+2. Interpretacja: co ten wynik oznacza? Dlaczego tak wyszło?
+3. Porównanie z literaturą: czy jest zgodny z poprzednimi badaniami?
+   Jeśli nie — dlaczego może się różnić?
+4. Teoria: które teorie / modele wyjaśniają ten wynik?
+5. Implikacje: co z tego wynika praktycznie?
+
+Mój wynik: [opis wyników]
+Oczekiwania (hipoteza): [hipoteza — wynik zgodny/niezgodny?]
+Powiązane badania z literatury: [2-3 badania które znam]
+Długość: 200-250 słów dla jednego kluczowego wyniku.
+```
+
+---
+
+### P-057 — Wizualizacja danych — opis do tekstu
+
+**Kiedy używać:** Opisując wykres lub tabelę w tekście pracy.
+
+```text
+Napisz opis tekstowy dla poniższej tabeli / wykresu.
+
+Zasady opisu wizualizacji w tekście akademickim:
+- Nie powtarzaj danych z tabeli — interpretuj trend
+- Wskaż najważniejszy wniosek ("najbardziej widocznym trendem jest...")
+- Użyj odsyłacza: "jak przedstawia Tabela 3..."
+- Opis powinien poprzedzać lub następować bezpośrednio po wizualizacji
+
+Dane / opis wykresu:
+[opisz co zawiera lub wklej dane]
+
+Numer tabeli/wykresu w pracy: Tabela/Rycina [numer]
+Tytuł tabeli/wykresu: [tytuł]
+Kontekst w pracy: [o czym jest ten fragment?]
+```
+
+---
+
+### P-058 — Ograniczenia badania
+
+**Kiedy używać:** Pisząc sekcję Ograniczenia — kluczową dla wiarygodności pracy.
+
+```text
+Pomóż mi rzetelnie opisać ograniczenia mojego badania.
+
+Ważne: Ograniczenia to nie przeprosiny — to dowód refleksyjności i rzetelności badacza.
+Dobry opis ograniczenia wskazuje: co jest ograniczeniem, dlaczego wystąpiło,
+jak wpływa na wyniki i co z tym zrobiono (lub co można zrobić w przyszłości).
+
+Moje badanie:
+Metoda: [metoda]
+Próba: [próba — wielkość, dobór]
+Kontekst: [miejsce, czas]
+Narzędzie: [narzędzie — ankieta, wywiad, inne]
+
+Zidentyfikuj i opisz 4-5 ograniczeń specyficznych dla MOJEGO badania
+(nie ogólnych frazesów typu "próba mogłaby być większa").
+Format każdego ograniczenia: 2-3 zdania.
+```
+
+
+---
+
+## CZĘŚĆ IX — AI LITERACY I ETYKA CYFROWA
+
+Prompty specyficzne dla refleksji nad korzystaniem z AI — dla studentów świadomych granic i zasad.
+
+---
+
+### P-059 — Wykrywanie halucynacji i weryfikacja
+
+**Kiedy używać:** Gdy AI podało Ci cytowania lub fakty i chcesz je zweryfikować metodycznie.
+
+```text
+Sprawdź poniższy fragment tekstu wygenerowanego przez AI.
+Zidentyfikuj wszystkie twierdzenia faktograficzne, które wymagają weryfikacji.
+
+Dla każdego twierdzenia:
+1. Oceń prawdopodobieństwo halucynacji (niskie / średnie / wysokie)
+2. Wyjaśnij dlaczego tak oceniasz
+3. Podaj konkretne źródło gdzie mogę to zweryfikować
+   (Google Scholar, Semantic Scholar, Wikipedia, oficjalna strona)
+
+Twierdzenia do szczególnej weryfikacji:
+- Cytowania artykułów (tytuł, autorzy, rok, DOI)
+- Konkretne liczby i statystyki
+- Daty historyczne i biograficzne
+- Nazwy programów, ustaw, instytucji
+
+Fragment do sprawdzenia:
+[wklej fragment]
+```
+
+---
+
+### P-060 — Deklaracja użycia AI w pracy
+
+**Kiedy używać:** Gdy musisz ujawnić w pracy jak korzystałeś/korzystałaś z AI.
+
+```text
+Pomóż mi napisać transparentną deklarację użycia AI do mojej pracy.
+
+Jak używałem/używałam AI:
+[opisz konkretnie: do czego, które narzędzia, w jakim zakresie]
+
+Przykłady:
+- Claude do korekty językowej i stylu
+- Perplexity do wstępnego wyszukiwania literatury
+- ChatGPT do generowania pytań do wywiadu (zmodyfikowanych przeze mnie)
+
+Napisz deklarację która:
+- Jest uczciwa i precyzyjna (nie ukrywa ani nie wyolbrzymia roli AI)
+- Podkreśla moją własną rolę badacza/badaczki
+- Odpowiada standardom akademickim [uczelnia/czasopismo]
+- Ma długość: 50-100 słów
+
+Styl: formalny, pierwsza osoba.
+```
+
+---
+
+### P-061 — Krytyczna ocena tekstu wygenerowanego przez AI
+
+**Kiedy używać:** Gdy AI wygenerowało fragment i chcesz ocenić jego jakość przed użyciem.
+
+```text
+Oceń krytycznie poniższy fragment tekstu wygenerowany przez AI.
+
+Sprawdź pod kątem:
+1. FAKTYCZNOŚĆ: Czy zawiera twierdzenia które brzmią wiarygodnie
+   ale mogą być fałszywe?
+2. POWIERZCHOWNOŚĆ: Czy argumenty są zbyt ogólne i trywialne?
+3. STYL: Czy jest rozpoznawalnie "AI-owski"?
+   (nadużywanie "ponadto", "co więcej", brak konkretów)
+4. ORYGINALNOŚĆ: Czy wnosi nowe ujęcie czy powtarza oczywistości?
+5. CYTOWANIA: Czy są — i czy należy je weryfikować?
+
+Zaproponuj jak poprawić fragment aby brzmiał bardziej jak własna
+praca akademicka.
+
+Fragment: [wklej]
+```
+
+---
+
+### P-062 — Prompt do refleksji nad własnym procesem badawczym
+
+**Kiedy używać:** Periodycznie — żeby nie wpaść w pułapkę cognitive offloading.
+
+```text
+Pomagasz mi refleksyjnie ocenić mój proces badawczy z ostatnich [X] tygodni.
+
+Odpowiedz na pytania (zadaj je mnie — nie odpowiadaj za mnie):
+
+1. Jakie decyzje badawcze podjąłem/podjęłam samodzielnie,
+   a jakie "oddelegowałem/oddelegowałam" AI?
+2. Czy rozumiem każdy fragment swojej pracy który wygenerowało AI?
+3. Gdzie AI pomogło mi myśleć lepiej, a gdzie wyręczyło mnie z myślenia?
+4. Czy mógłbym/mogłabym obronić każdy argument w pracy ustnie?
+5. Co jest naprawdę "moje" w tej pracy?
+
+Na końcu: zaproponuj jedną zmianę w moim workflow z AI
+która zwiększyłaby moją własną naukę i zrozumienie.
+```
+
+---
+
+### P-063 — Generowanie pytań testowych do własnej wiedzy
+
+**Kiedy używać:** Po przeczytaniu artykułu lub rozdziału — aktywne testowanie rozumienia.
+
+```text
+Na podstawie poniższych notatek / tekstu stwórz 10 pytań testowych
+sprawdzających rozumienie (nie pamięć faktów).
+
+Pytania powinny być:
+- Otwarte (wymagają wyjaśnienia, nie jednego słowa)
+- Na różnych poziomach Taksonomii Blooma:
+  * 3 pytania: Zrozumienie ("Wyjaśnij...", "Opisz własnymi słowami...")
+  * 3 pytania: Zastosowanie ("Jak można zastosować X do Y?")
+  * 2 pytania: Analiza ("Porównaj...", "Dlaczego...")
+  * 2 pytania: Ocena ("Oceń...", "Uzasadnij czy...")
+
+Dla każdego pytania dodaj:
+- Wskazówkę gdzie szukać odpowiedzi (numer strony / sekcji)
+- Co byłaby pełna odpowiedź (kluczowe elementy)
+
+Notatki / tekst: [wklej]
+```
+
+---
+
+### P-064 — Dyskusja etyczna zastosowania AI w badaniach
+
+**Kiedy używać:** Gdy piszesz sekcję o etyce lub przygotowujesz się do dyskusji.
+
+```text
+Przeprowadź ze mną dyskusję sokratyczną na temat:
+"Jakie są granice etycznego użycia AI w pracy akademickiej?"
+
+Podejście:
+- Zadaj mi serię pytań pogłębiających (nie podawaj gotowych odpowiedzi)
+- Gdy moja odpowiedź jest zbyt ogólna — drąż dalej
+- Wskaż napięcia i sprzeczności w moim rozumowaniu
+- Przedstaw kontrprzykłady do moich tez
+- Pomóż mi wypracować własne, uzasadnione stanowisko
+
+Zacznij od: "Co rozumiesz przez 'uczciwe' użycie AI w akademii?"
+```
+
+
+---
+
+## CZĘŚĆ X — PROMPTY SPECJALISTYCZNE (WZiKS UJ)
+
+Sekcja promptów dostosowanych do specyfiki kierunków na Wydziale Zarządzania i Komunikacji Społecznej UJ — zarządzanie informacją, bibliotekoznawstwo, dziennikarstwo, komunikacja medialna.
+
+---
+
+### P-065 — Analiza systemu informacyjnego
+
+**Kiedy używać:** Zarządzanie informacją — ocena systemów informacyjnych.
+
+```text
+Przeprowadź analizę systemu informacyjnego według następującego schematu.
+
+System: [nazwa systemu, np. biblioteka cyfrowa, intranet firmy, repozytorium]
+Kontekst: [organizacja, użytkownicy, cel]
+
+Analiza powinna obejmować:
+1. WEJŚCIE: Jakie informacje wchodzą do systemu? (typy, formaty, źródła)
+2. PRZETWARZANIE: Jak informacje są organizowane, klasyfikowane, indeksowane?
+3. WYJŚCIE: Jak użytkownicy uzyskują dostęp? (interfejsy, wyszukiwanie)
+4. SPRZĘŻENIE ZWROTNE: Jak system reaguje na potrzeby użytkowników?
+5. OTOCZENIE: Standardy, regulacje, technologie wpływające na system
+
+Oceń efektywność systemu i zaproponuj 3 konkretne ulepszenia.
+Odwołaj się do modelu [Shannon-Weaver / Leavitt / inny — wybierz adekwatny].
+```
+
+---
+
+### P-066 — Analiza dyskursu medialnego
+
+**Kiedy używać:** Komunikacja społeczna, dziennikarstwo — analiza tekstów medialnych.
+
+```text
+Przeprowadź analizę dyskursu poniższego tekstu medialnego.
+
+Tekst: [wklej artykuł prasowy / post / transkrypt]
+Źródło: [medium, data, autor]
+Kontekst społeczno-polityczny: [opcjonalnie]
+
+Analiza strukturalna:
+1. Nadawca i jego pozycja (kto mówi? jaki autorytet?)
+2. Odbiorca konstruowany przez tekst (do kogo jest skierowany?)
+3. Strategie perswazji (ethos / pathos / logos — podaj przykłady)
+4. Ramy interpretacyjne (framing): jak temat jest definiowany?
+5. Co jest pomijane, marginalizowane lub normalizowane?
+6. Ideologiczny wymiar: jakie wartości / interesy tekst promuje?
+
+Podejście teoretyczne: [van Dijk / Fairclough / Laclau-Mouffe / inne]
+```
+
+---
+
+### P-067 — Schemat klasyfikacji i indeksowania
+
+**Kiedy używać:** Bibliotekoznawstwo, zarządzanie zbiorami.
+
+```text
+Pomóż mi opracować schemat klasyfikacji dla następującej kolekcji:
+
+Kolekcja: [opis zbiorów — typ, tematyka, liczba dokumentów]
+Odbiorcy: [kto będzie korzystać? jaki poziom wiedzy?]
+System istniejący: [np. UKD, Deweya, własny — lub brak]
+Cel klasyfikacji: [wyszukiwanie, browsing, statystyki, inne]
+
+Zaproponuj:
+1. Główne klasy (maks. 10) z uzasadnieniem
+2. Podklasy dla 3 najważniejszych klas (2-3 poziomy)
+3. Kryteria przypisywania dokumentów do klas
+4. Przykładowe rekordy dla 5 różnych typów dokumentów
+5. Potencjalne problemy klasyfikacji i jak je rozwiązać
+```
+
+---
+
+### P-068 — Analiza potrzeb informacyjnych
+
+**Kiedy używać:** Zarządzanie informacją — badanie użytkowników.
+
+```text
+Zaprojektuj badanie potrzeb informacyjnych dla następującej grupy użytkowników:
+
+Grupa: [opis — np. studenci I roku, pracownicy działu HR]
+Kontekst: [organizacja / instytucja]
+Cel badania potrzeb: [projektowanie usługi / zakup systemu / inne]
+
+Opracuj:
+1. Metodę badania (wywiad / ankieta / obserwacja / diary study)
+   z uzasadnieniem wyboru dla tej grupy
+2. Główne obszary do zbadania (5-7 kategorii)
+3. Przykładowe pytania do wywiadu lub pozycje ankiety
+4. Jak analizować zebrane dane?
+5. Jak przełożyć wyniki na projektowanie usługi/systemu?
+
+Odwołaj się do modelu potrzeb informacyjnych
+[Taylor / Wilson / Kuhlthau — wybierz adekwatny].
+```
+
+---
+
+### P-069 — Strategia zarządzania wiedzą organizacyjną
+
+**Kiedy używać:** Zarządzanie informacją — KM (knowledge management).
+
+```text
+Opracuj strategię zarządzania wiedzą dla poniższej organizacji.
+
+Organizacja: [typ, wielkość, sektor]
+Problem: [jaki problem z wiedzą chcesz rozwiązać?]
+Dostępne zasoby: [technologia, budżet, ludzie]
+
+Strategia powinna obejmować:
+1. Audyt wiedzy (co już wiemy o zasobach wiedzy?)
+2. Kategoryzacja wiedzy: jawna (explicit) vs. ukryta (tacit)
+3. Procesy dzielenia się wiedzą (Communities of Practice, mentoring, wiki)
+4. Technologia KM (systemy, narzędzia, integracja)
+5. Kulturowe bariery i jak je przezwyciężyć
+6. Wskaźniki sukcesu (KPI dla zarządzania wiedzą)
+7. Plan wdrożenia (3-6 miesięcy, priorytety)
+
+Odwołaj się do modelu [Nonaka-Takeuchi SECI / Wiig / Choo].
+```
+
+---
+
+### P-070 — Ewaluacja wiarygodności źródeł cyfrowych
+
+**Kiedy używać:** Dziennikarstwo, komunikacja — weryfikacja informacji.
+
+```text
+Przeprowadź systematyczną ewaluację wiarygodności poniższego źródła cyfrowego.
+
+Źródło: [URL / nazwa / opis]
+Kontekst użycia: [do czego chcę go użyć — artykuł / praca / prezentacja]
+
+Kryteria SIFT (Stop, Investigate the source, Find better coverage, Trace claims):
+1. STOP: Jaką mam pierwszą intuicję o tym źródle? (kontroluj impuls)
+2. INVESTIGATE: Kim jest autor/wydawca? Jaka reputacja? (sprawdź Wikipedia, MediaBias)
+3. FIND BETTER COVERAGE: Czy inne wiarygodne źródła potwierdzają?
+4. TRACE CLAIMS: Czy przytaczane fakty mają oryginalne źródła?
+
+Dodatkowe kryteria CRAAP (Currency, Relevance, Authority, Accuracy, Purpose):
+Ocena każdego kryterium w skali 1-5 z uzasadnieniem.
+
+Końcowa ocena: WIARYGODNE / WĄTPLIWE / NIEWIARYGODNE + uzasadnienie.
+```
+
+
+---
+
+## CZĘŚĆ XI — PROMPTY ZAAWANSOWANE I SYSTEM PROMPTS
+
+Gotowe system prompty do skonfigurowania stałych asystentów w Claude Projects lub ChatGPT Custom Instructions.
+
+---
+
+### P-071 — System prompt: Asystent dyplomowy
+
+**Kiedy używać:** Skonfiguruj raz w Claude Projects — aktywny przez cały czas pisania pracy.
+
+```text
+## ROLA
+Jesteś moim asystentem dyplomowym. Pomagasz mi pisać pracę
+[licencjacką/magisterską] na temat: [temat pracy].
+
+## KONTEKST O MOJEJ PRACY
+Kierunek: [kierunek studiów]
+Uczelnia: Wydział Zarządzania i Komunikacji Społecznej, UJ Kraków
+Promotor/ka: [imię i nazwisko lub "nie podaję"]
+Pytanie badawcze: [pytanie]
+Metoda: [metoda badawcza]
+Styl cytowań: APA 7
+Planowana objętość: [X] stron / [Y] słów
+Deadline: [data]
+
+## MOJE SŁABE STRONY (gdzie potrzebuję pomocy)
+- [np. formułowanie argumentów akademickich]
+- [np. struktura akapitów]
+- [np. opis metodologii]
+
+## JAK MI POMAGASZ
+- Zadajesz mi pytania zamiast od razu podawać odpowiedzi
+- Wskazujesz błędy, ale nie piszesz za mnie
+- Informujesz gdy twierdzenie wymaga cytowania
+- Odpowiadasz po polsku, terminologia naukowa po angielsku w nawiasach
+
+## CZEGO NIE ROBISZ
+- Nie piszesz gotowych fragmentów do wklejenia bez modyfikacji
+- Nie wymyślasz cytatów i bibliografii
+- Nie oceniasz mojego promotora ani uczelni
+```
+
+---
+
+### P-072 — System prompt: Asystent korektora akademickiego
+
+**Kiedy używać:** Do sesji edycji i korekty — uruchom gdy masz gotowy draft.
+
+```text
+## ROLA
+Jesteś akademickim edytorem językowym specjalizującym się w polskich
+pracach naukowych z [dziedzina].
+
+## TWOJE ZADANIE
+Korygujesz fragmenty tekstu które ci podsyłam. Nie piszesz od zera —
+tylko ulepszasz istniejący tekst.
+
+## STANDARDY
+- Poziom: praca [licencjacka/magisterska]
+- Styl: akademicki, formalny, trzecia osoba
+- Długość: zachowaj podobną lub skróć o maks. 15%
+- Cytowania: format APA 7, zostaw placeholdery [CYTAT: Autor, rok]
+
+## FORMAT ODPOWIEDZI
+Dla każdej korekty:
+1. Poprawiony fragment (bez komentarzy inline)
+2. Lista zmian co poprawiłeś/poprawiłaś (punktorami)
+3. Opcjonalne pytanie do mnie jeśli fragment jest niejasny
+
+## CZEGO NIE ZMIENIASZ
+- Argumenty merytoryczne (nawet jeśli nie zgadzasz się z treścią)
+- Wyniki badań i cytowania (tylko format)
+- Mojego stylu narracyjnego w granicach akademickości
+```
+
+---
+
+### P-073 — System prompt: Diabli adwokat (devil's advocate)
+
+**Kiedy używać:** Do testowania swoich argumentów przed obroną lub submisją.
+
+```text
+## ROLA
+Jesteś "diablim adwokatem" — Twoim zadaniem jest kwestionować każdy
+argument który ci przedstawiam z pozycji sceptycznego recenzenta.
+
+## TWOJE ZACHOWANIE
+- Pytasz "Skąd to wiadomo? Na jakiej podstawie?"
+- Wskazujesz alternatywne interpretacje
+- Szukasz wewnętrznych sprzeczności
+- Proponujesz kontrprzykłady
+- Pytasz o pominięte zmienne i czynniki zakłócające
+- NIE akceptujesz odpowiedzi "bo tak jest" bez dowodów
+
+## CO TO NIE JEST
+- Nie jesteś złośliwy/złośliwa — jesteś konstruktywnie krytyczny/krytyczna
+- Nie odrzucasz argumentów bez uzasadnienia
+- Jeśli argument jest dobry — przyznaj to
+
+## FORMAT
+Po wysłaniu każdego argumentu: odpowiadasz 2-3 pytaniami lub
+kontrargumentami. Następnie czekasz na moją odpowiedź.
+```
+
+---
+
+### P-074 — System prompt: Asystent analizy jakościowej
+
+**Kiedy używać:** Podczas kodowania wywiadów lub dokumentów metodą tematyczną.
+
+```text
+## ROLA
+Pomagasz mi przeprowadzić analizę tematyczną (Braun & Clarke, 2006)
+transkryptów wywiadów jakościowych.
+
+## KONTEKST BADANIA
+Temat: [temat badania]
+Pytanie badawcze: [pytanie]
+Metoda kodowania: [indukcyjne / dedukcyjne / mieszane]
+Poziom kodowania: [semantyczny / latentny]
+
+## PROCES
+Etap 1 — Zapoznanie: Gdy podsyłam fragment, czytasz i podajesz
+         wstępne obserwacje (nie kody — obserwacje)
+Etap 2 — Kodowanie: Przypisujesz kody wstępne do fragmentów tekstu
+Etap 3 — Tematy: Grupujesz kody w tematy wyższego rzędu
+Etap 4 — Weryfikacja: Sprawdzamy razem czy tematy są spójne
+
+## ZASADY
+- Kody blisko tekstu (in vivo gdy to możliwe)
+- Jeden kod = jedno znaczenie
+- Zaznaczaj fragmenty które mnie zaskoczyły lub są sprzeczne
+- Pytaj gdy kontekst jest niejasny
+```
+
+---
+
+### P-075 — System prompt: Asystent do nauki przez pytania (Sokratyczny)
+
+**Kiedy używać:** Gdy chcesz naprawdę zrozumieć temat, nie tylko mieć streszczenie.
+
+```text
+## ROLA
+Jesteś sokratycznym tutorem. Twoja zasada: NIGDY nie podajesz
+gotowej odpowiedzi jeśli student może do niej dojść samodzielnie.
+
+## TWOJA METODA
+Gdy zadaję pytanie:
+1. Sprawdzasz co już wiem (pytasz "Co wiesz na ten temat?")
+2. Budujesz na mojej wiedzy (uzupełniasz luki, nie zastępujesz)
+3. Prowadzisz przez rozumowanie pytaniami pomocniczymi
+4. Gdy utknę — dajesz wskazówkę, nie odpowiedź
+5. Na końcu prosisz mnie o sformułowanie odpowiedzi własnymi słowami
+
+## CO WOLNO
+- Poprawiać błędne rozumienie
+- Dawać definicje gdy pojęcie jest mi nieznane
+- Potwierdzać gdy moja odpowiedź jest poprawna
+
+## DZIEDZINA
+Pomagasz mi zrozumieć: [temat / dziedzina / kurs]
+Poziom wiedzy: [podstawowy / średniozaawansowany / zaawansowany]
+```
+
+
+---
+
+## CZĘŚĆ XII — PROMPTY PRODUKTYWNOŚCI I WORKFLOW
+
+Prompty do codziennej pracy akademickiej poza pisaniem — planowanie, zarządzanie czasem, e-maile.
+
+---
+
+### P-076 — Plan pracy nad rozdziałem
+
+**Kiedy używać:** Na początku pisania każdego rozdziału.
+
+```text
+Pomóż mi zaplanować pracę nad rozdziałem [numer/tytuł] mojej pracy.
+
+Informacje o rozdziale:
+Temat: [temat rozdziału]
+Planowana długość: [X] słów / [Y] stron
+Deadline: [data]
+Dostępny czas: [ile godzin tygodniowo mogę poświęcić]
+
+Stwórz plan działania:
+1. Lista zadań do wykonania (w logicznej kolejności)
+2. Szacowany czas każdego zadania
+3. Harmonogram tygodniowy (co kiedy robić)
+4. Kamienie milowe: co powinno być gotowe w połowie czasu?
+5. Plan "B" jeśli utknę na literaturze / pisaniu
+
+Mój styl pracy: [poranny / wieczorny / maraton vs. codziennie]
+```
+
+---
+
+### P-077 — E-mail do promotora z pytaniem
+
+**Kiedy używać:** Gdy musisz napisać do promotora — formalnie, ale naturalnie.
+
+```text
+Napisz profesjonalny e-mail do promotora/promotorki z następującym pytaniem.
+
+Kontekst:
+Moje imię i nazwisko: [imię, nazwisko]
+Promotor/ka: [tytuł, imię, nazwisko]
+Na jakim etapie jestem: [np. "po złożeniu pierwszego rozdziału"]
+Pytanie/prośba: [opis — możesz chaotycznie]
+
+E-mail powinien:
+- Mieć zwięzły temat (max. 10 słów)
+- Rozpoczynać się od stosownego pozdrowienia
+- Być konkretny — jedno pytanie na e-mail
+- Wskazywać czego konkretnie potrzebuję (decyzji / opinii / spotkania)
+- Mieć stosowne zakończenie akademickie
+
+Ton: formalny, ale nie sztywny. Długość: maks. 100 słów treści.
+```
+
+---
+
+### P-078 — Szybkie pytania do szybkiej analizy
+
+**Kiedy używać:** Codzienne szybkie zadania — 5-minutowe pytania.
+
+```text
+[SZYBKA ANALIZA — 5 min]
+
+Zadanie: [opis zadania w 1-2 zdaniach]
+Kontekst: [minimum potrzebnego kontekstu]
+
+Potrzebuję: [konkretny output — lista / zdanie / schemat / ocena]
+Format: [krótki — max. [X] zdań / punktów]
+```
+
+---
+
+### P-079 — Przegląd tygodniowy pracy dyplomowej
+
+**Kiedy używać:** Raz w tygodniu — refleksja nad postępami.
+
+```text
+Pomóż mi przeprowadzić tygodniowy przegląd pracy nad dyplomem.
+
+Ten tydzień:
+Co planowałem/planowałam: [lista]
+Co faktycznie zrobiłem/zrobiłam: [lista]
+Co mi nie wyszło i dlaczego: [refleksja]
+
+Następny tydzień:
+Mój priorytet nr 1: [zadanie]
+Co może mi przeszkodzić: [przeszkody]
+
+Na podstawie tego co opisałem/opisałam:
+1. Oceń czy jestem na dobrej drodze do deadline: [data oddania]
+2. Wskaż 1 rzecz którą powinienem/powinnam zmienić w podejściu
+3. Zaproponuj 1 konkretną technikę na przeszkodę którą wymieniłem/wymieniłam
+```
+
+---
+
+### P-080 — Dekompozycja trudnego zadania
+
+**Kiedy używać:** Gdy zadanie wydaje się przytłaczające i nie wiesz od czego zacząć.
+
+```text
+Mam do wykonania następujące zadanie akademickie:
+[opis zadania]
+
+Deadline: [data]
+Boję się / utknąłem/utknęłam na: [konkretna przeszkoda]
+
+Pomóż mi rozbić to zadanie na mniejsze, wykonalne kroki.
+Każdy krok powinien:
+- Zajmować maks. [30/60/90] minut
+- Mieć jasno określony wynik (co będę miał/miała na końcu)
+- Być możliwy do wykonania nawet gdy jestem zmęczony/zmęczona
+
+Zacznij od kroku który mogę zrobić TERAZ w ciągu 15 minut.
+```
+
+
+---
+
+## INDEKS ZBIORCZY — WSZYSTKIE 108 PROMPTÓW
+
+Poniższa tabela pozwala szybko znaleźć właściwy prompt. Kolumna "Czas" to szacowany czas potrzebny do użycia promptu i pracy z odpowiedzią.
+
+### Część I — Research i odkrywanie
+
+| ID | Tytuł | Kiedy używać | Czas |
+|---|---|---|---|
+| P-001 | Generowanie słów kluczowych | Start projektu | 5 min |
+| P-002 | Mapa pola badawczego | Orientacja w dziedzinie | 10 min |
+| P-003 | Identyfikacja research gap | Po zebraniu 5+ artykułów | 15 min |
+| P-004 | Weryfikacja trafności artykułu | Screening źródeł | 3 min |
+| P-005 | Planowanie systematycznego przeglądu | Przed przeglądem PRISMA | 20 min |
+| P-006 | Ranking i priorytetyzacja źródeł | 30+ artykułów w kolejce | 10 min |
+| P-007 | Analiza cytowań i sieci powiązań | Mapowanie pola badawczego | 15 min |
+| P-008 | Zapytanie o kontekst dziedziny | Wstęp do tematu | 10 min |
+
+### Część II — Analiza literatury i synteza
+
+| ID | Tytuł | Kiedy używać | Czas |
+|---|---|---|---|
+| P-009 | Notatka badawcza z abstraktu | Screening — szybka analiza | 5 min |
+| P-010 | Głęboka analiza artykułu | Analiza pełnego PDF | 20 min |
+| P-011 | Synteza wielu źródeł tematycznie | Po przeczytaniu 4-8 artykułów | 20 min |
+| P-012 | Porównanie dwóch teorii | Rozdział teoretyczny | 15 min |
+| P-013 | Analiza definicji kluczowego pojęcia | Definiowanie terminów | 10 min |
+| P-014 | Identyfikacja luk metodologicznych | Uzasadnienie metody | 15 min |
+| P-015 | Matryca przeglądu literatury | Organizacja artykułów | 10 min |
+
+### Część III — Pisanie akademickie
+
+| ID | Tytuł | Kiedy używać | Czas |
+|---|---|---|---|
+| P-016 | Wstęp do pracy / rozdziału | Pisanie wprowadzenia | 15 min |
+| P-017 | Teza i hipoteza badawcza | Formułowanie pytania | 20 min |
+| P-018 | Akapit argumentacyjny (PEEL) | Pisanie argumentów | 10 min |
+| P-019 | Rozwinięcie i pogłębienie akapitu | Za krótki akapit | 10 min |
+| P-020 | Konspekt rozdziału | Planowanie przed pisaniem | 15 min |
+| P-021 | Abstrakt strukturalny | Po napisaniu pracy | 10 min |
+| P-022 | Zakończenie i wnioski | Finalizacja pracy | 15 min |
+| P-023 | Akademickie parafrazowanie | Używanie cudzych myśli | 5 min |
+| P-024 | Konwersja stylu na akademicki | Własny tekst za potoczny | 10 min |
+| P-025 | Zdania przejściowe między sekcjami | Klockowata praca | 5 min |
+
+### Część IV — Edycja, korekta i jakość tekstu
+
+| ID | Tytuł | Kiedy używać | Czas |
+|---|---|---|---|
+| P-026 | Kompleksowa korekta akademicka | Przed oddaniem do promotora | 20 min |
+| P-027 | Ocena siły argumentacji | Sprawdzenie logiki | 15 min |
+| P-028 | Uproszczenie złożonego fragmentu | Interdyscyplinarny odbiorca | 10 min |
+| P-029 | Spójność terminologiczna | Długa praca | 10 min |
+| P-030 | Feedback jak promotor | Test przed oddaniem | 20 min |
+| P-031 | Weryfikacja przypisów APA 7 | Finalna korekta | 10 min |
+| P-032 | Redukcja objętości tekstu | Przekroczony limit słów | 10 min |
+| P-033 | Porównanie dwóch wersji fragmentu | Wybór między wariantami | 5 min |
+
+### Część V — Metodologia badań
+
+| ID | Tytuł | Kiedy używać | Czas |
+|---|---|---|---|
+| P-034 | Uzasadnienie wyboru metody | Rozdział metodologiczny | 15 min |
+| P-035 | Opis próby badawczej | Sekcja o uczestnikach | 10 min |
+| P-036 | Etyczny protokół badań | Sekcja etyczna | 15 min |
+| P-037 | Scenariusz wywiadu | Projektowanie narzędzia | 20 min |
+| P-038 | Kwestionariusz ankiety | Badania ilościowe | 25 min |
+| P-039 | Analiza tematyczna — kodowanie | Badania jakościowe | 30 min |
+| P-040 | Triangulacja metodologiczna | Mieszane metody | 10 min |
+
+### Część VI — Organizacja wiedzy i notatki
+
+| ID | Tytuł | Kiedy używać | Czas |
+|---|---|---|---|
+| P-041 | Notatka ze spotkania z promotorem | Po seminarium | 10 min |
+| P-042 | Notatka Cornell z artykułu | Po lekturze | 10 min |
+| P-043 | Karta Zettelkasten | Baza wiedzy (Obsidian) | 5 min |
+| P-044 | Podsumowanie rozdziału własnej pracy | Sprawdzenie spójności | 10 min |
+| P-045 | Plan nauki do obrony / egzaminu | Przygotowanie do obrony | 20 min |
+| P-046 | Flashcardy do nauki | Zapamiętywanie pojęć | 15 min |
+
+### Część VII — Prezentacje i komunikacja naukowa
+
+| ID | Tytuł | Kiedy używać | Czas |
+|---|---|---|---|
+| P-047 | Streszczenie do konferencji | Zgłoszenie referatu | 15 min |
+| P-048 | Struktura prezentacji (slajdy) | Planowanie wystąpienia | 20 min |
+| P-049 | Odpowiedzi na trudne pytania | Przygotowanie do obrony | 25 min |
+| P-050 | Pitch naukowy (2 minuty) | Networking / seminaria | 10 min |
+| P-051 | Plakat konferencyjny (poster) | Projektowanie posteru | 15 min |
+| P-052 | Recenzja / peer review artykułu | Przed submisją do czasopisma | 25 min |
+
+### Część VIII — Analiza danych i wyniki
+
+| ID | Tytuł | Kiedy używać | Czas |
+|---|---|---|---|
+| P-053 | Opis wyników ilościowych | Sekcja Wyniki | 15 min |
+| P-054 | Interpretacja wyników statystycznych | Po SPSS/R/Python | 10 min |
+| P-055 | Analiza cytatu z wywiadu | Badania jakościowe | 10 min |
+| P-056 | Sekcja dyskusji wyników | Rozdział Dyskusja | 20 min |
+| P-057 | Wizualizacja danych — opis do tekstu | Opisywanie tabel/wykresów | 5 min |
+| P-058 | Ograniczenia badania | Sekcja Ograniczenia | 15 min |
+
+### Część IX — AI Literacy i etyka cyfrowa
+
+| ID | Tytuł | Kiedy używać | Czas |
+|---|---|---|---|
+| P-059 | Wykrywanie halucynacji i weryfikacja | Tekst wygenerowany przez AI | 10 min |
+| P-060 | Deklaracja użycia AI w pracy | Sekcja etyczna / nota | 5 min |
+| P-061 | Krytyczna ocena tekstu AI | Przed użyciem fragmentu | 10 min |
+| P-062 | Refleksja nad procesem badawczym | Raz na 2 tygodnie | 15 min |
+| P-063 | Pytania testowe do własnej wiedzy | Po czytaniu | 10 min |
+| P-064 | Dyskusja etyczna użycia AI | Seminaria, refleksja | 20 min |
+
+### Część X — Prompty specjalistyczne (WZiKS UJ)
+
+| ID | Tytuł | Kierunek | Czas |
+|---|---|---|---|
+| P-065 | Analiza systemu informacyjnego | Zarządzanie Informacją | 25 min |
+| P-066 | Analiza dyskursu medialnego | Komunikacja Społeczna | 20 min |
+| P-067 | Schemat klasyfikacji i indeksowania | Bibliotekoznawstwo | 25 min |
+| P-068 | Analiza potrzeb informacyjnych | Zarządzanie Informacją | 20 min |
+| P-069 | Strategia zarządzania wiedzą | Zarządzanie Informacją | 30 min |
+| P-070 | Ewaluacja wiarygodności źródeł | Dziennikarstwo / wszystkie | 10 min |
+
+### Część XI — System prompts (stałe konfiguracje)
+
+| ID | Tytuł | Gdzie skonfigurować | Zastosowanie |
+|---|---|---|---|
+| P-071 | Asystent dyplomowy | Claude Projects | Przez cały czas pisania pracy |
+| P-072 | Asystent korektora | Claude Projects | Sesje edycji draftu |
+| P-073 | Diabli adwokat | ChatGPT Custom Instructions | Testowanie argumentów |
+| P-074 | Asystent analizy jakościowej | Claude Projects | Kodowanie wywiadów |
+| P-075 | Tutor sokratyczny | Claude / ChatGPT | Głęboka nauka pojęć |
+
+### Część XII — Produktywność i workflow
+
+| ID | Tytuł | Kiedy używać | Czas |
+|---|---|---|---|
+| P-076 | Plan pracy nad rozdziałem | Start każdego rozdziału | 15 min |
+| P-077 | E-mail do promotora | Kontakt z promotorem | 5 min |
+| P-078 | Szybkie pytania (5 min) | Codziennie | 5 min |
+| P-079 | Przegląd tygodniowy | Raz w tygodniu | 15 min |
+| P-080 | Dekompozycja trudnego zadania | Gdy utknąłeś/utknęłaś | 10 min |
+
+---
+
+## WSKAZÓWKI ZAAWANSOWANE
+
+### Łączenie promptów w sekwencje
+
+Prompty działają najlepiej w sekwencjach logicznych. Trzy rekomendowane sekwencje:
+
+**Sekwencja "Od zera do rozdziału":** P-001 (słowa kluczowe) → P-002 (mapa pola) → P-003 (research gap) → P-009 (notatki) × n → P-011 (synteza) → P-020 (konspekt) → P-016 (wstęp).
+
+**Sekwencja "Korekta i poprawa":** P-026 (kompleksowa korekta) → P-027 (ocena argumentacji) → P-030 (test promotora) → P-031 (cytowania APA).
+
+**Sekwencja "Przygotowanie do obrony":** P-049 (trudne pytania) → P-050 (pitch 2 min) → P-073 (diabli adwokat — system prompt) → P-045 (plan nauki).
+
+### Dostosowanie do modelu
+
+Prompty z tej biblioteki testowano na Claude Sonnet 4.6 i ChatGPT GPT-5. Kilka wskazówek modelowo-specyficznych: Claude daje lepsze wyniki dla długich analiz i P-010 (głęboka analiza artykułu) — skorzystaj z możliwości przesłania PDF. ChatGPT jest szybszy dla P-078 (szybkie pytania) i zadań kodowania. Perplexity nadaje się najlepiej do P-001 (słowa kluczowe), bo uzupełnia je aktualnymi wynikami z baz naukowych.
+
+### Kiedy AI naprawdę nie zastąpi Ciebie
+
+Niezależnie od tego jak dobry jest prompt, istnieją obszary gdzie Twoja własna praca jest niezastąpiona: ocena metodologiczna i dobór metody do pytania badawczego, interpretacja wyników i formułowanie wniosków, weryfikacja wszystkich cytowań w zewnętrznych bazach, oryginalność argumentacji i Twój własny wkład intelektualny. AI to narzędzie wspomagające myślenie — nie myślący za Ciebie.
+
+---
+
+*Licencja: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.pl) — możesz swobodnie używać, adaptować i udostępniać z podaniem źródła.*
+
