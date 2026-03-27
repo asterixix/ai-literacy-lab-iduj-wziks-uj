@@ -1,5 +1,6 @@
 import type { ComponentPropsWithoutRef } from "react";
 
+import { AiToolLauncher } from "@/components/mdx/AiToolLauncher";
 import { cn } from "@/lib/utils";
 
 function Table({ className, children, ...props }: ComponentPropsWithoutRef<"table">) {
@@ -33,6 +34,7 @@ function Td({ className, ...props }: ComponentPropsWithoutRef<"td">) {
 
 /** Mapuje natywne elementy Markdown / GFM z sensownym layoutem (tabele, nagłówki komórek). */
 export const mdxComponents = {
+  AiToolLauncher,
   table: Table,
   th: Th,
   td: Td,

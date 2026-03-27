@@ -12,7 +12,8 @@ export const metadata: Metadata = {
 
 export default async function MaterialsPage() {
   const { content } = await getMaterialOverviewContent();
-  const githubUrl = process.env.NEXT_PUBLIC_GITHUB_URL ?? "https://github.com/placeholder/ai-literacy-lab";
+  const githubUrl =
+    process.env.NEXT_PUBLIC_GITHUB_URL ?? "https://github.com/asterixix/ai-literacy-lab-iduj-wziks-uj";
 
   return (
     <div className="container-wide py-14">
@@ -41,7 +42,7 @@ export default async function MaterialsPage() {
       <div className="mt-10 border-t border-border pt-6 text-sm text-muted-foreground">
         Repozytorium projektu:{" "}
         <Link href={githubUrl} target="_blank" rel="noreferrer" className="underline-offset-4 hover:underline">
-          GitHub (placeholder)
+          GitHub
         </Link>
       </div>
     </div>
