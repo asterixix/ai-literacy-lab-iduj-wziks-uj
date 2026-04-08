@@ -46,7 +46,7 @@ export default async function MaterialDetailPage({
         ← Wróć do materiałów
       </Link>
 
-      <article className="border border-border p-6 text-muted-foreground [&_h2]:mt-8 [&_h2]:text-2xl [&_h2]:font-black [&_h2]:text-foreground [&_h3]:mt-6 [&_h3]:text-lg [&_h3]:font-bold [&_h3]:text-foreground [&_p]:leading-relaxed">
+      <article className="rounded-3xl border border-border p-6 text-muted-foreground [&_h2]:mt-8 [&_h2]:text-2xl [&_h2]:font-black [&_h2]:text-foreground [&_h3]:mt-6 [&_h3]:text-lg [&_h3]:font-bold [&_h3]:text-foreground [&_p]:leading-relaxed">
         <header className="mb-8 border-b border-border pb-5">
           <h1 className="text-3xl font-black tracking-tight text-foreground md:text-4xl">
             {document.frontmatter.title}

@@ -8,14 +8,16 @@ type PartnerLogoProps = {
 
 function PartnerLogoCell({ src, alt }: PartnerLogoProps) {
   return (
-    <div className="relative aspect-square w-full border border-border bg-background">
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-        className="object-contain p-3 md:p-4"
-      />
+    <div className="rounded-lg border border-border/80 bg-card p-2">
+      <div className="relative aspect-square w-full overflow-hidden rounded-md border border-border/50 bg-white/95 dark:bg-white/90">
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          className="object-contain p-4 md:p-5"
+        />
+      </div>
     </div>
   );
 }

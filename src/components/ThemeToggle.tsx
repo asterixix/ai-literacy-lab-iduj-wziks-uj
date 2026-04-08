@@ -14,7 +14,8 @@ export function ThemeToggle() {
     setMounted(true);
   }, []);
 
-  const isDark = resolvedTheme === "dark";
+  // Keep SSR and the first client render identical.
+  const isDark = mounted && resolvedTheme === "dark";
 
   return (
     <Button
@@ -22,7 +23,10 @@ export function ThemeToggle() {
       size="icon"
       aria-label="Przełącz motyw"
       disabled={!mounted}
-      onClick={() => setTheme(isDark ? "light" : "dark")}
+      onClick={() => {
+        if (!mounted) return;
+        setTheme(isDark ? "light" : "dark");
+      }}
     >
       {isDark ? <Sun className="size-4" /> : <Moon className="size-4" />}
     </Button>
