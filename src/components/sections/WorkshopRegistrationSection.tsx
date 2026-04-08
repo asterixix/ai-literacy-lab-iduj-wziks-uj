@@ -14,7 +14,7 @@ export function WorkshopRegistrationSection() {
           <article className="border border-border p-5">
             <h3 className="text-lg font-black tracking-tight">Grupa 1 (stacjonarnie)</h3>
             <ul className="mt-3 space-y-1 text-sm text-muted-foreground">
-              <li>• Miejsce: budynek WZiKS w Krakowie, ul. Łojasiewicza 4</li>
+              <li>• Miejsce: WZiKS UJ, sala 2.121, ul. Łojasiewicza 4</li>
               <li>• Termin: wtorki</li>
               <li>• Godziny: 18:30-20:30</li>
             </ul>

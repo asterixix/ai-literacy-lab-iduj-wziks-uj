@@ -23,7 +23,7 @@ export default function AboutProjectPage() {
         <article className="space-y-3 border border-border p-5">
           <h2 className="text-xl font-black tracking-tight">Prowadzący</h2>
           <p className="text-sm leading-relaxed text-muted-foreground">
-            Artur Sendyka — projektant warsztatów i prowadzący zajęcia. Odpowiada za część merytoryczną oraz
+            Artur Sendyka — developer i badacz z ponad 6-letnim doświadczeniem w IT, specjalizujący się w tworzeniu aplikacji webowych i wdrażaniu narzędzi AI w praktyce. projektant warsztatów i prowadzący zajęcia. Odpowiada za część merytoryczną oraz
             przygotowanie materiałów OER.
           </p>
           <Link href="https://sendyka.dev" target="_blank" rel="noreferrer" className="text-sm hover:underline">
@@ -33,7 +33,7 @@ export default function AboutProjectPage() {
         <article className="space-y-3 border border-border p-5">
           <h2 className="text-xl font-black tracking-tight">Opiekun naukowy</h2>
           <p className="text-sm leading-relaxed text-muted-foreground">
-            dr hab. Magdalena Wójcik, prof. UJ — nadzór naukowy, konsultacje metodologiczne i wsparcie jakości
+            dr hab. Magdalena Wójcik, prof. UJ — Dyrektor Instytutu Studiów Informacyjnych UJ, nadzór naukowy, konsultacje metodologiczne i wsparcie jakości
             dydaktycznej projektu.
           </p>
         </article>
@@ -48,7 +48,7 @@ export default function AboutProjectPage() {
           <div className="border border-border p-4 text-sm text-muted-foreground">
             <p className="font-semibold text-foreground">Grupa 1 (stacjonarnie)</p>
             <ul className="mt-2 space-y-1">
-              <li>• Miejsce: WZiKS, ul. Łojasiewicza 4, Kraków</li>
+              <li>• Miejsce: WZiKS, sala 2.121, ul. Łojasiewicza 4, Kraków</li>
               <li>• Dzień: wtorek</li>
               <li>• Godziny: 18:30-20:30</li>
             </ul>
@@ -67,7 +67,7 @@ export default function AboutProjectPage() {
       <section className="mt-4 border border-border p-5">
         <h2 className="text-xl font-black tracking-tight">Wykład gościnny — 14.05.2026 (16:00-18:00)</h2>
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-          Lokalizacja: budynek WZiKS (sala do ustalenia).
+          Lokalizacja: budynek WZiKS, aula 0.103.
         </p>
         <div className="mt-4 grid gap-4 md:grid-cols-2">
           <div className="border border-border p-4 text-sm text-muted-foreground">
@@ -75,7 +75,6 @@ export default function AboutProjectPage() {
             <ul className="mt-2 space-y-1">
               <li>• inż. Maciejewski Rafał</li>
               <li>• rafal.maciejewski@kolofraktal.pl</li>
-              <li>• +48 887 668 868</li>
             </ul>
           </div>
           <div className="border border-border p-4 text-sm text-muted-foreground">
@@ -83,7 +82,6 @@ export default function AboutProjectPage() {
             <ul className="mt-2 space-y-1">
               <li>• dr inż. Robert Albert Kłopotek</li>
               <li>• r.klopotek@uksw.edu.pl</li>
-              <li>• Brak danych (telefon)</li>
             </ul>
           </div>
         </div>
@@ -93,45 +91,11 @@ export default function AboutProjectPage() {
             Cybersecurity. Nowy wymiar cyberbezpieczeństwa.
           </p>
           <p className="mt-2">
-            <span className="font-semibold text-foreground">Jednostka:</span> Koło Naukowe „Fraktal” UKSW – WMP. SNŚ
-          </p>
-          <p className="mt-2">
-            <span className="font-semibold text-foreground">Grupy:</span> Brak danych
-          </p>
-          <p className="mt-2">
-            <span className="font-semibold text-foreground">Punkty ECTS i inne:</span> Nie dotyczy
-          </p>
-          <p className="mt-2">
-            <span className="font-semibold text-foreground">Język prowadzenia:</span> polski
-          </p>
-          <p className="mt-2">
-            <span className="font-semibold text-foreground">Dyscyplina naukowa:</span> Informatyka techniczna i
-            telekomunikacja
-          </p>
-          <p className="mt-2">
-            <span className="font-semibold text-foreground">Poziom przedmiotu:</span> początkujący
-          </p>
-          <p className="mt-2">
-            <span className="font-semibold text-foreground">Symbole kierunkowe efektów uczenia się:</span> Nie dotyczy
-          </p>
-          <p className="mt-4">
-            <span className="font-semibold text-foreground">Wymagania wstępne:</span> Brak.
-          </p>
-          <p className="mt-2">
             <span className="font-semibold text-foreground">Pełny opis:</span> Omawiane są w sposób uproszczony
             podstawowe koncepcje różnych wariantów AI. W oparciu o tę wiedzę i różnorodne przykłady opisane zostaną
             rodzaje zagrożeń związanych z wykorzystaniem AI. Analiza zagrożeń będzie rozszerzona o dobre praktyki
             zabezpieczające oraz o pokazanie wykorzystania AI do działań ofensywnych jako kontrast.
           </p>
-          <div className="mt-4 border-t border-border pt-4">
-            <p className="font-semibold text-foreground">Efekty kształcenia:</p>
-            <ul className="mt-2 space-y-1">
-              <li>• Student rozróżnia podstawowe warianty AI.</li>
-              <li>• Student zna różne zagrożenia związane z wykorzystywaniem AI.</li>
-              <li>• Student zna dobre praktyki związane z bezpiecznym używaniem AI.</li>
-              <li>• Student zna sposoby wykorzystania AI do ochrony przed zagrożeniami.</li>
-            </ul>
-          </div>
         </div>
       </section>
 
