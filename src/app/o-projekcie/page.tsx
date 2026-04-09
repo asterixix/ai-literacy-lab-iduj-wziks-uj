@@ -122,7 +122,7 @@ export default function AboutProjectPage() {
       <section className="mt-4 border border-border p-5">
         <h2 className="text-xl font-black tracking-tight">Organizatorzy</h2>
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-          Koło Naukowe ZaintrygowanI UJ · Instytut Studiów Informacyjnych UJ
+          Koło Naukowe ZaintrygowanI UJ — studencka organizacja naukowa działająca przy Instytucie Studiów Informacyjnych UJ, zajmująca się popularyzacją wiedzy o informatologii, organizacją wydarzeń edukacyjnych i realizacją projektów badawczych.
         </p>
       </section>
     </div>

@@ -34,7 +34,7 @@ export function WorkshopRegistrationSection() {
           <h3 className="text-lg font-black tracking-tight">Dlaczego warto wziąć udział?</h3>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
             Nawet jeśli materiały szkoleniowe są już dostępne, udział w warsztatach daje dodatkowe korzyści: każdy
-            uczestnik otrzymuje kredyty do 10 USD do wykorzystania w OpenRouter API oraz certyfikat potwierdzający
+            uczestnik otrzymuje kredyty do 10 USD do wykorzystania w OpenRouter API oraz zaświadczenie potwierdzające
             udział.
           </p>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
