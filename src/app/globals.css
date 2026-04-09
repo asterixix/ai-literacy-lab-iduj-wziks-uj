@@ -8,7 +8,7 @@
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
-  --font-sans: var(--font-montserrat);
+  --font-sans: var(--font-source-sans-3);
   --font-mono: var(--font-jetbrains-mono);
   --color-ring: var(--ring);
   --color-input: var(--input);
@@ -25,51 +25,69 @@
 }
 
 :root {
-  --background: #ededed;
-  --foreground: #0a0a0a;
-  --card: #ededed;
-  --card-foreground: #0a0a0a;
-  --primary: #0a0a0a;
+  color-scheme: light;
+  --background: #fbfbfa;
+  --foreground: #111111;
+  --card: #fbfbfa;
+  --card-foreground: #111111;
+  --primary: #111111;
   --primary-foreground: #fafafa;
-  --muted: #e3e3e3;
-  --muted-foreground: #737373;
-  --accent: #0a0a0a;
+  --muted: #efefec;
+  --muted-foreground: #4f4f4f;
+  --accent: #111111;
   --accent-foreground: #fafafa;
-  --border: #d4d4d4;
-  --input: #d4d4d4;
-  --ring: #737373;
+  --border: #d6d6d0;
+  --input: #d6d6d0;
+  --ring: #111111;
   --radius: 2px;
 }
 
 .dark {
-  --background: #1a1a1a;
-  --foreground: #fafafa;
-  --card: #1a1a1a;
-  --card-foreground: #fafafa;
-  --primary: #fafafa;
-  --primary-foreground: #0a0a0a;
-  --muted: #242424;
-  --muted-foreground: #737373;
-  --accent: #fafafa;
-  --accent-foreground: #0a0a0a;
-  --border: #333333;
-  --input: #333333;
-  --ring: #737373;
+  color-scheme: dark;
+  --background: #121212;
+  --foreground: #f5f5f5;
+  --card: #121212;
+  --card-foreground: #f5f5f5;
+  --primary: #f5f5f5;
+  --primary-foreground: #121212;
+  --muted: #1c1c1c;
+  --muted-foreground: #c2c2c2;
+  --accent: #f5f5f5;
+  --accent-foreground: #121212;
+  --border: #2c2c2c;
+  --input: #2c2c2c;
+  --ring: #f5f5f5;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
+  html {
+    text-rendering: optimizeLegibility;
+  }
+
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground font-sans antialiased leading-7;
   }
 
   h1,
   h2,
   h3,
   h4 {
-    @apply tracking-tight;
+    font-family: var(--font-montserrat);
+    @apply tracking-tight text-balance;
+  }
+
+  a,
+  button,
+  input,
+  select,
+  textarea,
+  summary,
+  [role="button"] {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
   }
 }
 

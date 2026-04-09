@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { getModuleContent } from "@/lib/mdx";
 import { getModuleBySlug, modules } from "@/lib/modules";
 
@@ -56,6 +57,10 @@ export default async function WarsztatyDetailPage({
 
   return (
     <div className="container-wide py-12">
+      <PageViewTracker
+        eventName="workshop_markdown_opened"
+        data={{ slug, title: activeModule.title, number: activeModule.number }}
+      />
       <Link href="/warsztaty" className="mb-8 inline-block text-sm text-muted-foreground hover:text-foreground">
         ← Wróć do warsztatów
       </Link>

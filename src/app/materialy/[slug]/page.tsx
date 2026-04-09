@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { getMaterialDocumentBySlug, getMaterialDocumentsIndex } from "@/lib/mdx";
 
 export const dynamicParams = false;
@@ -42,6 +43,10 @@ export default async function MaterialDetailPage({
 
   return (
     <div className="container-wide py-12">
+      <PageViewTracker
+        eventName="material_markdown_opened"
+        data={{ slug, title: document.frontmatter.title }}
+      />
       <Link href="/materialy" className="mb-6 inline-block text-sm text-muted-foreground hover:text-foreground">
         ← Wróć do materiałów
       </Link>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { JetBrains_Mono, Montserrat } from "next/font/google";
+import { JetBrains_Mono, Montserrat, Source_Sans_3 } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 
 import { Footer } from "@/components/layout/Footer";
@@ -14,6 +14,12 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
   weight: ["400", "500", "700", "900"],
+});
+
+const sourceSans3 = Source_Sans_3({
+  variable: "--font-source-sans-3",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const jetBrainsMono = JetBrains_Mono({
@@ -47,11 +53,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pl" suppressHydrationWarning className={`${montserrat.variable} ${jetBrainsMono.variable}`}>
+    <html
+      lang="pl"
+      suppressHydrationWarning
+      className={`${montserrat.variable} ${sourceSans3.variable} ${jetBrainsMono.variable}`}
+    >
       <body className="min-h-screen bg-background text-foreground antialiased">
         <ThemeProvider>
           <TooltipProvider>
             <div className="relative flex min-h-screen flex-col overflow-x-hidden">
+              <a
+                href="#main-content"
+                className="sr-only z-[60] rounded-sm border border-border bg-background px-4 py-2 text-sm font-medium text-foreground shadow-sm focus:not-sr-only focus:absolute focus:left-4 focus:top-4"
+              >
+                Przejdź do treści głównej
+              </a>
               <Image
                 src="/graphic1.svg"
                 alt=""
@@ -69,7 +85,9 @@ export default function RootLayout({
                 className="pointer-events-none absolute right-[-160px] bottom-20 z-0 hidden opacity-25 lg:block dark:opacity-15"
               />
               <Navbar />
-              <main className="relative z-10 flex-1">{children}</main>
+              <main id="main-content" className="relative z-10 flex-1 focus:outline-none">
+                {children}
+              </main>
               <Footer />
             </div>
           </TooltipProvider>

@@ -1,9 +1,40 @@
-"use client"
+"use client";
 
+import { track } from "@vercel/analytics";
 import { Button as ButtonPrimitive } from "@base-ui/react/button"
 import { cva, type VariantProps } from "class-variance-authority"
+import { Children, isValidElement, useMemo, type ReactNode } from "react";
+import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils"
+
+type ButtonClickData = {
+  label: string;
+  pathname: string;
+  variant: string;
+  size: string;
+};
+
+function extractButtonLabel(children: ReactNode): string | null {
+  const parts: string[] = [];
+
+  Children.forEach(children, (child) => {
+    if (typeof child === "string" || typeof child === "number") {
+      parts.push(String(child));
+      return;
+    }
+
+    if (isValidElement<{ children?: ReactNode }>(child)) {
+      const nested = extractButtonLabel(child.props.children);
+      if (nested) {
+        parts.push(nested);
+      }
+    }
+  });
+
+  const label = parts.join(" ").replace(/\s+/g, " ").trim();
+  return label || null;
+}
 
 const buttonVariants = cva(
   "group/button inline-flex shrink-0 items-center justify-center rounded-sm border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
@@ -46,14 +77,40 @@ function Button({
   className,
   variant = "default",
   size = "default",
+  children,
+  onClick,
+  title,
+  "aria-label": ariaLabel,
   ...props
 }: ButtonPrimitive.Props & VariantProps<typeof buttonVariants>) {
+  const pathname = usePathname();
+  const label: string = useMemo(
+    () => ariaLabel ?? title ?? extractButtonLabel(children) ?? "unknown",
+    [ariaLabel, children, title],
+  );
+
+  const handleClick: typeof onClick = (event) => {
+    track("ui_button_clicked", {
+      label,
+      pathname,
+      variant: variant ?? "default",
+      size: size ?? "default",
+    } satisfies ButtonClickData);
+
+    onClick?.(event);
+  };
+
   return (
     <ButtonPrimitive
       data-slot="button"
       className={cn(buttonVariants({ variant, size, className }))}
+      onClick={handleClick}
+      title={title}
+      aria-label={ariaLabel}
       {...props}
-    />
+    >
+      {children}
+    </ButtonPrimitive>
   )
 }
 
