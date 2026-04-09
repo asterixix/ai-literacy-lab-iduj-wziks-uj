@@ -6,6 +6,14 @@ import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { MarkdownToc } from "@/components/mdx/MarkdownToc";
 import { getModuleContent } from "@/lib/mdx";
 import { getModuleBySlug, modules } from "@/lib/modules";
+import {
+  OG_IMAGE_ALT,
+  OG_IMAGE_HEIGHT,
+  OG_IMAGE_PATH,
+  OG_IMAGE_WIDTH,
+  SITE_NAME,
+  buildCanonicalPath,
+} from "@/lib/seo";
 
 export const dynamicParams = false;
 
@@ -19,20 +27,53 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  const canonicalPath = buildCanonicalPath(`/warsztaty/${slug}`);
   const fallback = getModuleBySlug(slug);
   if (!fallback) {
     return {
       title: "Moduł",
       description: "Szczegóły modułu warsztatowego.",
+      alternates: {
+        canonical: canonicalPath,
+      },
+      openGraph: {
+        url: canonicalPath,
+      },
     };
   }
 
   const { frontmatter } = await getModuleContent(slug).catch(() => ({ frontmatter: fallback }));
   const moduleItem = frontmatter ?? fallback;
+  const title = `Moduł ${moduleItem.number}: ${moduleItem.title}`;
+  const description = moduleItem.description;
 
   return {
-    title: `Moduł ${moduleItem.number}: ${moduleItem.title}`,
-    description: moduleItem.description,
+    title,
+    description,
+    alternates: {
+      canonical: canonicalPath,
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonicalPath,
+      siteName: SITE_NAME,
+      type: "article",
+      images: [
+        {
+          url: OG_IMAGE_PATH,
+          width: OG_IMAGE_WIDTH,
+          height: OG_IMAGE_HEIGHT,
+          alt: OG_IMAGE_ALT,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [OG_IMAGE_PATH],
+    },
   };
 }
 

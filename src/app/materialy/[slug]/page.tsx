@@ -5,6 +5,14 @@ import { notFound } from "next/navigation";
 import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { MarkdownToc } from "@/components/mdx/MarkdownToc";
 import { getMaterialDocumentBySlug, getMaterialDocumentsIndex } from "@/lib/mdx";
+import {
+  OG_IMAGE_ALT,
+  OG_IMAGE_HEIGHT,
+  OG_IMAGE_PATH,
+  OG_IMAGE_WIDTH,
+  SITE_NAME,
+  buildCanonicalPath,
+} from "@/lib/seo";
 
 export const dynamicParams = false;
 
@@ -19,17 +27,51 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  const canonicalPath = buildCanonicalPath(`/materialy/${slug}`);
   const document = await getMaterialDocumentBySlug(slug);
   if (!document) {
     return {
       title: "Materiał",
       description: "Szczegóły materiału edukacyjnego.",
+      alternates: {
+        canonical: canonicalPath,
+      },
+      openGraph: {
+        url: canonicalPath,
+      },
     };
   }
 
+  const title = document.frontmatter.title;
+  const description = document.frontmatter.description;
+
   return {
-    title: document.frontmatter.title,
-    description: document.frontmatter.description,
+    title,
+    description,
+    alternates: {
+      canonical: canonicalPath,
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonicalPath,
+      siteName: SITE_NAME,
+      type: "article",
+      images: [
+        {
+          url: OG_IMAGE_PATH,
+          width: OG_IMAGE_WIDTH,
+          height: OG_IMAGE_HEIGHT,
+          alt: OG_IMAGE_ALT,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [OG_IMAGE_PATH],
+    },
   };
 }
 

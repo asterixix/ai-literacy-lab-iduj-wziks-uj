@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
 
 import { ModuleCard } from "@/components/ModuleCard";
+import { buildCanonicalPath } from "@/lib/seo";
 import { modules } from "@/lib/modules";
 
 export const metadata: Metadata = {
   title: "Warsztaty",
   description: "Pełny plan warsztatów AI Literacy Lab.",
+  alternates: {
+    canonical: buildCanonicalPath("/warsztaty"),
+  },
+  openGraph: {
+    url: buildCanonicalPath("/warsztaty"),
+  },
 };
 
 export default function WarsztatyPage() {

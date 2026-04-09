@@ -2,10 +2,18 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
+import { buildCanonicalPath } from "@/lib/seo";
+
 export const metadata: Metadata = {
   title: "O projekcie",
   description:
     "Informacje o projekcie AI Literacy Lab, prowadzących, ekspertach gościnnych i finansowaniu w ramach ID.UJ.",
+  alternates: {
+    canonical: buildCanonicalPath("/o-projekcie"),
+  },
+  openGraph: {
+    url: buildCanonicalPath("/o-projekcie"),
+  },
 };
 
 export default function AboutProjectPage() {

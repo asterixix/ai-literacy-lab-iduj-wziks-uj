@@ -4,10 +4,17 @@ import Link from "next/link";
 import { MaterialCard } from "@/components/MaterialCard";
 import { getMaterialOverviewContent } from "@/lib/mdx";
 import { materials } from "@/lib/materials";
+import { buildCanonicalPath } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Materiały",
   description: "Materiały OER projektu AI Literacy Lab publikowane na licencji CC BY-SA 4.0.",
+  alternates: {
+    canonical: buildCanonicalPath("/materialy"),
+  },
+  openGraph: {
+    url: buildCanonicalPath("/materialy"),
+  },
 };
 
 export default async function MaterialsPage() {
