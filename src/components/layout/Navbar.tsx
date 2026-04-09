@@ -25,7 +25,7 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b bg-background/90 backdrop-blur-sm">
       <div className="container-wide flex h-16 items-center justify-between gap-4">
-        <Link href="/" className="font-black tracking-tighter">
+        <Link href="/" className="font-black tracking-tighter [font-family:var(--font-montserrat)]">
           AI LITERACY LAB
         </Link>
 

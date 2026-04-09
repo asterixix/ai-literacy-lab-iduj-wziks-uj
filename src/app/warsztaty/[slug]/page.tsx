@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { PageViewTracker } from "@/components/analytics/PageViewTracker";
+import { MarkdownToc } from "@/components/mdx/MarkdownToc";
 import { getModuleContent } from "@/lib/mdx";
 import { getModuleBySlug, modules } from "@/lib/modules";
 
@@ -52,7 +53,7 @@ export default async function WarsztatyDetailPage({
     notFound();
   }
 
-  const { frontmatter, content } = moduleContent;
+  const { frontmatter, content, toc } = moduleContent;
   const activeModule = frontmatter ?? moduleItem;
 
   return (
@@ -80,12 +81,13 @@ export default async function WarsztatyDetailPage({
         </div>
       </header>
 
-      <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_280px]">
+      <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_280px] lg:items-start">
         <article className="space-y-6 leading-relaxed text-muted-foreground [&_h2]:text-2xl [&_h2]:font-black [&_h2]:text-foreground [&_h3]:text-lg [&_h3]:font-bold [&_h3]:text-foreground [&_p]:max-w-3xl">
           {content}
         </article>
 
-        <aside className="h-fit space-y-8 border border-border p-5 lg:sticky lg:top-24">
+        <aside className="h-fit space-y-8 border border-border p-5 lg:sticky lg:top-24 lg:self-start lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto">
+          <MarkdownToc items={toc} />
           <section className="space-y-3">
             <h2 className="text-sm font-black uppercase tracking-tight">Efekty uczenia się</h2>
             <ul className="space-y-2 text-sm text-muted-foreground">

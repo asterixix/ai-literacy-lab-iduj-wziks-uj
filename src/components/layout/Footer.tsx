@@ -33,6 +33,7 @@ export function Footer() {
           </p>
         </div>
         <div className="space-y-2 text-sm text-muted-foreground">
+          <p>WZiKS UJ · Instytut Studiów Informacyjnych</p>
           <p>Koło Naukowe ZaintrygowanI UJ</p>
           <p>Licencja: CC BY-SA 4.0</p>
           <Link

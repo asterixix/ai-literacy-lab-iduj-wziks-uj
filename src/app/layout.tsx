@@ -61,34 +61,38 @@ export default function RootLayout({
       <body className="min-h-screen bg-background text-foreground antialiased">
         <ThemeProvider>
           <TooltipProvider>
-            <div className="relative flex min-h-screen flex-col overflow-x-hidden">
+            <div className="relative flex min-h-screen flex-col">
+              <div className="pointer-events-none absolute inset-0 z-0 overflow-x-hidden">
+                <Image
+                  src="/graphic1.svg"
+                  alt=""
+                  aria-hidden
+                  width={520}
+                  height={520}
+                  className="absolute -top-16 -left-24 hidden opacity-30 md:block dark:opacity-20"
+                />
+                <Image
+                  src="/graphic3.svg"
+                  alt=""
+                  aria-hidden
+                  width={560}
+                  height={560}
+                  className="absolute -right-40 bottom-20 hidden opacity-25 lg:block dark:opacity-15"
+                />
+              </div>
               <a
                 href="#main-content"
-                className="sr-only z-[60] rounded-sm border border-border bg-background px-4 py-2 text-sm font-medium text-foreground shadow-sm focus:not-sr-only focus:absolute focus:left-4 focus:top-4"
+                className="sr-only z-60 rounded-sm border border-border bg-background px-4 py-2 text-sm font-medium text-foreground shadow-sm focus:not-sr-only focus:absolute focus:left-4 focus:top-4"
               >
                 Przejdź do treści głównej
               </a>
-              <Image
-                src="/graphic1.svg"
-                alt=""
-                aria-hidden
-                width={520}
-                height={520}
-                className="pointer-events-none absolute -top-16 -left-24 z-0 hidden opacity-30 md:block dark:opacity-20"
-              />
-              <Image
-                src="/graphic3.svg"
-                alt=""
-                aria-hidden
-                width={560}
-                height={560}
-                className="pointer-events-none absolute right-[-160px] bottom-20 z-0 hidden opacity-25 lg:block dark:opacity-15"
-              />
-              <Navbar />
-              <main id="main-content" className="relative z-10 flex-1 focus:outline-none">
-                {children}
-              </main>
-              <Footer />
+              <div className="relative z-10 flex min-h-screen flex-col">
+                <Navbar />
+                <main id="main-content" className="relative z-10 flex-1 focus:outline-none">
+                  {children}
+                </main>
+                <Footer />
+              </div>
             </div>
           </TooltipProvider>
         </ThemeProvider>

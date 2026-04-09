@@ -2039,7 +2039,723 @@ Zacznij od kroku który mogę zrobić TERAZ w ciągu 15 minut.
 
 ---
 
-## INDEKS ZBIORCZY — WSZYSTKIE 108 PROMPTÓW
+## CZĘŚĆ XIII — PROMPTY NARZĘDZIOWE (WEBPAGE, GREP, CONTEXT7)
+
+Prompty do praktycznej pracy z narzędziami AI, gdy chcesz uzyskać odpowiedź opartą na źródłach, kodzie i aktualnej dokumentacji.
+
+---
+
+### P-081 — Streszczenie źródła WWW z dowodami
+
+**Kiedy używać:** Gdy chcesz szybko streścić artykuł/raport ze strony i zachować ścieżkę weryfikacji.
+
+```text
+Pracujesz jako asystent researchu akademickiego. Korzystasz wyłącznie z treści
+podanej strony WWW i nie dopowiadasz faktów spoza źródła.
+
+URL: [wklej URL]
+Temat mojej pracy: [temat]
+Pytanie badawcze: [pytanie]
+
+Wykonaj:
+1. Zrób streszczenie 120-180 słów.
+2. Wypisz 5 kluczowych tez z artykułu.
+3. Do każdej tezy dodaj cytat lub parafrazę dowodową (1-2 zdania) z tej strony.
+4. Oznacz każdą tezę etykietą: [fakt], [opinia], [interpretacja autora].
+5. Dodaj sekcję "Co wymaga dodatkowej weryfikacji?" (minimum 3 punkty).
+
+Format:
+- Sekcja A: streszczenie
+- Sekcja B: tabela (teza | dowód | typ)
+- Sekcja C: lista ryzyk halucynacji/niepewności
+```
+
+---
+
+### P-082 — Porównanie dwóch stron WWW pod kątem sprzeczności
+
+**Kiedy używać:** Gdy dwie publikacje podają różne dane i musisz je porównać metodologicznie.
+
+```text
+Porównaj krytycznie dwa źródła internetowe dotyczące tego samego zagadnienia.
+
+Źródło 1: [URL 1]
+Źródło 2: [URL 2]
+Temat: [temat]
+
+Wymagania:
+1. Wypisz punkty zgodności (min. 3).
+2. Wypisz punkty rozbieżności (min. 3).
+3. Dla każdej rozbieżności oceń, które źródło ma silniejsze uzasadnienie i dlaczego.
+4. Wskaż możliwe przyczyny różnic (metoda, data, definicja pojęć, kontekst).
+5. Zakończ rekomendacją: jak bezpiecznie użyć tych źródeł w pracy akademickiej.
+
+Uwaga:
+- Nie rozstrzygaj "kto ma rację" bez dowodów.
+- Jeśli brakuje danych, napisz jawnie: "brak danych do rozstrzygnięcia".
+```
+
+---
+
+### P-083 — Prompt do ekstrakcji danych z wielu stron WWW
+
+**Kiedy używać:** Gdy budujesz mini-przegląd i chcesz mieć porównywalne notatki źródło po źródle.
+
+```text
+Przeanalizuj poniższe strony WWW i przygotuj jedną matrycę porównawczą.
+
+Lista URL:
+1. [URL 1]
+2. [URL 2]
+3. [URL 3]
+4. [URL 4]
+
+Pytanie robocze: [pytanie]
+Zakres: [co dokładnie porównujemy]
+
+Dla każdego URL wyciągnij:
+- główną tezę,
+- użytą definicję kluczowego pojęcia,
+- jakie dane/liczby podano,
+- ograniczenia źródła,
+- przydatność dla mojej pracy (1-5).
+
+Wynik podaj jako tabelę:
+| URL | Teza | Definicja | Dane | Ograniczenia | Przydatność |
+
+Na końcu napisz:
+1. Jakie luki informacyjne pozostały?
+2. Jakich źródeł naukowych muszę szukać dalej?
+```
+
+---
+
+### P-084 — Budowanie zapytań grep do analizy kodu i notatek
+
+**Kiedy używać:** Gdy chcesz przeszukać repozytorium pod kątem wzorców, nazw pojęć lub błędnych praktyk.
+
+```text
+Pomóż mi zaprojektować zestaw zapytań grep/regex do przeszukania projektu.
+
+Cel analizy: [np. znalezienie wszystkich odwołań do APA 7, TODO, źródeł URL]
+Typ plików: [mdx/ts/tsx/md/csv]
+Środowisko: ripgrep (rg)
+
+Przygotuj:
+1. 8 zapytań prostych (literal search).
+2. 5 zapytań regex (z krótkim wyjaśnieniem co wykrywają).
+3. 3 zapytania "antywzorce" (np. potencjalne halucynacyjne cytowania, puste DOI, placeholdery).
+4. Dla każdego zapytania podaj komendę gotową do uruchomienia.
+5. Dodaj sekcję "Jak interpretować fałszywe trafienia".
+
+Format:
+- tabela: cel | komenda rg | typ (literal/regex) | uwagi
+```
+
+---
+
+### P-085 — Audyt jakości treści przez grep (checklista redakcyjna)
+
+**Kiedy używać:** Przed publikacją materiału edukacyjnego lub rozdziału pracy.
+
+```text
+Zaprojektuj audyt jakości tekstu oparty o grep, który mogę uruchomić na folderze z plikami.
+
+Kontekst:
+- Folder: [ścieżka lub nazwa folderu]
+- Typ treści: [materiały dydaktyczne / rozdziały pracy / notatki]
+- Język: [PL/EN]
+
+Checklista ma wykrywać:
+1. Niedokończone placeholdery typu [wklej], [TODO], [uzupełnij].
+2. Niespójne nazewnictwo pojęć (podaj listę par do kontroli).
+3. Podejrzane cytowania (brak roku, brak autora, brak strony).
+4. Martwe linki/niestandardowe URL-e do ręcznej weryfikacji.
+5. Zbyt potoczne zwroty niepasujące do stylu akademickiego.
+
+Wynik:
+- gotowe komendy rg,
+- priorytet naprawy (wysoki/średni/niski),
+- sugerowana kolejność poprawek.
+```
+
+---
+
+### P-086 — Context7: szybkie pozyskanie aktualnej dokumentacji
+
+**Kiedy używać:** Gdy piszesz o narzędziu/bibliotece i potrzebujesz świeżej, wiarygodnej dokumentacji zamiast pamięci modelu.
+
+```text
+Przygotuj odpowiedź opartą wyłącznie na aktualnej dokumentacji pobranej przez Context7.
+
+Biblioteka/narzędzie: [nazwa]
+Zakres pytania: [konkretna funkcja, API, workflow]
+Poziom: [podstawowy/zaawansowany]
+
+Wymagania:
+1. Najpierw rozwiąż poprawny identyfikator biblioteki.
+2. Pobierz dokumentację dla wskazanego tematu.
+3. Zrób krótkie podsumowanie (max 150 słów).
+4. Podaj 2-3 poprawne przykłady użycia oparte na dokumentacji.
+5. Wypisz "breaking changes / deprecations", jeśli występują.
+6. Dodaj sekcję "Czego dokumentacja nie mówi wprost".
+
+Uwaga:
+- Nie zgaduj API.
+- Jeśli dokumentacja nie potwierdza twierdzenia, napisz "niepotwierdzone w docs".
+```
+
+---
+
+### P-087 — Triangulacja: webpage + grep + context7
+
+**Kiedy używać:** Gdy przygotowujesz sekcję metodologiczną i chcesz połączyć źródła narracyjne, kodowe i dokumentacyjne.
+
+```text
+Wykonaj triangulację informacji z trzech kanałów: WWW, grep i Context7.
+
+Temat: [temat]
+Pytanie: [pytanie]
+
+Wejście:
+- URL-e do analizy: [lista]
+- Wyniki grep (wklej): [fragmenty wyników]
+- Dokumentacja Context7: [nazwa biblioteki + temat]
+
+Wynik końcowy:
+1. Co jest zgodne we wszystkich 3 kanałach?
+2. Co jest sprzeczne między kanałami?
+3. Co ma najwyższy poziom wiarygodności i dlaczego?
+4. Jakie twierdzenia mogę bezpiecznie użyć w pracy teraz?
+5. Jakie twierdzenia oznaczyć jako "do dalszej weryfikacji"?
+
+Format tabeli:
+| Twierdzenie | WWW | grep | Context7 | Status (potwierdzone/sporne/niepewne) |
+```
+
+---
+
+### P-088 — Prompt antyhalucynacyjny do pracy narzędziowej
+
+**Kiedy używać:** Zawsze, gdy prosisz AI o odpowiedź opartą o narzędzia i chcesz jawnie wymusić transparentność.
+
+```text
+Pracuj w trybie "zero-zgadywania".
+
+Zadanie: [opis]
+Dozwolone źródła: [URL / wyniki grep / dokumentacja Context7]
+
+Reguły odpowiedzi:
+1. Każde twierdzenie oznacz etykietą:
+   - [potwierdzone źródłem]
+   - [wniosek pośredni]
+   - [hipoteza wymagająca weryfikacji]
+2. Nie używaj wiedzy spoza dostarczonych źródeł.
+3. Dla każdego kluczowego wniosku podaj podstawę (URL, fragment grep, sekcja docs).
+4. Jeśli brakuje danych, napisz: "brak danych — potrzebne źródło X".
+5. Na końcu dodaj checklistę: co użytkownik powinien zweryfikować ręcznie.
+
+Format końcowy:
+- Sekcja A: odpowiedź merytoryczna
+- Sekcja B: mapa dowodów
+- Sekcja C: luki i ryzyka
+```
+
+
+---
+
+## CZĘŚĆ XIV — INNE NARZĘDZIA SPECJALISTYCZNE (Z MODUŁÓW WARSZTATOWYCH)
+
+Prompty dla narzędzi używanych w modułach 02, 04 i 05: od wyszukiwania literatury, przez organizację wiedzy, po AI-assisted coding.
+
+---
+
+### P-089 — Semantic Scholar: szybki screening literatury
+
+**Kiedy używać:** Gdy startujesz przegląd literatury i chcesz szybko odsiać najważniejsze artykuły.
+
+```text
+Pomóż mi przygotować plan screeningu literatury w Semantic Scholar.
+
+Temat: [temat]
+Dziedzina: [dziedzina]
+Zakres lat: [np. 2020-2026]
+
+Wygeneruj:
+1. 6 zapytań wyszukiwawczych (EN + PL) gotowych do wklejenia.
+2. Kryteria filtrowania (rok, typ publikacji, dziedzina, cytowania).
+3. Regułę priorytetyzacji: które artykuły czytać najpierw (Top 10).
+4. Szablon notatki screeningowej dla każdego wyniku.
+5. Ostrzeżenia: jak wykryć artykuł pozornie trafny, ale metodologicznie słaby.
+
+Format odpowiedzi:
+- Sekcja A: zapytania
+- Sekcja B: filtry i ranking
+- Sekcja C: szablon notatki
+```
+
+---
+
+### P-090 — Connected Papers / Research Rabbit: mapa pola
+
+**Kiedy używać:** Gdy chcesz zidentyfikować prace seminale i nowe nurty w jednym grafie powiązań.
+
+```text
+Pomóż mi zmapować pole badawcze na podstawie jednego artykułu startowego.
+
+Artykuł startowy (DOI lub tytuł): [artykuł]
+Temat pracy: [temat]
+
+Przygotuj instrukcję pracy krok po kroku:
+1. Jak zbudować graf w Connected Papers lub Research Rabbit.
+2. Jak odróżnić "Prior Works" od "Derivative Works" i co z nich wynika.
+3. Jak wybrać 5 artykułów do dalszej lektury (kryteria wyboru).
+4. Jak zapisać wynik mapowania w formie tabeli do rozdziału teoretycznego.
+5. Jakie ryzyka interpretacyjne ma analiza grafu cytowań.
+
+Dodaj gotowy szablon tabeli:
+| Artykuł | Rola w polu (fundament/mainstream/frontier) | Dlaczego ważny |
+```
+
+---
+
+### P-091 — Consensus + Elicit: synteza dowodów i luki
+
+**Kiedy używać:** Gdy chcesz zestawić konsensus badań z ekstrakcją danych do tabeli.
+
+```text
+Przygotuj workflow badawczy łączący Consensus i Elicit.
+
+Pytanie badawcze: [pytanie]
+Temat: [temat]
+
+Potrzebuję:
+1. Pytania do Consensus (min. 5) sprawdzające siłę dowodów.
+2. Kryteria selekcji artykułów do Elicit (inkluzja/ekskluzja).
+3. Pola ekstrakcji danych do tabeli (metoda, próba, wynik, ograniczenia).
+4. Sposób porównania: "co wspiera hipotezę" vs "co jej przeczy".
+5. Sekcję "research gap" gotową do dalszego rozwinięcia.
+
+Uwaga:
+- Oddziel fakty od interpretacji.
+- Jeśli dowody są niespójne, pokaż to jawnie.
+```
+
+---
+
+### P-092 — Zotero + AI: porządkowanie bibliografii
+
+**Kiedy używać:** Gdy masz dużo źródeł i chcesz utrzymać porządek cytowań i notatek.
+
+```text
+Pomóż mi zaprojektować system organizacji bibliografii w Zotero wspierany przez AI.
+
+Mój temat: [temat]
+Liczba źródeł: [liczba]
+Styl cytowania: [APA 7 / inny]
+
+Stwórz:
+1. Strukturę kolekcji i podkolekcji w Zotero.
+2. System tagów (metoda, dziedzina, trafność, status lektury).
+3. Szablon notatki do każdego artykułu (max 8 pól).
+4. Workflow: import -> adnotacje -> notatka -> cytowanie w tekście.
+5. Checklistę jakości przed finalnym eksportem bibliografii.
+
+Dodatkowo: zaproponuj 3 reguły nazewnictwa, które zapobiegają bałaganowi.
+```
+
+---
+
+### P-093 — NotebookLM: analiza pakietu dokumentów
+
+**Kiedy używać:** Gdy chcesz pracować na własnym korpusie PDF-ów bez mieszania z internetowym szumem.
+
+```text
+Zaprojektuj sesję pracy w NotebookLM dla mojego zestawu dokumentów.
+
+Zestaw dokumentów: [co wgrywam]
+Cel: [np. przygotowanie rozdziału 2]
+Pytanie badawcze: [pytanie]
+
+Przygotuj:
+1. 10 pytań do korpusu (od faktów do syntezy).
+2. 3 prompty do wykrywania sprzeczności między źródłami.
+3. 3 prompty do identyfikacji luk i dalszych kierunków badań.
+4. Szablon notatki "co mogę bezpiecznie cytować".
+5. Sekcję "co jeszcze muszę zweryfikować poza NotebookLM".
+
+Wymaganie:
+- Odpowiedzi mają odnosić się do dokumentów źródłowych, nie do wiedzy ogólnej modelu.
+```
+
+---
+
+### P-094 — Perplexity: szybki fact-check i scouting źródeł
+
+**Kiedy używać:** Gdy potrzebujesz szybko sprawdzić aktualność faktu i znaleźć punkt startowy do dalszej weryfikacji.
+
+```text
+Pracuj jak asystent fact-checku w Perplexity.
+
+Teza do sprawdzenia: [teza]
+Kontekst: [praca dyplomowa / prezentacja / artykuł]
+
+Wynik ma zawierać:
+1. Krótką odpowiedź: potwierdzone / częściowo / niepotwierdzone.
+2. 5 źródeł z priorytetem (raporty, instytucje, czasopisma).
+3. Ocenę jakości źródeł (1-5) z uzasadnieniem.
+4. Czerwone flagi: gdzie najłatwiej o błąd interpretacyjny.
+5. Listę "co sprawdzić ręcznie" przed cytowaniem.
+
+Nie traktuj wyników wyszukiwarki jako finalnego dowodu bez dalszej kontroli.
+```
+
+---
+
+### P-095 — OpenRouter: porównanie wielu modeli dla jednego zadania
+
+**Kiedy używać:** Gdy chcesz obiektywnie porównać jakość odpowiedzi różnych modeli na tym samym promptcie.
+
+```text
+Pomóż mi przeprowadzić porównanie modeli przez OpenRouter.
+
+Zadanie testowe: [zadanie]
+Modele do porównania: [model 1], [model 2], [model 3]
+Kryteria: [trafność, klarowność, halucynacje, użyteczność]
+
+Przygotuj:
+1. Jeden prompt bazowy identyczny dla wszystkich modeli.
+2. Rubrykę oceny (skala 1-5 dla każdego kryterium).
+3. Zasady testu fair (ten sam kontekst, zero doprecyzowań w trakcie).
+4. Szablon raportu porównawczego z werdyktem końcowym.
+5. Rekomendację: który model do jakiego typu zadań.
+```
+
+---
+
+### P-096 — LM Studio / Ollama: workflow offline i prywatność
+
+**Kiedy używać:** Gdy pracujesz na danych wrażliwych i nie możesz wysyłać treści do chmury.
+
+```text
+Zaprojektuj bezpieczny workflow pracy z lokalnym modelem (LM Studio lub Ollama).
+
+Rodzaj danych: [np. transkrypty wywiadów]
+Sprzęt: [CPU/GPU/RAM]
+Cel analizy: [cel]
+
+Dostarcz:
+1. Rekomendację modeli możliwych do uruchomienia na tym sprzęcie.
+2. Plan anonimizacji danych przed analizą.
+3. Schemat pracy offline (import, analiza, eksport notatek).
+4. Checklistę zgodności z RODO na poziomie praktycznym.
+5. Ograniczenia jakościowe modeli lokalnych i jak je kompensować.
+
+Wynik ma być realistyczny dla studenta, nie dla zespołu DevOps.
+```
+
+---
+
+### P-097 — GitHub Copilot / Cursor: prototyp kodu i debugging
+
+**Kiedy używać:** Gdy chcesz przejść od opisu zadania do działającego prototypu i sensownego debugowania.
+
+```text
+Wciel się w tutora programowania z AI. Pomóż mi zbudować prototyp krok po kroku.
+
+Zadanie: [co ma robić skrypt/aplikacja]
+Poziom: [początkujący]
+Język: [Python/JS/inny]
+
+Przebieg:
+1. Najpierw opisz plan implementacji w 5 krokach.
+2. Potem wygeneruj minimalną wersję działającą (MVP).
+3. Dodaj test na małej próbce danych.
+4. Dodaj checklistę debugowania: co sprawdzić, gdy kod nie działa.
+5. Zakończ propozycją 2 bezpiecznych rozszerzeń funkcjonalnych.
+
+Zasada:
+- Najpierw poprawność i czytelność, potem optymalizacja.
+```
+
+---
+
+### P-098 — Claude Code / Aider: code review i refaktoryzacja
+
+**Kiedy używać:** Gdy chcesz przejrzeć większy fragment projektu pod kątem błędów, ryzyk i jakości architektury.
+
+```text
+Wykonaj code review w stylu senior developera dla poniższego fragmentu projektu.
+
+Kontekst projektu: [opis]
+Kod / pliki: [wklej lub wskaż]
+Priorytet: [bezpieczeństwo / czytelność / wydajność]
+
+Raport ma zawierać:
+1. Najważniejsze ryzyka (krytyczne -> niskie).
+2. Potencjalne regresje po zmianach.
+3. Propozycje refaktoryzacji z uzasadnieniem.
+4. Minimalny zestaw testów, który powinien powstać.
+5. Plan wdrożenia poprawek: quick wins i zmiany większe.
+
+Format:
+- Lista problemów z priorytetem
+- Konkretne poprawki (bez zbędnej teorii)
+```
+
+
+---
+
+## CZĘŚĆ XV — METODY PROMPT ENGINEERING (MODUŁ 3)
+
+Przykłady promptów pokazujące, jak świadomie stosować różne techniki prompt engineeringu w zadaniach akademickich.
+
+---
+
+### P-099 — CIFTEC: pełny prompt akademicki
+
+**Kiedy używać:** Gdy chcesz uzyskać odpowiedź wysokiej jakości w przewidywalnym formacie.
+
+```text
+[Context] Jestem studentem/studentką [kierunek] na [uczelnia].
+Piszę [typ pracy] na temat [temat].
+
+[Instruction] Opracuj sekcję [sekcja], która odpowiada na pytanie badawcze:
+[pytanie badawcze].
+
+[Format] Odpowiedź ma mieć:
+1. Krótki wstęp (2-3 zdania)
+2. Część główną (3 akapity)
+3. Zakończenie (1 akapit)
+4. Listę 3 punktów do dalszej weryfikacji
+
+[Tone] Styl akademicki, formalny, precyzyjny.
+
+[Examples] Przykładowe zdanie otwierające:
+"Współczesne badania wskazują, że..."
+
+[Constraints]
+- 300-400 słów
+- bez wymyślonych cytowań
+- gdy brak danych: napisz "brak danych do potwierdzenia"
+```
+
+---
+
+### P-100 — Zero-shot: szybka klasyfikacja i analiza
+
+**Kiedy używać:** Gdy zadanie jest proste i dobrze zdefiniowane.
+
+```text
+Sklasyfikuj poniższy abstrakt jako:
+- badanie ilościowe
+- badanie jakościowe
+- mixed methods
+
+Następnie podaj:
+1. Jednozdaniowe uzasadnienie klasyfikacji
+2. Jedno potencjalne ograniczenie metodologiczne
+
+Odpowiedź maks. 80 słów.
+
+Abstrakt: [wklej abstrakt]
+```
+
+---
+
+### P-101 — Few-shot: uczenie modelu na przykładach
+
+**Kiedy używać:** Gdy zależy Ci na konkretnym stylu i spójnym formacie odpowiedzi.
+
+```text
+Przekształcaj notatki z artykułów do poniższego formatu.
+
+Przykład 1:
+Wejście: "Badanie na 120 studentach, ankieta online, wynik: wzrost kompetencji AI"
+Wyjście:
+- Próba: 120 studentów
+- Metoda: ankieta online
+- Główny wynik: wzrost kompetencji AI
+- Ograniczenie: brak danych podłużnych
+
+Przykład 2:
+Wejście: "12 wywiadów pogłębionych, analiza tematyczna, bariera: brak czasu"
+Wyjście:
+- Próba: 12 respondentów
+- Metoda: wywiady + analiza tematyczna
+- Główny wynik: kluczowa bariera to brak czasu
+- Ograniczenie: mała próba
+
+Teraz przetwórz:
+Wejście: [wklej notatkę]
+```
+
+---
+
+### P-102 — Chain-of-Thought: rozumowanie krok po kroku
+
+**Kiedy używać:** Gdy problem wymaga logicznej analizy i jawnego toku wnioskowania.
+
+```text
+Przeanalizuj problem metodologiczny krok po kroku.
+
+Problem:
+[opis problemu badawczego]
+
+Wykonaj:
+1. Zidentyfikuj główne założenia.
+2. Oceń ryzyka błędu metodologicznego.
+3. Zaproponuj dwie alternatywne strategie badawcze.
+4. Wskaż, która strategia jest najbezpieczniejsza i dlaczego.
+
+Najpierw pokaż tok rozumowania, potem końcową rekomendację.
+```
+
+---
+
+### P-103 — Role prompting: ekspert w określonej roli
+
+**Kiedy używać:** Gdy chcesz feedback jak od promotora, recenzenta lub metodologa.
+
+```text
+Jesteś recenzentem artykułów naukowych z [dziedzina], z 15-letnim doświadczeniem.
+
+Oceń poniższy fragment jak recenzent seminarium dyplomowego:
+1. Mocne strony (max 3)
+2. Słabe strony (max 5)
+3. Jak poprawić argumentację
+4. Jedno pytanie, które zadałbyś na obronie
+
+Fragment: [wklej fragment]
+Pytanie badawcze pracy: [pytanie]
+```
+
+---
+
+### P-104 — Self-consistency: kilka prób, jeden werdykt
+
+**Kiedy używać:** Gdy chcesz ograniczyć ryzyko przypadkowej, niestabilnej odpowiedzi modelu.
+
+```text
+Rozwiąż poniższe zadanie 3 niezależnymi podejściami.
+
+Zadanie: [zadanie]
+
+Wymagania:
+1. Wygeneruj 3 warianty odpowiedzi (A, B, C).
+2. Dla każdego wariantu podaj krótkie uzasadnienie.
+3. Na końcu wybierz wariant najbardziej spójny z danymi.
+4. Dodaj sekcję: "Dlaczego odrzucam pozostałe warianty".
+
+Zwróć tylko wynik końcowy i krótkie uzasadnienie wyboru.
+```
+
+---
+
+### P-105 — Meta-prompting: model projektuje lepszy prompt
+
+**Kiedy używać:** Gdy nie wiesz, jak najlepiej sformułować złożone zadanie.
+
+```text
+Twoim zadaniem jest napisać dla mnie najlepszy możliwy prompt do poniższego celu.
+
+Cel użytkownika:
+[opisz cel]
+
+Wymagania dla promptu, który tworzysz:
+1. Musi używać struktury CIFTEC.
+2. Ma zawierać wersję podstawową i wersję zaawansowaną.
+3. Ma mieć sekcję "najczęstsze błędy użytkownika".
+4. Ma zawierać gotowe placeholdery do podmiany.
+
+Na końcu oceń swój prompt w skali 1-5 i zaproponuj jedną poprawkę.
+```
+
+---
+
+### P-106 — Negative constraints: redukcja halucynacji
+
+**Kiedy używać:** Gdy model ma tendencję do dopowiadania lub generowania zbyt ogólnych treści.
+
+```text
+Wykonaj zadanie: [zadanie], ale przestrzegaj rygorystycznych ograniczeń.
+
+NIE WOLNO:
+- wymyślać cytowań, autorów, dat
+- używać stwierdzeń bez oparcia w dostarczonych danych
+- pisać ogólników typu "AI zmienia świat"
+
+MUSISZ:
+1. Opierać się wyłącznie na podanym materiale.
+2. Oznaczać niepewność frazą: "niepotwierdzone".
+3. Na końcu dodać listę: "czego nie da się ustalić z dostępnych danych".
+
+Materiał źródłowy:
+[wklej materiał]
+```
+
+---
+
+### P-107 — XML structuring (Claude): precyzyjna struktura
+
+**Kiedy używać:** Gdy chcesz wymusić bardzo czytelny, maszynowo-przetwarzalny format odpowiedzi.
+
+```text
+Użyj struktury XML w odpowiedzi.
+
+<task>
+Przeanalizuj [temat] i przygotuj syntezę.
+</task>
+
+<requirements>
+<length>200-250 słów</length>
+<style>akademicki</style>
+<citations>bez wymyślania źródeł</citations>
+</requirements>
+
+<output_format>
+<summary></summary>
+<key_points>
+   <point></point>
+   <point></point>
+   <point></point>
+</key_points>
+<uncertainties></uncertainties>
+</output_format>
+
+Zwróć wyłącznie XML zgodny z tym schematem.
+```
+
+---
+
+### P-108 — Strojenie parametrów: temperatura, top_p, max_tokens
+
+**Kiedy używać:** Gdy testujesz ten sam prompt pod różne cele (faktografia vs kreatywność).
+
+```text
+Przetestuj poniższy prompt w 3 konfiguracjach parametrów i porównaj wyniki.
+
+Prompt bazowy:
+[wklej prompt]
+
+Konfiguracje:
+1. Faktograficzna: temperature=0.1, top_p=1.0, max_tokens=400
+2. Zbalansowana: temperature=0.5, top_p=0.9, max_tokens=500
+3. Kreatywna: temperature=0.9, top_p=1.0, max_tokens=600
+
+Dla każdej konfiguracji oceń:
+- trafność merytoryczną
+- spójność
+- ryzyko halucynacji
+- użyteczność dla pracy akademickiej
+
+Na końcu wskaż rekomendowane ustawienie i uzasadnij wybór.
+```
+
+
+---
+
+## INDEKS ZBIORCZY — WSZYSTKIE PROMPTY
 
 Poniższa tabela pozwala szybko znaleźć właściwy prompt. Kolumna "Czas" to szacowany czas potrzebny do użycia promptu i pracy z odpowiedzią.
 
@@ -2182,6 +2898,49 @@ Poniższa tabela pozwala szybko znaleźć właściwy prompt. Kolumna "Czas" to s
 | P-078 | Szybkie pytania (5 min) | Codziennie | 5 min |
 | P-079 | Przegląd tygodniowy | Raz w tygodniu | 15 min |
 | P-080 | Dekompozycja trudnego zadania | Gdy utknąłeś/utknęłaś | 10 min |
+
+### Część XIII — Prompty narzędziowe (webpage, grep, context7)
+
+| ID | Tytuł | Kiedy używać | Czas |
+|---|---|---|---|
+| P-081 | Streszczenie źródła WWW z dowodami | Praca z pojedynczym źródłem online | 10 min |
+| P-082 | Porównanie dwóch stron WWW | Gdy źródła sobie przeczą | 15 min |
+| P-083 | Ekstrakcja danych z wielu stron WWW | Budowa matrycy porównawczej | 20 min |
+| P-084 | Budowanie zapytań grep | Analiza repozytorium/notatek | 10 min |
+| P-085 | Audyt jakości treści przez grep | Przed publikacją materiału | 15 min |
+| P-086 | Context7 — aktualna dokumentacja | Praca z API i bibliotekami | 10 min |
+| P-087 | Triangulacja: webpage + grep + context7 | Integracja trzech kanałów dowodowych | 20 min |
+| P-088 | Prompt antyhalucynacyjny narzędziowy | Wymuszenie transparentności odpowiedzi | 5 min |
+
+### Część XIV — Inne narzędzia specjalistyczne (z modułów warsztatowych)
+
+| ID | Tytuł | Kiedy używać | Czas |
+|---|---|---|---|
+| P-089 | Semantic Scholar: szybki screening literatury | Start przeglądu literatury | 10 min |
+| P-090 | Connected Papers / Research Rabbit: mapa pola | Mapowanie literatury i nurtów | 15 min |
+| P-091 | Consensus + Elicit: synteza dowodów | Porównanie wyników badań i luk | 20 min |
+| P-092 | Zotero + AI: porządkowanie bibliografii | Organizacja cytowań i notatek | 15 min |
+| P-093 | NotebookLM: analiza pakietu dokumentów | Praca na korpusie własnych PDF-ów | 15 min |
+| P-094 | Perplexity: szybki fact-check | Weryfikacja aktualnych twierdzeń | 10 min |
+| P-095 | OpenRouter: porównanie modeli | Benchmark odpowiedzi wielu modeli | 15 min |
+| P-096 | LM Studio / Ollama: workflow offline | Analiza danych wrażliwych | 20 min |
+| P-097 | Copilot / Cursor: prototyp i debugging | Budowa MVP i iteracyjna naprawa | 20 min |
+| P-098 | Claude Code / Aider: code review | Przegląd i refaktoryzacja kodu | 20 min |
+
+### Część XV — Metody prompt engineering (moduł 3)
+
+| ID | Tytuł | Kiedy używać | Czas |
+|---|---|---|---|
+| P-099 | CIFTEC: pełny prompt akademicki | Gdy potrzebujesz wysokiej kontroli wyniku | 10 min |
+| P-100 | Zero-shot: szybka klasyfikacja | Proste zadania bez przykładów | 5 min |
+| P-101 | Few-shot: wzorzec na przykładach | Wymuszenie stylu i formatu | 10 min |
+| P-102 | Chain-of-Thought: krok po kroku | Złożona analiza logiczna | 10 min |
+| P-103 | Role prompting: ekspert | Feedback jak od recenzenta | 10 min |
+| P-104 | Self-consistency: 3 warianty | Gdy chcesz stabilniejszego werdyktu | 10 min |
+| P-105 | Meta-prompting: prompt do promptu | Projektowanie lepszych promptów | 10 min |
+| P-106 | Negative constraints | Redukcja halucynacji i ogólników | 8 min |
+| P-107 | XML structuring (Claude) | Ścisły format odpowiedzi | 8 min |
+| P-108 | Strojenie parametrów | Testy jakości pod różne cele | 12 min |
 
 ---
 

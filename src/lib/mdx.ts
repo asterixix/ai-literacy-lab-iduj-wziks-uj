@@ -5,8 +5,9 @@ import matter from "gray-matter";
 import { compileMDX } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 
-import { mdxComponents } from "@/components/mdx/mdx-components";
+import { createMdxComponents } from "@/components/mdx/mdx-components";
 import { getModuleBySlug } from "@/lib/modules";
+import { extractTocFromMdx } from "@/lib/toc";
 import type { Module } from "@/types";
 
 const contentRoot = path.join(process.cwd(), "src", "content");
@@ -36,6 +37,7 @@ export interface MaterialDocumentFrontmatter extends MaterialFrontmatter {
 export async function getModuleContent(slug: string): Promise<{
   frontmatter: Module;
   content: React.ReactNode;
+  toc: ReturnType<typeof extractTocFromMdx>;
 }> {
   const moduleMeta = getModuleBySlug(slug);
   const numberedName = moduleMeta
@@ -50,10 +52,10 @@ export async function getModuleContent(slug: string): Promise<{
   const { frontmatter, content } = await compileMDX<Module>({
     source: raw,
     options: mdxCompileOptions,
-    components: mdxComponents,
+    components: createMdxComponents(),
   });
 
-  return { frontmatter, content };
+  return { frontmatter, content, toc: extractTocFromMdx(raw) };
 }
 
 export async function getMaterialOverviewContent(): Promise<{
@@ -66,7 +68,7 @@ export async function getMaterialOverviewContent(): Promise<{
   const { frontmatter, content } = await compileMDX<MaterialFrontmatter>({
     source: raw,
     options: mdxCompileOptions,
-    components: mdxComponents,
+    components: createMdxComponents(),
   });
 
   return { frontmatter, content };
@@ -108,6 +110,7 @@ export async function getMaterialDocumentBySlug(slug: string): Promise<{
   slug: string;
   frontmatter: MaterialDocumentFrontmatter;
   content: React.ReactNode;
+  toc: ReturnType<typeof extractTocFromMdx>;
 } | null> {
   const sourcePath = path.join(contentRoot, "materials", `${slug}.mdx`);
   const raw = await fs.readFile(sourcePath, "utf8").catch(() => null);
@@ -116,8 +119,8 @@ export async function getMaterialDocumentBySlug(slug: string): Promise<{
   const { frontmatter, content } = await compileMDX<MaterialDocumentFrontmatter>({
     source: raw,
     options: mdxCompileOptions,
-    components: mdxComponents,
+    components: createMdxComponents(),
   });
 
-  return { slug, frontmatter, content };
+  return { slug, frontmatter, content, toc: extractTocFromMdx(raw) };
 }
