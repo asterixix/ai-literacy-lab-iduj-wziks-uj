@@ -42,8 +42,8 @@ export function AiToolLauncher() {
   return (
     <div className="mt-3 space-y-4 border border-border p-4">
       <p className="text-sm text-muted-foreground">
-        Kliknij narzędzie, aby otworzyć nowe okno z gotowym promptem do nauki. Następnie dołącz plik MDX i rozpocznij
-        pracę.
+        Kliknij narzędzie, aby otworzyć nowe okno z gotowym promptem do nauki. Następnie dołącz plik
+        MDX i rozpocznij pracę.
       </p>
 
       <div className="grid gap-2 sm:grid-cols-2">
@@ -53,7 +53,11 @@ export function AiToolLauncher() {
             nativeButton={false}
             variant="outline"
             className="w-full"
-            render={<a href={item.href} target="_blank" rel="noopener noreferrer" />}
+            render={
+              <a href={item.href} target="_blank" rel="noopener noreferrer">
+                <span className="sr-only">{item.label}</span>
+              </a>
+            }
           >
             {item.label}
           </Button>

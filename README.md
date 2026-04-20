@@ -66,6 +66,8 @@ src/
 
 ```bash
 pnpm lint
+pnpm typecheck
+pnpm format
 pnpm build
 ```
 

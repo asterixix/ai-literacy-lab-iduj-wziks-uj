@@ -1,11 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { Menu } from "lucide-react";
+import Link from "next/link";
 
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
-import { REGISTRATION_FORM_URL } from "@/lib/constants";
 import {
   Sheet,
   SheetContent,
@@ -14,6 +13,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { REGISTRATION_FORM_URL } from "@/lib/constants";
 
 const navItems = [
   { href: "/warsztaty", label: "Warsztaty" },
@@ -31,7 +31,11 @@ export function Navbar() {
 
         <nav className="hidden items-center gap-8 text-sm md:flex">
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className="text-muted-foreground transition hover:text-foreground">
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-muted-foreground transition hover:text-foreground"
+            >
               {item.label}
             </Link>
           ))}
@@ -43,23 +47,22 @@ export function Navbar() {
             variant="outline"
             size="sm"
             className="shrink-0 text-xs sm:text-sm"
-            render={
-              <a
-                href={REGISTRATION_FORM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-              />
-            }
+            render={<Link href={REGISTRATION_FORM_URL} target="_blank" rel="noopener noreferrer" />}
           >
-            <span className="sm:hidden">Zapisz</span>
-            <span className="hidden sm:inline">Zapisz się</span>
+            <span className="sm:hidden">Zapisy</span>
+            <span className="hidden sm:inline">Zapisy na warsztaty</span>
           </Button>
           <ThemeToggle />
 
           <Sheet>
             <SheetTrigger
               render={
-                <Button variant="ghost" size="icon" className="md:hidden" aria-label="Otwórz menu nawigacji" />
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="md:hidden"
+                  aria-label="Otwórz menu nawigacji"
+                />
               }
             >
               <Menu className="size-5" />
@@ -76,7 +79,7 @@ export function Navbar() {
                   rel="noopener noreferrer"
                   className="border border-border bg-background px-3 py-2 text-center text-sm font-medium hover:bg-muted"
                 >
-                  Zapisz się na warsztaty
+                  Zapisy na warsztaty
                 </a>
                 {navItems.map((item) => (
                   <Link

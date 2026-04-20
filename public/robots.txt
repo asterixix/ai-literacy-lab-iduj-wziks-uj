@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+
+# Live quiz — protected, no indexing
+Disallow: /live/
+
+# AI crawlers — do not index or use for training
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /live/
+
+User-agent: Claude-Web
+Disallow: /live/
+
+User-agent: Google-Extended
+Disallow: /live/
+
+User-agent: PerplexityBot
+Disallow: /live/
+
+Sitemap: https://ailabiduj.pl/sitemap.xml
