@@ -3,6 +3,8 @@
 import { useEffect, useRef } from "react";
 import { track } from "@vercel/analytics";
 
+import { hasClientAnalyticsConsent } from "@/lib/cookie-consent";
+
 type AnalyticsValue = string | number | boolean | null;
 
 export function PageViewTracker({
@@ -15,7 +17,7 @@ export function PageViewTracker({
   const hasTracked = useRef(false);
 
   useEffect(() => {
-    if (hasTracked.current) {
+    if (hasTracked.current || !hasClientAnalyticsConsent()) {
       return;
     }
 

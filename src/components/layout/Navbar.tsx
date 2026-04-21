@@ -5,7 +5,7 @@ import { Menu } from "lucide-react";
 
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
-import { REGISTRATION_FORM_URL } from "@/lib/constants";
+import { OPEN_LECTURE_CALENDAR_URL } from "@/lib/constants";
 import {
   Sheet,
   SheetContent,
@@ -45,14 +45,14 @@ export function Navbar() {
             className="shrink-0 text-xs sm:text-sm"
             render={
               <a
-                href={REGISTRATION_FORM_URL}
+                href={OPEN_LECTURE_CALENDAR_URL}
                 target="_blank"
                 rel="noopener noreferrer"
               />
             }
           >
-            <span className="sm:hidden">Zapisz</span>
-            <span className="hidden sm:inline">Zapisz się</span>
+            <span className="sm:hidden">Dodaj do kalendarza</span>
+            <span className="hidden sm:inline">Dodaj wykład otwarty do swojego kalendarza</span>
           </Button>
           <ThemeToggle />
 
@@ -71,12 +71,12 @@ export function Navbar() {
               </SheetHeader>
               <nav className="mt-8 flex flex-col gap-2 p-4">
                 <a
-                  href={REGISTRATION_FORM_URL}
+                  href={OPEN_LECTURE_CALENDAR_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="border border-border bg-background px-3 py-2 text-center text-sm font-medium hover:bg-muted"
                 >
-                  Zapisz się na warsztaty
+                  Dodaj wykład otwarty do swojego kalendarza
                 </a>
                 {navItems.map((item) => (
                   <Link

@@ -1,6 +1,8 @@
 import { track } from "@vercel/analytics/server";
 import { reportValue } from "flags";
 
+import { hasRequestAnalyticsConsent } from "@/lib/cookie-consent";
+
 type DownloadKind = "material" | "module";
 type DownloadAvailability = "available" | "scheduled" | "unknown";
 type DownloadEntry = "internal" | "external" | "direct";
@@ -44,6 +46,10 @@ export function trackDownload({
   availability,
   moduleNumber,
 }: TrackDownloadParams): void {
+  if (!hasRequestAnalyticsConsent(request)) {
+    return;
+  }
+
   try {
     const requestUrl = new URL(request.url);
     const utmSource = requestUrl.searchParams.get("utm_source");

@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { CookieSettingsButton } from "@/components/cookies/CookieSettingsButton";
+
 type PartnerLogoProps = {
   src: string;
   alt: string;
@@ -42,6 +44,15 @@ export function Footer() {
           >
             Informacje o finansowaniu
           </Link>
+          <div className="flex flex-wrap items-center gap-3">
+            <Link
+              href="/polityka-cookies"
+              className="inline-block text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+            >
+              Polityka cookies
+            </Link>
+            <CookieSettingsButton className="inline-block text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline" />
+          </div>
         </div>
       </div>
       <div className="container-wide border-t border-border py-6">

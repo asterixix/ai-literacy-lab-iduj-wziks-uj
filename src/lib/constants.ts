@@ -1,3 +1,3 @@
-/** Microsoft Forms — zapis na warsztaty (nadpisz przez NEXT_PUBLIC_REGISTRATION_URL). */
-export const REGISTRATION_FORM_URL =
-  process.env.NEXT_PUBLIC_REGISTRATION_URL ?? "https://forms.cloud.microsoft/e/VtVJkE0tEk";
+/** Plik ICS wykładu otwartego (nadpisz przez NEXT_PUBLIC_OPEN_LECTURE_CALENDAR_URL). */
+export const OPEN_LECTURE_CALENDAR_URL =
+  process.env.NEXT_PUBLIC_OPEN_LECTURE_CALENDAR_URL ?? "/artificial-intelligence-cybersecurity-lecture.ics";

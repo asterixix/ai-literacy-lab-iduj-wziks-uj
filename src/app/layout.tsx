@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { JetBrains_Mono, Montserrat, Source_Sans_3 } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
 
+import { AnalyticsGate } from "@/components/analytics/AnalyticsGate";
+import { CookieBanner } from "@/components/cookies/CookieBanner";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
@@ -150,8 +151,9 @@ export default function RootLayout({
               </div>
             </div>
           </TooltipProvider>
+          <CookieBanner />
         </ThemeProvider>
-        <Analytics />
+        <AnalyticsGate />
       </body>
     </html>
   );

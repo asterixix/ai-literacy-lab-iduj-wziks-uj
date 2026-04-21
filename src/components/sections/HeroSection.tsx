@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
-import { REGISTRATION_FORM_URL } from "@/lib/constants";
+import { OPEN_LECTURE_CALENDAR_URL } from "@/lib/constants";
 
 export function HeroSection() {
   return (
@@ -41,10 +41,10 @@ export function HeroSection() {
               nativeButton={false}
               variant="outline"
               render={
-                <a href={REGISTRATION_FORM_URL} target="_blank" rel="noopener noreferrer" />
+                <a href={OPEN_LECTURE_CALENDAR_URL} target="_blank" rel="noopener noreferrer" />
               }
             >
-              Zapisz się na warsztaty →
+              Dodaj wykład otwarty do swojego kalendarza →
             </Button>
           </motion.div>
         </motion.div>

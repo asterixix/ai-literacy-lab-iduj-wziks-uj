@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//AI Literacy Lab//Open Lecture//PL
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:ai-literacy-lab-open-lecture-20260514@sendyka.dev
+DTSTAMP:20260421T000000Z
+DTSTART:20260514T140000Z
+DTEND:20260514T160000Z
+SUMMARY:Artificial Intelligence + Cybersecurity. Nowy wymiar cyberbezpieczeństwa.
+LOCATION:aula 0.103, Wydział Zarządzania i Komunikacji Społecznej UJ, ul. Łojasiewicza 4, 30-348 Kraków
+DESCRIPTION:Artificial Intelligence + Cybersecurity. Nowy wymiar cyberbezpieczeństwa.\n14.05.2026, 16:00-18:00\nAula 0.103, WZiKS UJ, ul. Łojasiewicza 4, 30-348 Kraków. Pełny opis: Omawiane są w sposób uproszczony podstawowe koncepcje różnych wariantów AI. W oparciu o tę wiedzę oraz przykłady przedstawione zostaną różne rodzaje zagrożeń związanych z wykorzystaniem AI. Analiza zagrożeń będzie rozszerzona o dobre praktyki zabezpieczające przed prezentowanymi ryzykami oraz o przykłady użycia AI do działań ofensywnych jako kontrast.
+END:VEVENT
+END:VCALENDAR

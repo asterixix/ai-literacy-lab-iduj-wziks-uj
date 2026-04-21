@@ -6,6 +6,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { Children, isValidElement, useMemo, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
 
+import { hasClientAnalyticsConsent } from "@/lib/cookie-consent";
 import { cn } from "@/lib/utils"
 
 type ButtonClickData = {
@@ -90,12 +91,14 @@ function Button({
   );
 
   const handleClick: typeof onClick = (event) => {
-    track("ui_button_clicked", {
-      label,
-      pathname,
-      variant: variant ?? "default",
-      size: size ?? "default",
-    } satisfies ButtonClickData);
+    if (hasClientAnalyticsConsent()) {
+      track("ui_button_clicked", {
+        label,
+        pathname,
+        variant: variant ?? "default",
+        size: size ?? "default",
+      } satisfies ButtonClickData);
+    }
 
     onClick?.(event);
   };

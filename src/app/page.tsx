@@ -4,7 +4,6 @@ import { AboutSection } from "@/components/sections/AboutSection";
 import { GuestLectureSection } from "@/components/sections/GuestLectureSection";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { ModulesPreviewSection } from "@/components/sections/ModulesPreviewSection";
-import { WorkshopRegistrationSection } from "@/components/sections/WorkshopRegistrationSection";
 import { buildCanonicalPath } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -22,7 +21,6 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <WorkshopRegistrationSection />
       <GuestLectureSection />
       <ModulesPreviewSection />
       <AboutSection />
