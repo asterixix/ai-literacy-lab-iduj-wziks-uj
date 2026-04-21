@@ -19,22 +19,13 @@ export default function CookiePolicyPage() {
       <header className="space-y-3">
         <p className="font-mono text-xs uppercase text-muted-foreground">Dokument informacyjny</p>
         <h1 className="text-4xl font-black tracking-tight md:text-5xl">Polityka dotycząca cookies</h1>
-        <p className="text-sm text-muted-foreground">Niniejsza polityka została przygotowana na wzór informacji publikowanych przez serwis gov.pl.</p>
+        <p className="text-sm text-muted-foreground">Serwis ailabiduj.vercel.app używa plików cookies. W poniższym dokumencie informujemy o korzystaniu z plików cookies w serwisie ailabiduj.vercel.app.</p>
       </header>
 
-      <section className="space-y-3">
-        <h2 className="text-2xl font-black tracking-tight">Administrator danych</h2>
-        <p className="text-sm text-muted-foreground">Dane są przetwarzane przez:</p>
-        <address className="not-italic text-sm text-muted-foreground">
-          Artur Sendyka
-          <br />
-          Staniątki 15, 32-005 Staniątki, Polska
-          <br />
-          <a className="underline-offset-4 hover:underline" href="mailto:artur@sendyka.dev">
-            artur@sendyka.dev
-          </a>
-        </address>
-      </section>
+    <section className="space-y-3">
+        <h2 className="text-2xl font-black tracking-tight">Czym są pliki cookies?</h2>
+        <p className="text-sm text-muted-foreground">Pliki cookies to małe fragmenty tekstu, kodu, które są wysyłane do przeglądarki i które przeglądarka wysyła z powrotem. Niektóre cookies są czasem zapisywane na danym urządzeniu podczas przeglądania serwisu www.gov.pl. Istnieją różne rodzaje plików cookies. Pliki cookies używane w serwisie www.gov.pl zostały podzielone na następujące kategorie: niezbędne pliki cookies, funkcjonalne, analityczne.</p>
+    </section>
 
       <section className="space-y-3">
         <h2 className="text-2xl font-black tracking-tight">W jakim celu używamy cookies</h2>

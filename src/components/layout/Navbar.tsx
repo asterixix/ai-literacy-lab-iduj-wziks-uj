@@ -52,7 +52,7 @@ export function Navbar() {
             }
           >
             <span className="sm:hidden">Dodaj do kalendarza</span>
-            <span className="hidden sm:inline">Dodaj wykład otwarty do swojego kalendarza</span>
+            <span className="hidden sm:inline">Dodaj do kalendarza</span>
           </Button>
           <ThemeToggle />
 
