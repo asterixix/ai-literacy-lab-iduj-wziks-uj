@@ -1,11 +1,12 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Sparkles, Loader2, AlertCircle, Copy, Check } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { universalAI, type UniversalAIResponse } from "@/lib/eden-ai";
+import { getUploadedFile } from "@/lib/uploaded-files";
 
 // ─── Feature definitions ──────────────────────────────────────────────────────
 
@@ -143,9 +144,20 @@ const PROVIDERS: Record<string, string[]> = {
 
 interface UniversalAIPanelProps {
   apiKey: string;
+  ocrAttachmentFileId?: string | null;
+  selectedFeatureId?: string | null;
 }
 
-export function UniversalAIPanel({ apiKey }: UniversalAIPanelProps) {
+async function fileToDataUrl(file: File): Promise<string> {
+  const bytes = new Uint8Array(await file.arrayBuffer());
+  let binary = "";
+  for (let index = 0; index < bytes.length; index += 0x8000) {
+    binary += String.fromCharCode(...bytes.subarray(index, index + 0x8000));
+  }
+  return `data:${file.type || "application/octet-stream"};base64,${btoa(binary)}`;
+}
+
+export function UniversalAIPanel({ apiKey, ocrAttachmentFileId, selectedFeatureId }: UniversalAIPanelProps) {
   const [selectedFeature, setSelectedFeature] = useState<string>("ai_detection");
   const [provider, setProvider] = useState<string>("openai");
   const [inputValues, setInputValues] = useState<Record<string, string>>({});
@@ -156,6 +168,21 @@ export function UniversalAIPanel({ apiKey }: UniversalAIPanelProps) {
 
   const feature = FEATURES.find((f) => f.id === selectedFeature)!;
   const providers = PROVIDERS[selectedFeature] ?? ["openai"];
+
+  useEffect(() => {
+    if (selectedFeatureId && FEATURES.some((featureDef) => featureDef.id === selectedFeatureId)) {
+      setSelectedFeature(selectedFeatureId);
+      setProvider(PROVIDERS[selectedFeatureId]?.[0] ?? "openai");
+      setResult(null);
+      setError(null);
+    }
+  }, [selectedFeatureId]);
+
+  useEffect(() => {
+    if (ocrAttachmentFileId && selectedFeature === "ocr") {
+      setInputValues((prev) => ({ ...prev, file: ocrAttachmentFileId }));
+    }
+  }, [ocrAttachmentFileId, selectedFeature]);
 
   const handleFeatureChange = useCallback((id: string) => {
     setSelectedFeature(id);
@@ -185,7 +212,25 @@ export function UniversalAIPanel({ apiKey }: UniversalAIPanelProps) {
       }
 
       if (selectedFeature === "ocr") {
-        input.language = (inputValues.language?.trim() || "pl");
+        const fileValue = inputValues.file?.trim();
+        if (!fileValue) {
+          setError("Wybierz plik do OCR.");
+          setLoading(false);
+          return;
+        }
+
+        const localFile = await getUploadedFile(fileValue);
+        if (localFile) {
+          input.file = await fileToDataUrl(localFile);
+        } else if (fileValue.startsWith("data:") || fileValue.startsWith("http://") || fileValue.startsWith("https://")) {
+          input.file = fileValue;
+        } else {
+          setError("Nie mam lokalnej kopii tego pliku. Wgraj go ponownie w zakładce Pliki albo wklej URL pliku.");
+          setLoading(false);
+          return;
+        }
+
+        input.language = inputValues.language?.trim() || "pl";
       }
 
       const res = await universalAI(apiKey, { model, input });

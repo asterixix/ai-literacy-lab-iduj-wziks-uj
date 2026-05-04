@@ -56,6 +56,9 @@ export function PlaygroundClient() {
   const [activeTab, setActiveTab] = useState<Tab>("chat");
   const [conversations, setConversations] = useState<Conversation[]>([]);
   const [activeConvId, setActiveConvId] = useState<string | null>(null);
+  const [chatAttachmentFileId, setChatAttachmentFileId] = useState<string | null>(null);
+  const [ocrAttachmentFileId, setOcrAttachmentFileId] = useState<string | null>(null);
+  const [universalFeatureId, setUniversalFeatureId] = useState<string | null>(null);
   const [settings, setSettings] = useState<PlaygroundSettings>({
     ...DEFAULT_SETTINGS,
   });
@@ -267,14 +270,36 @@ export function PlaygroundClient() {
             apiKey={apiKey}
             conversation={activeConversation}
             settings={settings}
+            onSettingsChange={handleSettingsChange}
             onConversationUpdate={handleUpdateConversation}
             onNewConversation={handleNewConversation}
             onOpenSettings={() => setActiveTab("settings")}
+            attachmentFileId={chatAttachmentFileId}
+            onClearAttachment={() => setChatAttachmentFileId(null)}
           />
         )}
-        {activeTab === "files" && <FilesPanel apiKey={apiKey} />}
+        {activeTab === "files" && (
+          <FilesPanel
+            apiKey={apiKey}
+            onAttachToChat={(fileId) => {
+              setChatAttachmentFileId(fileId);
+              setActiveTab("chat");
+            }}
+            onUseInOcr={(fileId) => {
+              setOcrAttachmentFileId(fileId);
+              setUniversalFeatureId("ocr");
+              setActiveTab("universal");
+            }}
+          />
+        )}
         {activeTab === "costs" && <CostsPanel apiKey={apiKey} />}
-        {activeTab === "universal" && <UniversalAIPanel apiKey={apiKey} />}
+        {activeTab === "universal" && (
+          <UniversalAIPanel
+            apiKey={apiKey}
+            ocrAttachmentFileId={ocrAttachmentFileId}
+            selectedFeatureId={universalFeatureId}
+          />
+        )}
         {activeTab === "settings" && (
           <SettingsPanel
             apiKey={apiKey}

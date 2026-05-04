@@ -275,6 +275,9 @@ export async function deleteFile(apiKey: string, fileId: string): Promise<void> 
     method: "DELETE",
     headers: headers(apiKey),
   });
+  if (res.status === 404) {
+    return;
+  }
   if (!res.ok) {
     const err = await res.text();
     throw new Error(`Eden AI deleteFile error ${res.status}: ${err}`);

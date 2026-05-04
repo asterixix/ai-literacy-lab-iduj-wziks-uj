@@ -6,9 +6,17 @@ import { Send, Square, Settings2, ChevronDown, Coins, Hash } from "lucide-react"
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+} from "@/components/ui/sheet";
+import {
   listModels,
   chatCompletionStream,
   chatCompletion,
+  type EdenModel,
   type ChatMessage,
   type ChatMessageMeta,
   type ChatCompletionRequest,
@@ -25,9 +33,12 @@ interface ChatPanelProps {
   apiKey: string;
   conversation: Conversation | null;
   settings: PlaygroundSettings;
+  onSettingsChange: (settings: PlaygroundSettings) => void;
   onConversationUpdate: (conv: Conversation) => void;
   onNewConversation: () => void;
   onOpenSettings?: () => void;
+  attachmentFileId?: string | null;
+  onClearAttachment?: () => void;
 }
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -48,6 +59,38 @@ function formatCost(cost: string | undefined): string {
 
 function estimateTokens(text: string): number {
   return Math.max(1, Math.ceil(text.length / 4));
+}
+
+function formatPricing(pricing: Record<string, unknown>): string {
+  const inputCost =
+    pricing.prompt ||
+    pricing.input ||
+    pricing.input_cost_per_token ||
+    pricing.prompt_cost_per_token;
+
+  const outputCost =
+    pricing.completion ||
+    pricing.output ||
+    pricing.output_cost_per_token ||
+    pricing.completion_cost_per_token;
+
+  const parts: string[] = [];
+  if (inputCost) {
+    const value = Number(inputCost);
+    if (Number.isFinite(value)) {
+      const normalized = value < 0.01 ? value * 1_000_000 : value;
+      parts.push(`$${normalized.toFixed(2)}`);
+    }
+  }
+  if (outputCost) {
+    const value = Number(outputCost);
+    if (Number.isFinite(value)) {
+      const normalized = value < 0.01 ? value * 1_000_000 : value;
+      parts.push(`$${normalized.toFixed(2)}`);
+    }
+  }
+
+  return parts.join(" / ");
 }
 
 function extractPricingRates(pricing: Record<string, unknown>): {
@@ -144,14 +187,21 @@ export function ChatPanel({
   apiKey,
   conversation,
   settings,
+  onSettingsChange,
   onConversationUpdate,
   onNewConversation,
   onOpenSettings,
+  attachmentFileId,
+  onClearAttachment,
 }: ChatPanelProps) {
   const [input, setInput] = useState("");
   const [isStreaming, setIsStreaming] = useState(false);
   const [streamError, setStreamError] = useState<string | null>(null);
   const [stopFeedback, setStopFeedback] = useState<string | null>(null);
+  const [quickSettingsOpen, setQuickSettingsOpen] = useState(false);
+  const [models, setModels] = useState<EdenModel[]>([]);
+  const [modelsLoading, setModelsLoading] = useState(false);
+  const [modelsError, setModelsError] = useState<string | null>(null);
   const abortRef = useRef<AbortController | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -179,6 +229,42 @@ export function ChatPanel({
     return () => document.removeEventListener("click", handler);
   }, [openMenuIdx]);
 
+  useEffect(() => {
+    const loadModels = async () => {
+      setModelsLoading(true);
+      setModelsError(null);
+      try {
+        const res = await listModels(apiKey);
+        setModels(
+          res.data.filter(
+            (model) =>
+              model.id.includes("gpt") ||
+              model.id.includes("claude") ||
+              model.id.includes("gemini") ||
+              model.id.includes("llama") ||
+              model.id.includes("mistral") ||
+              model.id.includes("qwen") ||
+              model.id.includes("deepseek") ||
+              model.id.includes("o1") ||
+              model.id.includes("o3") ||
+              model.id.includes("o4") ||
+              model.id.includes("@edenai"),
+          ),
+        );
+      } catch (err) {
+        setModelsError(err instanceof Error ? err.message : "Nie udało się pobrać listy modeli");
+      } finally {
+        setModelsLoading(false);
+      }
+    };
+
+    loadModels();
+  }, [apiKey]);
+
+  const currentModel = models.find((model) => model.id === settings.model) ?? null;
+  const modelPricing = currentModel ? formatPricing(currentModel.pricing) : "";
+  const modelContext = currentModel?.context_length ? `${(currentModel.context_length / 1000).toFixed(0)}k tokens` : "";
+
   // ─── Send message ────────────────────────────────────────────────────────
 
   const handleSend = useCallback(async () => {
@@ -188,7 +274,7 @@ export function ChatPanel({
     setStreamError(null);
     setStopFeedback(null);
 
-    const fileId = extractFileId(text);
+    const fileId = attachmentFileId ?? extractFileId(text);
 
     const userMessage: ChatMessage = {
       role: "user",
@@ -384,7 +470,24 @@ export function ChatPanel({
       setIsStreaming(false);
       abortRef.current = null;
     }
-  }, [input, conversation, settings, apiKey, isStreaming, onConversationUpdate]);
+  }, [attachmentFileId, input, conversation, settings, apiKey, isStreaming, onConversationUpdate]);
+
+  const updateSettings = useCallback(
+    (partial: Partial<PlaygroundSettings>) => {
+      onSettingsChange({ ...settings, ...partial });
+    },
+    [onSettingsChange, settings],
+  );
+
+  const updateParams = useCallback(
+    (partial: Partial<PlaygroundSettings["params"]>) => {
+      onSettingsChange({
+        ...settings,
+        params: { ...settings.params, ...partial },
+      });
+    },
+    [onSettingsChange, settings],
+  );
 
   const handleStop = useCallback(() => {
     abortRef.current?.abort();
@@ -423,6 +526,22 @@ export function ChatPanel({
         <Badge variant="outline" className="shrink-0 text-xs">
           {settings.model}
         </Badge>
+        <Button
+          variant="ghost"
+          size="sm"
+          className="h-7 px-2 text-xs"
+          onClick={() => setQuickSettingsOpen(true)}
+        >
+          Model / koszty
+        </Button>
+        <Button
+          variant="ghost"
+          size="sm"
+          className="h-7 px-2 text-xs"
+          onClick={() => setQuickSettingsOpen(true)}
+        >
+          Prompt / parametry
+        </Button>
         {onOpenSettings && (
           <Button variant="ghost" size="icon" className="size-7" onClick={onOpenSettings} aria-label="Ustawienia modelu">
             <Settings2 className="size-3.5" />
@@ -522,12 +641,12 @@ export function ChatPanel({
                     <button
                       className="flex w-full items-center gap-2 rounded-sm px-3 py-1.5 text-xs text-foreground hover:bg-muted"
                       onClick={() => {
-                        onOpenSettings?.();
+                        setQuickSettingsOpen(true);
                         setOpenMenuIdx(null);
                       }}
                     >
                       <Settings2 className="size-3.5" />
-                      Zmień model / parametry
+                      Szybkie ustawienia
                     </button>
                   </div>
                 </div>
@@ -545,6 +664,14 @@ export function ChatPanel({
 
       {/* ── Input ───────────────────────────────────────────────────────── */}
       <div className="border-t border-border p-4">
+        {attachmentFileId && (
+          <div className="mb-2 flex items-center justify-between rounded-sm border border-border bg-muted px-3 py-2 text-xs text-muted-foreground">
+            <span className="truncate">Załącznik do wiadomości: {attachmentFileId}</span>
+            <button className="ml-3 underline-offset-2 hover:underline" onClick={() => onClearAttachment?.()}>
+              Usuń
+            </button>
+          </div>
+        )}
         <div className="flex items-end gap-2">
           <textarea
             ref={textareaRef}
@@ -586,6 +713,148 @@ export function ChatPanel({
           )}
         </div>
       </div>
+
+      <Sheet open={quickSettingsOpen} onOpenChange={setQuickSettingsOpen}>
+        <SheetContent side="right" className="w-full sm:max-w-lg">
+          <SheetHeader className="border-b border-border">
+            <SheetTitle>Szybkie ustawienia</SheetTitle>
+            <SheetDescription>
+              Zmieniaj model, koszty i zachowanie bez przechodzenia do zakładki Ustawienia.
+            </SheetDescription>
+          </SheetHeader>
+
+          <div className="flex-1 overflow-y-auto p-4 space-y-6">
+            <section className="space-y-3">
+              <div className="flex items-center justify-between gap-3">
+                <h3 className="text-sm font-semibold">Model i koszty</h3>
+                {modelsLoading && <span className="text-xs text-muted-foreground">Ładowanie…</span>}
+              </div>
+              <select
+                value={settings.model}
+                onChange={(e) => updateSettings({ model: e.target.value })}
+                className="w-full rounded-sm border border-border bg-background px-3 py-2 text-sm outline-none focus:border-ring"
+              >
+                <option value="@edenai">@edenai (routing automatyczny)</option>
+                {models.map((model) => {
+                  const price = formatPricing(model.pricing);
+                  const context = model.context_length ? ` ${(model.context_length / 1000).toFixed(0)}k` : "";
+                  return (
+                    <option key={model.id} value={model.id}>
+                      {model.id}
+                      {context}
+                      {price ? ` [${price}]` : ""}
+                    </option>
+                  );
+                })}
+              </select>
+              {modelsError && <p className="text-xs text-red-500">{modelsError}</p>}
+              {currentModel ? (
+                <div className="rounded-sm border border-border bg-muted p-3 text-xs text-muted-foreground space-y-1">
+                  {modelContext && <p>Kontekst: {modelContext}</p>}
+                  {modelPricing ? (
+                    <p>
+                      Input / output: <span className="font-mono">{modelPricing}</span> za 1M tokenów
+                    </p>
+                  ) : (
+                    <p>Brak danych o koszcie dla tego modelu.</p>
+                  )}
+                  {currentModel.description && <p className="text-foreground">{currentModel.description}</p>}
+                </div>
+              ) : null}
+            </section>
+
+            <section className="space-y-3">
+              <h3 className="text-sm font-semibold">System prompt</h3>
+              <textarea
+                value={settings.systemPrompt}
+                onChange={(e) => updateSettings({ systemPrompt: e.target.value })}
+                placeholder="Np. Jesteś pomocnym asystentem edukacyjnym…"
+                rows={5}
+                className="w-full rounded-sm border border-border bg-background px-3 py-2 text-sm outline-none focus:border-ring focus:ring-2 focus:ring-ring/50"
+              />
+            </section>
+
+            <section className="space-y-4">
+              <h3 className="text-sm font-semibold">Parametry</h3>
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <label className="text-sm">Temperature</label>
+                  <span className="text-xs text-muted-foreground">{settings.params.temperature}</span>
+                </div>
+                <input
+                  type="range"
+                  min="0"
+                  max="2"
+                  step="0.1"
+                  value={settings.params.temperature}
+                  onChange={(e) => updateParams({ temperature: parseFloat(e.target.value) })}
+                  className="w-full"
+                />
+              </div>
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <label className="text-sm">Max tokens</label>
+                  <span className="text-xs text-muted-foreground">{settings.params.max_tokens}</span>
+                </div>
+                <input
+                  type="range"
+                  min="1"
+                  max="16384"
+                  step="256"
+                  value={settings.params.max_tokens}
+                  onChange={(e) => updateParams({ max_tokens: parseInt(e.target.value) })}
+                  className="w-full"
+                />
+              </div>
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <label className="text-sm">Top P</label>
+                  <span className="text-xs text-muted-foreground">{settings.params.top_p}</span>
+                </div>
+                <input
+                  type="range"
+                  min="0"
+                  max="1"
+                  step="0.05"
+                  value={settings.params.top_p}
+                  onChange={(e) => updateParams({ top_p: parseFloat(e.target.value) })}
+                  className="w-full"
+                />
+              </div>
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <label className="text-sm">Frequency penalty</label>
+                  <span className="text-xs text-muted-foreground">{settings.params.frequency_penalty}</span>
+                </div>
+                <input
+                  type="range"
+                  min="-2"
+                  max="2"
+                  step="0.1"
+                  value={settings.params.frequency_penalty}
+                  onChange={(e) => updateParams({ frequency_penalty: parseFloat(e.target.value) })}
+                  className="w-full"
+                />
+              </div>
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <label className="text-sm">Presence penalty</label>
+                  <span className="text-xs text-muted-foreground">{settings.params.presence_penalty}</span>
+                </div>
+                <input
+                  type="range"
+                  min="-2"
+                  max="2"
+                  step="0.1"
+                  value={settings.params.presence_penalty}
+                  onChange={(e) => updateParams({ presence_penalty: parseFloat(e.target.value) })}
+                  className="w-full"
+                />
+              </div>
+            </section>
+          </div>
+        </SheetContent>
+      </Sheet>
     </div>
   );
 }

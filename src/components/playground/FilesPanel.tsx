@@ -6,12 +6,15 @@ import { FileUp, Trash2, RefreshCw, File, AlertCircle, Copy, Check } from "lucid
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { uploadFile, listFiles, deleteFile, type EdenFile } from "@/lib/eden-ai";
+import { deleteUploadedFile, saveUploadedFile } from "@/lib/uploaded-files";
 
 interface FilesPanelProps {
   apiKey: string;
+  onAttachToChat?: (fileId: string) => void;
+  onUseInOcr?: (fileId: string) => void;
 }
 
-export function FilesPanel({ apiKey }: FilesPanelProps) {
+export function FilesPanel({ apiKey, onAttachToChat, onUseInOcr }: FilesPanelProps) {
   const [files, setFiles] = useState<EdenFile[]>([]);
   const [loading, setLoading] = useState(false);
   const [uploading, setUploading] = useState(false);
@@ -46,7 +49,12 @@ export function FilesPanel({ apiKey }: FilesPanelProps) {
       setUploading(true);
       setError(null);
       try {
-        await uploadFile(apiKey, file);
+        const uploaded = await uploadFile(apiKey, file);
+        try {
+          await saveUploadedFile(uploaded.file_id, file);
+        } catch {
+          // Local cache is best-effort; Eden upload still succeeded.
+        }
         await loadFiles();
       } catch (err) {
         setError(err instanceof Error ? err.message : "Nie udało się wgrać pliku");
@@ -65,6 +73,11 @@ export function FilesPanel({ apiKey }: FilesPanelProps) {
     async (fileId: string) => {
       try {
         await deleteFile(apiKey, fileId);
+        try {
+          await deleteUploadedFile(fileId);
+        } catch {
+          // Best-effort cleanup.
+        }
         await loadFiles();
       } catch (err) {
         setError(err instanceof Error ? err.message : "Nie udało się usunąć pliku");
@@ -201,6 +214,26 @@ export function FilesPanel({ apiKey }: FilesPanelProps) {
                   <Badge variant="outline" className="text-xs">
                     {file.purpose}
                   </Badge>
+                  {onAttachToChat && (
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="h-7 px-2 text-xs"
+                      onClick={() => onAttachToChat(file.file_id)}
+                    >
+                      Do czatu
+                    </Button>
+                  )}
+                  {onUseInOcr && (
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="h-7 px-2 text-xs"
+                      onClick={() => onUseInOcr(file.file_id)}
+                    >
+                      OCR
+                    </Button>
+                  )}
                   <Button
                     variant="ghost"
                     size="icon"
