@@ -10,11 +10,9 @@ import { deleteUploadedFile, saveUploadedFile } from "@/lib/uploaded-files";
 
 interface FilesPanelProps {
   apiKey: string;
-  onAttachToChat?: (fileId: string) => void;
-  onUseInOcr?: (fileId: string) => void;
 }
 
-export function FilesPanel({ apiKey, onAttachToChat, onUseInOcr }: FilesPanelProps) {
+export function FilesPanel({ apiKey }: FilesPanelProps) {
   const [files, setFiles] = useState<EdenFile[]>([]);
   const [loading, setLoading] = useState(false);
   const [uploading, setUploading] = useState(false);
@@ -214,26 +212,6 @@ export function FilesPanel({ apiKey, onAttachToChat, onUseInOcr }: FilesPanelPro
                   <Badge variant="outline" className="text-xs">
                     {file.purpose}
                   </Badge>
-                  {onAttachToChat && (
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="h-7 px-2 text-xs"
-                      onClick={() => onAttachToChat(file.file_id)}
-                    >
-                      Do czatu
-                    </Button>
-                  )}
-                  {onUseInOcr && (
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="h-7 px-2 text-xs"
-                      onClick={() => onUseInOcr(file.file_id)}
-                    >
-                      OCR
-                    </Button>
-                  )}
                   <Button
                     variant="ghost"
                     size="icon"

@@ -112,3 +112,11 @@
 [data-playground] main {
   height: 100dvh;
 }
+
+/* Reduce motion for accessibility & weak hardware */
+@media (prefers-reduced-motion: reduce) {
+  [data-slot="sheet-overlay"],
+  [data-slot="sheet-content"] {
+    transition-duration: 0ms !important;
+  }
+}

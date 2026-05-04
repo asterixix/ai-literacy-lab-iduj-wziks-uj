@@ -1,12 +1,12 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
-import { Sparkles, Loader2, AlertCircle, Copy, Check } from "lucide-react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { Sparkles, Loader2, AlertCircle, Copy, Check, FileUp } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { universalAI, type UniversalAIResponse } from "@/lib/eden-ai";
-import { getUploadedFile } from "@/lib/uploaded-files";
+import { universalAI, uploadFile, type UniversalAIResponse } from "@/lib/eden-ai";
+import { getUploadedFile, saveUploadedFile } from "@/lib/uploaded-files";
 
 // ─── Feature definitions ──────────────────────────────────────────────────────
 
@@ -165,6 +165,8 @@ export function UniversalAIPanel({ apiKey, ocrAttachmentFileId, selectedFeatureI
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const feature = FEATURES.find((f) => f.id === selectedFeature)!;
   const providers = PROVIDERS[selectedFeature] ?? ["openai"];
@@ -192,6 +194,36 @@ export function UniversalAIPanel({ apiKey, ocrAttachmentFileId, selectedFeatureI
     setResult(null);
     setError(null);
   }, []);
+
+  const handleUploadForOcr = useCallback(
+    async (e: React.ChangeEvent<HTMLInputElement>) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+
+      setUploading(true);
+      setError(null);
+      try {
+        const uploaded = await uploadFile(apiKey, file);
+        try {
+          await saveUploadedFile(uploaded.file_id, file);
+        } catch {
+          // Best-effort cache
+        }
+        setInputValues((prev) => ({
+          ...prev,
+          file: uploaded.file_id,
+        }));
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "Nie udało się wgrać pliku");
+      } finally {
+        setUploading(false);
+        if (fileInputRef.current) {
+          fileInputRef.current.value = "";
+        }
+      }
+    },
+    [apiKey],
+  );
 
   const handleSubmit = useCallback(async () => {
     setLoading(true);
@@ -312,7 +344,32 @@ export function UniversalAIPanel({ apiKey, ocrAttachmentFileId, selectedFeatureI
                 {field.label}
                 {field.required && <span className="text-red-500"> *</span>}
               </label>
-              {field.type === "textarea" ? (
+              {selectedFeature === "ocr" && field.key === "file" ? (
+                <>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => fileInputRef.current?.click()}
+                    disabled={loading || uploading}
+                    className="w-full text-xs"
+                  >
+                    <FileUp className="mr-1.5 size-3.5" />
+                    {uploading ? "Wgrywanie..." : "Wgraj plik do OCR"}
+                  </Button>
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    className="hidden"
+                    onChange={handleUploadForOcr}
+                    disabled={uploading}
+                  />
+                  {inputValues[field.key] && (
+                    <div className="rounded-sm border border-border bg-muted p-2 text-xs text-muted-foreground">
+                      File ID: <code>{inputValues[field.key]}</code>
+                    </div>
+                  )}
+                </>
+              ) : field.type === "textarea" ? (
                 <textarea
                   value={inputValues[field.key] ?? ""}
                   onChange={(e) =>

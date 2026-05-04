@@ -3,7 +3,6 @@
 import { useCallback, useEffect, useState } from "react";
 import {
   MessageSquare,
-  FileUp,
   Wallet,
   Sparkles,
   Settings,
@@ -17,7 +16,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { ChatPanel } from "@/components/playground/ChatPanel";
-import { FilesPanel } from "@/components/playground/FilesPanel";
 import { CostsPanel } from "@/components/playground/CostsPanel";
 import { UniversalAIPanel } from "@/components/playground/UniversalAIPanel";
 import { SettingsPanel } from "@/components/playground/SettingsPanel";
@@ -37,11 +35,10 @@ import {
   saveSettings,
 } from "@/lib/playground-storage";
 
-type Tab = "chat" | "files" | "costs" | "universal" | "settings";
+type Tab = "chat" | "costs" | "universal" | "settings";
 
 const TABS: { id: Tab; label: string; icon: React.ReactNode }[] = [
   { id: "chat", label: "Czat", icon: <MessageSquare className="size-4" /> },
-  { id: "files", label: "Pliki", icon: <FileUp className="size-4" /> },
   { id: "costs", label: "Koszty", icon: <Wallet className="size-4" /> },
   {
     id: "universal",
@@ -57,8 +54,8 @@ export function PlaygroundClient() {
   const [conversations, setConversations] = useState<Conversation[]>([]);
   const [activeConvId, setActiveConvId] = useState<string | null>(null);
   const [chatAttachmentFileId, setChatAttachmentFileId] = useState<string | null>(null);
-  const [ocrAttachmentFileId, setOcrAttachmentFileId] = useState<string | null>(null);
-  const [universalFeatureId, setUniversalFeatureId] = useState<string | null>(null);
+  const [ocrAttachmentFileId] = useState<string | null>(null);
+  const [universalFeatureId] = useState<string | null>(null);
   const [settings, setSettings] = useState<PlaygroundSettings>({
     ...DEFAULT_SETTINGS,
   });
@@ -273,23 +270,8 @@ export function PlaygroundClient() {
             onSettingsChange={handleSettingsChange}
             onConversationUpdate={handleUpdateConversation}
             onNewConversation={handleNewConversation}
-            onOpenSettings={() => setActiveTab("settings")}
             attachmentFileId={chatAttachmentFileId}
             onClearAttachment={() => setChatAttachmentFileId(null)}
-          />
-        )}
-        {activeTab === "files" && (
-          <FilesPanel
-            apiKey={apiKey}
-            onAttachToChat={(fileId) => {
-              setChatAttachmentFileId(fileId);
-              setActiveTab("chat");
-            }}
-            onUseInOcr={(fileId) => {
-              setOcrAttachmentFileId(fileId);
-              setUniversalFeatureId("ocr");
-              setActiveTab("universal");
-            }}
           />
         )}
         {activeTab === "costs" && <CostsPanel apiKey={apiKey} />}

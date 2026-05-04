@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Send, Square, Settings2, ChevronDown, Coins, Hash } from "lucide-react";
+import { Send, Square, Settings2, ChevronDown, Coins, Hash, FileUp } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -16,11 +16,13 @@ import {
   listModels,
   chatCompletionStream,
   chatCompletion,
+  uploadFile,
   type EdenModel,
   type ChatMessage,
   type ChatMessageMeta,
   type ChatCompletionRequest,
 } from "@/lib/eden-ai";
+import { saveUploadedFile } from "@/lib/uploaded-files";
 import {
   type Conversation,
   type PlaygroundSettings,
@@ -36,7 +38,6 @@ interface ChatPanelProps {
   onSettingsChange: (settings: PlaygroundSettings) => void;
   onConversationUpdate: (conv: Conversation) => void;
   onNewConversation: () => void;
-  onOpenSettings?: () => void;
   attachmentFileId?: string | null;
   onClearAttachment?: () => void;
 }
@@ -190,7 +191,6 @@ export function ChatPanel({
   onSettingsChange,
   onConversationUpdate,
   onNewConversation,
-  onOpenSettings,
   attachmentFileId,
   onClearAttachment,
 }: ChatPanelProps) {
@@ -202,9 +202,11 @@ export function ChatPanel({
   const [models, setModels] = useState<EdenModel[]>([]);
   const [modelsLoading, setModelsLoading] = useState(false);
   const [modelsError, setModelsError] = useState<string | null>(null);
+  const [uploading, setUploading] = useState(false);
   const abortRef = useRef<AbortController | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const [openMenuIdx, setOpenMenuIdx] = useState<number | null>(null);
 
   // Auto-scroll to bottom on new messages
@@ -493,6 +495,38 @@ export function ChatPanel({
     abortRef.current?.abort();
   }, []);
 
+  const handleUpload = useCallback(
+    async (e: React.ChangeEvent<HTMLInputElement>) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+
+      setUploading(true);
+      setStreamError(null);
+      try {
+        const uploaded = await uploadFile(apiKey, file);
+        try {
+          await saveUploadedFile(uploaded.file_id, file);
+        } catch {
+          // Best-effort cache
+        }
+        // Show success message with file ID
+        const fileId = uploaded.file_id;
+        setStreamError(`✓ Plik wgrany! ID: ${fileId}`);
+        setTimeout(() => {
+          setStreamError(null);
+        }, 3000);
+      } catch (err) {
+        setStreamError(err instanceof Error ? err.message : "Nie udało się wgrać pliku");
+      } finally {
+        setUploading(false);
+        if (fileInputRef.current) {
+          fileInputRef.current.value = "";
+        }
+      }
+    },
+    [apiKey],
+  );
+
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
       if (e.key === "Enter" && !e.shiftKey) {
@@ -526,27 +560,9 @@ export function ChatPanel({
         <Badge variant="outline" className="shrink-0 text-xs">
           {settings.model}
         </Badge>
-        <Button
-          variant="ghost"
-          size="sm"
-          className="h-7 px-2 text-xs"
-          onClick={() => setQuickSettingsOpen(true)}
-        >
-          Model / koszty
+        <Button variant="ghost" size="icon" className="size-7" onClick={() => setQuickSettingsOpen(true)} aria-label="Szybkie ustawienia">
+          <Settings2 className="size-3.5" />
         </Button>
-        <Button
-          variant="ghost"
-          size="sm"
-          className="h-7 px-2 text-xs"
-          onClick={() => setQuickSettingsOpen(true)}
-        >
-          Prompt / parametry
-        </Button>
-        {onOpenSettings && (
-          <Button variant="ghost" size="icon" className="size-7" onClick={onOpenSettings} aria-label="Ustawienia modelu">
-            <Settings2 className="size-3.5" />
-          </Button>
-        )}
       </div>
 
       {/* ── Messages ────────────────────────────────────────────────────── */}
@@ -672,6 +688,25 @@ export function ChatPanel({
             </button>
           </div>
         )}
+        <div className="mb-2 flex items-center gap-2">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => fileInputRef.current?.click()}
+            disabled={isStreaming || uploading}
+            className="text-xs"
+          >
+            <FileUp className="mr-1.5 size-3.5" />
+            {uploading ? "Wgrywanie..." : "Wgraj plik"}
+          </Button>
+          <input
+            ref={fileInputRef}
+            type="file"
+            className="hidden"
+            onChange={handleUpload}
+            disabled={uploading}
+          />
+        </div>
         <div className="flex items-end gap-2">
           <textarea
             ref={textareaRef}
