@@ -43,8 +43,8 @@ export function CookieBanner() {
         <section className="fixed inset-x-0 bottom-0 z-[70] border-t border-border bg-background/95 backdrop-blur">
           <div className="container-wide flex flex-col gap-4 py-4 md:flex-row md:items-center md:justify-between">
             <p className="max-w-3xl text-sm text-muted-foreground">
-              Używamy plików cookies do celów statystycznych i analitycznych. Możesz zaakceptować lub odrzucić
-              cookies analityczne.
+              Używamy plików cookies do celów statystycznych i analitycznych. Możesz zaakceptować
+              lub odrzucić cookies analityczne.
             </p>
             <div className="flex flex-wrap items-center gap-2">
               <button
@@ -78,10 +78,12 @@ export function CookieBanner() {
           <div className="w-full max-w-2xl border border-border bg-background p-6 shadow-xl">
             <h2 className="text-xl font-black tracking-tight">Ustawienia cookies</h2>
             <p className="mt-3 text-sm text-muted-foreground">
-              Cookies analityczne pomagają nam mierzyć korzystanie z serwisu i ulepszać treści edukacyjne.
+              Cookies analityczne pomagają nam mierzyć korzystanie z serwisu i ulepszać treści
+              edukacyjne.
             </p>
             <p className="mt-2 text-sm text-muted-foreground">
-              Aktualny wybór: <span className="font-semibold text-foreground">{consent ?? "brak decyzji"}</span>
+              Aktualny wybór:{" "}
+              <span className="font-semibold text-foreground">{consent ?? "brak decyzji"}</span>
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
               <button

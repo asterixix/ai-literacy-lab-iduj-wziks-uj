@@ -40,4 +40,5 @@ export const materials: Material[] = [
   },
 ];
 
-export const getMaterialById = (id: string): Material | undefined => materials.find((material) => material.id === id);
+export const getMaterialById = (id: string): Material | undefined =>
+  materials.find((material) => material.id === id);

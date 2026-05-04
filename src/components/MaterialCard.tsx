@@ -19,14 +19,21 @@ export function MaterialCard({
       <article className="space-y-4 border border-border p-5">
         <div className="flex items-center justify-between">
           <FileText className="size-4 text-muted-foreground" aria-hidden />
-          <p className="font-mono text-xs uppercase text-muted-foreground">{material.formats.join(" · ")}</p>
+          <p className="font-mono text-xs uppercase text-muted-foreground">
+            {material.formats.join(" · ")}
+          </p>
         </div>
         <div className="space-y-2">
           <h3 className="text-lg font-black tracking-tight">{material.title}</h3>
           <p className="text-sm text-muted-foreground">{material.description}</p>
         </div>
         <div className="grid gap-2 sm:grid-cols-2">
-          <Button nativeButton={false} variant="outline" className="w-full" render={<Link href={readUrl} />}>
+          <Button
+            nativeButton={false}
+            variant="outline"
+            className="w-full"
+            render={<Link href={readUrl} />}
+          >
             Czytaj materiał →
           </Button>
           <Button
@@ -53,7 +60,9 @@ export function MaterialCard({
     <article className="space-y-4 border border-border p-5">
       <div className="flex items-center justify-between">
         <FileText className="size-4 text-muted-foreground" aria-hidden />
-        <p className="font-mono text-xs uppercase text-muted-foreground">{material.formats.join(" · ")}</p>
+        <p className="font-mono text-xs uppercase text-muted-foreground">
+          {material.formats.join(" · ")}
+        </p>
       </div>
       <div className="space-y-2">
         <h3 className="text-lg font-black tracking-tight">{material.title}</h3>
@@ -62,7 +71,9 @@ export function MaterialCard({
       {disabled ? (
         <Tooltip>
           <TooltipTrigger render={<div>{button}</div>} />
-          <TooltipContent>Dostępne po zakończeniu projektu — {material.availableDate}</TooltipContent>
+          <TooltipContent>
+            Dostępne po zakończeniu projektu — {material.availableDate}
+          </TooltipContent>
         </Tooltip>
       ) : (
         <Link href={material.downloadUrl ?? "#"}>{button}</Link>

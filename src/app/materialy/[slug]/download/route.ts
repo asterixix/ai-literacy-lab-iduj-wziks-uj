@@ -6,10 +6,7 @@ import { NextResponse } from "next/server";
 import { trackDownload } from "@/lib/download-tracking";
 import { getMaterialById } from "@/lib/materials";
 
-export async function GET(
-  request: Request,
-  { params }: { params: Promise<{ slug: string }> },
-) {
+export async function GET(request: Request, { params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   if (!/^[a-z0-9-]+$/i.test(slug)) {
     return NextResponse.json({ error: "Invalid slug" }, { status: 400 });

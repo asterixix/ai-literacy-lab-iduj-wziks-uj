@@ -6,10 +6,7 @@ import { NextResponse } from "next/server";
 import { trackDownload } from "@/lib/download-tracking";
 import { getModuleBySlug } from "@/lib/modules";
 
-export async function GET(
-  request: Request,
-  { params }: { params: Promise<{ slug: string }> },
-) {
+export async function GET(request: Request, { params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const moduleMeta = getModuleBySlug(slug);
   if (!moduleMeta) {

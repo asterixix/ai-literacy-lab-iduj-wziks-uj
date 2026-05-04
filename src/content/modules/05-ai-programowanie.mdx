@@ -4,7 +4,19 @@ number: 5
 title: "AI a Programowanie – Prototypowanie i Rozumienie Kodu"
 titleEn: "AI and Programming – Prototyping and Code Understanding"
 duration: "2 godziny"
-tags: ["GitHub Copilot", "Cursor AI", "Claude Code", "Vibe coding", "Prototypowanie", "Debugging", "Code review", "Python", "Bezpieczeństwo kodu", "Replit"]
+tags:
+  [
+    "GitHub Copilot",
+    "Cursor AI",
+    "Claude Code",
+    "Vibe coding",
+    "Prototypowanie",
+    "Debugging",
+    "Code review",
+    "Python",
+    "Bezpieczeństwo kodu",
+    "Replit",
+  ]
 instructor: "Artur Sendyka"
 dates:
   - group: "Grupa 1"
@@ -49,28 +61,31 @@ Ale jest granica. "Vibe coding" działa świetnie dla **jednorazowych skryptów 
 ### 1.1 Trzy kategorie narzędzi
 
 **AI-native IDE** — kompletne środowiska programistyczne zbudowane wokół AI:
+
 - **Cursor AI** — fork VS Code z głęboką integracją AI; najlepszy do złożonych projektów wieloplikowych
 - **Windsurf** (dawniej Codeium) — alternatywa dla Cursor, po rebrandingu i nowym cenniku (marzec 2026)
 
 **Pluginy do istniejących edytorów** — AI jako rozszerzenie:
+
 - **GitHub Copilot** — działa w VS Code, JetBrains, Neovim, Visual Studio, Xcode; najszersza kompatybilność
 - **Continue.dev** — open-source plugin do VS Code i JetBrains; BYOK (Bring Your Own Key)
 
 **Narzędzia CLI i specjalistyczne:**
+
 - **Claude Code** — terminal CLI od Anthropic; głęboka analiza całych repozytoriów
 - **Replit** — środowisko online; zero instalacji, idealne dla początkujących
 - **Aider** — open-source CLI; pair programming z dowolnym modelem przez API
 
 ### 1.2 Tabela porównawcza narzędzi (źródło: oficjalne strony, marzec 2026)
 
-| Narzędzie | Darmowy plan | Plan płatny | IDE | Najlepsze do |
-|---|---|---|---|---|
-| **GitHub Copilot** | Free: 2000 kompletacji + 50 chat/mies. | Pro: $10/mies., Pro+: $39/mies. | VS Code, JetBrains, Neovim, Xcode i inne | Uzupełnianie kodu w codziennej pracy |
-| **Cursor AI** | Hobby: ograniczone kompletacje | Pro: $20/mies. ($16 rocznie) | Własne IDE (fork VS Code) | Refaktoryzacja wieloplikowa, złożone projekty |
-| **Windsurf** | Tak (dzienny limit) | Pro: ~$15/mies. | Własne IDE (fork VS Code) | Alternatywa dla Cursor po zmianach cennika |
-| **Claude Code** | Nie | Pay-per-use API | Terminal CLI | Analiza całego repo, code review |
-| **Replit** | Tak (z limitem) | Pro: ~$20/mies. | Online (przeglądarka) | Nauka, prototypy, zero instalacji |
-| **Aider** | Bezpłatny (BYOK) | Brak — płacisz za API | Terminal CLI | Swoboda wyboru modelu |
+| Narzędzie          | Darmowy plan                           | Plan płatny                     | IDE                                      | Najlepsze do                                  |
+| ------------------ | -------------------------------------- | ------------------------------- | ---------------------------------------- | --------------------------------------------- |
+| **GitHub Copilot** | Free: 2000 kompletacji + 50 chat/mies. | Pro: $10/mies., Pro+: $39/mies. | VS Code, JetBrains, Neovim, Xcode i inne | Uzupełnianie kodu w codziennej pracy          |
+| **Cursor AI**      | Hobby: ograniczone kompletacje         | Pro: $20/mies. ($16 rocznie)    | Własne IDE (fork VS Code)                | Refaktoryzacja wieloplikowa, złożone projekty |
+| **Windsurf**       | Tak (dzienny limit)                    | Pro: ~$15/mies.                 | Własne IDE (fork VS Code)                | Alternatywa dla Cursor po zmianach cennika    |
+| **Claude Code**    | Nie                                    | Pay-per-use API                 | Terminal CLI                             | Analiza całego repo, code review              |
+| **Replit**         | Tak (z limitem)                        | Pro: ~$20/mies.                 | Online (przeglądarka)                    | Nauka, prototypy, zero instalacji             |
+| **Aider**          | Bezpłatny (BYOK)                       | Brak — płacisz za API           | Terminal CLI                             | Swoboda wyboru modelu                         |
 
 > **Dla uczestników bez doświadczenia:** Zacznij od **Replit** — działa w przeglądarce, nie wymaga instalacji czegokolwiek. Po warsztatach możesz przejść do VS Code + GitHub Copilot Free.
 
@@ -103,28 +118,28 @@ To nie jest pejoracja — to realna zmiana w sposobie pracy. Badanie Stack Overf
 
 ### 2.2 Kiedy vibe coding działa
 
-| Przypadek użycia | Vibe coding: skuteczny? | Dlaczego |
-|---|---|---|
-| Jednorazowy skrypt do analizy CSV | ✅ Tak | Prosty cel, łatwa weryfikacja |
-| Automatyzacja pobierania danych z API | ✅ Tak | Standardowy wzorzec, dokumentacja dostępna |
-| Prosty dashboard HTML/CSS/JS | ✅ Tak | Wynik wizualnie weryfikowalny |
-| Skrypt do batch-przetwarzania plików | ✅ Tak | Określony input/output |
-| System autentykacji do aplikacji webowej | ❌ Nie | Bezpieczeństwo-krytyczny, wymaga ekspertyzy |
-| Kod do obsługi płatności | ❌ Nie | Regulacje, bezpieczeństwo finansowe |
-| Skalowalny backend dla 10 000 użytkowników | ❌ Nie | Wymaga architektury, load testów |
-| Algorytm ML w środowisku produkcyjnym | ❌ Nie | Biasy, wyjaśnialność, odpowiedzialność |
+| Przypadek użycia                           | Vibe coding: skuteczny? | Dlaczego                                    |
+| ------------------------------------------ | ----------------------- | ------------------------------------------- |
+| Jednorazowy skrypt do analizy CSV          | ✅ Tak                  | Prosty cel, łatwa weryfikacja               |
+| Automatyzacja pobierania danych z API      | ✅ Tak                  | Standardowy wzorzec, dokumentacja dostępna  |
+| Prosty dashboard HTML/CSS/JS               | ✅ Tak                  | Wynik wizualnie weryfikowalny               |
+| Skrypt do batch-przetwarzania plików       | ✅ Tak                  | Określony input/output                      |
+| System autentykacji do aplikacji webowej   | ❌ Nie                  | Bezpieczeństwo-krytyczny, wymaga ekspertyzy |
+| Kod do obsługi płatności                   | ❌ Nie                  | Regulacje, bezpieczeństwo finansowe         |
+| Skalowalny backend dla 10 000 użytkowników | ❌ Nie                  | Wymaga architektury, load testów            |
+| Algorytm ML w środowisku produkcyjnym      | ❌ Nie                  | Biasy, wyjaśnialność, odpowiedzialność      |
 
 ### 2.3 Zasady bezpiecznego vibe codingu
 
 **Zasada 1 — Opisuj wejście i wyjście, nie algorytm:**
-Zamiast: *"Napisz pętlę for z filtrowaniem..."*
-Użyj: *"Wczytaj plik CSV, usuń wiersze gdzie kolumna 'status' = 'nieaktywny', zapisz do nowego pliku CSV."*
+Zamiast: _"Napisz pętlę for z filtrowaniem..."_
+Użyj: _"Wczytaj plik CSV, usuń wiersze gdzie kolumna 'status' = 'nieaktywny', zapisz do nowego pliku CSV."_
 
 **Zasada 2 — Zawsze uruchom kod w izolacji:**
 Nigdy nie uruchamiaj kodu od AI bezpośrednio na danych produkcyjnych. Najpierw przetestuj na małej próbce lub w Replit.
 
 **Zasada 3 — Poproś o wyjaśnienie:**
-Po każdym wygenerowanym kodzie dodaj: *"Wyjaśnij mi każdy krok co najważniejsze sekcje robią, jednym zdaniem każda."*
+Po każdym wygenerowanym kodzie dodaj: _"Wyjaśnij mi każdy krok co najważniejsze sekcje robią, jednym zdaniem każda."_
 
 **Zasada 4 — Weryfikuj wyniki, nie tylko kod:**
 Sprawdź czy output jest logicznie poprawny — nie tylko czy kod się uruchomił bez błędów.
@@ -215,6 +230,7 @@ Z LLM jest to "Rubber Duck++" — model nie tylko słucha, ale aktywnie analizuj
 ### 4.2 Anatomia dobrego opisu błędu
 
 Słaby opis błędu:
+
 ```text
 "Kod nie działa, pomóż mi"
 ```
@@ -242,15 +258,15 @@ Chcę wypisać wartości z pierwszej i drugiej kolumny obok siebie.
 
 ### 4.3 Najczęstsze błędy Python i jak je czytać
 
-| Typ błędu | Co oznacza | Jak opisać AI |
-|---|---|---|
-| `SyntaxError` | Błąd składni — model literówkę lub pominął dwukropek/nawias | Pokaż linię z błędem i otoczenie |
-| `NameError` | Używasz zmiennej, która nie istnieje lub nie została zdefiniowana | Sprawdź pisownię nazwy; pokaż gdzie definiujesz zmienną |
-| `TypeError` | Operujesz na złym typie danych (np. string + liczba) | Pokaż pełny traceback i wartości zmiennych |
-| `KeyError` | Klucz słownika nie istnieje | Wypisz print(dict.keys()) i pokaż AI |
-| `FileNotFoundError` | Plik nie istnieje lub zła ścieżka | Sprawdź czy ścieżka jest absolutna i plik faktycznie tam jest |
-| `IndentationError` | Złe wcięcia (Python liczy na wcięcia) | Skopiuj dosłownie — nie rób tego ręcznie |
-| `ImportError` | Brak biblioteki | Zainstaluj: `pip install nazwa_biblioteki` |
+| Typ błędu           | Co oznacza                                                        | Jak opisać AI                                                 |
+| ------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------- |
+| `SyntaxError`       | Błąd składni — model literówkę lub pominął dwukropek/nawias       | Pokaż linię z błędem i otoczenie                              |
+| `NameError`         | Używasz zmiennej, która nie istnieje lub nie została zdefiniowana | Sprawdź pisownię nazwy; pokaż gdzie definiujesz zmienną       |
+| `TypeError`         | Operujesz na złym typie danych (np. string + liczba)              | Pokaż pełny traceback i wartości zmiennych                    |
+| `KeyError`          | Klucz słownika nie istnieje                                       | Wypisz print(dict.keys()) i pokaż AI                          |
+| `FileNotFoundError` | Plik nie istnieje lub zła ścieżka                                 | Sprawdź czy ścieżka jest absolutna i plik faktycznie tam jest |
+| `IndentationError`  | Złe wcięcia (Python liczy na wcięcia)                             | Skopiuj dosłownie — nie rób tego ręcznie                      |
+| `ImportError`       | Brak biblioteki                                                   | Zainstaluj: `pip install nazwa_biblioteki`                    |
 
 ### 4.4 Prompt do debugowania
 
@@ -280,6 +296,7 @@ Proszę:
 ### 5.1 Dlaczego kod AI może być niebezpieczny?
 
 Modele językowe generują kod który **wygląda poprawnie** — ale mogą zawierać:
+
 - **Hardcoded credentials** — klucze API, hasła wpisane bezpośrednio w kod
 - **SQL injection** — podatność na wstrzyknięcia złośliwych zapytań SQL
 - **Path traversal** — możliwość dostępu do plików poza docelowym folderem
@@ -351,14 +368,14 @@ Ten podrozdział jest specjalnie dla uczestników **bez doświadczenia programis
 
 ### 6.1 Typowe zadania humanisty rozwiązywalne skryptem
 
-| Zadanie | Narzędzie bez AI | Z AI (czas) |
-|---|---|---|
-| Analiza 500 odpowiedzi ankietowych | Excel (2h) | Python + AI (15 min) |
-| Pobranie tytułów wszystkich artykułów z bazy | Ręcznie (kilka dni) | Python requests + AI (30 min) |
-| Zmiana nazw 200 plików wg schematu | Ręcznie (1h) | Python os + AI (10 min) |
-| Policzenie słów kluczowych w 50 abstraktach | Word Count ręcznie | Python + AI (10 min) |
-| Konwersja 30 plików DOCX na TXT | Ręcznie lub konwerter | Python + AI (10 min) |
-| Prosty wykres z danych CSV | Excel | Python matplotlib + AI (15 min) |
+| Zadanie                                      | Narzędzie bez AI      | Z AI (czas)                     |
+| -------------------------------------------- | --------------------- | ------------------------------- |
+| Analiza 500 odpowiedzi ankietowych           | Excel (2h)            | Python + AI (15 min)            |
+| Pobranie tytułów wszystkich artykułów z bazy | Ręcznie (kilka dni)   | Python requests + AI (30 min)   |
+| Zmiana nazw 200 plików wg schematu           | Ręcznie (1h)          | Python os + AI (10 min)         |
+| Policzenie słów kluczowych w 50 abstraktach  | Word Count ręcznie    | Python + AI (10 min)            |
+| Konwersja 30 plików DOCX na TXT              | Ręcznie lub konwerter | Python + AI (10 min)            |
+| Prosty wykres z danych CSV                   | Excel                 | Python matplotlib + AI (15 min) |
 
 ### 6.2 Replit — środowisko zero-instalacyjne
 
@@ -367,6 +384,7 @@ Ten podrozdział jest specjalnie dla uczestników **bez doświadczenia programis
 **Darmowy plan:** Wystarczy do wszystkich ćwiczeń w tym module.
 
 Krok po kroku:
+
 1. Wejdź na [replit.com](https://replit.com) → Sign Up (darmowe konto)
 2. Kliknij **+ Create** → wybierz **Python**
 3. Wklej kod wygenerowany przez AI
@@ -377,15 +395,15 @@ Krok po kroku:
 
 ## 7. Przebieg modułu — timeline
 
-| Czas | Aktywność | Forma |
-|---|---|---|
-| 0–10 min | Ankieta: czy kiedykolwiek pisałeś/pisałaś kod? Jak? | Mentimeter |
-| 10–20 min | Mini-wykład: vibe coding, ekosystem narzędzi, kiedy AI działa | Wykład |
-| 20–50 min | **Ćwiczenie 1** — Zero to Script: analiza CSV w Replit | Praca własna |
-| 50–70 min | **Ćwiczenie 2** — Debugging Challenge: 3 bugi do znalezienia | Praca w parach |
-| 70–95 min | **Ćwiczenie 3** — Security Review: ocena kodu AI | Praca własna |
-| 95–110 min | **Ćwiczenie 4** — Prototyp strony AI Literacy Lab | Praca własna |
-| 110–120 min | Podsumowanie warsztatów, Q&A, co dalej | Dyskusja |
+| Czas        | Aktywność                                                     | Forma          |
+| ----------- | ------------------------------------------------------------- | -------------- |
+| 0–10 min    | Ankieta: czy kiedykolwiek pisałeś/pisałaś kod? Jak?           | Mentimeter     |
+| 10–20 min   | Mini-wykład: vibe coding, ekosystem narzędzi, kiedy AI działa | Wykład         |
+| 20–50 min   | **Ćwiczenie 1** — Zero to Script: analiza CSV w Replit        | Praca własna   |
+| 50–70 min   | **Ćwiczenie 2** — Debugging Challenge: 3 bugi do znalezienia  | Praca w parach |
+| 70–95 min   | **Ćwiczenie 3** — Security Review: ocena kodu AI              | Praca własna   |
+| 95–110 min  | **Ćwiczenie 4** — Prototyp strony AI Literacy Lab             | Praca własna   |
+| 110–120 min | Podsumowanie warsztatów, Q&A, co dalej                        | Dyskusja       |
 
 ---
 
@@ -398,6 +416,7 @@ Krok po kroku:
 **Materiał:** Prowadzący dostarcza plik `ankieta.csv` (50 wierszy, 5 pytań, wartości 1–5).
 
 **Krok 1 — Otwórz Replit (3 min):**
+
 1. Wejdź na [replit.com](https://replit.com)
 2. Utwórz nowy Repl → Python
 3. Prześlij plik `ankieta.csv` (ikona folderu → upload)
@@ -412,6 +431,7 @@ Iteruj aż skrypt zadziała.
 
 **Krok 4 — Rozbuduj (5 min):**
 Poproś AI o dwie modyfikacje:
+
 ```text
 Dodaj do skryptu:
 1. Wypisanie które pytanie ma najwyższą a które najniższą średnią
@@ -419,6 +439,7 @@ Dodaj do skryptu:
 ```
 
 **Pytania do refleksji:**
+
 - Ile linii kodu wygenerowało AI? Ile rozumiesz?
 - Czy wyniki są logicznie poprawne?
 - Ile czasu zajęłoby Ci to w Excelu?
@@ -430,6 +451,7 @@ Dodaj do skryptu:
 **Materiał:** Prowadzący dostarcza plik `bugi.py` z 3 celowo wprowadzonymi błędami.
 
 **Zasady:**
+
 - Nie możesz poprawiać kodu ręcznie — tylko przez AI
 - Musisz użyć schematu CCEE do opisu każdego błędu
 - Czas: max. 7 minut na każdy bug
@@ -461,10 +483,10 @@ print("Średnia: " + srednia)  # błąd 3
 **Tabela śledzenia:**
 
 | Bug # | Typ błędu | Linia | Jak opisałeś AI | Ile iteracji naprawy |
-|---|---|---|---|---|
-| 1 | | | | |
-| 2 | | | | |
-| 3 | | | | |
+| ----- | --------- | ----- | --------------- | -------------------- |
+| 1     |           |       |                 |                      |
+| 2     |           |       |                 |                      |
+| 3     |           |       |                 |                      |
 
 **Pytanie po ćwiczeniu:** Który bug był najtrudniejszy do opisania? Dlaczego?
 
@@ -504,6 +526,7 @@ Użyj checklisty z Sekcji 5.2. Zaznacz które punkty są problemem. Spróbuj zid
 Użyj promptu z Sekcji 5.3. Porównaj wyniki AI z Twoją własną analizą.
 
 **Krok 3 (5 min) — Dyskusja:**
+
 - Ile problemów znalazłeś/znalazłaś samodzielnie?
 - Które AI znalazło, a Ty nie?
 - Które Ty znalazłeś/znalazłaś, a AI pominęło?
@@ -517,6 +540,7 @@ Użyj promptu z Sekcji 3.3 lub własnego. Otwórz Replit → HTML/CSS/JS.
 Wklej kod → kliknij Run → sprawdź w przeglądarce.
 
 **Rozbuduj w 3 krokach:**
+
 1. Zmień kolory na czarno-białą paletę AI Literacy Lab
 2. Dodaj swoje imię jako prowadzącego
 3. Zmień opisy modułów na prawdziwe (z regulaminu projektu)
@@ -546,7 +570,7 @@ W praktyce dla jednorazowych skryptów studenckich ryzyko jest minimalne. Dla pr
 
 ### 9.3 Zależność od AI — pułapka cognitive offloading
 
-Badania (2024/2025) pokazują, że intensywne korzystanie z AI do pisania kodu może spowalniać naukę programowania. Zjawisko *cognitive offloading* — przekazywania myślenia do zewnętrznego narzędzia — jest realne.
+Badania (2024/2025) pokazują, że intensywne korzystanie z AI do pisania kodu może spowalniać naukę programowania. Zjawisko _cognitive offloading_ — przekazywania myślenia do zewnętrznego narzędzia — jest realne.
 
 **Strategia:** Używaj AI jako "nauczyciela" — proś o wyjaśnienia, nie tylko o gotowy kod. Dla każdego wygenerowanego skryptu postaraj się zrozumieć przynajmniej główną strukturę.
 
@@ -556,27 +580,27 @@ Badania (2024/2025) pokazują, że intensywne korzystanie z AI do pisania kodu m
 
 Ten moduł zamyka pięć tygodni AI Literacy Lab. Oto mapa umiejętności które zdobyłeś/zdobyłaś:
 
-| Moduł | Kluczowe umiejętności |
-|---|---|
-| 1. Podstawy AI | Tokeny, RAG, agenty, MCP, halucynacje |
-| 2. AI na co dzień | Dobór narzędzia, prywatność, RODO, LM Studio |
-| 3. Prompt Engineering | CIFTEC, CoT, few-shot, system prompty, parametry |
-| 4. AI w nauce | Semantic Scholar, Elicit, notatki, PRISMA, cytowania APA |
+| Moduł                 | Kluczowe umiejętności                                          |
+| --------------------- | -------------------------------------------------------------- |
+| 1. Podstawy AI        | Tokeny, RAG, agenty, MCP, halucynacje                          |
+| 2. AI na co dzień     | Dobór narzędzia, prywatność, RODO, LM Studio                   |
+| 3. Prompt Engineering | CIFTEC, CoT, few-shot, system prompty, parametry               |
+| 4. AI w nauce         | Semantic Scholar, Elicit, notatki, PRISMA, cytowania APA       |
 | 5. AI i programowanie | Vibe coding, debugging, security review, Python dla humanistów |
 
 ---
 
 ## 11. Narzędzia i zasoby
 
-| Narzędzie | Link | Koszt |
-|---|---|---|
-| Replit | [replit.com](https://replit.com) | Free tier |
-| GitHub Copilot | [github.com/features/copilot](https://github.com/features/copilot) | Free (2000/mies.) / $10 Pro |
-| Cursor AI | [cursor.com](https://cursor.com) | Hobby free / $20 Pro |
-| Windsurf | [windsurf.ai](https://windsurf.ai) | Free tier / ~$15 Pro |
-| PyPI (weryfikacja bibliotek) | [pypi.org](https://pypi.org) | Bezpłatne |
-| Python docs | [docs.python.org/pl](https://docs.python.org/pl) | Bezpłatne |
-| Aider (open-source CLI) | [aider.chat](https://aider.chat) | Bezpłatne (BYOK) |
+| Narzędzie                    | Link                                                               | Koszt                       |
+| ---------------------------- | ------------------------------------------------------------------ | --------------------------- |
+| Replit                       | [replit.com](https://replit.com)                                   | Free tier                   |
+| GitHub Copilot               | [github.com/features/copilot](https://github.com/features/copilot) | Free (2000/mies.) / $10 Pro |
+| Cursor AI                    | [cursor.com](https://cursor.com)                                   | Hobby free / $20 Pro        |
+| Windsurf                     | [windsurf.ai](https://windsurf.ai)                                 | Free tier / ~$15 Pro        |
+| PyPI (weryfikacja bibliotek) | [pypi.org](https://pypi.org)                                       | Bezpłatne                   |
+| Python docs                  | [docs.python.org/pl](https://docs.python.org/pl)                   | Bezpłatne                   |
+| Aider (open-source CLI)      | [aider.chat](https://aider.chat)                                   | Bezpłatne (BYOK)            |
 
 ### Materiały do dalszej nauki
 
@@ -596,6 +620,7 @@ Ten moduł zamyka pięć tygodni AI Literacy Lab. Oto mapa umiejętności które
 2. Masz komunikat błędu `KeyError: 'email'` w skrypcie Python, który przetwarza słownik z odpowiedziami API. Napisz pełny opis błędu w schemacie CCEE.
 
 3. Przejrzyj poniższy fragment kodu i wskaż **dwa problemy bezpieczeństwa**:
+
 ```python
 def login(username, password):
     query = f"SELECT * FROM users WHERE username='{username}' AND password='{password}'"
@@ -626,6 +651,7 @@ def login(username, password):
 <summary><strong>Czy mogę używać AI do wyjaśniania trudnych fragmentów?</strong></summary>
 
 Tak. Najlepiej wklejać konkretny fragment i prosić model o:
+
 - wyjaśnienie prostym językiem,
 - przykład praktyczny,
 - pytanie kontrolne sprawdzające zrozumienie.
@@ -651,5 +677,3 @@ Podziel go na sekcje i pracuj etapami: sekcja -> streszczenie -> pytania -> test
 ## Ucz się z tym plikiem MDX w narzędziach AI
 
 <AiToolLauncher />
-
-

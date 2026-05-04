@@ -90,7 +90,10 @@ export default async function MaterialDetailPage({
         eventName="material_markdown_opened"
         data={{ slug, title: document.frontmatter.title }}
       />
-      <Link href="/materialy" className="mb-6 inline-block text-sm text-muted-foreground hover:text-foreground">
+      <Link
+        href="/materialy"
+        className="mb-6 inline-block text-sm text-muted-foreground hover:text-foreground"
+      >
         ← Wróć do materiałów
       </Link>
 

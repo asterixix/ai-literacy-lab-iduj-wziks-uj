@@ -50,7 +50,13 @@ function getNodeText(node: ReactNode): string {
   return "";
 }
 
-function H2({ children, className, id, slugify, ...props }: ComponentPropsWithoutRef<"h2"> & {
+function H2({
+  children,
+  className,
+  id,
+  slugify,
+  ...props
+}: ComponentPropsWithoutRef<"h2"> & {
   slugify: (text: string) => string;
 }) {
   const text = getNodeText(children).trim();
@@ -63,7 +69,13 @@ function H2({ children, className, id, slugify, ...props }: ComponentPropsWithou
   );
 }
 
-function H3({ children, className, id, slugify, ...props }: ComponentPropsWithoutRef<"h3"> & {
+function H3({
+  children,
+  className,
+  id,
+  slugify,
+  ...props
+}: ComponentPropsWithoutRef<"h3"> & {
   slugify: (text: string) => string;
 }) {
   const text = getNodeText(children).trim();

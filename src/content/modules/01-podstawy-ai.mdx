@@ -4,7 +4,8 @@ number: 1
 title: "Podstawy AI – LLM, RAG, Agenty AI, MCP"
 titleEn: "AI Fundamentals – LLMs, RAG, AI Agents, MCP"
 duration: "2 godziny"
-tags: ["LLM", "RAG", "Agenty AI", "MCP", "Transformery", "Tokenizacja", "Halucynacje", "Context Window"]
+tags:
+  ["LLM", "RAG", "Agenty AI", "MCP", "Transformery", "Tokenizacja", "Halucynacje", "Context Window"]
 instructor: "Artur Sendyka"
 dates:
   - group: "Grupa 1"
@@ -48,11 +49,11 @@ Po tym module będziesz mógł/mogła świadomie ocenić, kiedy ufać odpowiedzi
 
 ### 1.1 Transformer i mechanizm uwagi
 
-Duży model językowy (ang. *Large Language Model*, **LLM**) to sieć neuronowa trenowana na ogromnych zbiorach tekstu — dziesiątkach, a nawet setkach miliardów słów z internetu, książek i artykułów naukowych. Jego zadanie jest pozornie proste: **przewidywać kolejny token** na podstawie wszystkich poprzednich.
+Duży model językowy (ang. _Large Language Model_, **LLM**) to sieć neuronowa trenowana na ogromnych zbiorach tekstu — dziesiątkach, a nawet setkach miliardów słów z internetu, książek i artykułów naukowych. Jego zadanie jest pozornie proste: **przewidywać kolejny token** na podstawie wszystkich poprzednich.
 
-Kluczowym przełomem był artykuł *„Attention Is All You Need"* (Vaswani i in., 2017), który wprowadził architekturę **transformera** opartą na mechanizmie uwagi (*attention mechanism*).
+Kluczowym przełomem był artykuł _„Attention Is All You Need"_ (Vaswani i in., 2017), który wprowadził architekturę **transformera** opartą na mechanizmie uwagi (_attention mechanism_).
 
-**Analogia do ludzkiej uwagi:** Kiedy czytasz zdanie „Kot siedział na macie, bo *ona* była miękka" — od razu wiesz, że „ona" odnosi się do maty, nie do kota. Twój mózg automatycznie skupia uwagę na właściwym słowie. Transformer robi dokładnie to samo, tylko matematycznie — dla każdego słowa w tekście oblicza, jak bardzo jest ono związane z każdym innym słowem. Dzięki temu model rozumie kontekst, nie tylko kolejność wyrazów.
+**Analogia do ludzkiej uwagi:** Kiedy czytasz zdanie „Kot siedział na macie, bo _ona_ była miękka" — od razu wiesz, że „ona" odnosi się do maty, nie do kota. Twój mózg automatycznie skupia uwagę na właściwym słowie. Transformer robi dokładnie to samo, tylko matematycznie — dla każdego słowa w tekście oblicza, jak bardzo jest ono związane z każdym innym słowem. Dzięki temu model rozumie kontekst, nie tylko kolejność wyrazów.
 
 Efektem wielomiesięcznego treningu na miliardach przykładów jest model, który „nauczył się" języka na tyle dobrze, że potrafi generować spójne, sensowne odpowiedzi na bardzo różnorodne pytania. Nie „rozumie" w ludzkim sensie — wykonuje bardzo zaawansowane dopasowywanie wzorców statystycznych.
 
@@ -80,7 +81,7 @@ Porównaj liczbę tokenów. Teraz wklej zdanie po polsku i jego angielski odpowi
 
 ### 1.3 Embedding i przestrzeń wektorowa
 
-Każdy token jest reprezentowany jako **wektor** (*embedding*) — lista setek lub tysięcy liczb. Wektory zbliżonych znaczeniowo pojęć leżą „blisko siebie" w przestrzeni wielowymiarowej.
+Każdy token jest reprezentowany jako **wektor** (_embedding_) — lista setek lub tysięcy liczb. Wektory zbliżonych znaczeniowo pojęć leżą „blisko siebie" w przestrzeni wielowymiarowej.
 
 **Analogia do mapy pojęć:** Wyobraź sobie słownik jako trójwymiarową mapę. Słowa „kot" i „pies" leżą blisko siebie (oba to zwierzęta domowe). „Król" i „królowa" są obok siebie, podobnie jak „mężczyzna" i „kobieta". Co ciekawe, matematyczna operacja:
 
@@ -94,19 +95,19 @@ Embeddingi są fundamentem nie tylko generowania tekstu, ale też **wyszukiwania
 
 ### 1.4 Okno kontekstu (context window)
 
-Model nie może przetwarzać nieskończonego tekstu naraz. Ma limit — **okno kontekstu** (*context window*) — wyrażony w tokenach. Wszystko, co przekracza ten limit, jest po prostu niewidoczne dla modelu.
+Model nie może przetwarzać nieskończonego tekstu naraz. Ma limit — **okno kontekstu** (_context window_) — wyrażony w tokenach. Wszystko, co przekracza ten limit, jest po prostu niewidoczne dla modelu.
 
 Aktualne limity wybranych modeli (marzec 2026, źródło: openrouter.ai/models):
 
-| Model | Okno kontekstu | Przybliżony odpowiednik tekstowy |
-|---|---|---|
-| Claude Sonnet 4.6 | 1 000 000 tokenów | ~750 tys. słów / ~5 grubych powieści |
-| GPT-5.4 (OpenAI) | 1 000 000 tokenów | ~750 tys. słów |
-| Gemini 3.1 Pro (Google) | 1 000 000 tokenów | (podwójne ceny powyżej 200K) |
-| GPT-5.2 | 400 000 tokenów | ~300 tys. słów / ~2 powieści |
-| DeepSeek V3.2 | 256 000 tokenów | ~192 tys. słów |
+| Model                   | Okno kontekstu    | Przybliżony odpowiednik tekstowy     |
+| ----------------------- | ----------------- | ------------------------------------ |
+| Claude Sonnet 4.6       | 1 000 000 tokenów | ~750 tys. słów / ~5 grubych powieści |
+| GPT-5.4 (OpenAI)        | 1 000 000 tokenów | ~750 tys. słów                       |
+| Gemini 3.1 Pro (Google) | 1 000 000 tokenów | (podwójne ceny powyżej 200K)         |
+| GPT-5.2                 | 400 000 tokenów   | ~300 tys. słów / ~2 powieści         |
+| DeepSeek V3.2           | 256 000 tokenów   | ~192 tys. słów                       |
 
-Brzmi imponująco — ale jest haczyk. Modele mają trudność z **precyzyjnym odwoływaniem się do informacji umieszczonych w środku** bardzo długiego kontekstu (zjawisko *„lost in the middle"*). Informacje z początku i końca kontekstu są „zapamiętywane" lepiej niż te ze środka. Nie wklejaj więc najważniejszych danych na środek 100-stronnicowego dokumentu.
+Brzmi imponująco — ale jest haczyk. Modele mają trudność z **precyzyjnym odwoływaniem się do informacji umieszczonych w środku** bardzo długiego kontekstu (zjawisko _„lost in the middle"_). Informacje z początku i końca kontekstu są „zapamiętywane" lepiej niż te ze środka. Nie wklejaj więc najważniejszych danych na środek 100-stronnicowego dokumentu.
 
 ### 1.5 Data odcięcia wiedzy (knowledge cutoff)
 
@@ -124,7 +125,7 @@ Wyobraź sobie egzamin. Standardowy LLM to student, który **uczył się na pami
 
 ### 2.2 Czym jest RAG?
 
-**RAG** (ang. *Retrieval-Augmented Generation*) to architektura, w której LLM nie musi znać odpowiedzi „z głowy". Zamiast tego, przed wygenerowaniem odpowiedzi, system:
+**RAG** (ang. _Retrieval-Augmented Generation_) to architektura, w której LLM nie musi znać odpowiedzi „z głowy". Zamiast tego, przed wygenerowaniem odpowiedzi, system:
 
 1. **Wyszukuje** w bazie wiedzy (dokumenty, artykuły, notatki) fragmenty najbardziej pasujące do pytania
 2. **Dołącza** znalezione fragmenty do kontekstu modelu jako „ściągawkę"
@@ -135,6 +136,7 @@ To jak egzamin z **otwartymi notatkami** — student może korzystać ze swoich 
 ### 2.3 Kiedy RAG wygrywa ze standardowym LLM?
 
 RAG jest lepszy gdy:
+
 - **Dane są aktualne** — cenniki, przepisy prawne, wyniki badań z ostatnich miesięcy
 - **Dane są prywatne** — twoje własne notatki, dokumenty firmy, biblioteka PDF-ów
 - **Wiedza jest specjalistyczna** — wąska dziedzina niedobrze reprezentowana w danych treningowych
@@ -155,15 +157,15 @@ RAG jest lepszy gdy:
 
 Do tej pory rozmawialiśmy o modelu jako o czymś, co odpowiada na pojedyncze pytanie. Ale AI ewoluuje w kierunku **agentów** — systemów, które mogą wykonywać sekwencje działań w celu osiągnięcia złożonego celu.
 
-| Typ | Opis | Przykład |
-|---|---|---|
-| **Single-turn** | Jedno pytanie, jedna odpowiedź | „Przetłumacz to zdanie" |
-| **Multi-turn** | Konwersacja z kontekstem poprzednich wiadomości | Standardowy chat z ChatGPT |
-| **Agentowe** | Model planuje, wykonuje sekwencję działań, używa narzędzi | „Znajdź 5 artykułów o AI literacy, pobierz je, podsumuj i stwórz bibliografię" |
+| Typ             | Opis                                                      | Przykład                                                                       |
+| --------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| **Single-turn** | Jedno pytanie, jedna odpowiedź                            | „Przetłumacz to zdanie"                                                        |
+| **Multi-turn**  | Konwersacja z kontekstem poprzednich wiadomości           | Standardowy chat z ChatGPT                                                     |
+| **Agentowe**    | Model planuje, wykonuje sekwencję działań, używa narzędzi | „Znajdź 5 artykułów o AI literacy, pobierz je, podsumuj i stwórz bibliografię" |
 
 ### 3.2 Jak działa agent AI?
 
-Agent AI to połączenie LLM z zestawem **narzędzi** (*tools*), które może wywoływać:
+Agent AI to połączenie LLM z zestawem **narzędzi** (_tools_), które może wywoływać:
 
 - **Wyszukiwanie w internecie** — agent może sam sprawdzić aktualne informacje
 - **Wykonywanie kodu** — może napisać skrypt Pythona i go uruchomić
@@ -171,7 +173,7 @@ Agent AI to połączenie LLM z zestawem **narzędzi** (*tools*), które może wy
 - **Wywoływanie zewnętrznych API** — może wysłać e-mail, zaktualizować spreadsheet
 - **Wywoływanie innych modeli AI** — orkiestracja wielu agentów
 
-Kluczowe jest **planowanie** (*orchestration*): agent najpierw rozbija złożone zadanie na kroki, potem wykonuje je jeden po drugim, weryfikując wyniki.
+Kluczowe jest **planowanie** (_orchestration_): agent najpierw rozbija złożone zadanie na kroki, potem wykonuje je jeden po drugim, weryfikując wyniki.
 
 **Analogia:** Agent AI to jak asystent, który dostał zadanie „Przygotuj raport o rynku EV w Polsce". Nie pyta za każdym razem „co teraz?". Sam wyszukuje dane, zestawia tabele, pisze wnioski — i przychodzi do ciebie z gotowym dokumentem.
 
@@ -205,12 +207,14 @@ Przed pojawieniem się MCP, każda integracja AI z zewnętrznym narzędziem wyma
 **Analogia USB:** Przed standardem USB każde urządzenie miało inny kabel. Po wprowadzeniu USB — jeden kabel do wszystkiego. MCP robi to samo dla AI: jeden standard podłączania narzędzi.
 
 Protokół działa w oparciu o **JSON-RPC 2.0** i definiuje komunikację między:
+
 - **MCP Client** (np. Claude Desktop, Cursor AI) — aplikacja AI, która chce używać narzędzi
 - **MCP Server** — usługa udostępniająca konkretne narzędzie (np. dostęp do Notiona)
 
 ### 4.3 Adopcja i znaczenie
 
 MCP okazał się strzałem w dziesiątkę. W ciągu roku od premiery:
+
 - Został przyjęty przez **OpenAI i Google DeepMind** jako standard branżowy
 - W **grudniu 2025** Anthropic przekazał MCP do **Agentic AI Foundation (AAIF)** pod patronatem Linux Foundation (razem z Block i OpenAI) — stał się neutralnym, branżowym standardem
 - Powstały **tysiące MCP serverów** — od oficjalnych do community-driven
@@ -224,16 +228,16 @@ Repozytorium referencyjnych implementacji: [github.com/modelcontextprotocol/serv
 
 Wybrane serwery przydatne dla studentów:
 
-| Serwer | Co robi | Zastosowanie dla studenta |
-|---|---|---|
-| **filesystem** | Czyta i zapisuje pliki na Twoim komputerze | Analiza własnych notatek i dokumentów |
-| **GitHub** | Dostęp do repozytoriów, issues, PR | Zarządzanie projektem kodu |
-| **Brave Search** | Wyszukiwanie w internecie | Aktualne informacje w czasie rzeczywistym |
-| **Google Drive** | Dostęp do plików Google | Praca z dokumentami w chmurze |
-| **Slack** | Wysyłanie i czytanie wiadomości | Komunikacja w zespole z AI |
-| **PostgreSQL** | Zapytania do bazy danych | Analiza danych badawczych |
-| **Puppeteer** | Sterowanie przeglądarką | Web scraping, automatyzacja |
-| **Sequential Thinking** | Wymuszanie krok-po-kroku rozumowania | Złożone zadania analityczne |
+| Serwer                  | Co robi                                    | Zastosowanie dla studenta                 |
+| ----------------------- | ------------------------------------------ | ----------------------------------------- |
+| **filesystem**          | Czyta i zapisuje pliki na Twoim komputerze | Analiza własnych notatek i dokumentów     |
+| **GitHub**              | Dostęp do repozytoriów, issues, PR         | Zarządzanie projektem kodu                |
+| **Brave Search**        | Wyszukiwanie w internecie                  | Aktualne informacje w czasie rzeczywistym |
+| **Google Drive**        | Dostęp do plików Google                    | Praca z dokumentami w chmurze             |
+| **Slack**               | Wysyłanie i czytanie wiadomości            | Komunikacja w zespole z AI                |
+| **PostgreSQL**          | Zapytania do bazy danych                   | Analiza danych badawczych                 |
+| **Puppeteer**           | Sterowanie przeglądarką                    | Web scraping, automatyzacja               |
+| **Sequential Thinking** | Wymuszanie krok-po-kroku rozumowania       | Złożone zadania analityczne               |
 
 ### 4.5 MCP w praktyce — konfiguracja Claude Desktop
 
@@ -275,16 +279,18 @@ Halucynacje są nie przypadkowym błędem, a **strukturalną cechą** LLM. Model
 **Przykłady halucynacji w polskim kontekście akademickim:**
 
 Przykład 1 — fałszywy cytat:
+
 ```text
 Zapytanie: "Podaj cytowanie artykułu Kowalski (2023) o AI literacy"
-Odpowiedź modelu: "Kowalski, J. (2023). Kompetencje cyfrowe w erze sztucznej inteligencji. 
+Odpowiedź modelu: "Kowalski, J. (2023). Kompetencje cyfrowe w erze sztucznej inteligencji.
 Przegląd Bibliotekoznawczy, 45(2), 112–128. DOI: 10.1234/pb.2023.45.2.112"
 
-PROBLEM: Artykuł nie istnieje. Czasopismo może istnieć, autor może istnieć, 
+PROBLEM: Artykuł nie istnieje. Czasopismo może istnieć, autor może istnieć,
 ale ten konkretny artykuł — model go wymyślił. DOI prowadzi donikąd.
 ```
 
 Przykład 2 — błędna data historyczna:
+
 ```text
 Zapytanie: "Kiedy Polska wstąpiła do UE?"
 Prawidłowa odpowiedź: 1 maja 2004 r.
@@ -292,9 +298,10 @@ Możliwa halucynacja: "Polska wstąpiła do Unii Europejskiej w 2003 roku..."
 ```
 
 Przykład 3 — nieistniejące prawo:
+
 ```text
 Zapytanie: "Jakie przepisy regulują użycie AI w pracach dyplomowych w Polsce?"
-Problem: Brak jednolitych regulacji prawnych → model może wymyślić nieistniejące 
+Problem: Brak jednolitych regulacji prawnych → model może wymyślić nieistniejące
 rozporządzenie Ministra Edukacji, które brzmi wiarygodnie, ale nie istnieje.
 ```
 
@@ -324,14 +331,14 @@ Gdy model przetwarza zewnętrzne treści (strony internetowe, dokumenty, e-maile
 
 ## 6. Przebieg modułu — timeline
 
-| Czas | Aktywność | Forma |
-|---|---|---|
-| 0–15 min | Kontrakt grupowy, ankieta wstępna (Mentimeter) — co już wiesz o AI? | Aktywizacja |
-| 15–35 min | Mini-wykład: Transformer, tokenizacja, embedding | Wykład interaktywny |
-| 35–65 min | Case study: RAG vs. standardowy LLM — porównanie na żywo (Perplexity vs. Claude) | Demo + dyskusja |
-| 65–85 min | Demo: Agent AI z MCP — Claude Desktop z filesystem | Live demo |
-| 85–110 min | Ćwiczenia praktyczne (3 zadania, patrz niżej) | Praca własna |
-| 110–120 min | Mapa pojęć, pytania i odpowiedzi, podsumowanie | Refleksja |
+| Czas        | Aktywność                                                                        | Forma               |
+| ----------- | -------------------------------------------------------------------------------- | ------------------- |
+| 0–15 min    | Kontrakt grupowy, ankieta wstępna (Mentimeter) — co już wiesz o AI?              | Aktywizacja         |
+| 15–35 min   | Mini-wykład: Transformer, tokenizacja, embedding                                 | Wykład interaktywny |
+| 35–65 min   | Case study: RAG vs. standardowy LLM — porównanie na żywo (Perplexity vs. Claude) | Demo + dyskusja     |
+| 65–85 min   | Demo: Agent AI z MCP — Claude Desktop z filesystem                               | Live demo           |
+| 85–110 min  | Ćwiczenia praktyczne (3 zadania, patrz niżej)                                    | Praca własna        |
+| 110–120 min | Mapa pojęć, pytania i odpowiedzi, podsumowanie                                   | Refleksja           |
 
 ---
 
@@ -342,6 +349,7 @@ Gdy model przetwarza zewnętrzne treści (strony internetowe, dokumenty, e-maile
 **Cel:** Zrozumieć jak tokenizacja wpływa na koszty i ograniczenia modelu.
 
 **Instrukcja:**
+
 1. Wejdź na [platform.openai.com/tokenizer](https://platform.openai.com/tokenizer)
 2. Wklej fragment swojej pracy dyplomowej lub notatek (ok. 200 słów)
 3. Sprawdź liczbę tokenów
@@ -349,6 +357,7 @@ Gdy model przetwarza zewnętrzne treści (strony internetowe, dokumenty, e-maile
 5. Porównaj liczby tokenów
 
 **Pytania do refleksji:**
+
 - O ile % polski tekst ma więcej tokenów niż angielski?
 - Ile rozdziałów Twojej pracy zmieści się w oknie kontekstu Claude (1M tokenów)?
 - Ile kosztowałoby przetworzenie całej pracy przez Claude Sonnet 4.6 ($3/1M input)?
@@ -358,6 +367,7 @@ Gdy model przetwarza zewnętrzne treści (strony internetowe, dokumenty, e-maile
 **Cel:** Zobaczyć na własne oczy różnicę między modelem z dostępem do aktualnych danych a modelem bez.
 
 **Instrukcja:**
+
 1. Otwórz dwie zakładki: [chat.openai.com](https://chat.openai.com) i [perplexity.ai](https://perplexity.ai)
 2. Zadaj w obu **to samo pytanie** dotyczące aktualnych danych (przykład poniżej):
 
@@ -405,28 +415,28 @@ Opisz metodologię badań w artykule [wklej tytuł artykułu, który aktualnie c
 
 ### Narzędzia do wypróbowania podczas modułu
 
-| Narzędzie | Link | Opis | Koszt |
-|---|---|---|---|
-| OpenRouter | [openrouter.ai](https://openrouter.ai) | Dostęp do 290+ modeli przez jedno API; 25+ darmowych modeli | Free tier + pay-per-use |
-| Perplexity AI | [perplexity.ai](https://perplexity.ai) | Wyszukiwarka z RAG, cytowania do źródeł | Free / Pro $20/mies. |
-| Google NotebookLM | [notebooklm.google.com](https://notebooklm.google.com) | RAG na własnych dokumentach, podcast generator | Bezpłatne |
-| OpenAI Tokenizer | [platform.openai.com/tokenizer](https://platform.openai.com/tokenizer) | Wizualizacja tokenizacji | Bezpłatne |
-| Claude Desktop | [claude.ai/download](https://claude.ai/download) | Klient Claude z obsługą MCP | Free / Pro $20/mies. |
+| Narzędzie         | Link                                                                   | Opis                                                        | Koszt                   |
+| ----------------- | ---------------------------------------------------------------------- | ----------------------------------------------------------- | ----------------------- |
+| OpenRouter        | [openrouter.ai](https://openrouter.ai)                                 | Dostęp do 290+ modeli przez jedno API; 25+ darmowych modeli | Free tier + pay-per-use |
+| Perplexity AI     | [perplexity.ai](https://perplexity.ai)                                 | Wyszukiwarka z RAG, cytowania do źródeł                     | Free / Pro $20/mies.    |
+| Google NotebookLM | [notebooklm.google.com](https://notebooklm.google.com)                 | RAG na własnych dokumentach, podcast generator              | Bezpłatne               |
+| OpenAI Tokenizer  | [platform.openai.com/tokenizer](https://platform.openai.com/tokenizer) | Wizualizacja tokenizacji                                    | Bezpłatne               |
+| Claude Desktop    | [claude.ai/download](https://claude.ai/download)                       | Klient Claude z obsługą MCP                                 | Free / Pro $20/mies.    |
 
 ### Cennik modeli na OpenRouter (marzec 2026)
 
 Źródło: [openrouter.ai/models](https://openrouter.ai/models), zweryfikowane 27.03.2026. OpenRouter pobiera 5,5% opłaty przy zakupie kredytów (brak marży na tokenach).
 
-| Model | Input ($/1M tokenów) | Output ($/1M tokenów) | Context |
-|---|---|---|---|
-| Claude Sonnet 4.6 | $3,00 | $15,00 | 1M |
-| Claude Haiku 4.5 | $1,00 | $5,00 | 1M |
-| Claude Opus 4.6 | $5,00 | $25,00 | 1M |
-| GPT-5.2 (OpenAI) | $1,75 | $14,00 | 400K |
-| GPT-5.4 (OpenAI) | $2,50 | $15,00 | 1M |
-| Gemini 3.1 Pro (Google) | $2,00 | $12,00 | 1M |
-| DeepSeek V3.2 | $0,25 | $0,38 | 256K |
-| Llama 4 Scout (Meta) | bezpłatny | bezpłatny | 10M |
+| Model                   | Input ($/1M tokenów) | Output ($/1M tokenów) | Context |
+| ----------------------- | -------------------- | --------------------- | ------- |
+| Claude Sonnet 4.6       | $3,00                | $15,00                | 1M      |
+| Claude Haiku 4.5        | $1,00                | $5,00                 | 1M      |
+| Claude Opus 4.6         | $5,00                | $25,00                | 1M      |
+| GPT-5.2 (OpenAI)        | $1,75                | $14,00                | 400K    |
+| GPT-5.4 (OpenAI)        | $2,50                | $15,00                | 1M      |
+| Gemini 3.1 Pro (Google) | $2,00                | $12,00                | 1M      |
+| DeepSeek V3.2           | $0,25                | $0,38                 | 256K    |
+| Llama 4 Scout (Meta)    | bezpłatny            | bezpłatny             | 10M     |
 
 **Dla perspektywy:** $8 kredytów OpenRouter (zakupionych w ramach AI Literacy Lab) = ok. 2,5M tokenów wejściowych Claude Sonnet 4.6 = ok. 50 ćwiczeń warsztatowych o długości 1000 słów każde.
 
@@ -435,7 +445,7 @@ Opisz metodologię badań w artykule [wklej tytuł artykułu, który aktualnie c
 - **Oficjalna dokumentacja MCP:** [modelcontextprotocol.io](https://modelcontextprotocol.io)
 - **Repozytorium MCP serverów:** [github.com/modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers)
 - **MCP Registry (katalog serverów):** [registry.smithery.ai](https://registry.smithery.ai) (uruchomione wrzesień 2025)
-- **Artykuł źródłowy transformerów:** Vaswani et al. (2017) *Attention Is All You Need* — [arxiv.org/abs/1706.03762](https://arxiv.org/abs/1706.03762)
+- **Artykuł źródłowy transformerów:** Vaswani et al. (2017) _Attention Is All You Need_ — [arxiv.org/abs/1706.03762](https://arxiv.org/abs/1706.03762)
 - **Wizualizacja transformera:** 3Blue1Brown „But what is a GPT?" na YouTube
 - **Interaktywny kurs tokenizacji:** [tiktokenizer.vercel.app](https://tiktokenizer.vercel.app)
 
@@ -445,12 +455,12 @@ Opisz metodologię badań w artykule [wklej tytuł artykułu, który aktualnie c
 
 Po module odpowiedz na poniższe pytania — jeśli masz trudność z którymkolwiek, wróć do odpowiedniej sekcji:
 
-1. Wyjaśnij mechanizm uwagi (*attention*) jednym zdaniem, używając własnej analogii — **innej** niż ta z notatek.
+1. Wyjaśnij mechanizm uwagi (_attention_) jednym zdaniem, używając własnej analogii — **innej** niż ta z notatek.
 2. Twój kolega twierdzi, że „Claude zna wszystkie artykuły naukowe". Co odpiszesz i dlaczego?
 3. Masz 80 stron notatek z seminariów (ok. 40 000 słów po polsku). Czy zmieszczą się w oknie kontekstu Claude Sonnet 4.6? Ile by kosztowało ich przetworzenie przez API?
 4. Wskaż **dwie** sytuacje, kiedy użyłbyś/użyłabyś RAG zamiast standardowego LLM.
 5. Co to jest MCP i dlaczego jest ważny dla przyszłości agentów AI? (max. 3 zdania)
-6. Dostajesz od modelu cytat: *„Smith, J. (2025). Artificial Intelligence in Polish Universities. Journal of Educational Technology, 12(3), 45–67."* Jakie są kolejne kroki przed użyciem tego cytatu w pracy?
+6. Dostajesz od modelu cytat: _„Smith, J. (2025). Artificial Intelligence in Polish Universities. Journal of Educational Technology, 12(3), 45–67."_ Jakie są kolejne kroki przed użyciem tego cytatu w pracy?
 
 ---
 
@@ -485,6 +495,7 @@ Po module odpowiedz na poniższe pytania — jeśli masz trudność z którymkol
 <summary><strong>Czy mogę używać AI do wyjaśniania trudnych fragmentów?</strong></summary>
 
 Tak. Najlepiej wklejać konkretny fragment i prosić model o:
+
 - wyjaśnienie prostym językiem,
 - przykład praktyczny,
 - pytanie kontrolne sprawdzające zrozumienie.
@@ -510,5 +521,3 @@ Podziel go na sekcje i pracuj etapami: sekcja -> streszczenie -> pytania -> test
 ## Ucz się z tym plikiem MDX w narzędziach AI
 
 <AiToolLauncher />
-
-

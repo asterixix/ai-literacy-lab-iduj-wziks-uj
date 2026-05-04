@@ -4,7 +4,18 @@ number: 3
 title: "Zrozumieć AI – Prompt Engineering i Agenty"
 titleEn: "Understanding AI – Prompt Engineering and Agents"
 duration: "2 godziny"
-tags: ["Prompt Engineering", "Few-shot", "Chain-of-Thought", "System Prompts", "Zero-shot", "Temperatura", "Agenty AI", "MCP", "Meta-prompting"]
+tags:
+  [
+    "Prompt Engineering",
+    "Few-shot",
+    "Chain-of-Thought",
+    "System Prompts",
+    "Zero-shot",
+    "Temperatura",
+    "Agenty AI",
+    "MCP",
+    "Meta-prompting",
+  ]
 instructor: "Artur Sendyka"
 dates:
   - group: "Grupa 1"
@@ -49,14 +60,14 @@ Po tym module wyjdziesz z osobistą **biblioteką 20+ gotowych promptów** do za
 
 Dobry prompt to nie jedno zdanie. To zestaw sześciu elementów, które razem dają modelowi pełny kontekst do wykonania zadania. Framework **CIFTEC** porządkuje te elementy:
 
-| Element | Co zawiera | Pytanie kontrolne |
-|---|---|---|
-| **C**ontext | Kim jesteś, jaki jest cel, dla kogo piszesz | *Skąd model ma wiedzieć, kim jesteś?* |
-| **I**nstruction | Co dokładnie ma zrobić model | *Czy instrukcja jest jednoznaczna?* |
-| **F**ormat | Jak ma wyglądać odpowiedź | *Lista? Tabela? Akapity? Kod?* |
-| **T**one | Styl i rejestr językowy | *Formalny? Akademicki? Prosty?* |
-| **E**xamples | 1–3 przykłady pożądanego wyniku | *Czy model wie, czego dokładnie chcesz?* |
-| **C**onstraints | Długość, zakres, czego unikać | *Co model NIE powinien robić?* |
+| Element         | Co zawiera                                  | Pytanie kontrolne                        |
+| --------------- | ------------------------------------------- | ---------------------------------------- |
+| **C**ontext     | Kim jesteś, jaki jest cel, dla kogo piszesz | _Skąd model ma wiedzieć, kim jesteś?_    |
+| **I**nstruction | Co dokładnie ma zrobić model                | _Czy instrukcja jest jednoznaczna?_      |
+| **F**ormat      | Jak ma wyglądać odpowiedź                   | _Lista? Tabela? Akapity? Kod?_           |
+| **T**one        | Styl i rejestr językowy                     | _Formalny? Akademicki? Prosty?_          |
+| **E**xamples    | 1–3 przykłady pożądanego wyniku             | _Czy model wie, czego dokładnie chcesz?_ |
+| **C**onstraints | Długość, zakres, czego unikać               | _Co model NIE powinien robić?_           |
 
 ### 1.1 Zły prompt vs. dobry prompt — porównanie
 
@@ -133,6 +144,7 @@ Przegląd Pedagogiczny, nr 3, s. 112-128.
 ```
 
 **Zastosowania akademickie few-shot:**
+
 - Ujednolicanie formatu bibliografii
 - Ekstrakcja danych z tabel w określonym schemacie
 - Klasyfikacja odpowiedzi ankietowych wg Twojego kodowania
@@ -150,7 +162,7 @@ Standardowo model "skacze" od pytania do odpowiedzi. CoT każe mu **myśleć na 
 Rozwiąż to krok po kroku.
 ```
 
-lub po angielsku: *"Let's think step by step."*
+lub po angielsku: _"Let's think step by step."_
 
 **Few-shot CoT** — podajesz przykłady z widocznym rozumowaniem:
 
@@ -231,13 +243,13 @@ Temperatura 1.5 → "Warszawa, bijące serce polskiej tożsamości,
 
 **Praktyczne rekomendacje:**
 
-| Zadanie | Temperatura | Uzasadnienie |
-|---|---|---|
-| Analiza faktograficzna | 0.0–0.2 | Deterministyczne, weryfikowalne odpowiedzi |
-| Streszczenie artykułu | 0.2–0.4 | Wierne oryginałowi, minimalne halucynacje |
-| Pisanie akademickie | 0.4–0.6 | Spójność z nutą naturalności |
-| Brainstorming, kreatywne | 0.8–1.2 | Różnorodne pomysły |
-| Generatywna fikcja | 1.0–1.5 | Maksymalna oryginalność |
+| Zadanie                  | Temperatura | Uzasadnienie                               |
+| ------------------------ | ----------- | ------------------------------------------ |
+| Analiza faktograficzna   | 0.0–0.2     | Deterministyczne, weryfikowalne odpowiedzi |
+| Streszczenie artykułu    | 0.2–0.4     | Wierne oryginałowi, minimalne halucynacje  |
+| Pisanie akademickie      | 0.4–0.6     | Spójność z nutą naturalności               |
+| Brainstorming, kreatywne | 0.8–1.2     | Różnorodne pomysły                         |
+| Generatywna fikcja       | 1.0–1.5     | Maksymalna oryginalność                    |
 
 ### 3.2 Top_p (nucleus sampling)
 
@@ -282,12 +294,12 @@ Analogia: Jeśli każda wiadomość do modelu to "zmiana", to system prompt to "
 
 ### 4.2 Gdzie ustawić system prompt?
 
-| Narzędzie | Gdzie |
-|---|---|
-| **Claude.ai** | Projects → Utwórz projekt → "Project instructions" |
-| **ChatGPT** | Ustawienia → Personalizacja → "Custom instructions" |
-| **OpenRouter Playground** | Zakładka "System" nad polem czatu |
-| **API (dowolne)** | Parametr `system` w wywołaniu API |
+| Narzędzie                 | Gdzie                                               |
+| ------------------------- | --------------------------------------------------- |
+| **Claude.ai**             | Projects → Utwórz projekt → "Project instructions"  |
+| **ChatGPT**               | Ustawienia → Personalizacja → "Custom instructions" |
+| **OpenRouter Playground** | Zakładka "System" nad polem czatu                   |
+| **API (dowolne)**         | Parametr `system` w wywołaniu API                   |
 
 ### 4.3 Struktura dobrego system promptu
 
@@ -327,18 +339,23 @@ W module 1 poznałeś teorię MCP. Teraz konkretne zastosowania. Oficjalny katal
 **Top MCP servery dla studentów — praktyczne zastosowania:**
 
 **filesystem** — czytanie i zapisywanie plików lokalnych:
+
 ```json
 {
   "mcpServers": {
     "filesystem": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-filesystem",
-               "C:/Users/artur/Documents/praca-dyplomowa"],
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "C:/Users/artur/Documents/praca-dyplomowa"
+      ],
       "env": {}
     }
   }
 }
 ```
+
 Zastosowanie: Claude analizuje Twoje notatki MDX, PDF-y, drafty rozdziałów.
 
 **Brave Search** — wyszukiwanie w internecie na żądanie:
@@ -471,15 +488,15 @@ Zakładaj, że rozumiem logikę, ale nie znam składni [język].
 
 ## 6. Przebieg modułu — timeline
 
-| Czas | Aktywność | Forma |
-|---|---|---|
-| 0–10 min | Ankieta wstępna: który element CIFTEC najczęściej pomijasz? | Mentimeter |
-| 10–25 min | Mini-wykład: CIFTEC, przegląd technik | Wykład z live demo |
-| 25–55 min | **Ćwiczenie 1** — Prompt Refinement Workshop | Praca indywidualna |
-| 55–75 min | **Ćwiczenie 2** — Zbuduj asystenta badawczego | Praca w parach |
-| 75–95 min | **Ćwiczenie 3** — Peer-review promptów | Wymiana w parach |
-| 95–110 min | Demo na żywo: parametry w OpenRouter Playground | Live demo + Q&A |
-| 110–120 min | Budowanie osobistej biblioteki promptów, podsumowanie | Refleksja |
+| Czas        | Aktywność                                                   | Forma              |
+| ----------- | ----------------------------------------------------------- | ------------------ |
+| 0–10 min    | Ankieta wstępna: który element CIFTEC najczęściej pomijasz? | Mentimeter         |
+| 10–25 min   | Mini-wykład: CIFTEC, przegląd technik                       | Wykład z live demo |
+| 25–55 min   | **Ćwiczenie 1** — Prompt Refinement Workshop                | Praca indywidualna |
+| 55–75 min   | **Ćwiczenie 2** — Zbuduj asystenta badawczego               | Praca w parach     |
+| 75–95 min   | **Ćwiczenie 3** — Peer-review promptów                      | Wymiana w parach   |
+| 95–110 min  | Demo na żywo: parametry w OpenRouter Playground             | Live demo + Q&A    |
+| 110–120 min | Budowanie osobistej biblioteki promptów, podsumowanie       | Refleksja          |
 
 ---
 
@@ -535,18 +552,18 @@ okres badania 3 miesiące. Unikaj pytań wymagających analizy ilościowej.
 
 **Iteracja 5 — dodaj przykład (few-shot):**
 
-Dołącz na początku: *"Przykład dobrego pytania badawczego z tej dziedziny: 'Jakie strategie wykorzystują studenci informacji naukowej do weryfikacji wiarygodności treści generowanych przez modele AI?'"*
+Dołącz na początku: _"Przykład dobrego pytania badawczego z tej dziedziny: 'Jakie strategie wykorzystują studenci informacji naukowej do weryfikacji wiarygodności treści generowanych przez modele AI?'"_
 
 **Podsumowanie:** Wypełnij tabelę po każdej iteracji:
 
-| Iteracja | Co dodano | Długość odpowiedzi | Użyteczność (1–5) |
-|---|---|---|---|
-| 0 | Nic | | |
-| 1 | Kontekst | | |
-| 2 | Instrukcja | | |
-| 3 | Format | | |
-| 4 | Ograniczenia | | |
-| 5 | Przykład | | |
+| Iteracja | Co dodano    | Długość odpowiedzi | Użyteczność (1–5) |
+| -------- | ------------ | ------------------ | ----------------- |
+| 0        | Nic          |                    |                   |
+| 1        | Kontekst     |                    |                   |
+| 2        | Instrukcja   |                    |                   |
+| 3        | Format       |                    |                   |
+| 4        | Ograniczenia |                    |                   |
+| 5        | Przykład     |                    |                   |
 
 ### Ćwiczenie 2 — Zbuduj swojego asystenta badawczego (20 min)
 
@@ -592,19 +609,20 @@ Zadaj 3 pytania związane z Twoją pracą i oceń czy model zachowuje się zgodn
 **Cel:** Ocenić prompt kolegi/koleżanki i otrzymać feedback na swój.
 
 **Instrukcja:**
+
 1. Zapisz swój "ulubiony" prompt (ten z którego najczęściej korzystasz lub który właśnie stworzyłeś/stworzyłaś)
 2. Wymień go z osobą obok
 3. Oceń cudzy prompt według rubryku:
 
 | Element CIFTEC | Obecny? | Jakość (1–3) | Sugestia poprawy |
-|---|---|---|---|
-| Context | Tak/Nie | | |
-| Instruction | Tak/Nie | | |
-| Format | Tak/Nie | | |
-| Tone | Tak/Nie | | |
-| Examples | Tak/Nie | | |
-| Constraints | Tak/Nie | | |
-| **Łącznie** | | **/18** | |
+| -------------- | ------- | ------------ | ---------------- |
+| Context        | Tak/Nie |              |                  |
+| Instruction    | Tak/Nie |              |                  |
+| Format         | Tak/Nie |              |                  |
+| Tone           | Tak/Nie |              |                  |
+| Examples       | Tak/Nie |              |                  |
+| Constraints    | Tak/Nie |              |                  |
+| **Łącznie**    |         | **/18**      |                  |
 
 4. Omówcie wyniki przez 5 minut
 5. Każdy poprawia swój prompt na podstawie feedbacku
@@ -615,12 +633,12 @@ Zadaj 3 pytania związane z Twoją pracą i oceń czy model zachowuje się zgodn
 
 ### Narzędzia do prompt engineeringu
 
-| Narzędzie | Link | Zastosowanie |
-|---|---|---|
-| OpenRouter Playground | [openrouter.ai/playground](https://openrouter.ai/playground) | Testowanie parametrów (temperatura, top_p) bez kodu |
-| Anthropic Prompt Library | [docs.anthropic.com/en/prompt-library](https://docs.anthropic.com/en/prompt-library) | Gotowe przykłady promptów dla różnych zadań |
-| Promptingguide.ai | [promptingguide.ai](https://www.promptingguide.ai) | Akademickie przewodniki po technikach |
-| Claude.ai Projects | [claude.ai](https://claude.ai) | System prompts dla stałego asystenta |
+| Narzędzie                | Link                                                                                 | Zastosowanie                                        |
+| ------------------------ | ------------------------------------------------------------------------------------ | --------------------------------------------------- |
+| OpenRouter Playground    | [openrouter.ai/playground](https://openrouter.ai/playground)                         | Testowanie parametrów (temperatura, top_p) bez kodu |
+| Anthropic Prompt Library | [docs.anthropic.com/en/prompt-library](https://docs.anthropic.com/en/prompt-library) | Gotowe przykłady promptów dla różnych zadań         |
+| Promptingguide.ai        | [promptingguide.ai](https://www.promptingguide.ai)                                   | Akademickie przewodniki po technikach               |
+| Claude.ai Projects       | [claude.ai](https://claude.ai)                                                       | System prompts dla stałego asystenta                |
 
 ### Materiały do dalszej nauki
 
@@ -663,6 +681,7 @@ Zadaj 3 pytania związane z Twoją pracą i oceń czy model zachowuje się zgodn
 <summary><strong>Czy mogę używać AI do wyjaśniania trudnych fragmentów?</strong></summary>
 
 Tak. Najlepiej wklejać konkretny fragment i prosić model o:
+
 - wyjaśnienie prostym językiem,
 - przykład praktyczny,
 - pytanie kontrolne sprawdzające zrozumienie.
@@ -688,5 +707,3 @@ Podziel go na sekcje i pracuj etapami: sekcja -> streszczenie -> pytania -> test
 ## Ucz się z tym plikiem MDX w narzędziach AI
 
 <AiToolLauncher />
-
-

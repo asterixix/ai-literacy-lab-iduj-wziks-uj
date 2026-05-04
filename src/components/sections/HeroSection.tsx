@@ -24,10 +24,16 @@ export function HeroSection() {
           >
             WZiKS · ID.UJ · 2026
           </motion.p>
-          <motion.h1 variants={fadeInUp} className="text-6xl font-black tracking-tighter md:text-8xl">
+          <motion.h1
+            variants={fadeInUp}
+            className="text-6xl font-black tracking-tighter md:text-8xl"
+          >
             AI LITERACY LAB
           </motion.h1>
-          <motion.p variants={fadeInUp} className="max-w-2xl text-lg leading-relaxed text-muted-foreground">
+          <motion.p
+            variants={fadeInUp}
+            className="max-w-2xl text-lg leading-relaxed text-muted-foreground"
+          >
             Warsztaty kompetencyjne ze sztucznej inteligencji dla studentów UJ.
           </motion.p>
           <motion.div variants={fadeInUp} className="flex flex-col flex-wrap gap-3 sm:flex-row">

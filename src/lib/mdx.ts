@@ -86,7 +86,9 @@ export async function getMaterialDocumentsIndex(): Promise<
     .filter((fileName) => fileName.endsWith(".mdx") && fileName !== "index.mdx")
     .sort((a, b) => a.localeCompare(b));
 
-  const documents = await Promise.all(contentFiles.map(async (fileName) => getMaterialDocumentIndexEntry(fileName)));
+  const documents = await Promise.all(
+    contentFiles.map(async (fileName) => getMaterialDocumentIndexEntry(fileName)),
+  );
 
   return documents;
 }

@@ -4,7 +4,9 @@ export function WorkshopRegistrationSection() {
       <div className="container-wide space-y-6">
         <header className="space-y-2">
           <p className="font-mono text-xs uppercase text-muted-foreground">Zapisy i organizacja</p>
-          <h2 className="text-3xl font-black tracking-tight md:text-4xl">Warsztaty w dwóch grupach</h2>
+          <h2 className="text-3xl font-black tracking-tight md:text-4xl">
+            Warsztaty w dwóch grupach
+          </h2>
           <p className="max-w-3xl text-muted-foreground">
             Warsztaty odbędą się w dwóch grupach po 15 osób. Przewidywany start zajęć: 28.04.2026.
           </p>
@@ -33,12 +35,13 @@ export function WorkshopRegistrationSection() {
         <article className="border border-border bg-muted p-5">
           <h3 className="text-lg font-black tracking-tight">Dlaczego warto wziąć udział?</h3>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            Nawet jeśli materiały szkoleniowe są już dostępne, udział w warsztatach daje dodatkowe korzyści: każdy
-            uczestnik otrzymuje kredyty do 10 USD do wykorzystania w OpenRouter API oraz zaświadczenie potwierdzające
-            udział.
+            Nawet jeśli materiały szkoleniowe są już dostępne, udział w warsztatach daje dodatkowe
+            korzyści: każdy uczestnik otrzymuje kredyty do 10 USD do wykorzystania w OpenRouter API
+            oraz zaświadczenie potwierdzające udział.
           </p>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            Osoby, które nie będą mogły uczestniczyć w zajęciach, mają bezpłatny dostęp do materiałów edukacyjnych.
+            Osoby, które nie będą mogły uczestniczyć w zajęciach, mają bezpłatny dostęp do
+            materiałów edukacyjnych.
           </p>
         </article>
       </div>

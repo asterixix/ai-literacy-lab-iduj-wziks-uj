@@ -103,7 +103,10 @@ export default async function WarsztatyDetailPage({
         eventName="workshop_markdown_opened"
         data={{ slug, title: activeModule.title, number: activeModule.number }}
       />
-      <Link href="/warsztaty" className="mb-8 inline-block text-sm text-muted-foreground hover:text-foreground">
+      <Link
+        href="/warsztaty"
+        className="mb-8 inline-block text-sm text-muted-foreground hover:text-foreground"
+      >
         ← Wróć do warsztatów
       </Link>
 
@@ -112,10 +115,15 @@ export default async function WarsztatyDetailPage({
           Moduł {activeModule.number} · {activeModule.duration}
         </p>
         <h1 className="text-3xl font-black tracking-tight md:text-5xl">{activeModule.title}</h1>
-        {activeModule.date ? <p className="text-sm text-muted-foreground">{activeModule.date}</p> : null}
+        {activeModule.date ? (
+          <p className="text-sm text-muted-foreground">{activeModule.date}</p>
+        ) : null}
         <div className="flex flex-wrap gap-2">
           {activeModule.tags.map((tag) => (
-            <span key={tag} className="border border-border px-2 py-1 font-mono text-[11px] uppercase">
+            <span
+              key={tag}
+              className="border border-border px-2 py-1 font-mono text-[11px] uppercase"
+            >
               {tag}
             </span>
           ))}

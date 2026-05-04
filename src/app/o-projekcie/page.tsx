@@ -22,8 +22,9 @@ export default function AboutProjectPage() {
       <header className="mb-10 space-y-3">
         <h1 className="text-4xl font-black tracking-tight md:text-5xl">O projekcie</h1>
         <p className="max-w-3xl text-muted-foreground">
-          Projekt AI Literacy Lab rozwija kompetencje praktycznego i krytycznego wykorzystania AI przez studentów UJ,
-          łącząc perspektywę edukacyjną, metodologiczną, społeczną i instytucjonalną.
+          Projekt AI Literacy Lab rozwija kompetencje praktycznego i krytycznego wykorzystania AI
+          przez studentów UJ, łącząc perspektywę edukacyjną, metodologiczną, społeczną i
+          instytucjonalną.
         </p>
       </header>
 
@@ -31,18 +32,25 @@ export default function AboutProjectPage() {
         <article className="space-y-3 border border-border p-5">
           <h2 className="text-xl font-black tracking-tight">Prowadzący</h2>
           <p className="text-sm leading-relaxed text-muted-foreground">
-            Artur Sendyka — developer i badacz z ponad 6-letnim doświadczeniem w IT, specjalizujący się w tworzeniu aplikacji webowych i wdrażaniu narzędzi AI w praktyce. projektant warsztatów i prowadzący zajęcia. Odpowiada za część merytoryczną oraz
-            przygotowanie materiałów OER.
+            Artur Sendyka — developer i badacz z ponad 6-letnim doświadczeniem w IT, specjalizujący
+            się w tworzeniu aplikacji webowych i wdrażaniu narzędzi AI w praktyce. projektant
+            warsztatów i prowadzący zajęcia. Odpowiada za część merytoryczną oraz przygotowanie
+            materiałów OER.
           </p>
-          <Link href="https://sendyka.dev" target="_blank" rel="noreferrer" className="text-sm hover:underline">
+          <Link
+            href="https://sendyka.dev"
+            target="_blank"
+            rel="noreferrer"
+            className="text-sm hover:underline"
+          >
             sendyka.dev →
           </Link>
         </article>
         <article className="space-y-3 border border-border p-5">
           <h2 className="text-xl font-black tracking-tight">Opiekun naukowy</h2>
           <p className="text-sm leading-relaxed text-muted-foreground">
-            dr hab. Magdalena Wójcik, prof. UJ — Dyrektor Instytutu Studiów Informacyjnych UJ, nadzór naukowy, konsultacje metodologiczne i wsparcie jakości
-            dydaktycznej projektu.
+            dr hab. Magdalena Wójcik, prof. UJ — Dyrektor Instytutu Studiów Informacyjnych UJ,
+            nadzór naukowy, konsultacje metodologiczne i wsparcie jakości dydaktycznej projektu.
           </p>
         </article>
       </section>
@@ -50,7 +58,8 @@ export default function AboutProjectPage() {
       <section className="mt-4 border border-border p-5">
         <h2 className="text-xl font-black tracking-tight">Zapisy i organizacja warsztatów</h2>
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-          Warsztaty będą realizowane w dwóch grupach po 15 osób. Przewidywany start zajęć: 28.04.2026.
+          Warsztaty będą realizowane w dwóch grupach po 15 osób. Przewidywany start zajęć:
+          28.04.2026.
         </p>
         <div className="mt-4 grid gap-4 md:grid-cols-2">
           <div className="border border-border p-4 text-sm text-muted-foreground">
@@ -73,7 +82,9 @@ export default function AboutProjectPage() {
       </section>
 
       <section className="mt-4 border border-border p-5">
-        <h2 className="text-xl font-black tracking-tight">Wykład gościnny — 14.05.2026 (16:00-18:00)</h2>
+        <h2 className="text-xl font-black tracking-tight">
+          Wykład gościnny — 14.05.2026 (16:00-18:00)
+        </h2>
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
           Lokalizacja: budynek WZiKS, aula 0.103.
         </p>
@@ -95,14 +106,15 @@ export default function AboutProjectPage() {
         </div>
         <div className="mt-4 border border-border p-4 text-sm text-muted-foreground">
           <p>
-            <span className="font-semibold text-foreground">Nazwa przedmiotu:</span> Artificial Intelligence +
-            Cybersecurity. Nowy wymiar cyberbezpieczeństwa.
+            <span className="font-semibold text-foreground">Nazwa przedmiotu:</span> Artificial
+            Intelligence + Cybersecurity. Nowy wymiar cyberbezpieczeństwa.
           </p>
           <p className="mt-2">
-            <span className="font-semibold text-foreground">Pełny opis:</span> Omawiane są w sposób uproszczony
-            podstawowe koncepcje różnych wariantów AI. W oparciu o tę wiedzę i różnorodne przykłady opisane zostaną
-            rodzaje zagrożeń związanych z wykorzystaniem AI. Analiza zagrożeń będzie rozszerzona o dobre praktyki
-            zabezpieczające oraz o pokazanie wykorzystania AI do działań ofensywnych jako kontrast.
+            <span className="font-semibold text-foreground">Pełny opis:</span> Omawiane są w sposób
+            uproszczony podstawowe koncepcje różnych wariantów AI. W oparciu o tę wiedzę i
+            różnorodne przykłady opisane zostaną rodzaje zagrożeń związanych z wykorzystaniem AI.
+            Analiza zagrożeń będzie rozszerzona o dobre praktyki zabezpieczające oraz o pokazanie
+            wykorzystania AI do działań ofensywnych jako kontrast.
           </p>
         </div>
       </section>
@@ -121,8 +133,8 @@ export default function AboutProjectPage() {
             />
           </div>
           <p className="min-w-0 flex-1 text-sm leading-relaxed text-muted-foreground">
-            Projekt sfinansowany ze środków Wydziału Zarządzania i Komunikacji Społecznej w ramach Programu
-            Strategicznego Inicjatywa Doskonałości w Uniwersytecie Jagiellońskim.
+            Projekt sfinansowany ze środków Wydziału Zarządzania i Komunikacji Społecznej w ramach
+            Programu Strategicznego Inicjatywa Doskonałości w Uniwersytecie Jagiellońskim.
           </p>
         </div>
       </section>
@@ -130,7 +142,9 @@ export default function AboutProjectPage() {
       <section className="mt-4 border border-border p-5">
         <h2 className="text-xl font-black tracking-tight">Organizatorzy</h2>
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-          Koło Naukowe ZaintrygowanI UJ — studencka organizacja naukowa działająca przy Instytucie Studiów Informacyjnych UJ, zajmująca się popularyzacją wiedzy o informatologii, organizacją wydarzeń edukacyjnych i realizacją projektów badawczych.
+          Koło Naukowe ZaintrygowanI UJ — studencka organizacja naukowa działająca przy Instytucie
+          Studiów Informacyjnych UJ, zajmująca się popularyzacją wiedzy o informatologii,
+          organizacją wydarzeń edukacyjnych i realizacją projektów badawczych.
         </p>
       </section>
     </div>

@@ -8,7 +8,8 @@ import { buildCanonicalPath } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Strona główna",
-  description: "Przegląd projektu AI Literacy Lab, modułów warsztatowych i materiałów edukacyjnych.",
+  description:
+    "Przegląd projektu AI Literacy Lab, modułów warsztatowych i materiałów edukacyjnych.",
   alternates: {
     canonical: buildCanonicalPath("/"),
   },

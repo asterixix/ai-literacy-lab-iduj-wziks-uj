@@ -1,13 +1,13 @@
 "use client";
 
 import { track } from "@vercel/analytics";
-import { Button as ButtonPrimitive } from "@base-ui/react/button"
-import { cva, type VariantProps } from "class-variance-authority"
+import { Button as ButtonPrimitive } from "@base-ui/react/button";
+import { cva, type VariantProps } from "class-variance-authority";
 import { Children, isValidElement, useMemo, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
 
 import { hasClientAnalyticsConsent } from "@/lib/cookie-consent";
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 type ButtonClickData = {
   label: string;
@@ -62,8 +62,7 @@ const buttonVariants = cva(
         icon: "size-8",
         "icon-xs":
           "size-6 rounded-sm in-data-[slot=button-group]:rounded-sm [&_svg:not([class*='size-'])]:size-3",
-        "icon-sm":
-          "size-7 rounded-sm in-data-[slot=button-group]:rounded-sm",
+        "icon-sm": "size-7 rounded-sm in-data-[slot=button-group]:rounded-sm",
         "icon-lg": "size-9",
       },
     },
@@ -71,8 +70,8 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
-)
+  },
+);
 
 function Button({
   className,
@@ -114,7 +113,7 @@ function Button({
     >
       {children}
     </ButtonPrimitive>
-  )
+  );
 }
 
-export { Button, buttonVariants }
+export { Button, buttonVariants };

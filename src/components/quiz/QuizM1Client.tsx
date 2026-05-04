@@ -267,16 +267,127 @@ function QuizM1Client() {
   const currentQuestion = preparedQuestions[currentIndex];
   const currentAnswer = currentQuestion ? answers[currentQuestion.question.id] : undefined;
 
-  const finalizeQuiz = useCallback((reason: FinalReport["reason"], nextViolations?: string[]) => {
-    if (status !== "running") {
-      return;
-    }
+  const finalizeQuiz = useCallback(
+    (reason: FinalReport["reason"], nextViolations?: string[]) => {
+      if (status !== "running") {
+        return;
+      }
 
-    const details: QuestionReport[] = preparedQuestions.map((prepared) => {
-      const question = prepared.question;
-      const answer = answers[question.id];
+      const details: QuestionReport[] = preparedQuestions.map((prepared) => {
+        const question = prepared.question;
+        const answer = answers[question.id];
 
-      if (!answer) {
+        if (!answer) {
+          return {
+            questionId: question.id,
+            title: question.title,
+            prompt: question.prompt,
+            earned: 0,
+            max: 1,
+            userAnswerText: "Brak odpowiedzi",
+            correctAnswerText: getCorrectAnswerText(question),
+            explanation: question.explanation,
+            sourceIds: question.sourceIds,
+          };
+        }
+
+        if (question.kind === "single" && answer.kind === "single") {
+          const selectedText =
+            question.options.find((option) => option.id === answer.value)?.text ??
+            "Brak odpowiedzi";
+          const earned = answer.value === question.correctOptionId ? 1 : 0;
+
+          return {
+            questionId: question.id,
+            title: question.title,
+            prompt: question.prompt,
+            earned,
+            max: 1,
+            userAnswerText: selectedText,
+            correctAnswerText: getCorrectAnswerText(question),
+            explanation: question.explanation,
+            sourceIds: question.sourceIds,
+          };
+        }
+
+        if (question.kind === "multiple" && answer.kind === "multiple") {
+          const selectedSet = new Set(answer.value);
+          const correctSet = new Set(question.correctOptionIds);
+          const incorrectPool = question.options.filter((option) => !correctSet.has(option.id));
+
+          const correctlySelected = answer.value.filter((optionId) =>
+            correctSet.has(optionId),
+          ).length;
+          const incorrectlySelected = answer.value.filter(
+            (optionId) => !correctSet.has(optionId),
+          ).length;
+          const positivePart = correctlySelected / question.correctOptionIds.length;
+          const negativePart = incorrectlySelected / Math.max(incorrectPool.length, 1);
+          const earned = Math.max(0, Number((positivePart - negativePart).toFixed(2)));
+
+          const selectedText =
+            question.options
+              .filter((option) => selectedSet.has(option.id))
+              .map((option) => option.text)
+              .join(" | ") || "Brak odpowiedzi";
+
+          return {
+            questionId: question.id,
+            title: question.title,
+            prompt: question.prompt,
+            earned,
+            max: 1,
+            userAnswerText: selectedText,
+            correctAnswerText: getCorrectAnswerText(question),
+            explanation: question.explanation,
+            sourceIds: question.sourceIds,
+          };
+        }
+
+        if (question.kind === "sequence" && answer.kind === "sequence") {
+          const perfect = answer.value.join("|") === question.correctOrder.join("|");
+          const userSequence = answer.value
+            .map((id) => question.items.find((item) => item.id === id)?.text ?? "")
+            .join(" -> ");
+
+          return {
+            questionId: question.id,
+            title: question.title,
+            prompt: question.prompt,
+            earned: perfect ? 1 : 0,
+            max: 1,
+            userAnswerText: userSequence,
+            correctAnswerText: getCorrectAnswerText(question),
+            explanation: question.explanation,
+            sourceIds: question.sourceIds,
+          };
+        }
+
+        if (question.kind === "matching" && answer.kind === "matching") {
+          const perfect = question.leftItems.every(
+            (left) => answer.value[left.id] === question.correctPairs[left.id],
+          );
+          const userPairs = question.leftItems
+            .map((left) => {
+              const rightId = answer.value[left.id];
+              const right = question.rightItems.find((item) => item.id === rightId);
+              return `${left.text} -> ${right?.text ?? "brak"}`;
+            })
+            .join(" | ");
+
+          return {
+            questionId: question.id,
+            title: question.title,
+            prompt: question.prompt,
+            earned: perfect ? 1 : 0,
+            max: 1,
+            userAnswerText: userPairs,
+            correctAnswerText: getCorrectAnswerText(question),
+            explanation: question.explanation,
+            sourceIds: question.sourceIds,
+          };
+        }
+
         return {
           questionId: question.id,
           title: question.title,
@@ -288,147 +399,50 @@ function QuizM1Client() {
           explanation: question.explanation,
           sourceIds: question.sourceIds,
         };
+      });
+
+      const total = Number(details.reduce((sum, item) => sum + item.earned, 0).toFixed(2));
+      const max = details.length;
+      const percent = Number(((total / Math.max(max, 1)) * 100).toFixed(2));
+
+      setReport({
+        total,
+        max,
+        percent,
+        details,
+        reason,
+      });
+
+      if (reason === "violations") {
+        setViolations(nextViolations ?? []);
+        setStatus("invalidated");
+        return;
       }
 
-      if (question.kind === "single" && answer.kind === "single") {
-        const selectedText = question.options.find((option) => option.id === answer.value)?.text ?? "Brak odpowiedzi";
-        const earned = answer.value === question.correctOptionId ? 1 : 0;
+      setStatus("finished");
+    },
+    [answers, preparedQuestions, status],
+  );
 
-        return {
-          questionId: question.id,
-          title: question.title,
-          prompt: question.prompt,
-          earned,
-          max: 1,
-          userAnswerText: selectedText,
-          correctAnswerText: getCorrectAnswerText(question),
-          explanation: question.explanation,
-          sourceIds: question.sourceIds,
-        };
+  const registerViolation = useCallback(
+    (reason: string) => {
+      const now = Date.now();
+      if (now - lastViolationAtRef.current < 1200) {
+        return;
       }
 
-      if (question.kind === "multiple" && answer.kind === "multiple") {
-        const selectedSet = new Set(answer.value);
-        const correctSet = new Set(question.correctOptionIds);
-        const incorrectPool = question.options.filter((option) => !correctSet.has(option.id));
+      lastViolationAtRef.current = now;
 
-        const correctlySelected = answer.value.filter((optionId) => correctSet.has(optionId)).length;
-        const incorrectlySelected = answer.value.filter((optionId) => !correctSet.has(optionId)).length;
-        const positivePart = correctlySelected / question.correctOptionIds.length;
-        const negativePart = incorrectlySelected / Math.max(incorrectPool.length, 1);
-        const earned = Math.max(0, Number((positivePart - negativePart).toFixed(2)));
-
-        const selectedText =
-          question.options
-            .filter((option) => selectedSet.has(option.id))
-            .map((option) => option.text)
-            .join(" | ") || "Brak odpowiedzi";
-
-        return {
-          questionId: question.id,
-          title: question.title,
-          prompt: question.prompt,
-          earned,
-          max: 1,
-          userAnswerText: selectedText,
-          correctAnswerText: getCorrectAnswerText(question),
-          explanation: question.explanation,
-          sourceIds: question.sourceIds,
-        };
-      }
-
-      if (question.kind === "sequence" && answer.kind === "sequence") {
-        const perfect = answer.value.join("|") === question.correctOrder.join("|");
-        const userSequence = answer.value
-          .map((id) => question.items.find((item) => item.id === id)?.text ?? "")
-          .join(" -> ");
-
-        return {
-          questionId: question.id,
-          title: question.title,
-          prompt: question.prompt,
-          earned: perfect ? 1 : 0,
-          max: 1,
-          userAnswerText: userSequence,
-          correctAnswerText: getCorrectAnswerText(question),
-          explanation: question.explanation,
-          sourceIds: question.sourceIds,
-        };
-      }
-
-      if (question.kind === "matching" && answer.kind === "matching") {
-        const perfect = question.leftItems.every((left) => answer.value[left.id] === question.correctPairs[left.id]);
-        const userPairs = question.leftItems
-          .map((left) => {
-            const rightId = answer.value[left.id];
-            const right = question.rightItems.find((item) => item.id === rightId);
-            return `${left.text} -> ${right?.text ?? "brak"}`;
-          })
-          .join(" | ");
-
-        return {
-          questionId: question.id,
-          title: question.title,
-          prompt: question.prompt,
-          earned: perfect ? 1 : 0,
-          max: 1,
-          userAnswerText: userPairs,
-          correctAnswerText: getCorrectAnswerText(question),
-          explanation: question.explanation,
-          sourceIds: question.sourceIds,
-        };
-      }
-
-      return {
-        questionId: question.id,
-        title: question.title,
-        prompt: question.prompt,
-        earned: 0,
-        max: 1,
-        userAnswerText: "Brak odpowiedzi",
-        correctAnswerText: getCorrectAnswerText(question),
-        explanation: question.explanation,
-        sourceIds: question.sourceIds,
-      };
-    });
-
-    const total = Number(details.reduce((sum, item) => sum + item.earned, 0).toFixed(2));
-    const max = details.length;
-    const percent = Number(((total / Math.max(max, 1)) * 100).toFixed(2));
-
-    setReport({
-      total,
-      max,
-      percent,
-      details,
-      reason,
-    });
-
-    if (reason === "violations") {
-      setViolations(nextViolations ?? []);
-      setStatus("invalidated");
-      return;
-    }
-
-    setStatus("finished");
-  }, [answers, preparedQuestions, status]);
-
-  const registerViolation = useCallback((reason: string) => {
-    const now = Date.now();
-    if (now - lastViolationAtRef.current < 1200) {
-      return;
-    }
-
-    lastViolationAtRef.current = now;
-
-    setViolations((prev) => {
-      const next = [...prev, `${prev.length + 1}. ${reason}`];
-      if (next.length >= QUIZ_M1_MAX_VIOLATIONS) {
-        finalizeQuiz("violations", next);
-      }
-      return next;
-    });
-  }, [finalizeQuiz]);
+      setViolations((prev) => {
+        const next = [...prev, `${prev.length + 1}. ${reason}`];
+        if (next.length >= QUIZ_M1_MAX_VIOLATIONS) {
+          finalizeQuiz("violations", next);
+        }
+        return next;
+      });
+    },
+    [finalizeQuiz],
+  );
 
   const startQuiz = async () => {
     const nextPrepared = buildPreparedQuestions();
@@ -674,10 +688,12 @@ function QuizM1Client() {
     <div className="container-wide py-14">
       <header className="mb-8 space-y-3">
         <p className="font-mono text-xs uppercase text-muted-foreground">Quiz Pre-Moduł 1</p>
-        <h1 className="text-4xl font-black tracking-tight md:text-5xl">Sprawdź się z wiedzy o AI</h1>
+        <h1 className="text-4xl font-black tracking-tight md:text-5xl">
+          Sprawdź się z wiedzy o AI
+        </h1>
         <p className="max-w-3xl text-muted-foreground">
-          Test zawiera 14 pytań i trwa 5 minut. Wymagany jest pełny ekran. Po 3 naruszeniach zasad próba zostaje
-          unieważniona.
+          Test zawiera 14 pytań i trwa 5 minut. Wymagany jest pełny ekran. Po 3 naruszeniach zasad
+          próba zostaje unieważniona.
         </p>
       </header>
 
@@ -685,7 +701,10 @@ function QuizM1Client() {
         <section className="space-y-5 border border-border bg-card p-6">
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li>Tryb: 1 pytanie na ekran, losowa kolejność pytań i odpowiedzi.</li>
-            <li>Punktacja: single 1 pkt, multiple częściowo punktowane z karą, sequence/matching 1 pkt tylko za pełną poprawność.</li>
+            <li>
+              Punktacja: single 1 pkt, multiple częściowo punktowane z karą, sequence/matching 1 pkt
+              tylko za pełną poprawność.
+            </li>
             <li>Zabezpieczenia: są. I tyle powiem w tym temacie xd.</li>
           </ul>
           {startError && <p className="text-sm font-semibold text-foreground">{startError}</p>}
@@ -702,7 +721,9 @@ function QuizM1Client() {
             </div>
             <div className="space-y-1 text-right text-sm">
               <p className="text-muted-foreground">Powód zakończenia: naruszenia</p>
-              <Button variant="outline" onClick={restartQuiz}>Zacznij jeszcze raz</Button>
+              <Button variant="outline" onClick={restartQuiz}>
+                Zacznij jeszcze raz
+              </Button>
             </div>
           </div>
 
@@ -722,11 +743,22 @@ function QuizM1Client() {
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border pb-4">
             <div>
               <p className="font-mono text-xs uppercase text-muted-foreground">Wynik końcowy</p>
-              <p className="text-2xl font-black">{report.total.toFixed(2)} / {report.max} pkt ({report.percent.toFixed(2)}%)</p>
+              <p className="text-2xl font-black">
+                {report.total.toFixed(2)} / {report.max} pkt ({report.percent.toFixed(2)}%)
+              </p>
             </div>
             <div className="space-y-1 text-right text-sm">
-              <p className="text-muted-foreground">Powód zakończenia: {report.reason === "completed" ? "ukończono" : report.reason === "timeout" ? "limit czasu" : "naruszenia"}</p>
-              <Button variant="outline" onClick={restartQuiz}>Zacznij jeszcze raz</Button>
+              <p className="text-muted-foreground">
+                Powód zakończenia:{" "}
+                {report.reason === "completed"
+                  ? "ukończono"
+                  : report.reason === "timeout"
+                    ? "limit czasu"
+                    : "naruszenia"}
+              </p>
+              <Button variant="outline" onClick={restartQuiz}>
+                Zacznij jeszcze raz
+              </Button>
             </div>
           </div>
 
@@ -739,12 +771,19 @@ function QuizM1Client() {
               <article key={item.questionId} className="space-y-3 border border-border p-4">
                 <div className="flex items-start justify-between gap-3">
                   <h2 className="text-lg font-bold">{item.title}</h2>
-                  <p className="font-mono text-xs uppercase text-muted-foreground">{item.earned.toFixed(2)} / {item.max.toFixed(2)} pkt</p>
+                  <p className="font-mono text-xs uppercase text-muted-foreground">
+                    {item.earned.toFixed(2)} / {item.max.toFixed(2)} pkt
+                  </p>
                 </div>
                 <p className="text-sm">{item.prompt}</p>
                 <div className="space-y-2 text-sm">
-                  <p><span className="font-semibold">Twoja odpowiedź:</span> {item.userAnswerText}</p>
-                  <p><span className="font-semibold">Poprawna odpowiedź:</span> {item.correctAnswerText}</p>
+                  <p>
+                    <span className="font-semibold">Twoja odpowiedź:</span> {item.userAnswerText}
+                  </p>
+                  <p>
+                    <span className="font-semibold">Poprawna odpowiedź:</span>{" "}
+                    {item.correctAnswerText}
+                  </p>
                   <p className="text-muted-foreground">{item.explanation}</p>
                 </div>
                 <div className="space-y-1 text-sm">
@@ -758,7 +797,12 @@ function QuizM1Client() {
 
                       return (
                         <li key={`${item.questionId}-${source.id}`}>
-                          <a href={source.url} target="_blank" rel="noopener noreferrer" className="underline-offset-4 hover:underline">
+                          <a
+                            href={source.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="underline-offset-4 hover:underline"
+                          >
                             {source.label}
                           </a>
                         </li>
@@ -775,7 +819,12 @@ function QuizM1Client() {
             <ul className="space-y-1 text-sm text-muted-foreground">
               {quizM1Sources.map((source) => (
                 <li key={source.id}>
-                  <a href={source.url} target="_blank" rel="noopener noreferrer" className="underline-offset-4 hover:underline">
+                  <a
+                    href={source.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline-offset-4 hover:underline"
+                  >
                     {source.label}
                   </a>
                 </li>
@@ -804,7 +853,9 @@ function QuizM1Client() {
 
           {!isFullscreen && (
             <div className="space-y-3 border border-border bg-muted/50 p-4">
-              <p className="text-sm font-semibold">Treść quizu jest ukryta poza trybem pełnoekranowym.</p>
+              <p className="text-sm font-semibold">
+                Treść quizu jest ukryta poza trybem pełnoekranowym.
+              </p>
               <Button onClick={requestFullscreenAgain}>Wróć do pełnego ekranu</Button>
             </div>
           )}
@@ -814,7 +865,10 @@ function QuizM1Client() {
               {currentQuestion.kind === "single" && currentAnswer?.kind === "single" && (
                 <div className="space-y-2">
                   {currentQuestion.options.map((option) => (
-                    <label key={option.id} className="flex cursor-pointer gap-3 border border-border p-3">
+                    <label
+                      key={option.id}
+                      className="flex cursor-pointer gap-3 border border-border p-3"
+                    >
                       <input
                         type="radio"
                         name={currentQuestion.question.id}
@@ -830,7 +884,10 @@ function QuizM1Client() {
               {currentQuestion.kind === "multiple" && currentAnswer?.kind === "multiple" && (
                 <div className="space-y-2">
                   {currentQuestion.options.map((option) => (
-                    <label key={option.id} className="flex cursor-pointer gap-3 border border-border p-3">
+                    <label
+                      key={option.id}
+                      className="flex cursor-pointer gap-3 border border-border p-3"
+                    >
                       <input
                         type="checkbox"
                         checked={currentAnswer.value.includes(option.id)}
@@ -845,26 +902,37 @@ function QuizM1Client() {
               {currentQuestion.kind === "sequence" && currentAnswer?.kind === "sequence" && (
                 <ol className="space-y-2">
                   {currentAnswer.value.map((itemId, index) => {
-                    const item = currentQuestion.question.items.find((entry) => entry.id === itemId);
+                    const item = currentQuestion.question.items.find(
+                      (entry) => entry.id === itemId,
+                    );
                     if (!item) {
                       return null;
                     }
 
                     return (
-                      <li key={item.id} className="flex items-center justify-between gap-4 border border-border p-3">
-                        <span className="text-sm"><span className="font-mono text-xs">{index + 1}.</span> {item.text}</span>
+                      <li
+                        key={item.id}
+                        className="flex items-center justify-between gap-4 border border-border p-3"
+                      >
+                        <span className="text-sm">
+                          <span className="font-mono text-xs">{index + 1}.</span> {item.text}
+                        </span>
                         <div className="flex gap-2">
                           <Button
                             variant="outline"
                             size="sm"
-                            onClick={() => moveSequenceItem(currentQuestion.question.id, index, index - 1)}
+                            onClick={() =>
+                              moveSequenceItem(currentQuestion.question.id, index, index - 1)
+                            }
                           >
                             W górę
                           </Button>
                           <Button
                             variant="outline"
                             size="sm"
-                            onClick={() => moveSequenceItem(currentQuestion.question.id, index, index + 1)}
+                            onClick={() =>
+                              moveSequenceItem(currentQuestion.question.id, index, index + 1)
+                            }
                           >
                             W dół
                           </Button>
@@ -878,22 +946,31 @@ function QuizM1Client() {
               {currentQuestion.kind === "matching" && currentAnswer?.kind === "matching" && (
                 <div className="space-y-3">
                   {currentQuestion.leftOrder.map((leftId) => {
-                    const left = currentQuestion.question.leftItems.find((entry) => entry.id === leftId);
+                    const left = currentQuestion.question.leftItems.find(
+                      (entry) => entry.id === leftId,
+                    );
                     if (!left) {
                       return null;
                     }
 
                     return (
-                      <div key={left.id} className="grid gap-2 border border-border p-3 md:grid-cols-2 md:items-center">
+                      <div
+                        key={left.id}
+                        className="grid gap-2 border border-border p-3 md:grid-cols-2 md:items-center"
+                      >
                         <p className="font-semibold">{left.text}</p>
                         <select
                           className="h-9 rounded-sm border border-input bg-background px-2 text-sm"
                           value={currentAnswer.value[left.id] ?? ""}
-                          onChange={(event) => setMatching(currentQuestion.question.id, left.id, event.target.value)}
+                          onChange={(event) =>
+                            setMatching(currentQuestion.question.id, left.id, event.target.value)
+                          }
                         >
                           <option value="">Wybierz dopasowanie</option>
                           {currentQuestion.rightOrder.map((rightId) => {
-                            const right = currentQuestion.question.rightItems.find((entry) => entry.id === rightId);
+                            const right = currentQuestion.question.rightItems.find(
+                              (entry) => entry.id === rightId,
+                            );
                             if (!right) {
                               return null;
                             }
@@ -915,7 +992,10 @@ function QuizM1Client() {
                 <p className="text-sm text-muted-foreground">
                   Naruszenia: {violations.length}/{QUIZ_M1_MAX_VIOLATIONS}
                 </p>
-                <Button onClick={nextQuestion} disabled={!isQuestionAnswered(currentQuestion, currentAnswer)}>
+                <Button
+                  onClick={nextQuestion}
+                  disabled={!isQuestionAnswered(currentQuestion, currentAnswer)}
+                >
                   {currentIndex === preparedQuestions.length - 1 ? "Zakończ quiz" : "Dalej"}
                 </Button>
               </div>

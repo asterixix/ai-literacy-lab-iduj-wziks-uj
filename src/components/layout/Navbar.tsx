@@ -31,7 +31,11 @@ export function Navbar() {
 
         <nav className="hidden items-center gap-8 text-sm md:flex">
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className="text-muted-foreground transition hover:text-foreground">
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-muted-foreground transition hover:text-foreground"
+            >
               {item.label}
             </Link>
           ))}
@@ -44,11 +48,7 @@ export function Navbar() {
             size="sm"
             className="shrink-0 text-xs sm:text-sm"
             render={
-              <a
-                href={OPEN_LECTURE_CALENDAR_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-              />
+              <a href={OPEN_LECTURE_CALENDAR_URL} target="_blank" rel="noopener noreferrer" />
             }
           >
             <span className="sm:hidden">Dodaj do kalendarza</span>
@@ -59,7 +59,12 @@ export function Navbar() {
           <Sheet>
             <SheetTrigger
               render={
-                <Button variant="ghost" size="icon" className="md:hidden" aria-label="Otwórz menu nawigacji" />
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="md:hidden"
+                  aria-label="Otwórz menu nawigacji"
+                />
               }
             >
               <Menu className="size-5" />

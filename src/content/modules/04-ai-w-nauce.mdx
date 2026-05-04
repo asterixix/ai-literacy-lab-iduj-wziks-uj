@@ -4,7 +4,21 @@ number: 4
 title: "AI w nauce – Literatura, Notatki, Organizacja Wiedzy"
 titleEn: "AI in Research – Literature, Notes, Knowledge Organization"
 duration: "2 godziny"
-tags: ["Semantic Scholar", "Connected Papers", "Consensus AI", "Elicit", "Zotero", "Obsidian", "Notatki badawcze", "Research gaps", "PRISMA", "Etyka naukowa", "AI Act", "RODO"]
+tags:
+  [
+    "Semantic Scholar",
+    "Connected Papers",
+    "Consensus AI",
+    "Elicit",
+    "Zotero",
+    "Obsidian",
+    "Notatki badawcze",
+    "Research gaps",
+    "PRISMA",
+    "Etyka naukowa",
+    "AI Act",
+    "RODO",
+  ]
 instructor: "Artur Sendyka"
 dates:
   - group: "Grupa 1"
@@ -53,12 +67,12 @@ Ten moduł daje Ci **kompletny, weryfikowalny workflow** od pytania badawczego d
 
 Zanim sięgniesz po konkretne narzędzie, warto zrozumieć, że praca naukowa ma cztery odrębne fazy — i każda wymaga innych narzędzi:
 
-| Faza | Pytanie | Najlepsze narzędzia AI |
-|---|---|---|
-| **Odkrywanie** | Jakie artykuły istnieją w tym obszarze? | Semantic Scholar, Research Rabbit, Connected Papers |
-| **Synteza dowodów** | Co badania mówią na dany temat? | Consensus AI, Elicit |
-| **Głęboka analiza** | Co dokładnie mówi ten artykuł? | Claude (analiza PDF), Elicit, NotebookLM |
-| **Organizacja** | Jak zarządzać wiedzą i cytatami? | Zotero, Obsidian, NotebookLM |
+| Faza                | Pytanie                                 | Najlepsze narzędzia AI                              |
+| ------------------- | --------------------------------------- | --------------------------------------------------- |
+| **Odkrywanie**      | Jakie artykuły istnieją w tym obszarze? | Semantic Scholar, Research Rabbit, Connected Papers |
+| **Synteza dowodów** | Co badania mówią na dany temat?         | Consensus AI, Elicit                                |
+| **Głęboka analiza** | Co dokładnie mówi ten artykuł?          | Claude (analiza PDF), Elicit, NotebookLM            |
+| **Organizacja**     | Jak zarządzać wiedzą i cytatami?        | Zotero, Obsidian, NotebookLM                        |
 
 Najczęstszy błąd: używanie jednego narzędzia do wszystkich czterech faz. ChatGPT lub Claude nie zastąpią Semantic Scholar do odkrywania — bo mogą **halucynować cytowania**. Semantic Scholar nie zastąpi Claude do głębokiej analizy — bo nie czyta pełnych tekstów.
 
@@ -75,6 +89,7 @@ Najczęstszy błąd: używanie jednego narzędzia do wszystkich czterech faz. Ch
 **Czym jest:** Bezpłatna wyszukiwarka naukowa od Allen Institute for AI (AI2). Indeksuje ponad **200 milionów artykułów** z wszystkich dziedzin. Używa semantycznego wyszukiwania — rozumie znaczenie zapytania, nie tylko słowa kluczowe.
 
 **Kluczowe funkcje:**
+
 - **TLDR (Too Long; Didn't Read):** AI generuje 1-zdaniowe streszczenie każdego artykułu
 - **Highly Influential Citations:** wskazuje które cytowania miały realny wpływ (nie tylko są wymienione)
 - **Semantic Reader:** czyta artykuł z podkreśleniami kluczowych twierdzeń i odnośnikami do definicji
@@ -86,6 +101,7 @@ Najczęstszy błąd: używanie jednego narzędzia do wszystkich czterech faz. Ch
 **Ograniczenia:** Słabsza pokrywalność w humanistyce i naukach społecznych niż w STEM. AI-generowane TLDRy nie zawsze są dokładne — traktuj je jako wskazówkę, nie jako autorytarne streszczenie.
 
 **Praktyczne wskazówki:**
+
 - Wyszukuj po **DOI lub tytule** (dokładniejsze niż słowa kluczowe) gdy weryfikujesz konkretny artykuł
 - Używaj **filtru "Highly Cited"** dla seminale prace w dziedzinie
 - Zakładka **"Cited By"** pokazuje kto po tej pracy cytuje — świetne do śledzenia aktualnego stanu badań
@@ -97,6 +113,7 @@ Najczęstszy błąd: używanie jednego narzędzia do wszystkich czterech faz. Ch
 **Jak działa:** Podajesz tytuł lub DOI artykułu → narzędzie buduje graf artykułów podobnych (przez nakładające się cytowania i odniesienia), nie tylko tych bezpośrednio cytowanych. Dzięki temu odkrywasz prace, których byś nie znalazł/a tradycyjnym wyszukiwaniem.
 
 **Dwie kluczowe sekcje:**
+
 - **Prior Works** — fundament pola: klasyczne, seminale artykuły
 - **Derivative Works** — co wyrosło z tej pracy: aktualne badania bazujące na tym artykule
 
@@ -106,13 +123,14 @@ Najczęstszy błąd: używanie jednego narzędzia do wszystkich czterech faz. Ch
 
 ### 2.3 Consensus AI — synteza dowodów naukowych
 
-**Czym jest:** Wyszukiwarka zaprojektowana do odpowiadania na pytania w stylu *"czy X jest prawdą?"* z syntezą wyników z badań naukowych. Używa GPT-4 do analizy 200M+ prac.
+**Czym jest:** Wyszukiwarka zaprojektowana do odpowiadania na pytania w stylu _"czy X jest prawdą?"_ z syntezą wyników z badań naukowych. Używa GPT-4 do analizy 200M+ prac.
 
 **Kluczowa funkcja — Consensus Meter:** Wizualny wskaźnik pokazujący czy badania wspierają, są neutralne, czy przeczą danej tezie. Świetne do formułowania uzasadnienia hipotezy badawczej.
 
 **Koszt:** Darmowe (10 analiz/miesiąc, odnawialne). Premium ok. ~$9/miesiąc rocznie (więcej analiz, zaawansowane filtry).
 
 **Kiedy używać:**
+
 - Formułowanie uzasadnienia dla Twojej tezy ("badania wskazują, że...")
 - Szybka weryfikacja: czy istnieje konsensus naukowy w danej kwestii?
 - Identyfikacja research gap: szukasz pytania, na które brak konsensusu
@@ -121,9 +139,10 @@ Najczęstszy błąd: używanie jednego narzędzia do wszystkich czterech faz. Ch
 
 ### 2.4 Elicit — asystent systematycznych przeglądów
 
-**Czym jest:** Narzędzie do automatyzacji *research workflow* — szczególnie ekstrakcji danych z wielu artykułów do tabel. Indeksuje 138 milionów artykułów.
+**Czym jest:** Narzędzie do automatyzacji _research workflow_ — szczególnie ekstrakcji danych z wielu artykułów do tabel. Indeksuje 138 milionów artykułów.
 
 **Kluczowe funkcje:**
+
 - Ekstrakcja danych do tabeli: pyta każdy artykuł o próbę, metodę, wynik, ograniczenia — i zestawia je w arkuszu
 - Automatyczne raporty systematycznych przeglądów
 - Workflow PRISMA (filtry inkluzji/ekskluzji)
@@ -149,6 +168,7 @@ Najczęstszy błąd: używanie jednego narzędzia do wszystkich czterech faz. Ch
 Zotero to **otwartoźródłowy** menedżer bibliografii — Twoje dane są Twoje, nie przechowywane na serwerach zewnętrznych (chyba że korzystasz z płatnego Zotero Sync). Integruje się ze wszystkimi omówionymi narzędziami badawczymi.
 
 **Kluczowe funkcje Zotero (wersja 7+):**
+
 - Import przez connector przeglądarki — jedno kliknięcie, pełne metadane
 - Automatyczne generowanie cytatów w 10 000+ formatach (APA 7, Chicago, Vancouver...)
 - Synchronizacja z Cloud (300 MB za darmo, $20/rok za 2 GB)
@@ -272,14 +292,14 @@ Strona oficjalna: [prisma-statement.org](http://www.prisma-statement.org)
 
 ### 5.2 Gdzie AI pomaga, a gdzie nie
 
-| Krok PRISMA | Rola AI | Wymagana weryfikacja ludzka |
-|---|---|---|
-| Formulowanie pytania (PICO/SPIDER) | Pomaga precyzować sformułowania | Zawsze — to Twoja decyzja naukowa |
-| Wyszukiwanie baz | Semantic Scholar, Elicit generują wyniki | Musisz też przeszukać Web of Science / Scopus |
-| Screening tytułów/abstraktów | AI może screenwować setki abstraktów | Próba losowa do weryfikacji |
-| Ekstrakcja danych | Elicit robi tabele automatycznie | Weryfikuj kluczowe dane ręcznie |
-| Ocena jakości (RoB, CASP) | AI może wstępnie oceniać | Ostateczna ocena jest zawsze ludzka |
-| Synteza i wnioski | AI streszcza trendy | Interpretacja należy do Ciebie |
+| Krok PRISMA                        | Rola AI                                  | Wymagana weryfikacja ludzka                   |
+| ---------------------------------- | ---------------------------------------- | --------------------------------------------- |
+| Formulowanie pytania (PICO/SPIDER) | Pomaga precyzować sformułowania          | Zawsze — to Twoja decyzja naukowa             |
+| Wyszukiwanie baz                   | Semantic Scholar, Elicit generują wyniki | Musisz też przeszukać Web of Science / Scopus |
+| Screening tytułów/abstraktów       | AI może screenwować setki abstraktów     | Próba losowa do weryfikacji                   |
+| Ekstrakcja danych                  | Elicit robi tabele automatycznie         | Weryfikuj kluczowe dane ręcznie               |
+| Ocena jakości (RoB, CASP)          | AI może wstępnie oceniać                 | Ostateczna ocena jest zawsze ludzka           |
+| Synteza i wnioski                  | AI streszcza trendy                      | Interpretacja należy do Ciebie                |
 
 ### 5.3 Praktyczny workflow PRISMA + AI
 
@@ -318,6 +338,7 @@ Claude: wygeneruj narracyjną syntezę
 **Plagiat:** Przepisanie cudzego tekstu bez cytowania to plagiat — niezależnie czy robi to człowiek czy AI. Jeśli AI streszcza artykuł słowo w słowo (nawet po polsku), a Ty wklejasz to do pracy — to jest plagiat.
 
 **Bezpieczna zasada "3 kroków":**
+
 1. Przeczytaj artykuł i zrozum go
 2. Zamknij artykuł, wygeneruj notatkę własnymi słowami (AI może pomóc w strukturze)
 3. Zacytuj oryginalne źródło, nie notkę
@@ -329,12 +350,14 @@ Claude: wygeneruj narracyjną syntezę
 APA 7 (7. edycja, 2019 + aktualizacje 2023) definiuje format cytowania treści generowanych przez AI:
 
 **Format ogólny:**
+
 ```
 Nazwa modelu (rok). Tytuł lub opis generowanej treści [Generowany przez AI].
 Dostawca. URL lub identyfikator sesji.
 ```
 
 **Przykład — tekst z ChatGPT:**
+
 ```
 OpenAI. (2026). Podsumowanie metodologii badań jakościowych
 [Odpowiedź ChatGPT]. OpenAI. https://chat.openai.com
@@ -342,6 +365,7 @@ OpenAI. (2026). Podsumowanie metodologii badań jakościowych
 ```
 
 **Przykład — analiza z Claude:**
+
 ```
 Anthropic. (2026). Analiza abstraktu artykułu Smith i in. (2024)
 [Odpowiedź Claude.ai]. Anthropic. https://claude.ai
@@ -357,6 +381,7 @@ Anthropic. (2026). Analiza abstraktu artykułu Smith i in. (2024)
 **Sprawdź zawsze:** Aktualną politykę WZiKS UJ dostępną na stronie wydziału. Zapytaj promotora na pierwszym seminarium — zanim zaczniesz używać AI w pracy.
 
 **Ogólne zasady bezpieczne:**
+
 - Użycie AI do korekty języka: zazwyczaj akceptowane
 - Użycie AI do generowania tez i argumentów: zazwyczaj wymaga ujawnienia
 - Użycie AI do generowania gotowych fragmentów bez weryfikacji: ryzykowne
@@ -366,6 +391,7 @@ Anthropic. (2026). Analiza abstraktu artykułu Smith i in. (2024)
 **AI Act (rozporządzenie UE):** Weszło w życie stopniowo 2024–2026. Systemy AI używane do oceniania studentów lub rekrutacji klasyfikowane jako **wysokiego ryzyka** — wymagają transparentności i możliwości odwołania. Narzędzia do pisania prac są na razie w niższej kategorii ryzyka.
 
 **RODO przy badaniach z AI:**
+
 - Dane osobowe respondentów (imię, wiek, lokalizacja) = dane osobowe w rozumieniu RODO
 - Wysyłanie danych osobowych do modeli chmurowych (ChatGPT, Claude) bez zgody i DPA = naruszenie RODO
 - Bezpieczne rozwiązania: anonimizacja przed przetworzeniem, lub LM Studio (lokalnie)
@@ -375,15 +401,15 @@ Anthropic. (2026). Analiza abstraktu artykułu Smith i in. (2024)
 
 ## 7. Przebieg modułu — timeline
 
-| Czas | Aktywność | Forma |
-|---|---|---|
-| 0–10 min | Ankieta: jak teraz piszesz przeglądy literatury? | Mentimeter |
-| 10–25 min | Mini-wykład: ekosystem narzędzi, gdzie AI pomaga a gdzie zawodzi | Wykład + demo |
-| 25–55 min | **Ćwiczenie 1** — Przegląd literatury o AI literacy (30 min) | Praca własna |
-| 55–75 min | **Ćwiczenie 2** — Notatka badawcza z artykułu (20 min) | Praca własna |
-| 75–95 min | **Ćwiczenie 3** — Mapa pola badawczego w Connected Papers (20 min) | Praca własna |
-| 95–110 min | **Ćwiczenie 4** — Wykrywanie halucynowanych cytatów (15 min) | Praca w parach |
-| 110–120 min | Podsumowanie, Q&A o etyce, rekomendacje workflow | Dyskusja |
+| Czas        | Aktywność                                                          | Forma          |
+| ----------- | ------------------------------------------------------------------ | -------------- |
+| 0–10 min    | Ankieta: jak teraz piszesz przeglądy literatury?                   | Mentimeter     |
+| 10–25 min   | Mini-wykład: ekosystem narzędzi, gdzie AI pomaga a gdzie zawodzi   | Wykład + demo  |
+| 25–55 min   | **Ćwiczenie 1** — Przegląd literatury o AI literacy (30 min)       | Praca własna   |
+| 55–75 min   | **Ćwiczenie 2** — Notatka badawcza z artykułu (20 min)             | Praca własna   |
+| 75–95 min   | **Ćwiczenie 3** — Mapa pola badawczego w Connected Papers (20 min) | Praca własna   |
+| 95–110 min  | **Ćwiczenie 4** — Wykrywanie halucynowanych cytatów (15 min)       | Praca w parach |
+| 110–120 min | Podsumowanie, Q&A o etyce, rekomendacje workflow                   | Dyskusja       |
 
 ---
 
@@ -394,6 +420,7 @@ Anthropic. (2026). Analiza abstraktu artykułu Smith i in. (2024)
 **Cel:** Zbudować mini-bibliografię tematu w 30 minut zamiast kilku godzin.
 
 **Krok 1 — Semantic Scholar (10 min):**
+
 1. Wejdź na [semanticscholar.org](https://semanticscholar.org)
 2. Wyszukaj: `"AI literacy" "higher education"` (cudzysłowy dla dokładnego dopasowania)
 3. Filtruj: Year → 2022–2026; Fields of Study → Computer Science + Education
@@ -402,6 +429,7 @@ Anthropic. (2026). Analiza abstraktu artykułu Smith i in. (2024)
 6. Zapisz do Zotero przez connector przeglądarki
 
 **Krok 2 — Consensus AI (10 min):**
+
 1. Wejdź na [consensus.app](https://consensus.app)
 2. Zadaj pytanie: `"Do AI literacy courses improve student outcomes in higher education?"`
 3. Sprawdź Consensus Meter — czy badania wspierają tę tezę?
@@ -423,6 +451,7 @@ Wybierz jeden artykuł z Consensus AI. Wyszukaj go w Google Scholar lub Web of S
 **Krok 2 (10 min):** Użyj promptu z Sekcji 4.2 tego modułu (notatka w formacie tabeli). Wklej abstrakt do Claude lub ChatGPT.
 
 **Krok 3 (5 min):** Porównaj notatkę AI z Twoimi ręcznymi notatkami:
+
 - Co AI dodało, czego nie zauważyłeś/zapamiętałaś?
 - Co AI pominęło lub sfałszowało?
 - Czy AI napisało "brak danych w abstrakcie" tam gdzie rzeczywiście brakowało informacji?
@@ -434,17 +463,20 @@ Wybierz jeden artykuł z Consensus AI. Wyszukaj go w Google Scholar lub Web of S
 **Cel:** Zobaczyć strukturę pola badawczego AI literacy w 15 minut.
 
 **Krok 1 (5 min):**
+
 1. Wejdź na [connectedpapers.com](https://connectedpapers.com)
 2. Wpisz tytuł jednego z artykułów znalezionych w Ćwiczeniu 1
 3. Kliknij "Build a graph"
 4. Poczekaj ~30 sekund na generowanie grafu
 
 **Krok 2 (10 min):** Eksploruj graf:
+
 - Kliknij na największy węzeł obok Twojego artykułu — co to za praca?
 - Przejdź do sekcji "Prior Works" — wymień 2 seminalne artykuły w tej dziedzinie
 - Przejdź do sekcji "Derivative Works" — który z nich wydaje się najnowszy i najbardziej aktualny?
 
 **Krok 3 (5 min):**
+
 - Kliknij na artykuł z "Derivative Works" z ostatnich 2 lat
 - Dodaj go do Zotero
 - Sprawdź jego tytuł w Semantic Scholar — ile ma cytowań?
@@ -471,6 +503,7 @@ METODA WERYFIKACJI (2 minuty/cytat):
 
 **Krok 2 (5 min):**
 Ujawnij wyniki grupie. Omów:
+
 - Które cechy "fałszywego" cytowania były widoczne na pierwszy rzut oka?
 - Czy DOI się sprawdzał?
 - Czy tytuł brzmiał wiarygodnie?
@@ -481,15 +514,15 @@ Ujawnij wyniki grupie. Omów:
 
 ## 9. Tabela porównawcza narzędzi badawczych (marzec 2026)
 
-| Narzędzie | Koszt | Artykułów | Najlepsze do | Ograniczenia |
-|---|---|---|---|---|
-| **Semantic Scholar** | Bezpłatne | 200M+ | Odkrywanie, TLDR, citation graph | Słabsze w humanistyce |
-| **Connected Papers** | Bezpłatne (5 grafów/mies.) | 200M+ (via S2) | Mapa pola badawczego | Angielski, STEM-bias |
-| **Consensus AI** | Free (10/mies.) / ~$9/mies. | 200M+ | Synteza dowodów, research gap | Głównie angielski |
-| **Elicit** | Free (5000 jednorazowo) / $10/mies. | 138M | Systematyczne przeglądy, tabele | Wymaga zaawansowanego pytania |
-| **Research Rabbit** | Bezpłatne | 270M+ | Sieć połączeń, alerty | Brak ekstrakcji danych |
-| **Google NotebookLM** | Bezpłatne | Twoje dokumenty | RAG na własnych PDF-ach | Max 50 dokumentów/notebook |
-| **Zotero** | Bezpłatne (300 MB sync) | — | Zarządzanie bibliografią | Storage płatny przy dużej bibliotece |
+| Narzędzie             | Koszt                               | Artykułów       | Najlepsze do                     | Ograniczenia                         |
+| --------------------- | ----------------------------------- | --------------- | -------------------------------- | ------------------------------------ |
+| **Semantic Scholar**  | Bezpłatne                           | 200M+           | Odkrywanie, TLDR, citation graph | Słabsze w humanistyce                |
+| **Connected Papers**  | Bezpłatne (5 grafów/mies.)          | 200M+ (via S2)  | Mapa pola badawczego             | Angielski, STEM-bias                 |
+| **Consensus AI**      | Free (10/mies.) / ~$9/mies.         | 200M+           | Synteza dowodów, research gap    | Głównie angielski                    |
+| **Elicit**            | Free (5000 jednorazowo) / $10/mies. | 138M            | Systematyczne przeglądy, tabele  | Wymaga zaawansowanego pytania        |
+| **Research Rabbit**   | Bezpłatne                           | 270M+           | Sieć połączeń, alerty            | Brak ekstrakcji danych               |
+| **Google NotebookLM** | Bezpłatne                           | Twoje dokumenty | RAG na własnych PDF-ach          | Max 50 dokumentów/notebook           |
+| **Zotero**            | Bezpłatne (300 MB sync)             | —               | Zarządzanie bibliografią         | Storage płatny przy dużej bibliotece |
 
 ---
 
@@ -536,6 +569,7 @@ Ujawnij wyniki grupie. Omów:
 <summary><strong>Czy mogę używać AI do wyjaśniania trudnych fragmentów?</strong></summary>
 
 Tak. Najlepiej wklejać konkretny fragment i prosić model o:
+
 - wyjaśnienie prostym językiem,
 - przykład praktyczny,
 - pytanie kontrolne sprawdzające zrozumienie.
@@ -561,5 +595,3 @@ Podziel go na sekcje i pracuj etapami: sekcja -> streszczenie -> pytania -> test
 ## Ucz się z tym plikiem MDX w narzędziach AI
 
 <AiToolLauncher />
-
-

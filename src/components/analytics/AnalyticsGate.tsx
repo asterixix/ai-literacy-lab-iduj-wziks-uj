@@ -3,10 +3,7 @@
 import { useEffect, useState } from "react";
 import { Analytics } from "@vercel/analytics/next";
 
-import {
-  COOKIE_CONSENT_CHANGED_EVENT,
-  hasClientAnalyticsConsent,
-} from "@/lib/cookie-consent";
+import { COOKIE_CONSENT_CHANGED_EVENT, hasClientAnalyticsConsent } from "@/lib/cookie-consent";
 
 export function AnalyticsGate() {
   const [isEnabled, setIsEnabled] = useState(false);

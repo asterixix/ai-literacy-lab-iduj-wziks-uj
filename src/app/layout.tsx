@@ -54,10 +54,7 @@ export const metadata: Metadata = {
     "ID.UJ",
     "materialy OER",
   ],
-  authors: [
-    { name: "AI Literacy Lab" },
-    { name: "Artur Sendyka", url: "https://sendyka.dev" },
-  ],
+  authors: [{ name: "AI Literacy Lab" }, { name: "Artur Sendyka", url: "https://sendyka.dev" }],
   creator: "AI Literacy Lab",
   publisher: "Uniwersytet Jagiellonski",
   alternates: {

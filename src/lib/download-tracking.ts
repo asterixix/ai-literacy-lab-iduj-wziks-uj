@@ -17,7 +17,10 @@ interface TrackDownloadParams {
   moduleNumber?: number;
 }
 
-function getEntryFromRequest(request: Request): { entry: DownloadEntry; referrerPath: string | null } {
+function getEntryFromRequest(request: Request): {
+  entry: DownloadEntry;
+  referrerPath: string | null;
+} {
   const referer = request.headers.get("referer");
   if (!referer) {
     return { entry: "direct", referrerPath: null };

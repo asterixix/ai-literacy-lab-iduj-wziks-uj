@@ -97,6 +97,18 @@
   }
 
   .subtle-shadow {
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 10px 40px rgba(0, 0, 0, 0.3);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.08),
+      0 10px 40px rgba(0, 0, 0, 0.3);
   }
+}
+
+/* Playground: full-screen app — hide global Navbar & Footer */
+[data-playground] header,
+[data-playground] footer {
+  display: none !important;
+}
+
+[data-playground] main {
+  height: 100dvh;
 }

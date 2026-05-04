@@ -2,7 +2,12 @@
 
 import { useMemo, useState } from "react";
 
-import { glossaryCategoryLabels, glossaryEntries, glossarySources, type GlossaryCategory } from "@/lib/glossary-pojecia";
+import {
+  glossaryCategoryLabels,
+  glossaryEntries,
+  glossarySources,
+  type GlossaryCategory,
+} from "@/lib/glossary-pojecia";
 
 const ALL_CATEGORIES = "all" as const;
 
@@ -69,11 +74,15 @@ function PojeciaNieMamClient() {
   return (
     <div className="container-wide py-14">
       <header className="mb-8 space-y-3">
-        <p className="font-mono text-xs uppercase text-muted-foreground">Ukryta strefa · słownik pojęć</p>
-        <h1 className="text-4xl font-black tracking-tight md:text-5xl">Pojęcia ni mom, więc chce wiedzieć wincyj</h1>
+        <p className="font-mono text-xs uppercase text-muted-foreground">
+          Ukryta strefa · słownik pojęć
+        </p>
+        <h1 className="text-4xl font-black tracking-tight md:text-5xl">
+          Pojęcia ni mom, więc chce wiedzieć wincyj
+        </h1>
         <p className="max-w-3xl text-muted-foreground">
-          Słownik tłumaczy pojęcia z kursu prostym językiem, czasem z lekkim sarkazmem, ale zawsze bez wyśmiewania
-          ludzi. Tu roastujemy mity, nie osoby.
+          Słownik tłumaczy pojęcia z kursu prostym językiem, czasem z lekkim sarkazmem, ale zawsze
+          bez wyśmiewania ludzi. Tu roastujemy mity, nie osoby.
         </p>
       </header>
 
@@ -119,7 +128,9 @@ function PojeciaNieMamClient() {
           ))}
         </div>
 
-        <p className="font-mono text-xs uppercase text-muted-foreground">Wyniki: {filtered.length}</p>
+        <p className="font-mono text-xs uppercase text-muted-foreground">
+          Wyniki: {filtered.length}
+        </p>
       </section>
 
       <section className="space-y-8">
@@ -134,7 +145,10 @@ function PojeciaNieMamClient() {
             <h2 className="border-b border-border pb-2 text-2xl font-black">{letter}</h2>
 
             {entries.map((entry) => (
-              <details key={entry.slug} className="group border border-border bg-card p-0 open:bg-muted/20">
+              <details
+                key={entry.slug}
+                className="group border border-border bg-card p-0 open:bg-muted/20"
+              >
                 <summary className="flex cursor-pointer list-none items-start justify-between gap-4 p-4">
                   <span className="space-y-1">
                     <span className="block text-lg font-bold">{entry.term}</span>
@@ -142,8 +156,12 @@ function PojeciaNieMamClient() {
                       {glossaryCategoryLabels[entry.category]}
                     </span>
                   </span>
-                  <span className="font-mono text-xs text-muted-foreground group-open:hidden">Rozwiń</span>
-                  <span className="hidden font-mono text-xs text-muted-foreground group-open:inline">Zwiń</span>
+                  <span className="font-mono text-xs text-muted-foreground group-open:hidden">
+                    Rozwiń
+                  </span>
+                  <span className="hidden font-mono text-xs text-muted-foreground group-open:inline">
+                    Zwiń
+                  </span>
                 </summary>
 
                 <div className="space-y-4 border-t border-border p-4 text-sm">
@@ -164,7 +182,9 @@ function PojeciaNieMamClient() {
 
                   <div>
                     <p className="mb-1 font-semibold">Mini-przykład promptu</p>
-                    <p className="border border-border bg-background p-3 font-mono text-xs">{entry.promptExample}</p>
+                    <p className="border border-border bg-background p-3 font-mono text-xs">
+                      {entry.promptExample}
+                    </p>
                   </div>
 
                   <div>
@@ -179,7 +199,12 @@ function PojeciaNieMamClient() {
                         return (
                           <li key={`${entry.slug}-${source.id}`}>
                             {source.type === "external" ? (
-                              <a href={source.href} target="_blank" rel="noopener noreferrer" className="underline-offset-4 hover:underline">
+                              <a
+                                href={source.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="underline-offset-4 hover:underline"
+                              >
                                 {source.label}
                               </a>
                             ) : (

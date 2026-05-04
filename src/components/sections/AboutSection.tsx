@@ -7,11 +7,14 @@ export function AboutSection() {
         <div className="space-y-4">
           <h2 className="text-3xl font-black tracking-tight md:text-4xl">O projekcie</h2>
           <p className="max-w-2xl text-muted-foreground">
-            AI Literacy Lab to cykl warsztatów budujących kompetencje praktycznego i odpowiedzialnego
-            wykorzystania AI w środowisku akademickim. Platforma porządkuje plan warsztatów i
-            zasoby OER dla uczestników oraz szerszej społeczności UJ.
+            AI Literacy Lab to cykl warsztatów budujących kompetencje praktycznego i
+            odpowiedzialnego wykorzystania AI w środowisku akademickim. Platforma porządkuje plan
+            warsztatów i zasoby OER dla uczestników oraz szerszej społeczności UJ.
           </p>
-          <Link href="/o-projekcie" className="text-sm font-medium underline-offset-4 hover:underline">
+          <Link
+            href="/o-projekcie"
+            className="text-sm font-medium underline-offset-4 hover:underline"
+          >
             Przejdź do strony projektu →
           </Link>
         </div>
