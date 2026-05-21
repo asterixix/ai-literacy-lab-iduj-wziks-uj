@@ -18,6 +18,7 @@ import {
 const navItems = [
   { href: "/warsztaty", label: "Warsztaty" },
   { href: "/materialy", label: "Materiały" },
+  { href: "/narzedzia", label: "Narzędzia" },
   { href: "/o-projekcie", label: "O projekcie" },
 ];
 
