@@ -4,10 +4,9 @@ import { useEffect, useRef } from "react";
 import { animate, motion, useInView, useMotionValue, useTransform } from "framer-motion";
 
 const stats = [
-  { value: 30, suffix: "", label: "Uczestników warsztatów" },
-  { value: 5, suffix: "", label: "Modułów tematycznych" },
-  { value: 10, suffix: "h", label: "Praktycznych zajęć" },
-  { value: 200, suffix: "", label: "Uczestników wykładu otwartego" },
+  { value: 33, suffix: "", label: "Studentów UJ zapisanych na warsztaty" },
+  { value: 26, suffix: "", label: "Studentów z certyfikatem ukończenia" },
+  { value: 40, suffix: "", label: "Uczestników wykładu otwartego" },
 ];
 
 function CountUp({ target, suffix }: { target: number; suffix: string }) {
@@ -33,7 +32,12 @@ function CountUp({ target, suffix }: { target: number; suffix: string }) {
 export function StatsSection() {
   return (
     <section className="border-b border-border py-12">
-      <div className="container-wide grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="container-wide space-y-6">
+        <header className="space-y-2">
+          <p className="font-mono text-xs uppercase text-muted-foreground">Podsumowanie</p>
+          <h2 className="text-2xl font-black tracking-tight md:text-3xl">Edycja 2026 w liczbach</h2>
+        </header>
+        <div className="grid gap-4 md:grid-cols-3">
         {stats.map((stat) => (
           <article key={stat.label} className="border border-border p-5">
             <p className="text-4xl font-black tracking-tight">
@@ -42,6 +46,7 @@ export function StatsSection() {
             <p className="mt-2 text-sm text-muted-foreground">{stat.label}</p>
           </article>
         ))}
+        </div>
       </div>
     </section>
   );

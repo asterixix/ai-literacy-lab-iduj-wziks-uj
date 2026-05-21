@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
-import { OPEN_LECTURE_CALENDAR_URL } from "@/lib/constants";
 
 export function HeroSection() {
   return (
@@ -22,7 +21,7 @@ export function HeroSection() {
             variants={fadeInUp}
             className="inline-block border border-border px-3 py-1 font-mono text-xs uppercase tracking-wide text-muted-foreground"
           >
-            WZiKS · ID.UJ · 2026
+            Edycja 2026 · WZiKS · ID.UJ
           </motion.p>
           <motion.h1
             variants={fadeInUp}
@@ -34,7 +33,8 @@ export function HeroSection() {
             variants={fadeInUp}
             className="max-w-2xl text-lg leading-relaxed text-muted-foreground"
           >
-            Warsztaty kompetencyjne ze sztucznej inteligencji dla studentów UJ.
+            Warsztaty kompetencyjne ze sztucznej inteligencji dla studentów UJ. Dziękujemy
+            uczestnikom edycji 2026 — materiały warsztatowe pozostają dostępne na platformie.
           </motion.p>
           <motion.div variants={fadeInUp} className="flex flex-col flex-wrap gap-3 sm:flex-row">
             <Button nativeButton={false} render={<Link href="/warsztaty" />}>
@@ -42,15 +42,6 @@ export function HeroSection() {
             </Button>
             <Button nativeButton={false} variant="outline" render={<Link href="/materialy" />}>
               Pobierz materiały
-            </Button>
-            <Button
-              nativeButton={false}
-              variant="outline"
-              render={
-                <a href={OPEN_LECTURE_CALENDAR_URL} target="_blank" rel="noopener noreferrer" />
-              }
-            >
-              Dodaj wykład otwarty do swojego kalendarza →
             </Button>
           </motion.div>
         </motion.div>

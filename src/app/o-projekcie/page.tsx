@@ -56,67 +56,19 @@ export default function AboutProjectPage() {
       </section>
 
       <section className="mt-4 border border-border p-5">
-        <h2 className="text-xl font-black tracking-tight">Zapisy i organizacja warsztatów</h2>
+        <h2 className="text-xl font-black tracking-tight">Edycja 2026 — podsumowanie</h2>
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-          Warsztaty będą realizowane w dwóch grupach po 15 osób. Przewidywany start zajęć:
-          28.04.2026.
+          Dziękujemy wszystkim uczestnikom edycji 2026. Na warsztaty zapisało się 33 studentów UJ,
+          certyfikaty uzyskało 26 osób, a w wykładzie otwartym{" "}
+          <span className="font-medium text-foreground">
+            Artificial Intelligence + Cybersecurity. Nowy wymiar cyberbezpieczeństwa.
+          </span>{" "}
+          wzięło udział 40 osób.
         </p>
-        <div className="mt-4 grid gap-4 md:grid-cols-2">
-          <div className="border border-border p-4 text-sm text-muted-foreground">
-            <p className="font-semibold text-foreground">Grupa 1 (stacjonarnie)</p>
-            <ul className="mt-2 space-y-1">
-              <li>• Miejsce: WZiKS, sala 2.121, ul. Łojasiewicza 4, Kraków</li>
-              <li>• Dzień: wtorek</li>
-              <li>• Godziny: 18:30-20:30</li>
-            </ul>
-          </div>
-          <div className="border border-border p-4 text-sm text-muted-foreground">
-            <p className="font-semibold text-foreground">Grupa 2 (zdalnie)</p>
-            <ul className="mt-2 space-y-1">
-              <li>• Platforma: MS Teams UJ</li>
-              <li>• Dzień: środa</li>
-              <li>• Godziny: 18:00-20:00</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section className="mt-4 border border-border p-5">
-        <h2 className="text-xl font-black tracking-tight">
-          Wykład gościnny — 14.05.2026 (16:00-18:00)
-        </h2>
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-          Lokalizacja: budynek WZiKS, aula 0.103.
+          Pełny raport kompetencji oraz materiały z wykładu otwartego są obecnie w opracowaniu i
+          zostaną opublikowane na platformie.
         </p>
-        <div className="mt-4 grid gap-4 md:grid-cols-2">
-          <div className="border border-border p-4 text-sm text-muted-foreground">
-            <p className="font-semibold text-foreground">Prowadzący #1</p>
-            <ul className="mt-2 space-y-1">
-              <li>• inż. Maciejewski Rafał</li>
-              <li>• rafal.maciejewski@kolofraktal.pl</li>
-            </ul>
-          </div>
-          <div className="border border-border p-4 text-sm text-muted-foreground">
-            <p className="font-semibold text-foreground">Prowadzący #2</p>
-            <ul className="mt-2 space-y-1">
-              <li>• dr inż. Robert Albert Kłopotek</li>
-              <li>• r.klopotek@uksw.edu.pl</li>
-            </ul>
-          </div>
-        </div>
-        <div className="mt-4 border border-border p-4 text-sm text-muted-foreground">
-          <p>
-            <span className="font-semibold text-foreground">Nazwa przedmiotu:</span> Artificial
-            Intelligence + Cybersecurity. Nowy wymiar cyberbezpieczeństwa.
-          </p>
-          <p className="mt-2">
-            <span className="font-semibold text-foreground">Pełny opis:</span> Omawiane są w sposób
-            uproszczony podstawowe koncepcje różnych wariantów AI. W oparciu o tę wiedzę i
-            różnorodne przykłady opisane zostaną rodzaje zagrożeń związanych z wykorzystaniem AI.
-            Analiza zagrożeń będzie rozszerzona o dobre praktyki zabezpieczające oraz o pokazanie
-            wykorzystania AI do działań ofensywnych jako kontrast.
-          </p>
-        </div>
       </section>
 
       <section className="mt-4 border border-border p-5">

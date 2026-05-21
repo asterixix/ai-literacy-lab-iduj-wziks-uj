@@ -5,7 +5,6 @@ import { Menu } from "lucide-react";
 
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Button } from "@/components/ui/button";
-import { OPEN_LECTURE_CALENDAR_URL } from "@/lib/constants";
 import {
   Sheet,
   SheetContent,
@@ -43,18 +42,6 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-1">
-          <Button
-            nativeButton={false}
-            variant="outline"
-            size="sm"
-            className="shrink-0 text-xs sm:text-sm"
-            render={
-              <a href={OPEN_LECTURE_CALENDAR_URL} target="_blank" rel="noopener noreferrer" />
-            }
-          >
-            <span className="sm:hidden">Dodaj do kalendarza</span>
-            <span className="hidden sm:inline">Dodaj do kalendarza</span>
-          </Button>
           <ThemeToggle />
 
           <Sheet>
@@ -76,14 +63,6 @@ export function Navbar() {
                 <SheetDescription>Nawigacja platformy</SheetDescription>
               </SheetHeader>
               <nav className="mt-8 flex flex-col gap-2 p-4">
-                <a
-                  href={OPEN_LECTURE_CALENDAR_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="border border-border bg-background px-3 py-2 text-center text-sm font-medium hover:bg-muted"
-                >
-                  Dodaj wykład otwarty do swojego kalendarza
-                </a>
                 {navItems.map((item) => (
                   <Link
                     key={item.href}
