@@ -73,8 +73,15 @@ pnpm build
 
 Skopiuj `.env.local.example` do `.env.local` i podmień placeholdery:
 
-- `NEXT_PUBLIC_REGISTRATION_URL`
 - `NEXT_PUBLIC_GITHUB_URL`
+- `DATABASE_URL` (Neon)
+- `SURVEY_ADMIN_PASSWORD`
+- `SURVEY_ADMIN_SESSION_SECRET`
+
+## Ankieta ewaluacyjna
+
+- Formularz: `/ankieta`
+- Panel administracyjny: `/ankieta-admin`
 
 ## Licencja materiałów
 
