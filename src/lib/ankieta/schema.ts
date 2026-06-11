@@ -691,6 +691,12 @@ export const SURVEY_SECTIONS: SurveySection[] = [
 
 export const SURVEY_SECTION_ORDER = SURVEY_SECTIONS.map((section) => section.id);
 
+export const WRITTEN_RESPONSE_KEYS = SURVEY_SECTIONS.flatMap((section) =>
+  section.questions
+    .filter((question): question is TextQuestion => question.kind === "text")
+    .map((question) => question.id),
+);
+
 type LabelMapEntry = {
   label: string;
   options?: Record<string, string>;

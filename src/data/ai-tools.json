@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-05-21T14:03:10.928Z",
+  "syncedAt": "2026-06-10T23:49:06.407Z",
   "sources": [
     {
       "id": "awesome-generative-ai",
@@ -1730,6 +1730,23 @@
       ]
     },
     {
+      "id": "alimvo-alimvo",
+      "name": "Alimvo",
+      "url": "https://alimvo.com/",
+      "description": "Alimvo: AI product photo and video generator for ecommerce brands. Create studio shots, lifestyle scenes, and ad creatives in minutes.",
+      "features": [
+        "Image Generator",
+        "obrazy",
+        "grafika"
+      ],
+      "category": "grafiki",
+      "access": "platny",
+      "sourceCategory": "Image Generator",
+      "sources": [
+        "collective-ai-tools"
+      ]
+    },
+    {
       "id": "allennlp-allennlp",
       "name": "AllenNLP",
       "url": "https://allennlp.org/",
@@ -2561,6 +2578,24 @@
       ]
     },
     {
+      "id": "ats-resume-checker-hugounoclaw",
+      "name": "ATS Resume Checker",
+      "url": "https://hugounoclaw.github.io/ats-checker/",
+      "description": "Free, otwartoźródłowe resume checker that scores your resume against a job description (0–100), flags missing ATS keywords, and runs fully in-browser so nothing is uploaded.",
+      "features": [
+        "Resume",
+        "czat",
+        "tekst",
+        "wyszukiwanie"
+      ],
+      "category": "ogolne",
+      "access": "open-source",
+      "sourceCategory": "Resume",
+      "sources": [
+        "collective-ai-tools"
+      ]
+    },
+    {
       "id": "audify-ai-audify-ai",
       "name": "Audify AI",
       "url": "https://audify-ai.ahmedtokyo.com",
@@ -3381,6 +3416,24 @@
       ]
     },
     {
+      "id": "bestaifor-com-bestaifor",
+      "name": "BestAIFor.com",
+      "url": "https://bestaifor.com/",
+      "description": "BestAIFor.com: A curated directory of the best AI tools, organized by use case.",
+      "features": [
+        "Search Engine",
+        "czat",
+        "tekst",
+        "wyszukiwanie"
+      ],
+      "category": "ogolne",
+      "access": "platny",
+      "sourceCategory": "Search Engine",
+      "sources": [
+        "collective-ai-tools"
+      ]
+    },
+    {
       "id": "bestbuyclues-bestbuyclues",
       "name": "BestBuyClues",
       "url": "https://bestbuyclues.com/",
@@ -3450,6 +3503,24 @@
       "sourceCategory": "AI Coding Agents › Claude Code",
       "sources": [
         "awesome-ai-abordage"
+      ]
+    },
+    {
+      "id": "bifrost-github",
+      "name": "Bifrost",
+      "url": "https://github.com/maximhq/bifrost",
+      "description": "An otwartoźródłowe LLM gateway with routing, load balancing, guardrails, and observability for 1000+ models.",
+      "features": [
+        "Coding › Developer tools",
+        "kod",
+        "IDE",
+        "agenci"
+      ],
+      "category": "programowanie",
+      "access": "open-source",
+      "sourceCategory": "Coding › Developer tools",
+      "sources": [
+        "awesome-generative-ai"
       ]
     },
     {
@@ -4141,6 +4212,23 @@
       "category": "programowanie",
       "access": "platny",
       "sourceCategory": "Developer Tools",
+      "sources": [
+        "collective-ai-tools"
+      ]
+    },
+    {
+      "id": "bulkpictools-bulkpictools",
+      "name": "BulkPicTools",
+      "url": "https://bulkpictools.com/",
+      "description": "BulkPicTools: Free browser-based bulk image workspace. Upload once, chain 40+ tools (compress, convert, crop, background removal, face blur) without re-uploading. Files never leave your device.",
+      "features": [
+        "Image Editing",
+        "obrazy",
+        "grafika"
+      ],
+      "category": "grafiki",
+      "access": "darmowy",
+      "sourceCategory": "Image Editing",
       "sources": [
         "collective-ai-tools"
       ]
@@ -5126,6 +5214,24 @@
     {
       "id": "claude-code-docs",
       "name": "Claude Code",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/overview",
+      "description": "Claude Code: Anthropic's terminal-native AI coding agent with agent skills, MCP, and extensible tool system.",
+      "features": [
+        "Developer Tools",
+        "kod",
+        "IDE",
+        "agenci"
+      ],
+      "category": "programowanie",
+      "access": "platny",
+      "sourceCategory": "Developer Tools",
+      "sources": [
+        "collective-ai-tools"
+      ]
+    },
+    {
+      "id": "claude-code-docs-Y29kZQ",
+      "name": "Claude Code",
       "url": "https://docs.anthropic.com/en/docs/claude-code",
       "description": "Claude Code: Anthropic CLI agent. Best reasoning. 80.9% SWE-bench. Agent Teams feature. · $20/mo+ API",
       "features": [
@@ -5756,6 +5862,24 @@
       ]
     },
     {
+      "id": "coderplan-coderplan",
+      "name": "CoderPlan",
+      "url": "https://coderplan.ai/",
+      "description": "CoderPlan: LLM API Gateway with OpenAI-compatible interface. Pay-per-use access to Claude, GPT, Gemini, DeepSeek, Grok. One-line config for Claude Code, Codex CLI, Gemini CLI.",
+      "features": [
+        "Developer Tools",
+        "kod",
+        "IDE",
+        "agenci"
+      ],
+      "category": "programowanie",
+      "access": "platny",
+      "sourceCategory": "Developer Tools",
+      "sources": [
+        "collective-ai-tools"
+      ]
+    },
+    {
       "id": "codeselect-github",
       "name": "CodeSelect",
       "url": "https://github.com/maynetee/codeselect",
@@ -5843,24 +5967,6 @@
       "sourceCategory": "IDE & Editor › Extensions",
       "sources": [
         "awesome-ai-abordage"
-      ]
-    },
-    {
-      "id": "cody-about",
-      "name": "Cody",
-      "url": "https://about.sourcegraph.com/cody",
-      "description": "Cody: AI coding assistant that understands your entire codebase.",
-      "features": [
-        "Developer Tools",
-        "kod",
-        "IDE",
-        "agenci"
-      ],
-      "category": "programowanie",
-      "access": "platny",
-      "sourceCategory": "Developer Tools",
-      "sources": [
-        "collective-ai-tools"
       ]
     },
     {
@@ -6612,6 +6718,24 @@
       "sourceCategory": "Autonomous Agents",
       "sources": [
         "awesome-ai-openbestof"
+      ]
+    },
+    {
+      "id": "crewai-crewai",
+      "name": "CrewAI",
+      "url": "https://crewai.com/",
+      "description": "CrewAI: Multi-agent orchestration framework for building teams of AI agents that collaborate on complex tasks.",
+      "features": [
+        "Developer Tools",
+        "kod",
+        "IDE",
+        "agenci"
+      ],
+      "category": "programowanie",
+      "access": "platny",
+      "sourceCategory": "Developer Tools",
+      "sources": [
+        "collective-ai-tools"
       ]
     },
     {
@@ -7446,7 +7570,7 @@
       "id": "deepseek-huggingface",
       "name": "DeepSeek",
       "url": "https://huggingface.co/deepseek-ai",
-      "description": "DeepSeek: DeepSeek V3 and R1 series of LLMs by DeepSeek AI. [](https://github.com/deepseek-ai)",
+      "description": "A series of otwartoźródłowe LLMs by DeepSeek AI. [](https://github.com/deepseek-ai)",
       "features": [
         "Text › Models",
         "opensource",
@@ -7459,6 +7583,24 @@
       "sourceCategory": "Text › Models",
       "sources": [
         "awesome-generative-ai"
+      ]
+    },
+    {
+      "id": "deepseek-coder-deepseekcoder",
+      "name": "DeepSeek Coder",
+      "url": "https://deepseekcoder.ai/",
+      "description": "otwartoźródłowe code-focused LLM for AI-assisted development with state-of-the-art benchmarks.",
+      "features": [
+        "Developer Tools",
+        "kod",
+        "IDE",
+        "agenci"
+      ],
+      "category": "programowanie",
+      "access": "open-source",
+      "sourceCategory": "Developer Tools",
+      "sources": [
+        "collective-ai-tools"
       ]
     },
     {
@@ -7492,7 +7634,7 @@
         "Chatbots"
       ],
       "category": "ogolne",
-      "access": "platny",
+      "access": "open-source",
       "sourceCategory": "Text › Chatbots",
       "sources": [
         "awesome-generative-ai",
@@ -8104,6 +8246,24 @@
       "sourceCategory": "Legal Assistant",
       "sources": [
         "collective-ai-tools"
+      ]
+    },
+    {
+      "id": "dorothy-github",
+      "name": "Dorothy",
+      "url": "https://github.com/Charlie85270/Dorothy",
+      "description": "An otwartoźródłowe desktop app to orchestrate multiple AI CLI agents simultaneously with automations and Kanban management.",
+      "features": [
+        "Agents › Autonomous agents",
+        "kod",
+        "IDE",
+        "agenci"
+      ],
+      "category": "programowanie",
+      "access": "open-source",
+      "sourceCategory": "Agents › Autonomous agents",
+      "sources": [
+        "awesome-generative-ai"
       ]
     },
     {
@@ -11291,6 +11451,24 @@
       ]
     },
     {
+      "id": "glm-github",
+      "name": "GLM",
+      "url": "https://github.com/zai-org/GLM-5",
+      "description": "A series of otwartoźródłowe MoE language models by Z.ai for agentic tasks.",
+      "features": [
+        "Text › Models",
+        "czat",
+        "tekst",
+        "wyszukiwanie"
+      ],
+      "category": "ogolne",
+      "access": "open-source",
+      "sourceCategory": "Text › Models",
+      "sources": [
+        "awesome-generative-ai"
+      ]
+    },
+    {
       "id": "glm-4-github",
       "name": "GLM-4",
       "url": "https://github.com/THUDM/GLM-4",
@@ -11588,6 +11766,7 @@
         "IDE",
         "agenci",
         "CLI Coding Tools › CLI Tools with Pro-Grade Models",
+        "Developer Tools",
         "Coding Agents › Terminal and CLI Agents",
         "AI Coding Agents › Gemini CLI"
       ],
@@ -11597,6 +11776,7 @@
       "sources": [
         "awesome-vibe-coding",
         "free-ai-tools",
+        "collective-ai-tools",
         "awesome-ai-agents-2026",
         "awesome-ai-abordage"
       ]
@@ -12228,17 +12408,19 @@
       "id": "groq-groq",
       "name": "Groq",
       "url": "https://groq.com/",
-      "description": "Groq: Lightning-fast AI inference platform with real-time response capabilities",
+      "description": "A cloud inference API for running otwartoźródłowe LLMs, powered by custom LPU hardware.",
       "features": [
-        "Chatbots",
-        "czat",
-        "tekst",
-        "wyszukiwanie"
+        "Coding › Developer tools",
+        "kod",
+        "IDE",
+        "agenci",
+        "Chatbots"
       ],
-      "category": "ogolne",
-      "access": "platny",
-      "sourceCategory": "Chatbots",
+      "category": "programowanie",
+      "access": "open-source",
+      "sourceCategory": "Coding › Developer tools",
       "sources": [
+        "awesome-generative-ai",
         "collective-ai-tools"
       ]
     },
@@ -12959,6 +13141,24 @@
       ]
     },
     {
+      "id": "hive-github",
+      "name": "Hive",
+      "url": "https://github.com/aden-hive/hive",
+      "description": "An otwartoźródłowe multi-agent framework with auto-generated graphs, evolution loops, and MCP integration.",
+      "features": [
+        "Agents › Autonomous agents",
+        "kod",
+        "IDE",
+        "agenci"
+      ],
+      "category": "programowanie",
+      "access": "open-source",
+      "sourceCategory": "Agents › Autonomous agents",
+      "sources": [
+        "awesome-generative-ai"
+      ]
+    },
+    {
       "id": "hoarder-hoarder",
       "name": "Hoarder",
       "url": "https://hoarder.app/",
@@ -13335,6 +13535,25 @@
       "sourceCategory": "Fitness",
       "sources": [
         "collective-ai-tools"
+      ]
+    },
+    {
+      "id": "hyperframes-hyperframes",
+      "name": "HyperFrames",
+      "url": "https://hyperframes.heygen.com/",
+      "description": "HyperFrames: A framework for AI agents to render videos by writing HTML, CSS, and JavaScript. [](https://github.com/heygen-com/hyperframes)",
+      "features": [
+        "Video",
+        "opensource",
+        "kod",
+        "IDE",
+        "agenci"
+      ],
+      "category": "programowanie",
+      "access": "open-source",
+      "sourceCategory": "Video",
+      "sources": [
+        "awesome-generative-ai"
       ]
     },
     {
@@ -14858,6 +15077,42 @@
         "awesome-ai-tools",
         "free-ai-tools",
         "awesome-ai-agents-2026"
+      ]
+    },
+    {
+      "id": "kimi-kimi",
+      "name": "Kimi",
+      "url": "https://www.kimi.com/",
+      "description": "Kimi: An AI assistant by Moonshot AI with chat, deep research, coding, and multi-agent capabilities.",
+      "features": [
+        "Text › Chatbots",
+        "czat",
+        "tekst",
+        "wyszukiwanie"
+      ],
+      "category": "ogolne",
+      "access": "platny",
+      "sourceCategory": "Text › Chatbots",
+      "sources": [
+        "awesome-generative-ai"
+      ]
+    },
+    {
+      "id": "kimi-k2-github",
+      "name": "Kimi K2",
+      "url": "https://github.com/moonshotai/Kimi-K2",
+      "description": "A series of otwartoźródłowe MoE language models by Moonshot AI for agentic tasks.",
+      "features": [
+        "Text › Models",
+        "czat",
+        "tekst",
+        "wyszukiwanie"
+      ],
+      "category": "ogolne",
+      "access": "open-source",
+      "sourceCategory": "Text › Models",
+      "sources": [
+        "awesome-generative-ai"
       ]
     },
     {
@@ -17392,6 +17647,24 @@
       ]
     },
     {
+      "id": "mcp-use-mcp-use",
+      "name": "MCP Use",
+      "url": "https://mcp-use.com/",
+      "description": "MCP Use: Fullstack MCP framework to develop MCP Apps for ChatGPT, Claude & MCP Servers.",
+      "features": [
+        "Developer Tools",
+        "kod",
+        "IDE",
+        "agenci"
+      ],
+      "category": "programowanie",
+      "access": "platny",
+      "sourceCategory": "Developer Tools",
+      "sources": [
+        "collective-ai-tools"
+      ]
+    },
+    {
       "id": "me-bot-me",
       "name": "Me.bot",
       "url": "https://me.bot/",
@@ -18309,7 +18582,7 @@
       "id": "mistral-mistral",
       "name": "Mistral",
       "url": "https://mistral.ai/en/models",
-      "description": "Mistral: Cutting-edge open-weight LLMs by Mistral AI.",
+      "description": "Mistral: Open-weight LLMs by Mistral AI.",
       "features": [
         "Text › Models",
         "czat",
@@ -18401,7 +18674,7 @@
       "id": "mistral-le-chat-chat",
       "name": "Mistral Le Chat",
       "url": "https://chat.mistral.ai/",
-      "description": "Le Chat: Chat with Mistral AI's cutting-edge language models.",
+      "description": "Le Chat: A chat interface for Mistral AI's language models.",
       "features": [
         "Text › Chatbots",
         "czat",
@@ -18558,6 +18831,25 @@
       "sourceCategory": "Free LLM API Providers › Providers with Trial Credits",
       "sources": [
         "free-ai-tools"
+      ]
+    },
+    {
+      "id": "model-context-protocol-modelcontextprotocol",
+      "name": "Model Context Protocol",
+      "url": "https://modelcontextprotocol.io/",
+      "description": "Model Context Protocol: An open standard for connecting AI models to external tools and data sources. [MCP Registry](https://registry.modelcontextprotocol.io/) [](https://github.com/modelcontextprotocol/modelcontextprotocol)",
+      "features": [
+        "Coding › Developer tools",
+        "opensource",
+        "kod",
+        "IDE",
+        "agenci"
+      ],
+      "category": "programowanie",
+      "access": "open-source",
+      "sourceCategory": "Coding › Developer tools",
+      "sources": [
+        "awesome-generative-ai"
       ]
     },
     {
@@ -19091,14 +19383,16 @@
         "kod",
         "IDE",
         "agenci",
-        "Additional 2026 AI Tools › Agentic Workflow Platforms"
+        "Additional 2026 AI Tools › Agentic Workflow Platforms",
+        "Developer Tools"
       ],
       "category": "programowanie",
       "access": "platny",
       "sourceCategory": "Agents › Autonomous agents",
       "sources": [
         "awesome-generative-ai",
-        "free-ai-tools"
+        "free-ai-tools",
+        "collective-ai-tools"
       ]
     },
     {
@@ -19142,15 +19436,17 @@
       "url": "https://www.napkin.ai/",
       "description": "Napkin: Napkin turns your text into visuals so sharing your ideas is quick and effective.",
       "features": [
-        "Other",
+        "Image › Graphic design",
         "obrazy",
         "grafika",
+        "Other",
         "Design"
       ],
       "category": "grafiki",
       "access": "platny",
-      "sourceCategory": "Other",
+      "sourceCategory": "Image › Graphic design",
       "sources": [
+        "awesome-generative-ai",
         "awesome-ai-tools",
         "collective-ai-tools"
       ]
@@ -19885,13 +20181,15 @@
         "Text › Developer tools",
         "czat",
         "tekst",
-        "wyszukiwanie"
+        "wyszukiwanie",
+        "Developer Tools"
       ],
       "category": "ogolne",
       "access": "platny",
       "sourceCategory": "Text › Developer tools",
       "sources": [
-        "awesome-ai-tools"
+        "awesome-ai-tools",
+        "collective-ai-tools"
       ]
     },
     {
@@ -20240,7 +20538,7 @@
       "id": "openai-api-openai",
       "name": "OpenAI API",
       "url": "https://openai.com/api/",
-      "description": "OpenAI API: OpenAI's API provides access to GPT-4 and GPT-5 models, which performs a wide variety of natural language tasks, and Codex, which translates natural language to code.",
+      "description": "OpenAI API: OpenAI's API provides access to GPT-3 and GPT-4 models, which performs a wide variety of natural language tasks, and Codex, which translates natural language to code.",
       "features": [
         "Text › Models",
         "czat",
@@ -20299,13 +20597,14 @@
       "id": "openai-codex-cli-github",
       "name": "OpenAI Codex CLI",
       "url": "https://github.com/openai/codex",
-      "description": "OpenAI Codex CLI: OpenAI terminal agent. Agents SDK. Multi-agent. · ChatGPT sub",
+      "description": "OpenAI's otwartoźródłowe terminal AI agent that runs locally with any model.",
       "features": [
         "CLI Tools",
         "kod",
         "IDE",
         "agenci",
         "CLI Coding Tools › CLI Tools with Basic Models",
+        "Developer Tools",
         "Coding Agents › Terminal and CLI Agents"
       ],
       "category": "programowanie",
@@ -20314,6 +20613,7 @@
       "sources": [
         "awesome-vibe-coding",
         "free-ai-tools",
+        "collective-ai-tools",
         "awesome-ai-agents-2026"
       ]
     },
@@ -20520,18 +20820,20 @@
       "id": "opencode-github",
       "name": "OpenCode",
       "url": "https://github.com/anomalyco/opencode",
-      "description": "Narzędzie AI dla programistów: OpenCode.",
+      "description": "otwartoźródłowe terminal AI coding agent with skills, MCP, and custom workflows.",
       "features": [
         "CLI Coding Tools › CLI Tools with Pro-Grade Models",
         "kod",
         "IDE",
-        "agenci"
+        "agenci",
+        "Developer Tools"
       ],
       "category": "programowanie",
       "access": "darmowy-z-ograniczeniami",
       "sourceCategory": "CLI Coding Tools › CLI Tools with Pro-Grade Models",
       "sources": [
-        "free-ai-tools"
+        "free-ai-tools",
+        "collective-ai-tools"
       ]
     },
     {
@@ -21147,24 +21449,6 @@
       ]
     },
     {
-      "id": "parruda-swarm-github",
-      "name": "parruda/swarm",
-      "url": "https://github.com/parruda/swarm",
-      "description": "parruda/swarm: Ruby gems for AI agent systems",
-      "features": [
-        "AI Coding Agents › Claude Code",
-        "kod",
-        "IDE",
-        "agenci"
-      ],
-      "category": "programowanie",
-      "access": "platny",
-      "sourceCategory": "AI Coding Agents › Claude Code",
-      "sources": [
-        "awesome-ai-abordage"
-      ]
-    },
-    {
       "id": "parseur-parseur",
       "name": "Parseur",
       "url": "https://parseur.com/",
@@ -21564,6 +21848,23 @@
       "sourceCategory": "Stable Diffusion",
       "sources": [
         "awesome-ai-openbestof"
+      ]
+    },
+    {
+      "id": "photorestore-ai-photorestore",
+      "name": "PhotoRestore.ai",
+      "url": "https://photorestore.ai",
+      "description": "PhotoRestore.ai: oparte na AI restoration of old and damaged photos — repairs scratches, fading, tears, and colorizes B&W images.",
+      "features": [
+        "Image Editing",
+        "obrazy",
+        "grafika"
+      ],
+      "category": "grafiki",
+      "access": "platny",
+      "sourceCategory": "Image Editing",
+      "sources": [
+        "collective-ai-tools"
       ]
     },
     {
@@ -23557,24 +23858,6 @@
       ]
     },
     {
-      "id": "rapidpages-rapidpages-github",
-      "name": "rapidpages/rapidpages",
-      "url": "https://github.com/rapidpages/rapidpages",
-      "description": "rapidpages/rapidpages: Generate React and Tailwind components using AI",
-      "features": [
-        "Generators › UI",
-        "kod",
-        "IDE",
-        "agenci"
-      ],
-      "category": "programowanie",
-      "access": "platny",
-      "sourceCategory": "Generators › UI",
-      "sources": [
-        "awesome-ai-abordage"
-      ]
-    },
-    {
       "id": "rapidtextai-app",
       "name": "RapidTextAI",
       "url": "https://app.rapidtextai.com/",
@@ -23914,6 +24197,24 @@
         "awesome-generative-ai",
         "free-ai-tools",
         "awesome-ai-agents-2026"
+      ]
+    },
+    {
+      "id": "refact-github",
+      "name": "Refact",
+      "url": "https://github.com/smallcloudai/refact",
+      "description": "Refact is an otwartoźródłowe AI coding assistant with blazing-fast code completion, powerful code improvement tools, and chat. · ![GitHub Repo stars](https://img.shields.io/github/stars/smallcloudai/refact)",
+      "features": [
+        "Code Assistant",
+        "kod",
+        "IDE",
+        "agenci"
+      ],
+      "category": "programowanie",
+      "access": "open-source",
+      "sourceCategory": "Code Assistant",
+      "sources": [
+        "awesome-ai-openbestof"
       ]
     },
     {
@@ -25302,24 +25603,6 @@
       ]
     },
     {
-      "id": "seahyinghang8-blinky-github",
-      "name": "seahyinghang8/blinky",
-      "url": "https://github.com/seahyinghang8/blinky",
-      "description": "An otwartoźródłowe debugging agent in VSCode",
-      "features": [
-        "AI Coding Agents › General Purpose",
-        "kod",
-        "IDE",
-        "agenci"
-      ],
-      "category": "programowanie",
-      "access": "open-source",
-      "sourceCategory": "AI Coding Agents › General Purpose",
-      "sources": [
-        "awesome-ai-abordage"
-      ]
-    },
-    {
       "id": "seal-llm-leaderboard-labs",
       "name": "SEAL LLM Leaderboard",
       "url": "https://labs.scale.com/leaderboard",
@@ -26103,26 +26386,6 @@
       ]
     },
     {
-      "id": "smallcloudai-refact-github",
-      "name": "smallcloudai/refact",
-      "url": "https://github.com/smallcloudai/refact",
-      "description": "Refact is an otwartoźródłowe AI coding assistant with blazing-fast code completion, powerful code improvement tools, and chat. · ![GitHub Repo stars](https://img.shields.io/github/stars/smallcloudai/refact)",
-      "features": [
-        "Code Assistant",
-        "kod",
-        "IDE",
-        "agenci",
-        "IDE & Editor › Extensions"
-      ],
-      "category": "programowanie",
-      "access": "open-source",
-      "sourceCategory": "Code Assistant",
-      "sources": [
-        "awesome-ai-openbestof",
-        "awesome-ai-abordage"
-      ]
-    },
-    {
       "id": "smart-gift-ai-smartgiftai",
       "name": "Smart Gift AI",
       "url": "https://smartgiftai.com/",
@@ -26540,7 +26803,7 @@
       "id": "sourcegraph-cody-sourcegraph",
       "name": "Sourcegraph Cody",
       "url": "https://sourcegraph.com/cody",
-      "description": "Sourcegraph Cody: Excels at large codebases. Enterprise context engine. · Free / $9/mo",
+      "description": "Sourcegraph Cody: AI coding assistant with deep codebase context, for VS Code, JetBrains and web.",
       "features": [
         "Developer Tools",
         "kod",
@@ -27071,6 +27334,24 @@
       ]
     },
     {
+      "id": "steel-browser-github",
+      "name": "Steel Browser",
+      "url": "https://github.com/steel-dev/steel-browser",
+      "description": "An otwartoźródłowe browser sandbox and automation infrastructure for AI agents, with session management, screenshots, PDFs, proxies, and anti-bot tooling.",
+      "features": [
+        "Coding › Developer tools",
+        "kod",
+        "IDE",
+        "agenci"
+      ],
+      "category": "programowanie",
+      "access": "open-source",
+      "sourceCategory": "Coding › Developer tools",
+      "sources": [
+        "awesome-generative-ai"
+      ]
+    },
+    {
       "id": "stenography-stenography",
       "name": "Stenography",
       "url": "https://stenography.dev/",
@@ -27569,6 +27850,24 @@
       "category": "ogolne",
       "access": "platny",
       "sourceCategory": "Productivity",
+      "sources": [
+        "collective-ai-tools"
+      ]
+    },
+    {
+      "id": "supermaven-supermaven",
+      "name": "Supermaven",
+      "url": "https://supermaven.com/",
+      "description": "Supermaven: Fast AI code completion with 300k token context window.",
+      "features": [
+        "Developer Tools",
+        "kod",
+        "IDE",
+        "agenci"
+      ],
+      "category": "programowanie",
+      "access": "platny",
+      "sourceCategory": "Developer Tools",
       "sources": [
         "collective-ai-tools"
       ]
@@ -28714,6 +29013,7 @@
         "kod",
         "IDE",
         "agenci",
+        "Developer Tools",
         "Local and Self-Hosted AI › Local LLM Runners"
       ],
       "category": "programowanie",
@@ -28721,6 +29021,7 @@
       "sourceCategory": "Coding › Developer tools",
       "sources": [
         "awesome-generative-ai",
+        "collective-ai-tools",
         "awesome-ai-agents-2026"
       ]
     },
@@ -29619,6 +29920,24 @@
       "sourceCategory": "Free LLM API Providers › Fully Free Providers",
       "sources": [
         "free-ai-tools"
+      ]
+    },
+    {
+      "id": "vercel-ai-sdk-sdk",
+      "name": "Vercel AI SDK",
+      "url": "https://sdk.vercel.ai/",
+      "description": "Vercel AI SDK: TypeScript toolkit for building oparte na AI applications with streaming, agents, and tool calling.",
+      "features": [
+        "Developer Tools",
+        "kod",
+        "IDE",
+        "agenci"
+      ],
+      "category": "programowanie",
+      "access": "platny",
+      "sourceCategory": "Developer Tools",
+      "sources": [
+        "collective-ai-tools"
       ]
     },
     {
@@ -31616,6 +31935,24 @@
       ]
     },
     {
+      "id": "z-ai-chat",
+      "name": "Z.ai",
+      "url": "https://chat.z.ai/",
+      "description": "Z.ai: An AI chatbot and agent platform by Z.oparte na AI by the GLM model family.",
+      "features": [
+        "Text › Chatbots",
+        "czat",
+        "tekst",
+        "wyszukiwanie"
+      ],
+      "category": "ogolne",
+      "access": "platny",
+      "sourceCategory": "Text › Chatbots",
+      "sources": [
+        "awesome-generative-ai"
+      ]
+    },
+    {
       "id": "z-ai-z",
       "name": "Z.ai",
       "url": "https://z.ai",
@@ -31884,6 +32221,22 @@
       "category": "ogolne",
       "access": "platny",
       "sourceCategory": "Meeting",
+      "sources": [
+        "collective-ai-tools"
+      ]
+    },
+    {
+      "id": "zooop-zooop",
+      "name": "ZOOOP",
+      "url": "https://zooop.ai/",
+      "description": "ZOOOP: AI-native filmmaking workstation for text/image-to-video, lip-sync, and storyboarding on an infinite canvas.",
+      "features": [
+        "Video",
+        "wideo"
+      ],
+      "category": "wideo",
+      "access": "platny",
+      "sourceCategory": "Video",
       "sources": [
         "collective-ai-tools"
       ]

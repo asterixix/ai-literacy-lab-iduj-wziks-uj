@@ -72,10 +72,18 @@ type ResponsePreview = {
   flat: Record<string, string>;
 };
 
+type WrittenResponse = {
+  id: string;
+  createdAt: string;
+  fields: Record<string, string>;
+};
+
 type SummaryResponse = {
   ok: boolean;
   summary?: SummaryPayload;
   responses?: ResponsePreview[];
+  writtenQuestionLabels?: Record<string, string>;
+  writtenResponses?: WrittenResponse[];
   error?: string;
 };
 
@@ -90,6 +98,9 @@ export function SurveyAdminClient() {
   const [blockReasonInput, setBlockReasonInput] = useState("");
   const [lastSyncAt, setLastSyncAt] = useState<string | null>(null);
   const [deletingResponseId, setDeletingResponseId] = useState<string | null>(null);
+  const [writtenQuestionLabels, setWrittenQuestionLabels] = useState<Record<string, string>>({});
+  const [writtenResponses, setWrittenResponses] = useState<WrittenResponse[]>([]);
+  const [writtenQuery, setWrittenQuery] = useState("");
 
   const fetchSummary = async (silent = false) => {
     if (!silent) {
@@ -103,12 +114,21 @@ export function SurveyAdminClient() {
       }
 
       const payload = (await response.json()) as SummaryResponse;
-      if (!response.ok || !payload.ok || !payload.summary || !payload.responses) {
+      if (
+        !response.ok ||
+        !payload.ok ||
+        !payload.summary ||
+        !payload.responses ||
+        !payload.writtenQuestionLabels ||
+        !payload.writtenResponses
+      ) {
         throw new Error(payload.error ?? "Nie udało się pobrać danych.");
       }
 
       setSummary(payload.summary);
       setResponses(payload.responses);
+      setWrittenQuestionLabels(payload.writtenQuestionLabels);
+      setWrittenResponses(payload.writtenResponses);
       setBlockReasonInput(payload.summary.settings.blockedReason ?? "");
       setLastSyncAt(new Date().toISOString());
       setStatus("ready");
@@ -278,6 +298,15 @@ export function SurveyAdminClient() {
       </article>
     );
   };
+
+  const filteredWrittenResponses = writtenResponses.filter((response) => {
+    if (!writtenQuery.trim()) {
+      return true;
+    }
+
+    const query = writtenQuery.trim().toLowerCase();
+    return Object.values(response.fields).some((value) => value.toLowerCase().includes(query));
+  });
 
   return (
     <section className="space-y-6">
@@ -609,6 +638,47 @@ export function SurveyAdminClient() {
               ))}
             </tbody>
           </table>
+        </div>
+      </article>
+
+      <article className="border border-border bg-card p-4">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <h2 className="text-lg font-bold">Wszystkie odpowiedzi pisemne do analizy</h2>
+          <p className="text-sm text-muted-foreground">
+            Rekordy: {filteredWrittenResponses.length}/{writtenResponses.length}
+          </p>
+        </div>
+        <input
+          type="text"
+          className="mt-3 h-10 w-full border border-input bg-background px-3 text-sm"
+          placeholder="Szukaj frazy we wszystkich odpowiedziach otwartych..."
+          value={writtenQuery}
+          onChange={(event) => setWrittenQuery(event.target.value)}
+        />
+
+        <div className="mt-4 space-y-3">
+          {filteredWrittenResponses.map((response) => (
+            <details key={`written-${response.id}`} className="border border-border p-3">
+              <summary className="cursor-pointer text-sm font-semibold">
+                {new Date(response.createdAt).toLocaleString("pl-PL")} — {response.id}
+              </summary>
+              <div className="mt-3 space-y-3">
+                {Object.entries(response.fields).map(([key, value]) => (
+                  <div key={`${response.id}-${key}`} className="space-y-1">
+                    <p className="text-xs font-semibold uppercase text-muted-foreground">
+                      {writtenQuestionLabels[key] ?? key}
+                    </p>
+                    <div className="whitespace-pre-wrap border border-border/70 bg-muted/30 p-3 text-sm">
+                      {value?.trim() ? value : "Brak odpowiedzi."}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </details>
+          ))}
+          {filteredWrittenResponses.length === 0 ? (
+            <p className="text-sm text-muted-foreground">Brak odpowiedzi pasujących do wyszukiwania.</p>
+          ) : null}
         </div>
       </article>
     </section>

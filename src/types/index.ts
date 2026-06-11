@@ -24,9 +24,13 @@ export interface Material {
   title: string;
   description: string;
   formats: string[];
-  category: "prompts" | "case-study" | "guide" | "resources";
+  category: "prompts" | "case-study" | "guide" | "resources" | "lecture";
   available: boolean;
   availableDate?: string;
   downloadUrl?: string;
   githubUrl?: string;
+  /** MDX materials can be read in the browser; file materials are download-only. */
+  readPage?: boolean;
+  /** On-disk filename in src/content/materials/ for binary downloads. */
+  fileName?: string;
 }

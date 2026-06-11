@@ -2,6 +2,7 @@ import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
 import { SURVEY_ADMIN_COOKIE, verifyAdminSessionToken } from "@/lib/ankieta/admin-auth";
+import { SURVEY_LABEL_MAP, WRITTEN_RESPONSE_KEYS } from "@/lib/ankieta/schema";
 import {
   getSurveyResponses,
   getSurveySchemaHealth,
@@ -350,10 +351,22 @@ export async function GET() {
       dbHealth: health,
     };
 
+    const writtenResponses = parsedRows.map((row) => ({
+      id: row.id,
+      createdAt: row.createdAt,
+      fields: Object.fromEntries(
+        WRITTEN_RESPONSE_KEYS.map((key) => [key, row.flat[key] ?? ""]),
+      ),
+    }));
+
     return NextResponse.json({
       ok: true,
       summary,
       responses: parsedRows.slice(0, 150),
+      writtenQuestionLabels: Object.fromEntries(
+        WRITTEN_RESPONSE_KEYS.map((key) => [key, SURVEY_LABEL_MAP[key]?.label ?? key]),
+      ),
+      writtenResponses,
     });
   } catch (error) {
     console.error("Survey summary error", error);

@@ -52,7 +52,7 @@ export function MaterialCard({
   const disabled = !material.available;
   const button = (
     <Button variant={disabled ? "outline" : "default"} disabled={disabled} className="w-full">
-      Pobierz
+      {disabled ? "Pobierz" : "Pobierz plik"}
     </Button>
   );
 
@@ -76,7 +76,7 @@ export function MaterialCard({
           </TooltipContent>
         </Tooltip>
       ) : (
-        <Link href={material.downloadUrl ?? "#"}>{button}</Link>
+        <Link href={downloadUrl ?? "#"}>{button}</Link>
       )}
     </article>
   );

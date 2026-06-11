@@ -66,8 +66,15 @@ export default function AboutProjectPage() {
           wzięło udział 40 osób.
         </p>
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-          Pełny raport kompetencji oraz materiały z wykładu otwartego są obecnie w opracowaniu i
-          zostaną opublikowane na platformie.
+          Materiały z wykładu otwartego{" "}
+          <span className="font-medium text-foreground">
+            Artificial Intelligence + Cybersecurity. Nowy wymiar cyberbezpieczeństwa.
+          </span>{" "}
+          są dostępne w sekcji{" "}
+          <Link href="/materialy" className="font-medium text-foreground underline-offset-4 hover:underline">
+            Materiały
+          </Link>
+          . Pełny raport kompetencji z warsztatów jest obecnie w opracowaniu.
         </p>
       </section>
 

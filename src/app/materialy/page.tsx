@@ -3,8 +3,9 @@ import Link from "next/link";
 
 import { MaterialCard } from "@/components/MaterialCard";
 import { getMaterialOverviewContent } from "@/lib/mdx";
-import { materials } from "@/lib/materials";
+import { availableMaterials, upcomingMaterials } from "@/lib/materials";
 import { buildCanonicalPath } from "@/lib/seo";
+import type { Material } from "@/types";
 
 export const metadata: Metadata = {
   title: "Materiały",
@@ -16,6 +17,21 @@ export const metadata: Metadata = {
     url: buildCanonicalPath("/materialy"),
   },
 };
+
+function MaterialGrid({ items }: { items: Material[] }) {
+  return (
+    <div className="grid gap-4 md:grid-cols-2">
+      {items.map((material) => (
+        <MaterialCard
+          key={material.id}
+          material={material}
+          readUrl={material.readPage ? `/materialy/${material.id}` : undefined}
+          downloadUrl={`/materialy/${material.id}/download`}
+        />
+      ))}
+    </div>
+  );
+}
 
 export default async function MaterialsPage() {
   const { content } = await getMaterialOverviewContent();
@@ -36,16 +52,32 @@ export default async function MaterialsPage() {
         {content}
       </article>
 
-      <section className="grid gap-4 md:grid-cols-2">
-        {materials.map((material) => (
-          <MaterialCard
-            key={material.id}
-            material={material}
-            readUrl={`/materialy/${material.id}`}
-            downloadUrl={`/materialy/${material.id}/download`}
-          />
-        ))}
-      </section>
+      {availableMaterials.length > 0 ? (
+        <section className="mb-10 space-y-4">
+          <header className="space-y-1">
+            <h2 className="text-2xl font-black tracking-tight">Dostępne materiały</h2>
+            <p className="text-sm text-muted-foreground">
+              Wykład otwarty{" "}
+              <span className="font-medium text-foreground">
+                Artificial Intelligence + Cybersecurity. Nowy wymiar cyberbezpieczeństwa.
+              </span>
+            </p>
+          </header>
+          <MaterialGrid items={availableMaterials} />
+        </section>
+      ) : null}
+
+      {upcomingMaterials.length > 0 ? (
+        <section className="space-y-4">
+          <header className="space-y-1">
+            <h2 className="text-2xl font-black tracking-tight">Materiały zaplanowane</h2>
+            <p className="text-sm text-muted-foreground">
+              Zasoby z warsztatów AI Literacy Lab — publikacja po zakończeniu edycji projektu.
+            </p>
+          </header>
+          <MaterialGrid items={upcomingMaterials} />
+        </section>
+      ) : null}
 
       <div className="mt-10 border-t border-border pt-6 text-sm text-muted-foreground">
         Repozytorium projektu:{" "}

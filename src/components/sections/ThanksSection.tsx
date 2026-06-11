@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function ThanksSection() {
   return (
     <section className="border-b border-border py-14">
@@ -15,13 +17,17 @@ export function ThanksSection() {
         </header>
 
         <article className="border border-border bg-muted p-5">
-          <h3 className="text-lg font-black tracking-tight">Materiały w opracowaniu</h3>
+          <h3 className="text-lg font-black tracking-tight">Materiały z wykładu</h3>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            Pełny raport kompetencji z warsztatów oraz materiały z wykładu otwartego{" "}
+            Slajdy, podręcznik i demo z wykładu otwartego{" "}
             <span className="font-medium text-foreground">
               Artificial Intelligence + Cybersecurity. Nowy wymiar cyberbezpieczeństwa.
             </span>{" "}
-            są obecnie w opracowaniu i zostaną opublikowane na tej stronie.
+            są dostępne w sekcji{" "}
+            <Link href="/materialy" className="font-medium text-foreground underline-offset-4 hover:underline">
+              Materiały
+            </Link>
+            . Pełny raport kompetencji z warsztatów jest obecnie w opracowaniu.
           </p>
         </article>
       </div>

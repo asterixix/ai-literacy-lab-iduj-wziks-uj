@@ -15,6 +15,7 @@ interface TrackDownloadParams {
   category: string;
   availability: DownloadAvailability;
   moduleNumber?: number;
+  format?: string;
 }
 
 function getEntryFromRequest(request: Request): {
@@ -48,6 +49,7 @@ export function trackDownload({
   category,
   availability,
   moduleNumber,
+  format = "mdx",
 }: TrackDownloadParams): void {
   if (!hasRequestAnalyticsConsent(request)) {
     return;
@@ -66,7 +68,7 @@ export function trackDownload({
       ["oer-download-category", category],
       ["oer-download-availability", availability],
       ["oer-download-entry", entry],
-      ["oer-download-format", "mdx"],
+      ["oer-download-format", format],
       ["oer-download-has-utm", Boolean(utmSource || utmMedium || utmCampaign)],
     ];
 
