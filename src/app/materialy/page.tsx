@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { MaterialCard } from "@/components/MaterialCard";
 import { getMaterialOverviewContent } from "@/lib/mdx";
-import { availableMaterials, upcomingMaterials } from "@/lib/materials";
+import { lectureMaterials, workshopMaterials } from "@/lib/materials";
 import { buildCanonicalPath } from "@/lib/seo";
 import type { Material } from "@/types";
 
@@ -52,32 +52,29 @@ export default async function MaterialsPage() {
         {content}
       </article>
 
-      {availableMaterials.length > 0 ? (
-        <section className="mb-10 space-y-4">
-          <header className="space-y-1">
-            <h2 className="text-2xl font-black tracking-tight">Dostępne materiały</h2>
-            <p className="text-sm text-muted-foreground">
-              Wykład otwarty{" "}
-              <span className="font-medium text-foreground">
-                Artificial Intelligence + Cybersecurity. Nowy wymiar cyberbezpieczeństwa.
-              </span>
-            </p>
-          </header>
-          <MaterialGrid items={availableMaterials} />
-        </section>
-      ) : null}
+      <section className="mb-10 space-y-4">
+        <header className="space-y-1">
+          <h2 className="text-2xl font-black tracking-tight">Materiały z wykładu otwartego</h2>
+          <p className="text-sm text-muted-foreground">
+            Wykład{" "}
+            <span className="font-medium text-foreground">
+              Artificial Intelligence + Cybersecurity. Nowy wymiar cyberbezpieczeństwa.
+            </span>
+          </p>
+        </header>
+        <MaterialGrid items={lectureMaterials} />
+      </section>
 
-      {upcomingMaterials.length > 0 ? (
-        <section className="space-y-4">
-          <header className="space-y-1">
-            <h2 className="text-2xl font-black tracking-tight">Materiały zaplanowane</h2>
-            <p className="text-sm text-muted-foreground">
-              Zasoby z warsztatów AI Literacy Lab — publikacja po zakończeniu edycji projektu.
-            </p>
-          </header>
-          <MaterialGrid items={upcomingMaterials} />
-        </section>
-      ) : null}
+      <section className="space-y-4">
+        <header className="space-y-1">
+          <h2 className="text-2xl font-black tracking-tight">Materiały z warsztatów</h2>
+          <p className="text-sm text-muted-foreground">
+            Prompty, case studies, przewodnik po narzędziach i lista źródeł z edycji 2026 AI
+            Literacy Lab.
+          </p>
+        </header>
+        <MaterialGrid items={workshopMaterials} />
+      </section>
 
       <div className="mt-10 border-t border-border pt-6 text-sm text-muted-foreground">
         Repozytorium projektu:{" "}

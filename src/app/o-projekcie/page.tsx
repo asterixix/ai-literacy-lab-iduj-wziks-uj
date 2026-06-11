@@ -74,7 +74,11 @@ export default function AboutProjectPage() {
           <Link href="/materialy" className="font-medium text-foreground underline-offset-4 hover:underline">
             Materiały
           </Link>
-          . Pełny raport kompetencji z warsztatów jest obecnie w opracowaniu.
+          . Pełny raport ewaluacyjny z warsztatów jest dostępny w sekcji{" "}
+          <Link href="/raporty/edycja-2026" className="font-medium text-foreground underline-offset-4 hover:underline">
+            Raporty
+          </Link>
+          .
         </p>
       </section>
 

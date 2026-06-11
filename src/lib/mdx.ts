@@ -126,3 +126,50 @@ export async function getMaterialDocumentBySlug(slug: string): Promise<{
 
   return { slug, frontmatter, content, toc: extractTocFromMdx(raw) };
 }
+
+interface ReportFrontmatter {
+  title: string;
+  description: string;
+  edition?: string;
+  publishedAt?: string;
+  competition?: string;
+}
+
+export interface ReportDocumentFrontmatter extends ReportFrontmatter {
+  author?: string;
+}
+
+export async function getReportOverviewContent(): Promise<{
+  frontmatter: ReportFrontmatter;
+  content: React.ReactNode;
+}> {
+  const sourcePath = path.join(contentRoot, "reports", "index.mdx");
+  const raw = await fs.readFile(sourcePath, "utf8");
+
+  const { frontmatter, content } = await compileMDX<ReportFrontmatter>({
+    source: raw,
+    options: mdxCompileOptions,
+    components: createMdxComponents(),
+  });
+
+  return { frontmatter, content };
+}
+
+export async function getReportDocumentBySlug(slug: string): Promise<{
+  slug: string;
+  frontmatter: ReportDocumentFrontmatter;
+  content: React.ReactNode;
+  toc: ReturnType<typeof extractTocFromMdx>;
+} | null> {
+  const sourcePath = path.join(contentRoot, "reports", `${slug}.mdx`);
+  const raw = await fs.readFile(sourcePath, "utf8").catch(() => null);
+  if (!raw) return null;
+
+  const { frontmatter, content } = await compileMDX<ReportDocumentFrontmatter>({
+    source: raw,
+    options: mdxCompileOptions,
+    components: createMdxComponents(),
+  });
+
+  return { slug, frontmatter, content, toc: extractTocFromMdx(raw) };
+}

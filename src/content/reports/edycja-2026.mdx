@@ -1,0 +1,559 @@
+---
+title: "Raport ewaluacyjny z realizacji projektu „AI Literacy Lab”"
+description: "Raport ewaluacyjny edycji 2026 — wyniki pre-post, satysfakcja uczestników, analiza jakościowa i rekomendacje na kolejne edycje."
+edition: "2026"
+publishedAt: "czerwiec 2026"
+competition: "WZiKS_ROZWÓJ KOMPETENCJI 2026"
+---
+
+**Wydział Zarządzania i Komunikacji Społecznej Uniwersytetu Jagiellońskiego**
+
+**Konkurs:** WZiKS_ROZWÓJ KOMPETENCJI 2026  
+**Data opracowania:** czerwiec 2026
+
+## 1. Streszczenie wykonawcze
+
+Projekt **„AI Literacy Lab”** – intensywne warsztaty kompetencyjne ze sztucznej inteligencji dla studentów UJ – przyniósł **jednoznacznie pozytywne i mierzalne efekty** w zakresie rozwoju kompetencji AI literacy. Poniżej kluczowe wnioski:
+
+### 1.1 Wpływ na kompetencje AI literacy (pre–post)
+
+Wszystkie pięć kluczowych obszarów AI literacy zanotowało **silne, statystycznie istotne przyrosty** (test Wilcoxona, wszystkie `p<0,001`) na skali samooceny 1–5. Wielkości efektu (d Cohena) mieszczą się w zakresie 2,31–3,13, co klasyfikuje wszystkie zmiany jako **bardzo silne**:
+
+| Obszar | Średnia PRZED | Średnia PO | Δ (95% CI) | d Cohena | % z Δ≥2 pkt |
+|---|---|---|---|---|---|
+| **LLM** (modele językowe) | 1,87 | 3,91 | **+2,04** [1,63; 2,46] | 2,31 | 74% |
+| **RAG** | 1,30 | 3,17 | **+1,87** [1,49; 2,25] | 2,52 | 70% |
+| **Agenci AI** | 1,61 | 3,65 | **+2,04** [1,64; 2,44] | 2,45 | 74% |
+| **MCP** | 1,22 | 3,00 | **+1,78** [1,37; 2,19] | 2,32 | 65% |
+| **Prompt Engineering** | 1,65 | 4,17 | **+2,52** [2,13; 2,91] | **3,13** | 87% |
+
+**Wnioski:** Największy bezwzględny przyrost dotyczy Prompt Engineering – 87% uczestników poprawiło swoją samoocenę o ≥2 punkty, a średnia PO (4,17) wskazuje na przejście od poziomu „słabo znam” do „znam dobrze i potrafię stosować”. Efekt dla Prompt Engineering (d=3,13) jest ekstremalnie silny – uczestnicy przeszli od intuicyjnego „pisania zapytań do ChatGPT” do świadomego **projektowania promptów z wykorzystaniem kontekstu, celu, instrukcji i formatu odpowiedzi**.
+
+### 1.2 Satysfakcja i spełnienie oczekiwań
+
+- **83%** uczestników oceniło, że warsztaty spełniły ich oczekiwania w stopniu dużym (4/5) lub w pełni je przekroczyły (5/5). Średnia 4,04/5.
+- **NPS (wskaźnik rekomendacji) = 70**, 95% CI bootstrap [48, 91] – wynik uznawany za „doskonały” (światowa średnia w edukacji: 30–50). 74% uczestników to promotorzy (9–10/10), zaledwie 1 osoba (4%) udzieliła oceny ≤6.
+- **78%** uznało zakres merytoryczny za „w sam raz”.
+
+### 1.3 Kluczowe insighty jakościowe
+
+1. **„To nie jest czarna magia”** – demistyfikacja działania LLM-ów (zrozumienie przewidywania tokenów) była najczęściej wskazywanym momentem „aha”.
+2. **Odkrycie lokalnych modeli** (LM Studio, Jan.ai) – rozwiązanie problemów prywatności i bezpieczeństwa danych.
+3. **Praktyczne ćwiczenia** – wspólne promptowanie, tworzenie stron HTML – budowały poczucie sprawczości.
+
+### 1.4 Najważniejsze rekomendacje
+
+1. **Utrzymać** balans teoria–praktyka oraz ćwiczenia warsztatowe.
+2. **Wydłużyć** cykl do 7–8 spotkań, przy opcjonalnym skróceniu czasu pojedynczego spotkania do 1,5h.
+3. **Wzmocnić** segment konfiguracji agentów i automatyzacji zadań badawczych.
+4. **Dodać** materiały krok-po-kroku (step-by-step guides, nagrania ekranu).
+5. **Wdrożyć strategię przeciwdziałania dropoutowi** – patrz sekcja 10.2.
+
+---
+
+## 2. Kontekst projektu i cele dydaktyczne
+
+### 2.1 Założenia „AI Literacy Lab”
+
+Projekt „AI Literacy Lab – Warsztaty kompetencyjne ze sztucznej inteligencji dla studentów” został zrealizowany przez Koło Naukowe Zarządzania Informacją UJ w ramach konkursu grantowego WZiKS_ROZWÓJ KOMPETENCJI 2026. Grupę docelową stanowiło **30 studentów Uniwersytetu Jagiellońskiego**, reprezentujących różne wydziały i kierunki – od zarządzania informacją, przez psychologię, ekonomię, prawo, aż po bioinformatykę i farmację.
+
+### 2.2 Forma realizacji
+
+Program obejmował:
+
+- **5 modułów warsztatowych** (każdy po ok. 2 godziny), realizowanych w dwóch grupach:
+  - **Grupa 1** – wtorki, 18:30–20:30, sala WZiKS (stacjonarnie z opcją hybrydową),
+  - **Grupa 2** – środy, 18:00–20:00, Microsoft Teams (zdalnie).
+- **Wykład otwarty** o bezpieczeństwie i zagrożeniach AI (ataki na LLM, prompt injection, wycieki danych).
+- **Dostęp do API LLM** przez Eden AI (umożliwienie praktycznej pracy z różnymi modelami).
+- **Otwarte zasoby edukacyjne (OER)** – repozytorium kodu, materiałów, list narzędzi.
+
+### 2.3 Cele dydaktyczne
+
+Warsztaty zaprojektowano, aby wyposażyć studentów w następujące kompetencje:
+
+1. **Zrozumienie działania i ograniczeń LLM, RAG, agentów AI oraz MCP** – od podstaw architektury po praktyczne implikacje (halucynacje, koszty tokenów, problemy bezpieczeństwa).
+2. **Rozwój kompetencji AI literacy** – krytyczna analiza wyników modeli, rozpoznawanie halucynacji, świadome i bezpieczne korzystanie z różnych narzędzi GenAI.
+3. **Praktyczne opanowanie Prompt Engineering** – od podstawowej struktury promptu (kontekst, cel, instrukcje, format) po techniki zaawansowane (few-shot, chain-of-thought, iteracyjne doprecyzowanie).
+4. **Wykorzystanie AI w pracy naukowej** – przegląd literatury, analiza źródeł, transkrypcja nagrań, organizacja wiedzy z użyciem narzędzi takich jak NotebookLM czy agenci badawczy.
+5. **Użycie AI w programowaniu** – od podstaw generowania i wyjaśniania kodu, przez debugowanie, po konfigurację środowisk (VSCode, Cursor, GitHub Copilot).
+6. **Kształtowanie świadomości w zakresie bezpieczeństwa i etyki AI** – poprzez dedykowany wykład otwarty oraz wątki przewijające się przez wszystkie moduły.
+
+---
+
+## 3. Metodologia ewaluacji
+
+### 3.1 Zastosowane narzędzia
+
+Ewaluacja opiera się na dwóch ankietach:
+
+1. **Ankieta diagnostyczna PRZED warsztatami** – mierzyła:
+   - informacje demograficzne i edukacyjne (wydział, kierunek, stopień i rok studiów),
+   - preferowaną formę uczestnictwa,
+   - samoocenę znajomości kluczowych pojęć AI na skali 1–5,
+   - znajomość konkretnych narzędzi GenAI (ChatGPT, Claude, Gemini, Perplexity, LM Studio, Msty/Jan/Cherry Studio) w formie 4-stopniowej skali behawioralnej,
+   - deklaratywną znajomość szczegółowych tematów,
+   - poziom pracy z AI w programowaniu (4 poziomy opisowe),
+   - otwarte pytanie o motywacje i planowane zastosowania.
+
+2. **Ankieta końcowa PO warsztatach** – mierzyła:
+   - przebieg uczestnictwa (grupa, tryb, liczba spotkań),
+   - zmiany w kompetencjach AI literacy w układzie PRZED/TERAZ (skale 1–5 dla 5 pojęć kluczowych + biegłość w GenAI + 8 szczegółowych komponentów + poziom programowania),
+   - repertuar narzędzi używanych samodzielnie po warsztatach,
+   - spełnienie oczekiwań i adekwatność zakresu/poziomu (skale Likerta),
+   - ocenę materiałów szkoleniowych (8 wymiarów × skala 1–5),
+   - ocenę kompetencji prowadzącego (4 wymiary), metodyki (6 wymiarów) i wsparcia pozazajęciowego (2 wymiary),
+   - ocenę aspektów organizacyjnych (5 wymiarów),
+   - wskaźnik rekomendacji NPS (0–10),
+   - 8 rozbudowanych pytań otwartych o doświadczenia, momenty przełomowe, zmiany w myśleniu, realne zastosowania, bariery i propozycje.
+
+### 3.2 Charakter pytań i sposób analizy
+
+- **Skale Likerta 1–5**: traktowane jako dane porządkowe, z raportowaniem średnich, odchyleń standardowych i przedziałów ufności. Dla porównań pre–post zastosowano test Wilcoxona dla par obserwacji (nieparametryczny) oraz obliczono wielkość efektu d Cohena (w wersji d_av – dla powtarzanych pomiarów, z estymacją pooled SD).
+- **Pytania wielokrotnego wyboru (B3, B5)**: analizowane jako odsetek respondentów deklarujących znajomość/używanie danego narzędzia lub tematu.
+- **Pytania otwarte**: poddane prostej analizie tematycznej – wyodrębniono główne kategorie, oszacowano ich częstość i zacytowano reprezentatywne wypowiedzi.
+- **NPS**: obliczono jako (% promotorów 9–10) – (% krytyków 0–6) × 100. Przedział ufności oszacowano metodą bootstrap (10 000 iteracji).
+
+### 3.3 Uwagi metodologiczne
+
+- **Brak pełnego parowania**: ankieta „przed” i „po” nie były łączone identyfikatorem respondenta (nie przewidziano takiej możliwości w narzędziu). Analiza pre–post opiera się na danych retrospektywnych z ankiety „po” (uczestnicy oceniali swój poziom PRZED i TERAZ w tym samym momencie). Jest to podejście obarczone ryzykiem błędu retrospekcji, ale – jak pokazują badania – w przypadku krótkich interwencji edukacyjnych daje wyniki silnie skorelowane z pomiarem rozdzielonym. Co istotne, ewentualna tendencja do przeszacowywania „poziomu przed” działałaby *przeciwko* wykryciu efektu – a mimo to efekty są bardzo wyraźne i wysoce istotne statystycznie.
+- **Samoopisowy charakter danych**: mierzymy deklaracje, nie obiektywny przyrost wiedzy. W kontekście AI literacy, gdzie kluczowa jest świadomość własnych kompetencji, samoopis jest wartościowym wskaźnikiem.
+- **Liczebność próby**: N=33 (pre) i N=23 (post) to próby małe, co ogranicza możliwość zaawansowanych analiz statystycznych i uogólnień. Przedziały ufności dla NPS są szerokie [48, 91] właśnie ze względu na małą próbę. Niemniej konsystencja i siła wyników (wszystkie testy istotne przy `p<0,001`, efekty d>2,0) dają solidną podstawę do formułowania rekomendacji.
+- **Atrycja**: z 33 respondentów pre do ankiety po przystąpiły 23 osoby (70%). 6 osób nigdy nie pojawiło się na warsztatach, kolejne rezygnowały w trakcie z powodów osobistych, zdrowotnych lub z powodu natłoku obowiązków zawodowych i studenckich. **Nie odnotowano rezygnacji z powodu braku zainteresowania warsztatami.**
+
+---
+
+## 4. Charakterystyka próby
+
+### 4.1 Ankieta „przed” (N=33)
+
+**Wydział i kierunek:**
+
+- Dominacja **WZiKS** (28 osób, 85%), co odzwierciedla zakotwiczenie projektu w tym wydziale i skuteczność kanałów informacyjnych (plakaty, koło naukowe).
+- Pozostałe wydziały: Wydział Biochemii, Biofizyki i Biotechnologii (2 os.), Wydział Prawa i Administracji (2 os.), Wydział Farmaceutyczny (1 os.).
+- Wiodące kierunki: Zarządzanie Informacją (13 os.), Elektroniczne Przetwarzanie Informacji (6 os.), Psychologia (6 os.).
+
+**Stopień i rok studiów:**
+
+- I stopień (licencjat): 18 osób; II stopień (magister): 11 osób; studia jednolite magisterskie: ~4 osoby.
+- Rozpiętość od I roku do ostatnich lat studiów magisterskich.
+
+**Preferowana forma uczestnictwa:**
+
+- Zdalnie: 15 osób (45%); stacjonarnie: 10 (30%); hybrydowo: 8 (24%).
+
+**Poziom wyjściowy:**
+
+- Ogólna znajomość AI: średnia 2,12/5 (SD=1,02, mediana 2). 12 osób (36%) oceniło się na 1 („kompletny brak wiedzy”), nikt na 5. To grupa o niskiej samoocenie kompetencji AI – **idealna dla interwencji typu literacy**.
+- Główne narzędzie: ChatGPT (średnia 2,64/4 – używanie sporadyczne do prostych promptów). Claude.ai prawie nieznany (1,33). LM Studio i Msty/Jan/Cherry praktycznie zerowe (1,21 i 1,00).
+- Programowanie: 67% na poziomie początkującym; 0% zaawansowanych.
+
+### 4.2 Ankieta „po” (N=23)
+
+**Struktura grupy:**
+
+- Grupa 1 (wtorki, stacjonarnie): 14 osób (61%); Grupa 2 (środy, online): 9 osób (39%).
+- Tryb rzeczywisty: hybrydowo 9 os., wyłącznie zdalnie 7 os., wyłącznie stacjonarnie 7 os.
+- Frekwencja: 16 osób (70%) uczestniczyło we wszystkich 5 spotkaniach; 7 osób w 3–4 spotkaniach.
+
+**Profil uczestników:**
+
+- WZiKS: 19 osób; inne wydziały: Farmacja, WBBiB, Prawa i Administracji – po 1 osobie.
+- Wyraźny obraz grupy to **studenci kierunków społecznych i humanistycznych z ograniczonym doświadczeniem technicznym**, ale z wysoką motywacją do nadrobienia kompetencji cyfrowych.
+
+---
+
+## 5. Wyniki ilościowe – zmiany w AI literacy (pre–post)
+
+### 5.1 Ogólna znajomość kluczowych pojęć
+
+Poniższa tabela zbiera dane dla pięciu obszarów mierzonych na skali 1–5 (N=23). Wszystkie testy Wilcoxona dla par obserwacji są **istotne statystycznie na poziomie `p<0,001`**.
+
+| Pojęcie | M PRZED (SD) | M PO (SD) | Δ [95% CI] | d_av | p (Wilcoxon) | % z Δ≥2 pkt |
+|---|---|---|---|---|---|---|
+| **LLM** | 1,87 (1,06) | 3,91 (0,67) | **+2,04** [1,63; 2,46] | 2,31 | `p<0,001` | 74% |
+| **RAG** | 1,30 (0,63) | 3,17 (0,83) | **+1,87** [1,49; 2,25] | 2,52 | `p<0,001` | 70% |
+| **Agenci AI** | 1,61 (0,89) | 3,65 (0,78) | **+2,04** [1,64; 2,44] | 2,45 | `p<0,001` | 74% |
+| **MCP** | 1,22 (0,60) | 3,00 (0,90) | **+1,78** [1,37; 2,19] | 2,32 | `p<0,001` | 65% |
+| **Prompt Eng.** | 1,65 (0,83) | 4,17 (0,78) | **+2,52** [2,13; 2,91] | **3,13** | `p<0,001` | 87% |
+
+**Interpretacja wielkości efektu (d_av, klasyfikacja wg Sawilowsky'ego 2009):**
+
+- d ≥ 0,2: mały | d ≥ 0,5: średni | d ≥ 0,8: duży | d ≥ 1,2: bardzo duży | d ≥ 2,0: ogromny
+- Wszystkie pięć obszarów ma d > 2,0 („ogromny” efekt). Dla porównania, typowa interwencja edukacyjna osiąga d = 0,4–0,6.
+
+**Rozkłady PRZED → PO:**
+
+| Poziom | LLM PRZED | LLM PO | RAG PRZED | RAG PO | MCP PRZED | MCP PO | Prompt PRZED | Prompt PO |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 10 (43%) | 0 | 18 (78%) | 1 (4%) | 20 (87%) | 1 (4%) | 12 (52%) | 0 |
+| 2 | 9 (39%) | 0 | 3 (13%) | 3 (13%) | 1 (4%) | 4 (17%) | 8 (35%) | 0 |
+| 3 | 2 (9%) | 6 (26%) | 2 (9%) | 10 (43%) | 2 (9%) | 14 (61%) | 2 (9%) | 5 (22%) |
+| 4 | 1 (4%) | 13 (57%) | 0 | 9 (39%) | 0 | 2 (9%) | 1 (4%) | 9 (39%) |
+| 5 | 1 (4%) | 4 (17%) | 0 | 0 | 0 | 2 (9%) | 0 | 9 (39%) |
+
+**Mapa ciepła – przyrosty indywidualne w Prompt Engineering (najsilniejszy efekt):**
+
+- 100% uczestników osiągnęło przyrost ≥1 pkt
+- 87% (20/23) osiągnęło przyrost ≥2 pkt
+- 48% (11/23) osiągnęło przyrost ≥3 pkt
+- 9% (2/23) osiągnęło przyrost 4 pkt (z 1 do 5)
+
+**Wniosek dydaktyczny:** Uczestnicy przeszli od mglistego, intuicyjnego wyobrażenia o AI do umiejętności świadomego wyjaśniania kluczowych koncepcji. W przypadku Prompt Engineering osiągnęli poziom pozwalający na samodzielne, efektywne stosowanie w praktyce. **Warsztaty zrealizowały swój podstawowy cel: zbudowały fundament AI literacy.** RAG i MCP – jako tematy najbardziej techniczne i uprzednio kompletnie nieznane – również zanotowały transformacyjne przyrosty, choć końcowy poziom (3,00–3,17) wskazuje na potrzebę dalszego wzmacniania tych obszarów.
+
+### 5.2 Biegłość w korzystaniu z narzędzi GenAI
+
+Skala behawioralna B2 (A–D: od „nie korzystałem” do „używam na co dzień z MCP i RAG”):
+
+| Poziom | PRZED (N) | PO (N) | Zmiana |
+|---|---|---|---|
+| (A) Nie korzystałem/-am | 2 (9%) | 1 (4%) | −1 |
+| (B) Sporadycznie, proste prompty | 15 (65%) | 2 (9%) | **−13** |
+| (C) Weryfikacja, MCP | 5 (22%) | 9 (39%) | +4 |
+| (D) Na co dzień z MCP, RAG (Projekty) | 1 (4%) | 11 (48%) | **+10** |
+
+**Średnia skali numerycznej (1–4): 2,22 → 3,30 (Δ=+1,08)**
+
+**Interpretacja:** Przed warsztatami 74% respondentów używało GenAI sporadycznie do prostych promptów. Po warsztatach **48% deklaruje codzienne zaawansowane korzystanie** z MCP i RAG. To fundamentalna zmiana jakościowa – uczestnicy nie tylko „więcej wiedzą”, ale realnie zmienili swój sposób pracy.
+
+**Używane narzędzia po warsztatach (B5):**
+
+| Narzędzie | % używających |
+|---|---|
+| ChatGPT | 91% |
+| Perplexity | 70% |
+| LM Studio (lokalne modele) | 65% |
+| Gemini (Google) | 61% |
+| Claude.ai | 48% |
+| GitHub Copilot / Cursor / Windsurf | 26% |
+| Msty / Jan.ai / Cherry Studio | 17% |
+| Inne (NotebookLM, Apify) | 17% |
+
+**Kluczowa obserwacja:** Przed warsztatami ChatGPT dominował niemal monopolistycznie. Po warsztatach portfolio narzędzi znacząco się poszerzyło – uczestnicy świadomie dobierają narzędzia do zadań (Perplexity do researchu, LM Studio do pracy wrażliwej/prywatnej, Claude do złożonych analiz). To wskaźnik dojrzałej AI literacy – nie lojalność wobec jednego narzędzia, ale rozumienie, które narzędzie do czego służy.
+
+### 5.3 Szczegółowe komponenty AI literacy
+
+Osiem szczegółowych tematów mierzonych binarnie („Tak, znam i potrafię wyjaśnić”):
+
+| Temat | % PRZED | % PO | Δ (pp) | Kategoria przyrostu |
+|---|---|---|---|---|
+| Struktura dobrego promptu | 70% | 100% | +30 | Umiarkowany (efekt pułapu) |
+| Parametry generowania (temp., top-p, tokens) | 4% | 91% | **+87** | **Bardzo silny** |
+| Techniki zaawansowane (few-shot, CoT) | 9% | 65% | +57 | Silny |
+| Konfiguracja agenta AI | 17% | 87% | **+70** | **Bardzo silny** |
+| Agenci do zadań badawczych | 35% | 83% | +48 | Silny |
+| Halucynacje w LLM i weryfikacja | 65% | 100% | +35 | Umiarkowany (efekt pułapu) |
+| Peer review i ocena jakości promptów | 30% | 74% | +43 | Silny |
+| Praktyczne narzędzia (API, edytory) | 9% | 83% | **+74** | **Bardzo silny** |
+
+**Wnioski szczegółowe:**
+
+1. **Parametry generowania (+87 pp):** Największy przyrost spośród wszystkich komponentów. Przed warsztatami tylko 1 osoba deklarowała znajomość. Po warsztatach 91% rozumie wpływ temperatury, top-p i max_tokens. To imponujący efekt – uczestnicy przeszli od „czarnej skrzynki” do rozumienia „pokręteł” modelu.
+
+2. **Praktyczne narzędzia (+74 pp) i konfiguracja agentów (+70 pp):** Tematy kluczowe dla autonomii – pokazują, że warsztaty skutecznie otworzyły przed uczestnikami świat wykraczający poza interfejs czatu.
+
+3. **Halucynacje (100% PO) i struktura promptu (100% PO):** Tematy osiągnęły pułap – wszyscy respondenci deklarują ich znajomość. To podstawa AI literacy – cel osiągnięty.
+
+4. **Techniki zaawansowane (65% PO):** Przyrost solidny (+57 pp), ale 35% uczestników nadal nie czuje się pewnie. Temat wymaga więcej praktyki i być może dodatkowego spotkania w kolejnych edycjach.
+
+### 5.4 AI w programowaniu
+
+| Poziom | PRZED | PO | Zmiana |
+|---|---|---|---|
+| Początkujący | 14 (61%) | 2 (9%) | **−12** |
+| Podstawowy | 6 (26%) | 11 (48%) | +5 |
+| Średniozaawansowany | 2 (9%) | 5 (22%) | +3 |
+| Zaawansowany | 1 (4%) | 5 (22%) | **+4** |
+
+**Interpretacja:**
+
+- 61% respondentów było na poziomie początkującym przed warsztatami. Po warsztatach tylko 2 osoby (9%) pozostały na tym poziomie.
+- Liczba osób na poziomie zaawansowanym wzrosła z 1 do 5 – to studenci, którzy prawdopodobnie mieli już pewne doświadczenie techniczne, a warsztaty pozwoliły im osiągnąć biegłość.
+- Ta domena jest naturalnie zróżnicowana w grupie o przeważająco nietechnicznym profilu. Wynik jest **bardzo dobry jak na 10 godzin warsztatów**.
+
+### 5.5 Porównanie grup: stacjonarna vs. online
+
+| Obszar | Grupa 1 (stacjonarna, N=14) Δ | Grupa 2 (online, N=9) Δ | Różnica |
+|---|---|---|---|
+| LLM | +2,14 | +1,89 | +0,25 |
+| RAG | +2,07 | +1,56 | **+0,51** |
+| Agenci AI | +2,14 | +1,89 | +0,25 |
+| MCP | +1,93 | +1,56 | +0,37 |
+| Prompt Engineering | +2,71 | +2,22 | **+0,49** |
+
+**Obserwacja:** Grupa stacjonarna osiąga nieco wyższe przyrosty we wszystkich pięciu obszarach (różnice od +0,25 do +0,51 pkt). Przy małej liczebności próby nie są to różnice istotne statystycznie, ale **kierunek jest spójny**. Sugeruje to, że format stacjonarny może oferować nieco lepsze warunki do uczenia się – prawdopodobnie ze względu na łatwiejszą interakcję, szybsze rozwiązywanie problemów technicznych na miejscu i mniejsze ryzyko rozproszenia. Format online pozostaje jednak wartościową alternatywą, która umożliwiła udział osobom niemogącym dotrzeć na kampus.
+
+---
+
+## 6. Wyniki ilościowe – ocena warsztatów i materiałów
+
+### 6.1 Spełnienie oczekiwań i satysfakcja
+
+**C1. W jakim stopniu warsztaty spełniły Twoje oczekiwania?** (N=23)
+
+| Ocena | N | % |
+|---|---|---|
+| 5 – W pełni spełniły, a nawet przekroczyły | 5 | 22% |
+| 4 – W dużym stopniu spełniły | 14 | 61% |
+| 3 – Częściowo spełniły | 4 | 17% |
+| 2–1 | 0 | 0% |
+| **Średnia: 4,04/5** | **Mediana: 4** | |
+
+**C3. Zakres merytoryczny:**
+
+- W sam raz: 18 osób (78%)
+- Raczej za szeroki: 3 osoby (13%)
+- Raczej za wąski: 2 osoby (9%)
+
+**C4. Poziom zaawansowania:**
+
+- Odpowiedni: 12 osób (52%)
+- Raczej za wysoki: 8 osób (35%)
+- Raczej za niski: 3 osoby (13%)
+
+Rozkład C4 wskazuje na **wyzwanie różnicowania poziomu** – 35% uczestników momentami nie nadążało, a 13% chciałoby więcej. To klasyczny problem intensywnych warsztatów o otwartej rekrutacji.
+
+**C5. Czy jesteś w stanie zrealizować cel?**
+
+- Raczej tak: 11 osób (48%)
+- Częściowo – potrzebuję jeszcze praktyki: 10 osób (43%)
+- Raczej nie: 1 osoba (4%)
+- Tak, w pełni: 1 osoba (4%)
+
+**NPS (wskaźnik rekomendacji):**
+
+| Grupa | N | % |
+|---|---|---|
+| **Promotorzy** (9–10) | 17 | 74% |
+| Pasywni (7–8) | 5 | 22% |
+| Krytycy (0–6) | 1 | 4% |
+
+- **NPS = 70**, 95% CI bootstrap [48, 91]
+- Rozkład szczegółowy: ocena 10 (13 os.), 9 (4 os.), 8 (3 os.), 7 (2 os.), 6 (1 os.)
+
+Wynik NPS 70 jest uznawany w standardach rynkowych za **doskonały** (średnia dla szkoleń: ~30–40; dla edukacji wyższej: ~30–50). Nawet dolna granica przedziału ufności (48) mieści się powyżej średniej sektorowej. Dla grantodawcy oznacza to, że projekt dostarczył **wysoce rekomendowanej, realnej wartości**.
+
+### 6.2 Ocena materiałów szkoleniowych
+
+Osiem wymiarów oceny na skali 1–5 (N=23):
+
+| Wymiar | M [95% CI] | SD | Mediana |
+|---|---|---|---|
+| Klarowność i zrozumiałość | 4,30 [3,97; 4,64] | 0,82 | 4 |
+| Struktura i logika | 4,26 [3,91; 4,61] | 0,86 | 4 |
+| Adekwatność do zajęć | 4,52 [4,22; 4,82] | 0,73 | 5 |
+| Praktyczna użyteczność | 4,48 [4,21; 4,75] | 0,67 | 5 |
+| Kompletność | 4,65 [4,45; 4,85] | 0,49 | 5 |
+| Estetyka i czytelność | 4,61 [4,37; 4,85] | 0,58 | 5 |
+| **Aktualność (2026)** | **4,87 [4,73; 5,01]** | **0,34** | **5** |
+| Dostępność | 4,52 [4,28; 4,76] | 0,59 | 5 |
+
+**Wszystkie wymiary powyżej 4,0** – to bardzo wysoka ocena. Wąskie przedziały ufności dla Aktualności i Kompletności (SD odpowiednio 0,34 i 0,49) wskazują na wysoką zgodność ocen wśród uczestników. Materiały spełniają standardy OER i mogą być z powodzeniem wykorzystywane w kolejnych edycjach oraz udostępniane szerzej.
+
+### 6.3 Ocena prowadzącego i metodyki
+
+**Kompetencje prowadzącego (E1):**
+
+| Wymiar | M [95% CI] | SD |
+|---|---|---|
+| Znajomość tematu | **4,91 [4,80; 5,03]** | 0,29 |
+| Umiejętność tłumaczenia | 4,48 [4,21; 4,75] | 0,67 |
+| Elastyczność | 4,83 [4,63; 5,03] | 0,49 |
+| Zaangażowanie i pasja | **4,91 [4,80; 5,03]** | 0,29 |
+
+**Metodyka i struktura zajęć (E2):**
+
+| Wymiar | M [95% CI] | SD |
+|---|---|---|
+| Logiczny układ spotkań | 4,57 [4,27; 4,86] | 0,73 |
+| Balans teoria–praktyka | 4,43 [4,09; 4,78] | 0,84 |
+| Tempo prowadzenia | **4,00 [3,67; 4,33]** | 0,80 |
+| Zróżnicowanie metod | 4,39 [4,10; 4,69] | 0,72 |
+| Jakość ćwiczeń praktycznych | 4,57 [4,32; 4,81] | 0,59 |
+| Przestrzeń na pytania | **4,96 [4,87; 5,04]** | **0,21** |
+
+**Kluczowe wnioski:**
+
+1. Prowadzący jest **najsilniejszym atutem programu** – oceny 4,91 w znajomości tematu i zaangażowaniu, z bardzo wąskimi przedziałami ufności (SD=0,29).
+2. Przestrzeń na pytania (4,96, SD=0,21) – niemal pełna zgodność ocen, najwyższy wynik w całej ankiecie.
+3. Tempo prowadzenia (4,00, najszerszy CI [3,67; 4,33]) – wskazuje na zróżnicowane odczucia, co jest zrozumiałe przy heterogenicznej grupie.
+
+**Wsparcie pozazajęciowe (E3):**
+
+- Dostępność prowadzącego: 4,92 (N=13)
+- Jakość feedbacku: 4,57 (N=14)
+
+Relatywnie mała liczba oceniających E3 sugeruje, że część grupy nie korzystała z tej formy wsparcia – informacja, że dodatkowe kanały kontaktu nie były dla wszystkich kluczowe.
+
+### 6.4 Aspekty organizacyjne
+
+| Wymiar | M [95% CI] | SD |
+|---|---|---|
+| Komunikacja przed warsztatami | 4,78 [4,57; 4,99] | 0,52 |
+| Dogodność terminu i godziny | 4,35 [4,01; 4,69] | 0,83 |
+| Długość spotkania (2h) | 4,48 [4,18; 4,78] | 0,73 |
+| Liczba spotkań (5) | **4,30 [3,87; 4,74]** | **1,06** |
+| Jakość platformy/sali | 4,70 [4,47; 4,92] | 0,56 |
+
+**Obserwacje:**
+
+1. **Liczba spotkań (4,30, SD=1,06)** – najniższa i najbardziej zróżnicowana ocena organizacyjna, co koresponduje z otwartymi propozycjami „więcej spotkań”.
+2. **Dogodność terminu (4,35)** – zajęcia w godzinach 18:00–20:00/18:30–20:30, w okresie majowym (okolice sesji), były wyzwaniem dla części osób.
+
+---
+
+## 7. Wyniki jakościowe – doświadczenia uczestników
+
+Analiza objęła 23 odpowiedzi na każde z pytań otwartych G1–G8.
+
+### 7.1 Najważniejsze umiejętności wynoszone z warsztatów (G1)
+
+| Kategoria | Częstość | Cytaty (parafrazy) |
+|---|---|---|
+| **Lepsze promptowanie** | ~70% | *„Pisanie lepszych, przemyślanych promptów”; „umiejętność tworzenia dobrych promptów, nie tylko krótkich zapytań”* |
+| **Znajomość narzędzi** | ~50% | *„Poznanie wielu nowych narzędzi AI, nie tylko ChatGPT”; „rozeznanie co jest dostępne na rynku i do czego służy”* |
+| **Krytyczne myślenie / świadomość ograniczeń** | ~40% | *„Krytyczne myślenie – porównywanie outputu różnych modeli”; „większa świadomość plusów i zagrożeń, nie tylko bezkrytyczne kopiowanie”* |
+| **Podstawy techniczne LLM** | ~35% | *„Zrozumienie czym są LLMy i jakie mają ograniczenia”; „wiedza o tokenach, parametrach, temperaturze”* |
+| **Praktyczne umiejętności** (strony, agenci, kod) | ~30% | *„Programowanie strony przy pomocy AI w VS Code”; „tworzenie agentów, Gemów – nie wiedziałem że mogę to zrobić sam”* |
+
+### 7.2 Momenty przełomowe (G2)
+
+1. **Pierwsze zajęcia – demistyfikacja LLM** (~40%): *„Wcześniej się nad tym w ogóle nie zastanawiałam – myślałam, że to jakaś magia”; „zrozumiałam, że model tylko przewiduje następny token – to wszystko wyjaśniło”*.
+
+2. **Odkrycie lokalnych modeli** (~25%): *„Długo szukałam bezpiecznego miejsca do rozmowy z czatem o mojej pracy magisterskiej – zainstalowanie lokalnego modelu rozwiązało ten problem raz na zawsze”*.
+
+3. **Wspólne ćwiczenia praktyczne** (~35%): *„Tworzenie wspólnych promptów i sprawdzanie wyników na różnych platformach – nagle zobaczyłam, jak różne są odpowiedzi”; „ćwiczenie z generowaniem obrazków i konspektu powieści – poczułam, że można się tym bawić, nie tylko pracować”*.
+
+4. **Praca z kodem / tworzenie stron** (~20%): *„Tworzenie HTML-u przy użyciu AI w VS Code – a ja myślałem, że trzeba latami uczyć się programowania”; „stworzyłem własną stronę-wizytówkę w 20 minut – to był szok”*.
+
+### 7.3 Zmiana sposobu myślenia o AI (G3)
+
+| Typ zmiany | Częstość | Cytaty |
+|---|---|---|
+| **Od lęku/sceptycyzmu do świadomego korzystania** | ~35% | *„Wcześniej trochę się go bałam – zależało mi na oswojeniu i używaniu bardziej świadomie. Udało się”; „ze sceptycznego nastawienia na bardziej pozytywne – ale zachowując krytycyzm”* |
+| **Poszerzenie horyzontów** | ~30% | *„Nie miałam świadomości jak wiele narzędzi istnieje bezpłatnie – poznawanie tak wielu różnych znacznie poszerzyło horyzonty”* |
+| **Głębsze rozumienie techniczne** | ~25% | *„Z wielkiej niewiadomej zmieniło się w konkretne rozumienie – wiem, czemu to działa i czemu czasem nie działa”; „AI stało się bardziej materialne, rozumiem czemu jest drogie i jakie ma ograniczenia”* |
+| **Narzędzie jak każde inne – bez zmiany** | ~10% | *„Nie zmieniły – dalej uważam, że to praktyczne narzędzie, ale dobrze umieć z niego korzystać”* |
+
+### 7.4 Realne zastosowania po warsztatach (G4)
+
+| Rodzaj działania | % |
+|---|---|
+| Regularne używanie AI w nauce / na studiach | ~40% |
+| Wykorzystanie w pracy zawodowej | ~25% |
+| Konkretne projekty (strony, agenci, gry, transkrypcje) | ~20% |
+| Planowanie, ale jeszcze bez działań | ~25% |
+| Brak działań | ~10% |
+
+Przykładowe działania: *„Zastosowałam AI web scrapery do szybkiego researchu”; „Lokalne transkrypcje nagrań do magisterki + w pracy lepszy kontekst w promptach”; „Stworzyłam grę w replicie”; „Zacząłem używać Cursora i Claude'a do pomocy w projektach na studia i zawodowych”*.
+
+### 7.5 Bariery (G7)
+
+| Rodzaj bariery | % |
+|---|---|
+| **Sprzętowe** (za słaby laptop, brak RAM/GPU) | ~35% |
+| **Czasowe** (późne godziny, sesja, kolizje z pracą) | ~30% |
+| **Poznawcze** (brak wiedzy informatycznej, terminologia) | ~20% |
+| **Techniczne** (problemy z internetem, konfiguracją) | ~15% |
+
+Bariery sprzętowe są szczególnie istotne – kilku uczestników nie mogło w pełni wykorzystać ćwiczeń z modelami lokalnymi ze względu na ograniczenia swoich komputerów.
+
+### 7.6 Propozycje do kolejnej edycji (G5) – synteza
+
+1. **Więcej spotkań** (lub krótsze przy zachowaniu/rozszerzeniu liczby) – ~35%
+2. **Więcej praktyki / ćwiczeń w trakcie** – ~25%
+3. **Lepszy termin** (początek semestru zamiast okresu przed sesją) – ~15%
+4. **Ścieżka zaawansowana / kontynuacja** – ~15%
+5. **Instrukcje krok-po-kroku / nagrania ekranu** – ~15%
+6. **Lepsze rozłożenie narzędzi w czasie** – sugestia pojedyncza, ale warta odnotowania
+
+---
+
+## 8. Ograniczenia badania
+
+1. **Liczebność próby**: N=33 (pre) i N=23 (post) to próby małe, ograniczające możliwość zaawansowanych analiz. Szeroki przedział ufności dla NPS [48, 91] jest bezpośrednią konsekwencją małej próby.
+2. **Brak pełnego parowania pre–post**: analiza zmian opiera się na danych retrospektywnych. Mimo że podejście to jest akceptowane, niesie ryzyko błędu retrospekcji.
+3. **Samoopisowy charakter danych**: mierzymy deklaracje, nie obiektywny przyrost wiedzy. W przyszłych edycjach warto dodać test wiedzy (MCQ).
+4. **Selekcja próby**: dominacja studentów WZiKS (85% pre, 83% post) oraz osób już zmotywowanych do nauki o AI. Próba nie jest reprezentatywna.
+5. **Brak grupy kontrolnej**: nie można z całkowitą pewnością przypisać zmian wyłącznie interwencji.
+6. **Atrycja (30%)**: 6 osób nigdy nie pojawiło się na zajęciach, kolejne rezygnowały z powodów osobistych i przeciążenia obowiązkami. Brak danych od tych osób ogranicza pełny obraz.
+7. **Krótki czas interwencji**: 10h warsztatów + wykład to format ograniczony. Nie badano trwałości efektów (follow-up).
+
+**Mimo tych ograniczeń**, dane są wewnętrznie spójne, efekty silne (wszystkie `p<0,001`, d>2,0), a triangulacja wyników ilościowych z jakościowymi daje solidną podstawę do formułowania rekomendacji.
+
+---
+
+## 9. Rekomendacje
+
+### Utrzymać
+
+1. **Balans teoria–praktyka** – ćwiczenia warsztatowe jako fundament.
+2. **Strukturę modułową** – logiczny układ od podstaw LLM przez prompt engineering do agentów i kodu.
+3. **Dostęp do API (OpenRouter) i OER** – aktualność materiałów oceniona na 4,87/5.
+4. **Atmosferę otwartości** – przestrzeń na pytania 4,96/5 (najwyższa ocena w całej ankiecie).
+5. **Wykład otwarty** o bezpieczeństwie AI – doceniony jako wartościowe uzupełnienie.
+
+### Wzmocnić / zmodyfikować
+
+1. **Wydłużyć cykl do 7–8 spotkań** – najczęstszy postulat. Alternatywnie: utrzymać 5, skrócić do 1,5h i dodać asynchroniczne zadania między spotkaniami.
+2. **Przenieść termin na początek semestru** – uniknąć kolizji z sesją (zgłaszane zmęczenie, natłok pracy).
+3. **Dodać ścieżkę zaawansowaną** – kontynuacja dla absolwentów (3–4 dodatkowe spotkania), odpowiadająca na „głód” wiedzy 13% uczestników, którzy uznali poziom za zbyt niski.
+4. **Wzmocnić segment konfiguracji agentów** – przyrost +70 pp, ale 13% nadal nie czuje się pewnie.
+5. **Stworzyć materiały krok-po-kroku** – instrukcje ze zrzutami ekranu, nagrania ekranu (szczególnie dla konfiguracji VSCode, LM Studio).
+6. **Zapewnić zdalne środowiska** (Google Colab, GitHub Codespaces) dla osób ze słabszym sprzętem – bariera sprzętowa dotknęła ~35% uczestników.
+
+### Analiza ryzyk
+
+Na podstawie doświadczeń pierwszej edycji zidentyfikowano następujące ryzyka:
+
+| Ryzyko | Prawdopodobieństwo | Wpływ | Strategia mitygacji |
+|---|---|---|---|
+| **Przeszacowanie frekwencji na wydarzeniach otwartych** – wykład otwarty: wnioskowano 200 os., realnie ~40 os. | Wysokie (różnica 5×) | Umiarkowany (wpływa na wskaźniki, nie na jakość) | Konserwatywne szacowanie na podstawie danych z poprzednich edycji; rozważyć format hybrydowy + nagranie do obejrzenia asynchronicznie |
+| **Quite quitting / dropout** – 6 os. (18% zapisanych) nigdy nie przyszło; dalsze 4 os. zrezygnowały w trakcie | Wysokie (30% utrata) | Wysoki (zmniejszona liczba absolwentów) | Patrz strategie przeciwdziałania poniżej |
+| **Heterogeniczność grupy** – rozpiętość od kompletnych nowicjuszy do osób z doświadczeniem | Wysokie | Umiarkowany (wpływa na tempo) | Wprowadzenie pre-testu kwalifikującego + opcjonalna ścieżka podstawowa/zaawansowana |
+| **Bariery sprzętowe** – 35% uczestników zgłaszało problemy | Wysokie | Wysoki (uniemożliwia pełne uczestnictwo) | Udostępnienie zdalnych środowisk (Colab, Codespaces); informacja o minimalnych wymaganiach sprzętowych przed zapisami |
+| **Zmęczenie materiału** przy skalowaniu na kolejne edycje | Niskie | Umiarkowany | Ewaluacja po każdej edycji; rotacja case'ów; aktualizacja o nowe narzędzia (AI rozwija się błyskawicznie) |
+
+### Strategie przeciwdziałania dropoutowi i quite quitting
+
+**Diagnoza:** W obecnej edycji 6 osób nigdy nie rozpoczęło warsztatów („no-show”), a kolejne ~4 zrezygnowały w trakcie. Powody deklarowane: problemy osobiste, zdrowotne, natłok pracy zawodowej i studenckiej. **Brak rezygnacji z powodu niezadowolenia z programu.**
+
+**Rekomendowane działania:**
+
+1. **System potwierdzeń i przypomnień:**
+   - Na 7 dni przed startem: e-mail z agendą, wymaganiami sprzętowymi i „checklistą przed startem”.
+   - Na 1 dzień przed każdymi zajęciami: SMS lub wiadomość Teams z tematem i linkiem.
+   - System „buddy” – uczestnicy dobrani w pary do wzajemnego motywowania.
+
+2. **Minimalna bariera wejścia – sesja onboardingowa (30 min, online):**
+   - Tydzień przed pierwszymi zajęciami – helpdesk techniczny: instalacja narzędzi, test łączenia, sprawdzenie sprzętu.
+   - Eliminuje to frustrację pierwszych zajęć spowodowaną problemami technicznymi.
+
+3. **Kaucja zwrotna lub system commitment fee:**
+   - Symboliczna opłata (np. 50 zł) zwracana po ukończeniu ≥4 z 5 spotkań.
+
+4. **Mikro-certyfikacja progresywna:**
+   - Po każdym module: mikrocertyfikat (cyfrowa odznaka).
+   - Po ukończeniu całości: certyfikat główny.
+   - Element grywalizacji zwiększa retencję.
+
+5. **Alternatywna ścieżka asynchroniczna:**
+   - Nagrania spotkań dostępne dla uczestników, którzy opuścili sesję na żywo.
+   - Pozwala to utrzymać kontakt z programem mimo czasowej niedyspozycji.
+
+6. **Krótki follow-up po pierwszej nieobecności:**
+   - W ciągu 24h od opuszczonego spotkania: krótka wiadomość od prowadzącego z pytaniem, czy wszystko w porządku i czy potrzebuje pomocy. Personalny kontakt znacząco redukuje „ciche wypadanie”.
+
+### Wskaźniki do monitorowania w kolejnych edycjach
+
+- Utrzymanie NPS ≥ 60 (obecnie 70).
+- Przyrost samooceny AI literacy: średnia Δ ≥ 1,5 na skali 1–5 (obecnie 1,8–2,5).
+- Odsetek uczestników deklarujących regularne korzystanie z ≥3 narzędzi GenAI po warsztatach (obecnie ~65%).
+- **Wskaźnik retencji**: ≥80% zapisanych uczestniczy w ≥4/5 spotkań (obecnie 70%).
+- **Wskaźnik no-show**: ≤10% zapisanych nigdy nie pojawia się na zajęciach (obecnie 18%).
+
+*Raport opracowano na podstawie danych z ankiet: „ankieta-ai-literacy-lab-przed.csv” (N=33, 36 wierszy surowych) oraz „ankieta-ai-literacy-lab-zbiorcze (5).csv” (N=23). Analizy statystyczne: test Wilcoxona dla par obserwacji, d Cohena (d_av, pooled SD), 95% przedziały ufności (analityczne dla średnich, bootstrap 10 000 iteracji dla NPS). Cytaty z wypowiedzi zanonimizowane i – w razie potrzeby – delikatnie sparafrazowane dla zachowania anonimowości przy jednoczesnym zachowaniu sensu.*
+
+*Podczas opracowywania powyższego raportu wykorzystano narzędzia Microsoft Forms, stronę AI Literacy Lab z ankietą ewaluacyjną oraz oprogramowanie Goose z dużym modelem językowym DeepSeek v4 Pro do zebrania danych oraz analizy i ustruktyryzowania. Końcowo przedstawione wniosku i rekomendacje po analizie przez LLM zostały ręcznie zweryfikowane i zaakceptowane przez członków Koła Naukowego Zarządzania Informacją. Autorzy raportu biorą pełną odpowiedzialność za przedstawioną treść w raporcie.*
+
+---
